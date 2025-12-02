@@ -8,7 +8,7 @@ export default function CTA() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-600 dark:text-gray-300">
-            Helping employees speak up safely and giving employers real-time insights into psychosocial risks and
+            Helping employees speak up safely and giving employers AI-powered insights into psychosocial risks and
             workplace safety compliance.
           </p>
 
