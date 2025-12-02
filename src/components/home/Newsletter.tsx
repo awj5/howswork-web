@@ -4,10 +4,12 @@ export default function Newsletter() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-0 dark:after:inset-ring dark:after:inset-ring-white/15 dark:after:sm:rounded-3xl">
           <h2 className="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Coming February 2026
+            Launching February 2026
           </h2>
 
-          <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">Get notified when we're launching.</p>
+          <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
+            Enter your email and we'll let you know as soon as HowsWork is available.
+          </p>
 
           <form className="mx-auto mt-10 flex max-w-md gap-x-4">
             <label htmlFor="email-address" className="sr-only">
@@ -38,7 +40,6 @@ export default function Newsletter() {
             className="absolute top-1/2 left-1/2 -z-10 size-256 -translate-x-1/2"
           >
             <circle r={512} cx={512} cy={512} fill="url(#759c1415-0410-454c-8f7c-9a820de03641)" fillOpacity="0.7" />
-
             <defs>
               <radialGradient
                 r={1}

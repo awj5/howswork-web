@@ -18,7 +18,7 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Australian WHS regulations updated July 2025.{" "}
+              Australian WHS regulations updated Jul 2025.{" "}
               <a
                 href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
                 target="_blank"
@@ -39,7 +39,39 @@ export default function Hero() {
               Helping employees speak up safely and giving employers AI-powered insights into psychosocial risks and
               workplace safety compliance.
             </p>
+
+            {/*<div className="mt-10 flex items-center justify-center gap-x-6">
+              <a
+                href="#"
+                className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+              >
+                Get started
+              </a>
+
+              <a href="#" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
+                Learn more <span aria-hidden="true">→</span>
+              </a>
+            </div>*/}
           </div>
+
+          {/*<div className="mt-16 flow-root sm:mt-24">
+            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-2xl lg:p-4 dark:bg-white/2.5 dark:ring-white/10">
+              <img
+                alt="App screenshot"
+                src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+                width={2432}
+                height={1442}
+                className="w-304 rounded-md bg-gray-50 shadow-xl ring-1 ring-gray-900/10 dark:hidden"
+              />
+              <img
+                alt="App screenshot"
+                src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+                width={2432}
+                height={1442}
+                className="w-304 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 not-dark:hidden"
+              />
+            </div>
+          </div>*/}
         </div>
       </div>
 

@@ -25,6 +25,10 @@ export default function NotFound() {
           >
             Go back home
           </a>
+
+          {/*<a href="#" className="text-sm font-semibold text-gray-900 dark:text-white">
+              Contact support <span aria-hidden="true">&rarr;</span>
+            </a>*/}
         </div>
       </div>
     </main>

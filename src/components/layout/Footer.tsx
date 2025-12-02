@@ -16,7 +16,7 @@ const navigation = [
   },
   {
     name: "Instagram",
-    href: "#",
+    href: "https://www.instagram.com/howsworkapp",
     icon: (props: SVGProps<SVGSVGElement>) => (
       <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
         <path
@@ -52,6 +52,7 @@ export default function Footer() {
           <a
             key={item.name}
             href={item.href}
+            target="_blank"
             className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
           >
             <span className="sr-only">{item.name}</span>
