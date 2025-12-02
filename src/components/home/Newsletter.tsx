@@ -7,7 +7,7 @@ export default function Newsletter() {
             Get notified when we’re launching
           </h2>
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
-            Reprehenderit ad esse et non officia in nulla. Id proident tempor incididunt nostrud nulla et culpa.
+            We'll email you as soon as HowsWork is live.
           </p>
           <form className="mx-auto mt-10 flex max-w-md gap-x-4">
             <label htmlFor="email-address" className="sr-only">

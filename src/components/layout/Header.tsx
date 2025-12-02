@@ -11,7 +11,7 @@ export default function Header() {
           width={728}
           height={128}
           alt="HowsWork"
-          className="h-6 w-auto not-dark:hidden"
+          className="h-7 w-auto not-dark:hidden"
         />
 
         <div className="flex flex-1 justify-end">
