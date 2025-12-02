@@ -7,10 +7,10 @@ export default async function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex min-h-dvh flex-col">
+    <>
       <Header />
       {children}
       <Footer />
-    </div>
+    </>
   );
 }

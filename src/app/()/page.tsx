@@ -1,10 +1,10 @@
-import CTA from "@/components/home/CTA";
+import Hero from "@/components/home/Hero";
 import Newsletter from "@/components/home/Newsletter";
 
 export default function Home() {
   return (
-    <main className="flex-1">
-      <CTA />
+    <main>
+      <Hero />
       <Newsletter />
     </main>
   );

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 export default function NotFound() {
   return (
-    <main className="grid min-h-full place-items-center bg-white px-6 py-24 sm:py-32 lg:px-8 dark:bg-gray-900">
+    <main className="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
       <div className="text-center">
         <p className="text-base font-semibold text-indigo-600 dark:text-indigo-400">404</p>
 
@@ -25,10 +25,6 @@ export default function NotFound() {
           >
             Go back home
           </a>
-
-          {/*<a href="#" className="text-sm font-semibold text-gray-900 dark:text-white">
-            Contact support <span aria-hidden="true">&rarr;</span>
-          </a>*/}
         </div>
       </div>
     </main>
