@@ -1,4 +1,40 @@
+"use client";
+
+import { useState } from "react";
+import { toast } from "sonner";
+import { subscribeToMailingList } from "@/app/()/actions";
+import { isValidEmail } from "@/utils/helpers";
+
 export default function Newsletter() {
+  const [disabled, setDisabled] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+
+    // Validate
+    const email = formData.get("email") as string;
+
+    if (!isValidEmail(email)) {
+      toast.error("Email is invalid.");
+      return;
+    }
+
+    // Subscribe
+    setDisabled(true);
+    const result = await subscribeToMailingList(formData);
+
+    if (result.error) {
+      toast.error(result.error);
+      setDisabled(false);
+      return;
+    }
+
+    // Success
+    setSubmitted(true);
+  };
+
   return (
     <div className="pb-16 sm:pb-24">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -8,31 +44,36 @@ export default function Newsletter() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
-            Enter your email and we'll let you know as soon as HowsWork is available.
+            {submitted
+              ? "Thanks for subscribing — we'll only email you with important updates."
+              : "Enter your email and we'll let you know as soon as HowsWork is available."}
           </p>
 
-          <form className="mx-auto mt-10 flex max-w-md gap-x-4">
-            <label htmlFor="email-address" className="sr-only">
-              Email address
-            </label>
+          {!submitted && (
+            <form onSubmit={submitForm} className="mx-auto mt-10 flex max-w-md gap-x-4">
+              <label htmlFor="email-address" className="sr-only">
+                Email address
+              </label>
 
-            <input
-              id="email-address"
-              name="email"
-              type="email"
-              required
-              placeholder="Enter your email"
-              autoComplete="email"
-              className="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6 dark:outline-white/20"
-            />
+              <input
+                id="email-address"
+                name="email"
+                type="email"
+                required
+                placeholder="Enter your email"
+                autoComplete="email"
+                className="min-w-0 flex-auto rounded-md bg-white/5 px-3.5 py-2 text-base text-white outline-1 -outline-offset-1 outline-white/10 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-500 sm:text-sm/6 dark:outline-white/20"
+              />
 
-            <button
-              type="submit"
-              className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:shadow-none"
-            >
-              Notify me
-            </button>
-          </form>
+              <button
+                type="submit"
+                className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:shadow-none"
+                disabled={disabled}
+              >
+                Notify me
+              </button>
+            </form>
+          )}
 
           <svg
             viewBox="0 0 1024 1024"

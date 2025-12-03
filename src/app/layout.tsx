@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Toaster } from "sonner";
 import ogImage from "../../public/img/og.png";
 import "./globals.css";
 
@@ -39,7 +40,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} h-full bg-white antialiased scheme-light dark:bg-gray-900 dark:scheme-dark`}
     >
-      <body className="h-full">{children}</body>
+      <body className="h-full">
+        {children}
+        <Toaster theme="system" />
+      </body>
     </html>
   );
 }
