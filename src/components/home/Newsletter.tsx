@@ -40,13 +40,13 @@ export default function Newsletter() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-0 dark:after:inset-ring dark:after:inset-ring-white/15 dark:after:sm:rounded-3xl">
           <h2 className="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Launching February 2026
+            Early access list
           </h2>
 
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
             {submitted
               ? "Thanks for subscribing — we'll only email you with important updates."
-              : "Enter your email and we'll let you know as soon as HowsWork is available."}
+              : "Get early access and stay ahead of the new WHS psychosocial safety requirements."}
           </p>
 
           {!submitted && (
