@@ -36,8 +36,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Helping employees speak up safely and giving employers AI-powered insights into psychosocial risks and
-              workplace safety compliance.
+              Give employees a safe way to speak up — and give your organisation real-time visibility into psychosocial
+              risks and WHS compliance.
             </p>
 
             {/*<div className="mt-10 flex items-center justify-center gap-x-6">
