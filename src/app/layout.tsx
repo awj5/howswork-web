@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import ogImage from "../../public/img/og.png";
 import "./globals.css";
 
 const inter = Inter({
@@ -16,6 +17,14 @@ export const metadata: Metadata = {
     icon: [
       { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },
       { url: "/img/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
+    ],
+  },
+  metadataBase: new URL("https://www.howswork.app"),
+  openGraph: {
+    images: [
+      {
+        url: ogImage.src,
+      },
     ],
   },
 };
