@@ -80,7 +80,7 @@ export default function Footer() {
       </div>
 
       <p className="mt-8 text-center text-sm/6 text-gray-600 md:order-1 md:mt-0 dark:text-gray-400">
-        &copy; {year} HowsWork. All rights reserved.
+        &copy; {year} HowsWork Pty Ltd. All rights reserved.
       </p>
     </footer>
   );
