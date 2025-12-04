@@ -11,9 +11,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "HowsWork - The anonymous inbox for psychological safety",
+  title: "HowsWork - A safe, anonymous way to speak up",
   description:
-    "HowsWork is the anonymous inbox for psychological safety, helping employees speak up safely and giving employers visibility into psychosocial risks and WHS obligations.",
+    "HowsWork is a safe, anonymous way for employees to speak up, giving employers real-time visibility into psychosocial risks and WHS obligations.",
   icons: {
     icon: [
       { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },

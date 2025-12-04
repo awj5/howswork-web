@@ -46,7 +46,7 @@ export default function Newsletter() {
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
             {submitted
               ? "Thanks for subscribing — we'll only email you with important updates."
-              : "Get early access and stay ahead of the new WHS psychosocial safety requirements."}
+              : "Get early access and stay ahead of new WHS requirements."}
           </p>
 
           {!submitted && (
