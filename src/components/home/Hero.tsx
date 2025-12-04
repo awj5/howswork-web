@@ -37,7 +37,7 @@ export default function Hero() {
 
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
               Give employees a safe way to speak up while giving your organisation real-time visibility into
-              psychosocial risks and WHS compliance.
+              psychosocial risks and clear evidence of proactive WHS compliance.
             </p>
 
             {/*<div className="mt-10 flex items-center justify-center gap-x-6">
