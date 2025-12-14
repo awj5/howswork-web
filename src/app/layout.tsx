@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full bg-white antialiased scheme-light dark:bg-gray-900 dark:scheme-dark`}
+      className={`${inter.variable} h-full bg-gray-100 antialiased scheme-light dark:bg-gray-900 dark:scheme-dark`}
     >
       <body className="h-full">
         {children}

@@ -6,9 +6,9 @@ export default async function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-full">
+    <div className="flex h-full flex-col">
       <Nav />
-      {children}
+      <div className="flex-1 py-10">{children}</div>
     </div>
   );
 }
