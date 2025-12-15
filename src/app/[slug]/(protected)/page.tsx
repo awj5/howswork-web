@@ -1,29 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { useParams } from "next/navigation";
+import { useEffect } from "react";
 import { PlusIcon } from "@heroicons/react/20/solid";
-import { getCompany } from "./actions";
-
-type CompanyType = {
-  id: number;
-  name: string;
-  slug: string;
-  timezone: string;
-};
+import { useCompanyContext } from "@/hooks/useCompanyContext";
 
 export default function CheckIn() {
-  const params = useParams<{ slug: string }>();
-  const [company, setCompany] = useState<CompanyType>();
+  const { company } = useCompanyContext();
 
   useEffect(() => {
-    const fetchCompany = async () => {
+    /*const fetchCompany = async () => {
       const result = await getCompany(params.slug);
       if (result.error) return;
       setCompany(result.data);
     };
 
-    fetchCompany();
+    fetchCompany();*/
   }, []);
 
   return (
