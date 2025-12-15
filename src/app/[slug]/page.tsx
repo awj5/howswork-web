@@ -1,6 +1,31 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useParams } from "next/navigation";
 import { PlusIcon } from "@heroicons/react/20/solid";
+import { getCompany } from "./actions";
+
+type CompanyType = {
+  id: number;
+  name: string;
+  slug: string;
+  timezone: string;
+};
 
 export default function CheckIn() {
+  const params = useParams<{ slug: string }>();
+  const [company, setCompany] = useState<CompanyType>();
+
+  useEffect(() => {
+    const fetchCompany = async () => {
+      const result = await getCompany(params.slug);
+      if (result.error) return;
+      setCompany(result.data);
+    };
+
+    fetchCompany();
+  }, []);
+
   return (
     <main className="flex h-full items-center justify-center">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -13,19 +38,22 @@ export default function CheckIn() {
             className="mx-auto size-12 text-gray-400 dark:text-gray-500"
           >
             <path
-              d="M9 13h6m-3-3v6m-9 1V7a2 2 0 012-2h6l2 2h6a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z"
+              d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
               strokeWidth={2}
               vectorEffect="non-scaling-stroke"
               strokeLinecap="round"
               strokeLinejoin="round"
             />
           </svg>
+
           <h3 className="mt-2 text-sm font-semibold text-gray-900 dark:text-white">
-            This check-in was requested by Acme Inc
+            This check-in was requested by {company?.name}
           </h3>
+
           <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
             It takes about 2 minutes and your responses are anonymous.
           </p>
+
           <div className="mt-6">
             <button
               type="button"
