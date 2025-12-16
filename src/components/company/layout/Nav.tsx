@@ -32,7 +32,14 @@ export default function Nav() {
             </div>
 
             <div className="flex shrink-0 items-center">
-              <Image alt="How's Work" src="/img/icon.svg" width={128} height={128} className="h-7 w-auto dark:hidden" />
+              <Image
+                alt="How's Work"
+                src="/img/icon.svg"
+                width={128}
+                height={128}
+                className="h-7 w-auto dark:hidden"
+                priority
+              />
 
               <Image
                 alt="How's Work"
@@ -40,6 +47,7 @@ export default function Nav() {
                 width={128}
                 height={128}
                 className="h-7 w-auto not-dark:hidden"
+                priority
               />
             </div>
 

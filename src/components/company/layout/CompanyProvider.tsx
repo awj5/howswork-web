@@ -12,6 +12,5 @@ export default function CompanyProvider({
   children: React.ReactNode;
 }) {
   const [company, setCompany] = useState<CompanyType | null>(companyData);
-
   return <CompanyContext.Provider value={{ company, setCompany }}>{children}</CompanyContext.Provider>;
 }
