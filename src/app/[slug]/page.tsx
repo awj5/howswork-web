@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: "HowsWork - Login",
 };
 
-export default function Example() {
+export default function Access() {
   return (
     <>
       {/*

@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import supabase from "@/utils/supabase";
 import CompanyProvider from "@/components/company/layout/CompanyProvider";
+import AccessGuard from "@/components/company/layout/AccessGuard";
 
 export default async function CompanyLayout({
   children,
@@ -19,5 +20,10 @@ export default async function CompanyLayout({
     .single();
 
   if (companyError) notFound(); // Redirect
-  return <CompanyProvider companyData={companyData}>{children}</CompanyProvider>;
+
+  return (
+    <CompanyProvider companyData={companyData}>
+      <AccessGuard slug={slug}>{children}</AccessGuard>
+    </CompanyProvider>
+  );
 }
