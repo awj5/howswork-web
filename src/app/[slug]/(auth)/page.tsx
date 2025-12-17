@@ -1,10 +1,10 @@
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "HowsWork - Login",
-};
+import { useCompanyContext } from "@/hooks/useCompanyContext";
 
 export default function Access() {
+  const { company } = useCompanyContext();
+
   return (
     <>
       {/*
@@ -28,7 +28,7 @@ export default function Access() {
             className="mx-auto h-10 w-auto not-dark:hidden"
           />
           <h2 className="mt-10 text-center text-2xl/9 font-bold tracking-tight text-gray-900 dark:text-white">
-            Sign in to your account
+            Sign in to your account {company?.name}
           </h2>
         </div>
 
