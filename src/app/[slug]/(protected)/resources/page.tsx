@@ -1,7 +1,11 @@
+"use client";
+
+import { Heading } from "@/components/ui/heading";
+
 export default function Resources() {
   return (
-    <main className="flex h-full items-center justify-center">
-      <p>Hello</p>
-    </main>
+    <div className="flex h-12 items-end sm:h-10">
+      <Heading>Resources</Heading>
+    </div>
   );
 }

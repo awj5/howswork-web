@@ -38,11 +38,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} h-full bg-gray-100 antialiased scheme-light dark:bg-gray-900 dark:scheme-dark`}
+      className={`${inter.variable} h-full bg-white antialiased scheme-light lg:bg-zinc-100 dark:bg-zinc-900 dark:scheme-dark dark:lg:bg-zinc-950`}
     >
       <body className="h-full">
         {children}
-        <Toaster theme="system" />
+        <Toaster theme="system" richColors />
       </body>
     </html>
   );
