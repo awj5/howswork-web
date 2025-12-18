@@ -4,3 +4,33 @@
   --font-sans: var(--font-inter), sans-serif;
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
+
+/* react-verification-input */
+
+.container {
+  width: 320px;
+  gap: 10px;
+}
+
+.character {
+  border-radius: 0.5rem;
+  border-color: color-mix(in oklab, var(--color-zinc-950) 10%, transparent);
+  background-color: transparent;
+  color: var(--color-zinc-950);
+  box-shadow:
+    0 1px 3px 0 rgb(0 0 0 / 0.1),
+    0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+.character--selected {
+  outline-color: var(--color-blue-500);
+}
+
+@media (prefers-color-scheme: dark) {
+  .character {
+    border-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+    background-color: color-mix(in oklab, var(--color-white) 5%, transparent);
+    color: white;
+    box-shadow: none;
+  }
+}
