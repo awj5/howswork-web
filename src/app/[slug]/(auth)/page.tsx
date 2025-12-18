@@ -1,35 +1,60 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import VerificationInput from "react-verification-input";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { AuthLayout } from "@/components/ui/auth-layout";
 import { Button } from "@/components/ui/button";
-import { Field, Fieldset, Label } from "@/components/ui/fieldset";
+import { ErrorMessage, Field, Fieldset, Label } from "@/components/ui/fieldset";
 import { Heading } from "@/components/ui/heading";
 import { Strong, Text, TextLink } from "@/components/ui/text";
 import { Logo } from "@/components/Logo";
+import { login } from "./actions";
 
 export default function Login() {
+  const router = useRouter();
   const { company } = useCompanyContext();
   const [disabled, setDisabled] = useState(false);
+  const [pin, setPin] = useState("");
+  const [pinError, setPinError] = useState(false);
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
-    //
+    e.preventDefault();
+    setPinError(false);
+
+    // Validate
+    if (pin.length !== 6 || !/^\d+$/.test(pin)) {
+      setPinError(true);
+      return;
+    }
+
+    // Verify
+    if (!company) return;
+    setDisabled(true);
+    const result = await login(company.id, Number(pin));
+    setDisabled(false);
+
+    if (result.error) {
+      toast.error(result.error);
+      return;
+    }
+
+    // Success
+    localStorage.setItem(`company_access_${company.slug}`, pin); // Store pin locally
+    router.push(`/${company.slug}/check-in`);
   };
 
   return (
     <AuthLayout>
       <form onSubmit={submitForm} className="grid w-full max-w-xs grid-cols-1 gap-8">
         <Logo className="h-6" />
+        <Heading>Enter your access PIN</Heading>
 
-        <div className="flex flex-col gap-1">
-          <Heading>Enter your access PIN</Heading>
-
-          <Text>
-            Check in or raise a concern with <Strong>{company?.name}</Strong>.
-          </Text>
-        </div>
+        <Text>
+          Check in or raise a concern with <Strong>{company?.name}</Strong>.
+        </Text>
 
         <Fieldset className="flex flex-col gap-8" disabled={disabled}>
           <Field>
@@ -37,6 +62,8 @@ export default function Login() {
 
             <div data-slot="control">
               <VerificationInput
+                value={pin}
+                onChange={(e) => setPin(e)}
                 validChars="0-9"
                 placeholder=""
                 classNames={{
@@ -48,6 +75,8 @@ export default function Login() {
                 }}
               />
             </div>
+
+            {pinError && <ErrorMessage>Enter the 6-digit PIN.</ErrorMessage>}
           </Field>
 
           <Button type="submit" className="w-full" color="indigo">
@@ -55,8 +84,8 @@ export default function Login() {
           </Button>
 
           <Text>
-            <TextLink href="#">
-              <Strong>Didn't receive the PIN?</Strong>
+            <TextLink href={`/${company?.slug}/resend`}>
+              <Strong>Didn&apos;t receive the PIN?</Strong>
             </TextLink>
           </Text>
         </Fieldset>

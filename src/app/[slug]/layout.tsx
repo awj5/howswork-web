@@ -33,7 +33,7 @@ export default async function CompanyLayout({
 
   return (
     <CompanyProvider companyData={companyData}>
-      <AccessGuard slug={slug}>{children}</AccessGuard>
+      <AccessGuard>{children}</AccessGuard>
     </CompanyProvider>
   );
 }
