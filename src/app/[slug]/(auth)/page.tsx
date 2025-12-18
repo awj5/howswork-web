@@ -42,7 +42,7 @@ export default function Login() {
     }
 
     // Success
-    localStorage.setItem(`company_access_${company.slug}`, pin); // Store pin locally
+    sessionStorage.setItem(`company_access_${company.slug}`, pin); // Store pin for this session
     router.push(`/${company.slug}/check-in`);
   };
 
