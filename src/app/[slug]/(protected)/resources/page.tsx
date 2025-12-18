@@ -1,5 +1,3 @@
-"use client";
-
 import { Heading } from "@/components/ui/heading";
 
 export default function Resources() {

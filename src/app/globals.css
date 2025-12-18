@@ -8,8 +8,15 @@
 /* react-verification-input */
 
 .container {
-  width: 320px;
+  width: 311px;
   gap: 10px;
+}
+
+@media (width >= 40rem) {
+  .container {
+    width: 384px;
+    gap: 20px;
+  }
 }
 
 .character {

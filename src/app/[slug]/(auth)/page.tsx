@@ -43,12 +43,12 @@ export default function Login() {
 
     // Success
     sessionStorage.setItem(`company_access_${company.slug}`, pin); // Store pin for this session
-    router.push(`/${company.slug}/check-in`);
+    router.push(`/${company.slug}/check-in`); // Redirect
   };
 
   return (
     <AuthLayout>
-      <form onSubmit={submitForm} className="grid w-full max-w-xs grid-cols-1 gap-8">
+      <form onSubmit={submitForm} className="grid w-full max-w-[311px] grid-cols-1 gap-8 sm:max-w-sm">
         <Logo className="h-6" />
         <Heading>Enter your access PIN</Heading>
 
