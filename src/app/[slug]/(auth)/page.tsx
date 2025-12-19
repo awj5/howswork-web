@@ -11,7 +11,6 @@ import { ErrorMessage, Field, Fieldset, Label } from "@/components/ui/fieldset";
 import { Heading } from "@/components/ui/heading";
 import { Strong, Text, TextLink } from "@/components/ui/text";
 import { Logo } from "@/components/Logo";
-import { login } from "./actions";
 
 export default function Login() {
   const router = useRouter();
@@ -19,6 +18,23 @@ export default function Login() {
   const [disabled, setDisabled] = useState(false);
   const [pin, setPin] = useState("");
   const [pinError, setPinError] = useState(false);
+
+  const verifyPin = async (companyID: number, pin: number) => {
+    const res = await fetch("/.netlify/functions/pin-login", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ companyID, pin }),
+    });
+
+    const json = await res.json().catch(() => ({}));
+
+    // Normalise errors coming back from the function
+    if (!res.ok) {
+      return { error: json?.error || "That PIN doesn’t look right. Please try again." };
+    }
+
+    return json as { success?: boolean; error?: string };
+  };
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -33,7 +49,16 @@ export default function Login() {
     // Verify
     if (!company) return;
     setDisabled(true);
-    const result = await login(company.id, Number(pin));
+
+    let result: any;
+    try {
+      result = await verifyPin(company.id, Number(pin));
+    } catch {
+      setDisabled(false);
+      toast.error("Couldn’t verify the PIN. Please try again.");
+      return;
+    }
+
     setDisabled(false);
 
     if (result.error) {
