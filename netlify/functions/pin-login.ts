@@ -1,28 +1,22 @@
 import type { Handler, Config } from "@netlify/functions";
 import { createClient } from "@supabase/supabase-js";
 
-// Rate limit this endpoint (soft limit)
-// 8 requests per 5 minutes, aggregated by IP + domain
+const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
+
+// Rate limit
 export const config: Config = {
   path: "/api/pin-login",
   rateLimit: {
-    windowLimit: 8,
-    windowSize: 300, // seconds
+    windowLimit: 8, // Requests
+    windowSize: 300, // 5 mins
     aggregateBy: ["ip", "domain"],
   },
 };
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY! // server-only
-);
-
 export const handler: Handler = async (event) => {
-  if (event.httpMethod !== "POST") {
-    return { statusCode: 405, body: "Method Not Allowed" };
-  }
-
+  if (event.httpMethod !== "POST") return { statusCode: 405, body: "Method Not Allowed" };
   let payload: { companyID?: number; pin?: number } = {};
+
   try {
     payload = JSON.parse(event.body ?? "{}");
   } catch {
@@ -31,25 +25,17 @@ export const handler: Handler = async (event) => {
 
   const { companyID, pin } = payload;
 
-  if (!companyID || !pin) {
-    return { statusCode: 400, body: JSON.stringify({ error: "Missing details." }) };
-  }
+  if (!companyID || !pin) return { statusCode: 400, body: JSON.stringify({ error: "Missing details." }) };
 
   const { data, error } = await supabase
     .from("check_ins")
-    .select("id")
+    .select("*")
     .eq("company_id", companyID)
     .eq("pin", pin)
     .eq("status", "Open")
     .limit(1);
 
-  if (error) {
-    return { statusCode: 500, body: JSON.stringify({ error: "Something went wrong. Please try again." }) };
-  }
-
-  if (!data?.length) {
-    return { statusCode: 401, body: JSON.stringify({ error: "That PIN doesn't look right. Please try again." }) };
-  }
-
+  if (error) return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
+  if (!data.length) return { statusCode: 401, body: JSON.stringify({ error: "Pin is invalid." }) };
   return { statusCode: 200, body: JSON.stringify({ success: true }) };
 };
