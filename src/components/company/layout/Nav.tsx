@@ -4,9 +4,8 @@ export default function Nav() {
   return (
     <Navbar>
       <NavbarSection>
-        <NavbarItem href="/">Home</NavbarItem>
-        <NavbarItem href="/events">Events</NavbarItem>
-        <NavbarItem href="/orders">Orders</NavbarItem>
+        <NavbarItem href="check-in">Home</NavbarItem>
+        <NavbarItem href="resources">Resources</NavbarItem>
       </NavbarSection>
     </Navbar>
   );
