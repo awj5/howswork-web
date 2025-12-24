@@ -1,23 +1,25 @@
-import type { Config } from "@netlify/functions";
+import type { Handler, Config } from "@netlify/functions";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
 
-// Rate limit
 export const config: Config = {
-  path: "/.netlify/functions/pin-login",
   rateLimit: {
-    windowLimit: 3, // Requests
-    windowSize: 60, // 1 min
+    windowLimit: 3,
+    windowSize: 60,
     aggregateBy: ["ip", "domain"],
   },
 };
 
-export default async (req: Request) => {
-  try {
-    const { companyID, pin } = await req.json();
+export const handler: Handler = async (event) => {
+  if (event.httpMethod !== "POST") {
+    return { statusCode: 405, body: "Method Not Allowed" };
+  }
 
-    const { data: checkInData, error: checkInError } = await supabase
+  try {
+    const { companyID, pin } = JSON.parse(event.body ?? "{}");
+
+    const { data, error } = await supabase
       .from("check_ins")
       .select("*")
       .eq("company_id", companyID)
@@ -25,11 +27,14 @@ export default async (req: Request) => {
       .eq("status", "Open")
       .limit(1);
 
-    if (checkInError) throw checkInError;
-    if (!checkInData.length) return Response.json({ error: "Pin is invalid." }, { status: 401 });
-    return Response.json({ success: true }, { status: 200 });
-  } catch (error) {
-    console.error(error);
-    return Response.json({ error: "Internal Server Error" }, { status: 500 });
+    if (error) throw error;
+    if (!data?.length) {
+      return { statusCode: 401, body: JSON.stringify({ error: "Pin is invalid." }) };
+    }
+
+    return { statusCode: 200, body: JSON.stringify({ success: true }) };
+  } catch (err) {
+    console.error(err);
+    return { statusCode: 500, body: JSON.stringify({ error: "Internal Server Error" }) };
   }
 };
