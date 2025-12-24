@@ -5,6 +5,7 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env
 
 // Rate limit
 export const config: Config = {
+  path: "/.netlify/functions/pin-login",
   rateLimit: {
     windowLimit: 8, // Requests
     windowSize: 300, // 5 mins
