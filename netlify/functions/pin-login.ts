@@ -20,12 +20,12 @@ export default async (request: Request, context: Context) => {
   try {
     payload = await request.json();
   } catch {
-    return { statusCode: 400, body: JSON.stringify({ error: "Invalid request." }) };
+    return Response.json({ error: "Invalid request." }, { status: 400 });
   }
 
   const { companyID, pin } = payload;
 
-  if (!companyID || !pin) return { statusCode: 400, body: JSON.stringify({ error: "Missing details." }) };
+  if (!companyID || !pin) return Response.json({ error: "Missing details." }, { status: 400 });
 
   const { data, error } = await supabase
     .from("check_ins")
@@ -35,7 +35,7 @@ export default async (request: Request, context: Context) => {
     .eq("status", "Open")
     .limit(1);
 
-  if (error) return { statusCode: 500, body: JSON.stringify({ error: error.message }) };
-  if (!data.length) return { statusCode: 401, body: JSON.stringify({ error: "Pin is invalid." }) };
-  return { statusCode: 200, body: JSON.stringify({ success: true }) };
+  if (error) return Response.json({ error: "Server error." }, { status: 500 });
+  if (!data?.length) return Response.json({ error: "Pin is invalid." }, { status: 401 });
+  return Response.json({ success: true }, { status: 200 });
 };
