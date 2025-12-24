@@ -22,7 +22,7 @@ export default function Login() {
   const verifyPin = async (companyID: number, pin: number) => {
     // Using Netlify function for rate limiting
     try {
-      const response = await fetch("/.netlify/functions/pin-login", {
+      const response = await fetch("/api/pin-login", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),
