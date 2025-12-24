@@ -1,4 +1,4 @@
-import type { Handler, Config } from "@netlify/functions";
+import type { Handler, Config, Context } from "@netlify/functions";
 import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.SUPABASE_SERVICE_ROLE_KEY!);
@@ -13,12 +13,12 @@ export const config: Config = {
   },
 };
 
-export const handler: Handler = async (event) => {
-  if (event.httpMethod !== "POST") return { statusCode: 405, body: "Method Not Allowed" };
+export default async (request: Request, context: Context) => {
+  if (request.method !== "POST") return { statusCode: 405, body: "Method Not Allowed" };
   let payload: { companyID?: number; pin?: number } = {};
 
   try {
-    payload = JSON.parse(event.body ?? "{}");
+    payload = await request.json();
   } catch {
     return { statusCode: 400, body: JSON.stringify({ error: "Invalid request." }) };
   }
