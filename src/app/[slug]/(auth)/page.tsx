@@ -20,7 +20,7 @@ export default function Login() {
   const [pinError, setPinError] = useState(false);
 
   const verifyPin = async (companyID: number, pin: number) => {
-    // Using Netlify edge function for rate limiting
+    // Using Netlify function for rate limiting
     try {
       const response = await fetch("/.netlify/functions/pin-login", {
         method: "POST",
