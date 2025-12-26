@@ -1,7 +1,7 @@
 "use server";
 
 import { isValidEmail } from "@/utils/helpers";
-import { resend } from "@/utils/resend";
+import resend from "@/utils/resend";
 
 export async function subscribeToMailingList(formData: FormData) {
   let email = formData.get("email") as string;
