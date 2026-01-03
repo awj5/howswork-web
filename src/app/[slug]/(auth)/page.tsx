@@ -101,7 +101,7 @@ export default function Login() {
 
           <Text>
             <TextLink href={`/${company?.slug}/resend`}>
-              <Strong>Didn&apos;t receive the PIN?</Strong>
+              <Strong>Didn't receive the PIN?</Strong>
             </TextLink>
           </Text>
         </Fieldset>

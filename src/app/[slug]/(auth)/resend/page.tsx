@@ -55,7 +55,7 @@ export default function Resend() {
 
         {submitted ? (
           <>
-            <Text>If your details match our records, you&apos;ll receive the PIN by email or SMS.</Text>
+            <Text>If your details match our records, you'll receive the PIN by email or SMS.</Text>
 
             <Text>
               PIN not received? Contact <Strong>{company?.name}</Strong>.
@@ -68,7 +68,7 @@ export default function Resend() {
             </Text>
           </>
         ) : (
-          <Text>Enter your work email or mobile number and we&apos;ll try to resend your access PIN.</Text>
+          <Text>Enter your work email or mobile number and we'll try to resend your access PIN.</Text>
         )}
 
         {!submitted && (
