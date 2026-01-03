@@ -55,20 +55,23 @@ export default function Resend() {
 
         {submitted ? (
           <>
-            <Text>If your details match our records, you'll receive the PIN by email or SMS.</Text>
+            <Text>
+              <Strong>If the details you entered are recognised, the access PIN will be sent by email or SMS.</Strong>
+            </Text>
 
             <Text>
-              PIN not received? Contact <Strong>{company?.name}</Strong>.
+              PIN not received? Check your spam or junk folder, or contact <Strong>{company?.name}</Strong> for access
+              support.
             </Text>
 
             <Text>
               <TextLink href={`/${company?.slug}`}>
-                <Strong>Enter your access PIN</Strong>
+                <Strong>Enter the access PIN</Strong>
               </TextLink>
             </Text>
           </>
         ) : (
-          <Text>Enter your work email or mobile number and we'll try to resend your access PIN.</Text>
+          <Text>Enter a work email or mobile number to receive the access PIN. Check-ins remain anonymous.</Text>
         )}
 
         {!submitted && (

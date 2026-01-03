@@ -66,10 +66,11 @@ export default function Login() {
     <AuthLayout>
       <form onSubmit={submitForm} className="grid w-full max-w-[311px] grid-cols-1 gap-8 sm:max-w-sm">
         <Logo className="h-6" />
-        <Heading>Enter your access PIN</Heading>
+        <Heading>Enter the access PIN</Heading>
 
         <Text>
-          Check in or raise a concern with <Strong>{company?.name}</Strong>.
+          <Strong>Check in or raise a concern anonymously with {company?.name.replace(/\.$/, "")}</Strong>. No login. No
+          account. We don't know who you are.
         </Text>
 
         <Fieldset className="flex flex-col gap-8" disabled={disabled}>
@@ -101,7 +102,7 @@ export default function Login() {
 
           <Text>
             <TextLink href={`/${company?.slug}/resend`}>
-              <Strong>Didn't receive the PIN?</Strong>
+              <Strong>Didn't receive the PIN or lost it?</Strong>
             </TextLink>
           </Text>
         </Fieldset>

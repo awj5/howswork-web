@@ -30,7 +30,7 @@ export async function POST(req: NextRequest) {
       .limit(1);
 
     if (checkInError) throw new Error(checkInError.message);
-    if (!checkInData.length) return NextResponse.json({ error: "Pin is invalid." }, { status: 401 });
+    if (!checkInData.length) return NextResponse.json({ error: "The access PIN is invalid." }, { status: 401 });
     return NextResponse.json({ success: true }, { status: 200 });
   } catch (error) {
     console.error(error);
