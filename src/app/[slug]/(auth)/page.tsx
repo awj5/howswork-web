@@ -69,7 +69,7 @@ export default function Login() {
         <Heading>Enter the access PIN</Heading>
 
         <Text>
-          <Strong>Check in or raise a concern anonymously with {company?.name.replace(/\.$/, "")}</Strong>. No login. No
+          Check in or raise a concern anonymously with <Strong>{company?.name.replace(/\.$/, "")}</Strong>. No login. No
           account. We don't know who you are.
         </Text>
 
