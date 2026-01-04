@@ -69,8 +69,7 @@ export default function Login() {
         <Heading>Enter the access PIN</Heading>
 
         <Text>
-          Check in or raise a concern anonymously with <Strong>{company?.name.replace(/\.$/, "")}</Strong>. No login. No
-          account. We don't know who you are.
+          Check in or raise a concern anonymously with <Strong>{company?.name.replace(/\.$/, "")}</Strong>.
         </Text>
 
         <Fieldset className="flex flex-col gap-8" disabled={disabled}>

@@ -43,10 +43,10 @@ export default function Newsletter() {
             Get notified when we're launching
           </h2>
 
-          <p className="mx-auto mt-6 max-w-xl text-center text-lg text-gray-300">
+          <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
             {submitted
-              ? "Thanks for subscribing — we'll only email you with important updates."
-              : "We'll let you know when HowsWork is available for employers."}
+              ? "You'll be notified when HowsWork is available. We'll only email you with key updates about launch and access."
+              : "We'll notify you when HowsWork is available."}
           </p>
 
           {!submitted && (
@@ -70,7 +70,7 @@ export default function Newsletter() {
                 className="flex-none rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:shadow-none"
                 disabled={disabled}
               >
-                Get notified
+                Notify me
               </button>
             </form>
           )}

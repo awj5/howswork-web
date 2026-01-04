@@ -71,7 +71,9 @@ export default function Resend() {
             </Text>
           </>
         ) : (
-          <Text>Enter a work email or mobile number to receive the access PIN. Check-ins remain anonymous.</Text>
+          <Text>
+            Enter a work email or mobile number. <Strong>This is used only to send the access PIN</Strong>.
+          </Text>
         )}
 
         {!submitted && (
@@ -79,7 +81,7 @@ export default function Resend() {
             <Field>
               <Label>Work email or mobile number</Label>
               <Input type="text" name="contact" invalid={contactError} />
-              {contactError && <ErrorMessage>Enter a valid work email or mobile number.</ErrorMessage>}
+              {contactError && <ErrorMessage>Enter a valid email address or mobile number.</ErrorMessage>}
             </Field>
 
             <Button type="submit" className="w-full" color="indigo">
