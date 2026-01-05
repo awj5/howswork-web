@@ -46,7 +46,7 @@ export default function Newsletter() {
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
             {submitted
               ? "You'll be notified when HowsWork is available. We'll only email you with key updates about launch and access."
-              : "We'll notify you when HowsWork is available."}
+              : "HowsWork will be available soon for employers."}
           </p>
 
           {!submitted && (
