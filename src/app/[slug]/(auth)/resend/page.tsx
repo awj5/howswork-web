@@ -60,8 +60,7 @@ export default function Resend() {
             </Text>
 
             <Text>
-              PIN not received? Check your spam or junk folder, or contact <Strong>{company?.name}</Strong> for access
-              support.
+              PIN not received? Check your spam or junk folder, or contact <Strong>{company?.name}</Strong> for support.
             </Text>
 
             <Text>
@@ -72,7 +71,7 @@ export default function Resend() {
           </>
         ) : (
           <Text>
-            Enter a work email or mobile number. <Strong>This is used only to send the access PIN</Strong>.
+            Enter your work email or mobile number. <Strong>This is used only to send the access PIN</Strong>.
           </Text>
         )}
 
