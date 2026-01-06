@@ -7,10 +7,11 @@ import VerificationInput from "react-verification-input";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { AuthLayout } from "@/components/ui/auth-layout";
 import { Button } from "@/components/ui/button";
-import { ErrorMessage, Field, Fieldset, Label } from "@/components/ui/fieldset";
+import { ErrorMessage, Field, Fieldset } from "@/components/ui/fieldset";
 import { Heading } from "@/components/ui/heading";
 import { Strong, Text, TextLink } from "@/components/ui/text";
 import { Logo } from "@/components/Logo";
+import Banner from "@/components/company/login/Banner";
 
 export default function Login() {
   const router = useRouter();
@@ -63,50 +64,52 @@ export default function Login() {
   };
 
   return (
-    <AuthLayout>
-      <form onSubmit={submitForm} className="grid w-full max-w-[311px] grid-cols-1 gap-8 sm:max-w-sm">
-        <Logo className="h-6" />
-        <Heading>Enter the access PIN</Heading>
+    <>
+      <Banner />
 
-        <Text>
-          Check in or raise a concern anonymously with <Strong>{company?.name.replace(/\.$/, "")}</Strong>.{" "}
-          <Strong>No login or account required</Strong>.
-        </Text>
-
-        <Fieldset className="flex flex-col gap-8" disabled={disabled}>
-          <Field>
-            <Label>Access PIN</Label>
-
-            <div data-slot="control">
-              <VerificationInput
-                value={pin}
-                onChange={(e) => setPin(e)}
-                validChars="0-9"
-                placeholder=""
-                classNames={{
-                  container: "container",
-                  character: "character",
-                  characterInactive: "character--inactive",
-                  characterSelected: "character--selected",
-                  characterFilled: "character--filled",
-                }}
-              />
-            </div>
-
-            {pinError && <ErrorMessage>Enter the 6-digit PIN.</ErrorMessage>}
-          </Field>
-
-          <Button type="submit" className="w-full" color="indigo">
-            Continue
-          </Button>
+      <AuthLayout>
+        <form onSubmit={submitForm} className="grid w-full max-w-[311px] grid-cols-1 gap-8 sm:max-w-sm">
+          <Logo className="h-6" />
+          <Heading>Enter the access PIN</Heading>
 
           <Text>
-            <TextLink href={`/${company?.slug}/resend`}>
-              <Strong>Didn't receive the PIN or lost it?</Strong>
-            </TextLink>
+            Check in and raise concerns with <Strong>{company?.name}</Strong> with complete anonymity.{" "}
+            <Strong>No login or account required</Strong>.
           </Text>
-        </Fieldset>
-      </form>
-    </AuthLayout>
+
+          <Fieldset className="flex flex-col gap-8" disabled={disabled}>
+            <Field>
+              <div data-slot="control">
+                <VerificationInput
+                  value={pin}
+                  onChange={(e) => setPin(e)}
+                  validChars="0-9"
+                  placeholder=""
+                  classNames={{
+                    container: "container",
+                    character: "character",
+                    characterInactive: "character--inactive",
+                    characterSelected: "character--selected",
+                    characterFilled: "character--filled",
+                  }}
+                />
+              </div>
+
+              {pinError && <ErrorMessage>Enter the 6-digit PIN.</ErrorMessage>}
+            </Field>
+
+            <Button type="submit" className="w-full" color="indigo">
+              Continue
+            </Button>
+
+            <Text>
+              <TextLink href={`/${company?.slug}/resend`}>
+                <Strong>Didn't receive the PIN?</Strong>
+              </TextLink>
+            </Text>
+          </Fieldset>
+        </form>
+      </AuthLayout>
+    </>
   );
 }

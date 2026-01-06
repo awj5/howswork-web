@@ -40,13 +40,13 @@ export default function Newsletter() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 shadow-2xl sm:rounded-3xl sm:px-24 xl:py-32 dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-0 dark:after:inset-ring dark:after:inset-ring-white/15 dark:after:sm:rounded-3xl">
           <h2 className="mx-auto max-w-3xl text-center text-4xl font-semibold tracking-tight text-white sm:text-5xl">
-            Psychosocial compliance ready?
+            Get notified when we're launching
           </h2>
 
           <p className="mx-auto mt-6 max-w-lg text-center text-lg text-gray-300">
             {submitted
               ? "You'll be notified when HowsWork launches. We'll only email you with key updates."
-              : "Get notified when HowsWork launches in early 2026."}
+              : "HowsWork helps Australian employers comply with new WHS psychosocial risk requirements."}
           </p>
 
           {!submitted && (

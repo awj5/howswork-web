@@ -56,11 +56,12 @@ export default function Resend() {
         {submitted ? (
           <>
             <Text>
-              <Strong>If the details you entered are recognised, the access PIN will be sent by email or SMS.</Strong>
+              <Strong>If your details are recognised, the PIN will be sent by email or SMS.</Strong>
             </Text>
 
             <Text>
-              PIN not received? Check your spam or junk folder, or contact <Strong>{company?.name}</Strong> for support.
+              PIN not received? Check your spam folder. Still no luck? Ask your manager or HR about accessing{" "}
+              <Strong>HowsWork</Strong>.
             </Text>
 
             <Text>
@@ -71,14 +72,14 @@ export default function Resend() {
           </>
         ) : (
           <Text>
-            Enter your work email or mobile number. <Strong>This is used only to send the access PIN</Strong>.
+            Enter your work email or mobile number. <Strong>We only use this to send the PIN</Strong>.
           </Text>
         )}
 
         {!submitted && (
           <Fieldset className="flex flex-col gap-8" disabled={disabled}>
             <Field>
-              <Label>Work email or mobile number</Label>
+              <Label>Email or mobile number</Label>
               <Input type="text" name="contact" invalid={contactError} />
               {contactError && <ErrorMessage>Enter a valid email address or mobile number.</ErrorMessage>}
             </Field>
