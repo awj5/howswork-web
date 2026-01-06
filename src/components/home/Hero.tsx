@@ -36,8 +36,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Provide a safe way for employees to speak up, while giving your organisation real-time visibility into
-              psychosocial risks and clear evidence of proactive WHS compliance.
+              Give your team a trusted channel for raising workplace concerns. End-to-end encryption ensures genuine
+              anonymity, supporting psychological safety and early risk detection.
             </p>
 
             {/*<div className="mt-10 flex items-center justify-center gap-x-6">
