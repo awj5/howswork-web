@@ -51,7 +51,7 @@ export default function Resend() {
     <AuthLayout>
       <form onSubmit={submitForm} className="grid w-full max-w-[311px] grid-cols-1 gap-8 sm:max-w-sm">
         <Logo className="h-6" />
-        <Heading>{submitted ? "PIN sent" : "Resend the access PIN"}</Heading>
+        <Heading>{submitted ? "PIN requested" : "Resend the access PIN"}</Heading>
 
         {submitted ? (
           <>
