@@ -10,7 +10,7 @@ export default function Banner() {
     <div
       className={`flex items-center gap-x-6 bg-indigo-600 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 ${hidden && "hidden"}`}
     >
-      <div className="flex gap-3 sm:items-center">
+      <div className="flex gap-2 sm:items-center">
         <div className="shrink-0">
           <ShieldCheckIcon aria-hidden="true" className="size-5 text-white" />
         </div>
