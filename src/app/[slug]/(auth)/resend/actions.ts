@@ -38,26 +38,154 @@ export async function resendPin(formData: FormData) {
     if (checkInError) return { error: checkInError.message };
     if (!checkInData) return { error: "PIN not available." }; // Only send email or SMS if there is an open check-in
 
-    // Get company name
+    // Get company info
     const { data: companyData, error: companyError } = await supabase
       .from("companies")
-      .select("name")
+      .select("name, slug, timezone")
       .eq("id", formData.get("companyID"))
       .single();
 
     if (companyError) return { error: companyError.message };
+    const isAus = companyData.timezone.includes("Australia"); // Use .com.au domain
 
     if (contact.includes("@")) {
       // Email
       try {
         await resend.emails.send({
-          from: "HowsWork <no-reply@updates.howswork.app>",
+          from: `HowsWork <no-reply@updates.howswork.${isAus ? "com.au" : "app"}>`,
           to: contact,
-          subject: `HowsWork PIN for ${companyData.name}`,
+          subject: `HowsWork access code for ${companyData.name}`,
           html: `
-            <h2>PIN</h2>
-            <p>${checkInData.pin}</p>
-            `,
+<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
+  <tbody>
+    <tr>
+      <td
+        style="
+          font-family:
+            ui-sans-serif, system-ui, sans-serif, &quot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;,
+            &quot;Segoe UI Symbol&quot;, &quot;Noto Color Emoji&quot;;
+        "
+      >
+        <table
+          align="center"
+          width="100%"
+          border="0"
+          cellpadding="0"
+          cellspacing="0"
+          role="presentation"
+          style="max-width: 37.5em; padding-bottom: 24px; padding-top: 24px"
+        >
+          <tbody>
+            <tr style="width: 100%">
+              <td>
+                <img
+                  alt="HowsWork"
+                  height="32"
+                  src="https://www.howswork.app/img/email-icon.png"
+                  style="display: block; outline: none; border: none; text-decoration: none"
+                  width="32"
+                />
+                <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">Hi there,</p>
+                <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
+                  <strong>${companyData.name}</strong> is using <strong>HowsWork</strong>, a safe, anonymous way to share
+                  how you&#x27;re really doing and raise workplace concerns.
+                </p>
+                <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
+                  Access code for all <strong>${companyData.name}</strong> employees:
+                </p>
+                <style>
+                  meta ~ .cino {
+                    display: none !important;
+                    opacity: 0 !important;
+                  }
+
+                  meta ~ .cio {
+                    display: block !important;
+                  }</style
+                ><code
+                  class="cino"
+                  style="
+                    border-radius: 6px;
+                    background-color: rgb(229, 231, 235);
+                    padding-right: 4px;
+                    padding-left: 4px;
+                    padding-bottom: 2px;
+                    padding-top: 2px;
+                    font-size: 20px;
+                  "
+                  >${checkInData.pin}</code
+                ><span
+                  class="cio"
+                  style="
+                    display: none;
+                    border-radius: 6px;
+                    background-color: rgb(229, 231, 235);
+                    padding-right: 4px;
+                    padding-left: 4px;
+                    padding-bottom: 2px;
+                    padding-top: 2px;
+                    font-size: 20px;
+                  "
+                  >${checkInData.pin}</span
+                >
+                <p
+                  style="
+                    font-size: 16px;
+                    line-height: 24px;
+                    color: rgb(79, 57, 246);
+                    margin-top: 16px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  <strong>No login, no tracking, fully encrypted.</strong>
+                </p>
+                <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
+                  You can visit https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug} anytime to raise
+                  concerns anonymously.
+                </p>
+                <p style="font-size: 14px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
+                  <a
+                    href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
+                    style="color: #067df7; text-decoration-line: none"
+                    target="_blank"
+                    >Learn more about how HowsWork protects your privacy</a
+                  >
+                </p>
+                <p
+                  style="
+                    font-size: 14px;
+                    line-height: 24px;
+                    color: rgb(74, 85, 101);
+                    margin-top: 16px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  Please do not share externally.
+                </p>
+                <hr
+                  style="width: 100%; border: none; border-top: 1px solid #eaeaea; border-color: rgb(16, 24, 40, 10%)"
+                />
+                <p
+                  style="
+                    font-size: 12px;
+                    line-height: 24px;
+                    color: rgb(74, 85, 101);
+                    margin-top: 16px;
+                    margin-bottom: 16px;
+                  "
+                >
+                  HowsWork${isAus && " Pty Ltd, 32 York St, Sydney 2000"}<br />Questions? Contact us at
+                  support@howswork.${isAus ? "com.au" : "app"}
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+          `,
         });
       } catch (error) {
         console.error(error);
@@ -68,7 +196,17 @@ export async function resendPin(formData: FormData) {
         await twilioClient.messages.create({
           to: contact,
           from: twilioPhoneNumber,
-          body: `HowsWork PIN: ${checkInData.pin}`,
+          body: `
+${companyData.name} is using HowsWork, a safe, anonymous way to raise workplace concerns.
+
+New shared access code: ${checkInData.pin}
+
+https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug}
+
+${companyData.name} has requested a check-in. Use this link anytime to raise concerns. No login, no tracking, fully encrypted.
+
+Do not share externally.
+          `,
         });
       } catch (error) {
         console.error(error);

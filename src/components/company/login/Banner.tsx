@@ -15,7 +15,16 @@ export default function Banner() {
           <ShieldCheckIcon aria-hidden="true" className="size-5 text-white" />
         </div>
 
-        <p className="text-sm/6 text-white">For maximum privacy, access from a personal device on your own network</p>
+        <p className="text-sm/6 text-white">
+          For maximum privacy, access from a personal device on your own network.{" "}
+          <a
+            href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
+            target="_blank"
+            className="font-semibold whitespace-nowrap"
+          >
+            Learn more <span aria-hidden="true">&rarr;</span>
+          </a>
+        </p>
       </div>
 
       <div className="flex flex-1 justify-end">
