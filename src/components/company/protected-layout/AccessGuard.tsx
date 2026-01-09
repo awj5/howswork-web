@@ -14,7 +14,7 @@ export default function AccessGuard({ slug, children }: { slug: string; children
 
     // Redirect to check-in if on access page and pin is valid
     if (isAccessPage && pin) {
-      router.push(`/${slug}/check-in`);
+      router.push(`/${slug}/home`);
       return;
     }
 

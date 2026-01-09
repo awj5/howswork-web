@@ -1,9 +1,9 @@
 import { Heading } from "@/components/ui/heading";
 
-export default function Resources() {
+export default function CheckIns() {
   return (
     <div>
-      <Heading>Resources</Heading>
+      <Heading>Check-ins</Heading>
     </div>
   );
 }

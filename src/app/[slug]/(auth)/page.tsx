@@ -60,7 +60,7 @@ export default function Login() {
 
     // Success
     sessionStorage.setItem(`company_access_${company.slug}`, pin); // Store pin for this session
-    router.push(`/${company.slug}/check-in`); // Redirect
+    router.push(`/${company.slug}/home`); // Redirect
   };
 
   return (

@@ -1,9 +1,9 @@
 import { Heading } from "@/components/ui/heading";
 
-export default function Resources() {
+export default function Home() {
   return (
     <div>
-      <Heading>Resources</Heading>
+      <Heading>Home</Heading>
     </div>
   );
 }
