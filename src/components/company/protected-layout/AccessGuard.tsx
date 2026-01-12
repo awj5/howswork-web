@@ -10,16 +10,16 @@ export default function AccessGuard({ slug, children }: { slug: string; children
 
   useEffect(() => {
     const pin = sessionStorage.getItem(`company_access_${slug}`);
-    const isAccessPage = pathname === `/${slug}` || pathname === `/${slug}/resend`;
+    const isAuthPage = pathname === `/${slug}` || pathname === `/${slug}/resend` || pathname === `/${slug}/error`;
 
     // Redirect to check-in if on access page and pin is valid
-    if (isAccessPage && pin) {
+    if (isAuthPage && pin) {
       router.push(`/${slug}/home`);
       return;
     }
 
     // Redirect to access page if pin is invalid
-    if (!isAccessPage && !pin) {
+    if (!isAuthPage && !pin) {
       router.push(`/${slug}`);
       return;
     }

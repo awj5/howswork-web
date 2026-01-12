@@ -1,0 +1,7 @@
+export default function EmptyState({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="fixed top-1/2 left-1/2 flex h-80 w-sm -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center p-4 sm:w-md lg:top-[calc(50%+24px)]">
+      {children}
+    </div>
+  );
+}
