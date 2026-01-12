@@ -10,6 +10,7 @@ import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
+import Banner from "@/components/company/protected-layout/home/Banner";
 
 export default function Home() {
   const router = useRouter();
@@ -31,45 +32,49 @@ export default function Home() {
   }, [currentCheckInID]);
 
   return (
-    <div className="mx-auto max-w-6xl">
-      {checkInOpen ? (
-        <EmptyState>
-          <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
-          <Subheading className="mt-2">You've got a check-in</Subheading>
-
-          <Text className="mt-1 text-center">
-            <Strong>{company?.name}</Strong> wants to know how things are going.
-          </Text>
-
-          <Button
-            onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckInID}`)}
-            color="indigo"
-            className="mt-6"
-          >
-            Complete check-in
-            <ArrowRightCircleIcon />
-          </Button>
-        </EmptyState>
-      ) : (
-        checkInOpen !== undefined && (
+    <>
+      <div className="mx-auto max-w-6xl">
+        {checkInOpen ? (
           <EmptyState>
-            <Subheading className="mt-2">You're all set</Subheading>
+            <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
+            <Subheading className="mt-2">You've got a check-in</Subheading>
 
             <Text className="mt-1 text-center">
-              Thanks for checking in. You'll be notified when the next check-in is requested.
+              <Strong>{company?.name}</Strong> wants to know how things are going.
             </Text>
 
             <Button
               onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckInID}`)}
-              outline
+              color="indigo"
               className="mt-6"
             >
-              <ChartPieIcon />
-              See the results
+              Complete check-in
+              <ArrowRightCircleIcon />
             </Button>
           </EmptyState>
-        )
-      )}
-    </div>
+        ) : (
+          checkInOpen !== undefined && (
+            <EmptyState>
+              <Subheading className="mt-2">You're all set</Subheading>
+
+              <Text className="mt-1 text-center">
+                Thanks for checking in. You'll be notified when the next check-in is requested.
+              </Text>
+
+              <Button
+                onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckInID}`)}
+                outline
+                className="mt-6"
+              >
+                <ChartPieIcon />
+                See the results
+              </Button>
+            </EmptyState>
+          )
+        )}
+      </div>
+
+      <Banner />
+    </>
   );
 }
