@@ -6,10 +6,11 @@ import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { CheckInType } from "@/types";
 import { useCurrentCheckIn } from "@/hooks/useCurrentCheckIn";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { Heading, Subheading } from "@/components/ui/heading";
-import { Divider } from "@/components/ui/divider";
+import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Text } from "@/components/ui/text";
+import Results from "@/components/company/protected-layout/check-ins/check-in/Results";
+import Form from "@/components/company/protected-layout/check-ins/check-in/Form";
 import { getCheckIn } from "./actions";
 
 export default function CheckIn() {
@@ -55,21 +56,15 @@ export default function CheckIn() {
   return (
     <div className="mx-auto max-w-6xl">
       {isOpen ? (
-        <>
-          <Heading>How's work?</Heading>
-          <Divider className="mt-6" />
-        </>
+        <Form id={Number(params.id)} />
       ) : checkIn ? (
-        <>
-          <Heading>Check-in {checkIn.id}</Heading>
-          <Divider className="mt-6" />
-        </>
+        <Results id={checkIn.id} />
       ) : (
         error && (
           <EmptyState>
             <ExclamationCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
             <Subheading className="mt-2 text-center">Not found</Subheading>
-            <Text className="mt-1 text-center">This check-in doesn't exist or isn't available to you.</Text>
+            <Text className="mt-1 text-center">We couldn't find this check-in, or you don't have access to it.</Text>
           </EmptyState>
         )
       )}

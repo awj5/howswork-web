@@ -55,7 +55,7 @@ export default function Home() {
         ) : (
           checkInOpen !== undefined && (
             <EmptyState>
-              <Subheading className="mt-2">You're all set</Subheading>
+              <Subheading>You're all set</Subheading>
 
               <Text className="mt-1 text-center">
                 Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong>{" "}

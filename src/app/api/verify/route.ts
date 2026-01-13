@@ -19,8 +19,7 @@ export async function POST(req: NextRequest) {
     // Apply rate limiting if invalid
     if (!checkInData.length) {
       const ip = getIP(req);
-      const id = `company:${companyID}:ip:${ip}`;
-      const { success, reset, remaining } = await rateLimit.limit(id); // Limit per company + IP using Upstash and Redis
+      const { success, reset, remaining } = await rateLimit.limit(`company:${companyID}:ip:${ip}`); // Limit per company + IP using Upstash and Redis
 
       if (!success) {
         return NextResponse.json(

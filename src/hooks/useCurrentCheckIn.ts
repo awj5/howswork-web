@@ -16,7 +16,6 @@ export function useCurrentCheckIn() {
     const getCheckIn = async () => {
       try {
         const pin = sessionStorage.getItem(`company_access_${company.slug}`);
-        if (!pin) return;
 
         // Use API for rate limiting
         const response = await fetch("/api/verify", {
