@@ -41,7 +41,7 @@ export default function CheckIn() {
       try {
         // Check if already completed by user
         const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
-        setIsOpen(!completed);
+        setIsOpen(completed === null);
         setCheckIn(currentCheckIn);
         return;
       } catch (error) {

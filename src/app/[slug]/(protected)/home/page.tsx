@@ -24,7 +24,7 @@ export default function Home() {
     try {
       // Check if open check-in already completed by user
       const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
-      setCheckInOpen(!completed);
+      setCheckInOpen(completed === null);
     } catch (error) {
       console.error(error);
       alert("An unexpected error has occurred.");
