@@ -58,7 +58,8 @@ export default function Home() {
               <Subheading className="mt-2">You're all set</Subheading>
 
               <Text className="mt-1 text-center">
-                Thanks for checking in. You'll be notified when the next check-in is requested.
+                Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong>{" "}
+                is requested.
               </Text>
 
               <Button
