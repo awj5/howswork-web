@@ -85,6 +85,9 @@ export default function Login() {
                   onChange={(e) => setPin(e)}
                   validChars="0-9"
                   placeholder=""
+                  inputProps={{
+                    autoComplete: "one-time-code",
+                  }}
                   classNames={{
                     container: "container",
                     character: "character",

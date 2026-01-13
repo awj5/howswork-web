@@ -199,7 +199,7 @@ export async function resendPin(formData: FormData) {
           body: `
 ${companyData.name} is using HowsWork, a safe, anonymous way to raise workplace concerns.
 
-New shared access code: ${checkInData.pin}
+New shared access PIN: ${checkInData.pin}
 
 https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug}
 
