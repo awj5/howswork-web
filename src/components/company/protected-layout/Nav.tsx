@@ -22,7 +22,7 @@ export default function Nav() {
 
   return (
     <Navbar>
-      <Link href="check-in" aria-label="Check-in" className="max-lg:hidden">
+      <Link href={`/${company?.slug}/home`} aria-label="Check-in" className="max-lg:hidden">
         <Logo className="h-7" iconOnly />
       </Link>
 

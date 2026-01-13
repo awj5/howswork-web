@@ -2,40 +2,41 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { createClient } from "@/utils/supabase/client";
+import type { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 
 export function useCurrentCheckIn() {
-  const supabase = createClient();
   const router = useRouter();
   const { company } = useCompanyContext();
-  const [checkInID, setCheckinID] = useState(0);
+  const [checkIn, setCheckin] = useState<CheckInType>();
 
   useEffect(() => {
+    if (!company) return;
+
     const getCheckIn = async () => {
       try {
-        const pin = sessionStorage.getItem(`company_access_${company?.slug}`);
+        const pin = sessionStorage.getItem(`company_access_${company.slug}`);
+        if (!pin) return;
 
-        // Get open check-in with matching pin
-        const { data: checkInData, error: checkInError } = await supabase
-          .from("check_ins")
-          .select("id")
-          .eq("company_id", company?.id)
-          .eq("pin", pin)
-          .eq("status", "Open")
-          .single();
+        // Use API for rate limiting
+        const response = await fetch("/api/verify", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ companyID: company.id, pin }),
+        });
 
-        if (checkInError) throw checkInError;
-        setCheckinID(checkInData.id);
+        const json = await response.json();
+        if (!response.ok) throw new Error(json.error);
+        setCheckin(json.data);
       } catch (error) {
         console.error(error);
-        sessionStorage.removeItem(`company_access_${company?.slug}`); // Remove stored pin
+        sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
         router.push(`/${company?.slug}/error`); // Redirect
       }
     };
 
     getCheckIn();
-  }, []);
+  }, [company]);
 
-  return checkInID;
+  return checkIn;
 }

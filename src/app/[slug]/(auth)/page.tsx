@@ -23,7 +23,7 @@ export default function Login() {
   const verifyPin = async (companyID: number, pin: number) => {
     // Use API instead of server action for rate limiting
     try {
-      const response = await fetch("/api/pin-login", {
+      const response = await fetch("/api/verify", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),

@@ -15,21 +15,21 @@ import Banner from "@/components/company/protected-layout/home/Banner";
 export default function Home() {
   const router = useRouter();
   const { company } = useCompanyContext();
-  const currentCheckInID = useCurrentCheckIn();
+  const currentCheckIn = useCurrentCheckIn();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
 
   useEffect(() => {
-    if (!currentCheckInID) return;
+    if (!currentCheckIn) return;
 
     try {
       // Check if open check-in already completed by user
-      const completed = localStorage.getItem(`check-in_completed_${currentCheckInID}`);
+      const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
       setCheckInOpen(!completed);
     } catch (error) {
       console.error(error);
       alert("An unexpected error has occurred.");
     }
-  }, [currentCheckInID]);
+  }, [currentCheckIn]);
 
   return (
     <>
@@ -44,7 +44,7 @@ export default function Home() {
             </Text>
 
             <Button
-              onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckInID}`)}
+              onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckIn?.id}`)}
               color="indigo"
               className="mt-6"
             >
@@ -62,7 +62,7 @@ export default function Home() {
               </Text>
 
               <Button
-                onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckInID}`)}
+                onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckIn?.id}`)}
                 outline
                 className="mt-6"
               >

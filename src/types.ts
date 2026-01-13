@@ -4,3 +4,8 @@ export type CompanyType = {
   slug: string;
   timezone: string;
 };
+
+export type CheckInType = {
+  id: number;
+  start: string;
+};
