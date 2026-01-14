@@ -10,7 +10,7 @@ type SentimentProps = {
 };
 
 export default function Sentiment(props: SentimentProps) {
-  const sentiments = ["Terrible", "Rough", "Fine", "Good", "Amazing"];
+  const sentiments = ["Terrible", "Difficult", "Fine", "Good", "Amazing"];
 
   return (
     <div className="flex flex-col items-center gap-3">
@@ -27,9 +27,7 @@ export default function Sentiment(props: SentimentProps) {
               aria-checked={props.val === num}
               aria-label={sentiment}
               onClick={() => props.setVal(num)}
-              className={
-                "flex flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 hover:[&>p]:text-zinc-950 hover:[&>p]:dark:text-white"
-              }
+              className={`flex flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${props.val && props.val !== num && "opacity-50"}`}
             >
               <Image
                 src={`/img/emoji-${num}.svg`}
@@ -37,14 +35,10 @@ export default function Sentiment(props: SentimentProps) {
                 height={96}
                 alt=""
                 aria-hidden="true"
-                className={`${props.val && props.val !== num && "opacity-25"} size-10 sm:size-8`}
+                className="size-10 sm:size-8"
               />
 
-              <p
-                className={`text-sm font-semibold text-zinc-500 sm:text-xs dark:text-zinc-400 ${props.val === num && "text-zinc-950! dark:text-white!"}`}
-              >
-                {sentiment}
-              </p>
+              <p className="text-sm font-semibold text-zinc-950 sm:text-xs dark:text-white">{sentiment}</p>
             </button>
           );
         })}

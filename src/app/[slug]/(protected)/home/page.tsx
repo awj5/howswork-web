@@ -35,20 +35,24 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      {checkInOpen ? (
-        <EmptyState>
-          <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
-          <Subheading className="mt-2">You've got a check-in</Subheading>
+      {currentCheckIn && checkInOpen ? (
+        <>
+          <EmptyState>
+            <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
+            <Subheading className="mt-2">You've got a check-in</Subheading>
 
-          <Text className="mt-1 text-center">
-            <Strong>{company?.name}</Strong> wants to know how things are going.
-          </Text>
+            <Text className="mt-1 text-center">
+              <Strong>{company?.name}</Strong> wants to know how things are going.
+            </Text>
 
-          <Button onClick={() => setDialogOpen(true)} color="indigo" className="mt-6">
-            Complete check-in
-            <ArrowRightCircleIcon />
-          </Button>
-        </EmptyState>
+            <Button onClick={() => setDialogOpen(true)} color="indigo" className="mt-6">
+              Complete check-in
+              <ArrowRightCircleIcon />
+            </Button>
+          </EmptyState>
+
+          <CheckIn id={currentCheckIn.id} dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+        </>
       ) : (
         checkInOpen !== undefined && (
           <EmptyState>
@@ -72,7 +76,6 @@ export default function Home() {
       )}
 
       <Banner />
-      <CheckIn dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
     </div>
   );
 }
