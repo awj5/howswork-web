@@ -27,7 +27,7 @@ export default function Sentiment(props: SentimentProps) {
               aria-checked={props.val === num}
               aria-label={sentiment}
               onClick={() => props.setVal(num)}
-              className={`flex flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${props.val && props.val !== num && "opacity-50"}`}
+              className={`flex cursor-pointer flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 ${props.val && props.val !== num && "opacity-50"}`}
             >
               <Image
                 src={`/img/emoji-${num}.svg`}
