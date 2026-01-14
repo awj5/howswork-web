@@ -54,7 +54,7 @@ export async function resendPin(formData: FormData) {
         await resend.emails.send({
           from: `HowsWork <no-reply@updates.howswork.${isAus ? "com.au" : "app"}>`,
           to: contact,
-          subject: `Access code for ${companyData.name}`,
+          subject: `Access PIN for ${companyData.name}`,
           html: `
 <table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
   <tbody>
@@ -91,7 +91,7 @@ export async function resendPin(formData: FormData) {
                   how you&#x27;re really doing and raise workplace concerns.
                 </p>
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
-                  Access code for all <strong>${companyData.name}</strong> employees:
+                  Access PIN for all <strong>${companyData.name}</strong> employees:
                 </p>
                 <style>
                   meta ~ .cino {

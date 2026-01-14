@@ -1,0 +1,54 @@
+"use client";
+
+import { Dispatch, SetStateAction } from "react";
+import Image from "next/image";
+import { Subheading } from "@/components/ui/heading";
+
+type SentimentProps = {
+  val: number;
+  setVal: Dispatch<SetStateAction<number>>;
+};
+
+export default function Sentiment(props: SentimentProps) {
+  const sentiments = ["Terrible", "Rough", "Fine", "Good", "Amazing"];
+
+  return (
+    <div className="flex flex-col items-center gap-3">
+      <Subheading id="sentiment-label">How's work?</Subheading>
+
+      <div role="radiogroup" aria-labelledby="sentiment-label" className="grid w-full grid-cols-5 sm:max-w-2xs">
+        {sentiments.map((sentiment, index) => {
+          const num = index + 1;
+
+          return (
+            <button
+              key={num}
+              role="radio"
+              aria-checked={props.val === num}
+              aria-label={sentiment}
+              onClick={() => props.setVal(num)}
+              className={
+                "flex flex-col items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500 hover:[&>p]:text-zinc-950 hover:[&>p]:dark:text-white"
+              }
+            >
+              <Image
+                src={`/img/emoji-${num}.svg`}
+                width={96}
+                height={96}
+                alt=""
+                aria-hidden="true"
+                className={`${props.val && props.val !== num && "opacity-25"} size-10 sm:size-8`}
+              />
+
+              <p
+                className={`text-sm font-semibold text-zinc-500 sm:text-xs dark:text-zinc-400 ${props.val === num && "text-zinc-950! dark:text-white!"}`}
+              >
+                {sentiment}
+              </p>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}

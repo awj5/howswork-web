@@ -9,8 +9,8 @@ import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Text } from "@/components/ui/text";
-import Results from "@/components/company/protected-layout/check-ins/check-in/Results";
-import Form from "@/components/company/protected-layout/check-ins/check-in/Form";
+import { Heading } from "@/components/ui/heading";
+import { Divider } from "@/components/ui/divider";
 import { getCheckIn } from "./actions";
 
 export default function CheckIn() {
@@ -18,7 +18,6 @@ export default function CheckIn() {
   const currentCheckIn = useCurrentCheckIn();
   const { company } = useCompanyContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
-  const [isOpen, setIsOpen] = useState(false);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -36,29 +35,16 @@ export default function CheckIn() {
       setCheckIn(result.data);
     };
 
-    // Check if current check-in
-    if (currentCheckIn.id === Number(params.id)) {
-      try {
-        // Check if already completed by user
-        const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
-        setIsOpen(completed === null);
-        setCheckIn(currentCheckIn);
-        return;
-      } catch (error) {
-        console.error(error);
-        alert("An unexpected error has occurred.");
-      }
-    }
-
     getCheckInData();
   }, [currentCheckIn, company]);
 
   return (
     <div className="mx-auto max-w-6xl">
-      {isOpen ? (
-        <Form id={Number(params.id)} />
-      ) : checkIn ? (
-        <Results id={checkIn.id} />
+      {checkIn ? (
+        <>
+          <Heading>Check-in {checkIn.id}</Heading>
+          <Divider className="mt-6" />
+        </>
       ) : (
         error && (
           <EmptyState>

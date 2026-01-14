@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Sidebar, SidebarBody, SidebarItem, SidebarSection } from "@/components/ui/sidebar";
-import { Link } from "@/components/ui/link";
 import { Logo } from "@/components/Logo";
 import { navItems } from "./Nav";
 
@@ -15,9 +14,7 @@ export default function Side() {
     <Sidebar>
       <SidebarBody>
         <div className="m-2 mb-4 w-fit">
-          <Link href="check-in" aria-label="Check-in">
-            <Logo className="h-7" iconOnly />
-          </Link>
+          <Logo className="h-7" iconOnly />
         </div>
 
         <SidebarSection>

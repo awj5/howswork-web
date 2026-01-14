@@ -3,7 +3,6 @@
 import { usePathname, useRouter } from "next/navigation";
 import { HandRaisedIcon } from "@heroicons/react/16/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { Link } from "@/components/ui/link";
 import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from "@/components/ui/navbar";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
@@ -22,9 +21,7 @@ export default function Nav() {
 
   return (
     <Navbar>
-      <Link href={`/${company?.slug}/home`} aria-label="Check-in" className="max-lg:hidden">
-        <Logo className="h-7" iconOnly />
-      </Link>
+      <Logo className="h-7 max-lg:hidden" iconOnly />
 
       <NavbarSection className="max-lg:hidden">
         {navItems.map(({ href, label }) => (
