@@ -13,10 +13,10 @@ export default function Sentiment(props: SentimentProps) {
   const sentiments = ["Terrible", "Difficult", "Fine", "Good", "Amazing"];
 
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div className="flex flex-col items-center gap-4">
       <Subheading id="sentiment-label">How's work?</Subheading>
 
-      <div role="radiogroup" aria-labelledby="sentiment-label" className="grid w-full grid-cols-5 sm:max-w-2xs">
+      <div role="radiogroup" aria-labelledby="sentiment-label" className="grid grid-cols-5 gap-6">
         {sentiments.map((sentiment, index) => {
           const num = index + 1;
 
