@@ -1,6 +1,6 @@
 "use server";
 
-import supabase from "@/utils/supabase/admin";
+import supabase from "@/utils/supabase";
 
 export async function getCheckIn(id: number, companyID: number) {
   const { data: checkInData, error: checkInError } = await supabase

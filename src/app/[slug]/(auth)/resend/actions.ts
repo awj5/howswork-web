@@ -1,6 +1,6 @@
 "use server";
 
-import supabase from "@/utils/supabase/admin";
+import supabase from "@/utils/supabase";
 import resend from "@/utils/resend";
 import { twilioClient, twilioPhoneNumber } from "@/utils/twilio";
 import { isValidPhone, isValidEmail } from "@/utils/helpers";
