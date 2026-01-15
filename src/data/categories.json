@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "High job demands",
+    "tag": "overwhelming",
+    "description": "Excessive workload, tight deadlines, intense effort required."
+  },
+  {
+    "id": 2,
+    "name": "Low job demands",
+    "tag": "boring",
+    "description": "Insufficient work, monotonous tasks, underuse of skills."
+  },
+  {
+    "id": 3,
+    "name": "Job control",
+    "tag": "restrictive",
+    "description": "Level of autonomy and influence workers have over their work."
+  },
+  {
+    "id": 4,
+    "name": "Support",
+    "tag": "unsupported",
+    "description": "Adequacy of help from supervisors, colleagues, and company resources."
+  },
+  {
+    "id": 5,
+    "name": "Role clarity",
+    "tag": "unclear",
+    "description": "Clear understanding of responsibilities and expectations."
+  },
+  {
+    "id": 6,
+    "name": "Change management",
+    "tag": "unpredictable",
+    "description": "How workplace changes are managed and communicated."
+  },
+  {
+    "id": 7,
+    "name": "Recognition and reward",
+    "tag": "thankless",
+    "description": "Balance between effort and acknowledgment."
+  },
+  {
+    "id": 8,
+    "name": "Fairness",
+    "tag": "unfair",
+    "description": "Fairness in policies, procedures, and treatment."
+  },
+  {
+    "id": 9,
+    "name": "Traumatic events",
+    "tag": "traumatic",
+    "description": "Exposure to distressing incidents or materials."
+  },
+  {
+    "id": 10,
+    "name": "Remote/isolated work",
+    "tag": "isolated",
+    "description": "Working alone or in locations with limited access to help."
+  },
+  {
+    "id": 11,
+    "name": "Physical environment",
+    "tag": "unsuitable",
+    "description": "Quality and safety of working conditions."
+  },
+  {
+    "id": 12,
+    "name": "Violence and aggression",
+    "tag": "threatening",
+    "description": "Physical or verbal threats and attacks."
+  },
+  {
+    "id": 13,
+    "name": "Bullying",
+    "tag": "hostile",
+    "description": "Repeated unreasonable behaviour toward workers."
+  },
+  {
+    "id": 14,
+    "name": "Harassment",
+    "tag": "inappropriate",
+    "description": "Unwelcome conduct including sexual harassment."
+  },
+  {
+    "id": 15,
+    "name": "Workplace relationships",
+    "tag": "toxic",
+    "description": "Quality of interpersonal interactions and conflict."
+  }
+]

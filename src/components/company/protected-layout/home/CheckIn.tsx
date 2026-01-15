@@ -3,8 +3,10 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
+import { Divider } from "@/components/ui/divider";
 import Sentiment from "./check-in/Sentiment";
 import Categories from "./check-in/Categories";
+import Attribution from "./check-in/Attribution";
 
 type CheckInProps = {
   id: number;
@@ -14,14 +16,15 @@ type CheckInProps = {
 
 export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
-  const [categories, setCategories] = useState(Array(14).fill(false)); // 14 categories
+  const [categories, setCategories] = useState<number[]>([]);
+  const [attribution, setAttribution] = useState(0);
 
   const submit = () => {
     props.setDialogOpen(false);
 
     // Reset
     setSentiment(0);
-    setCategories(Array(14).fill(false));
+    setCategories([]);
   };
 
   return (
@@ -35,9 +38,12 @@ export default function CheckIn(props: CheckInProps) {
         Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
-      <DialogBody className="flex flex-col gap-8">
+      <DialogBody>
         <Sentiment val={sentiment} setVal={setSentiment} />
+        <Divider className="my-6" soft />
         <Categories val={categories} setVal={setCategories} sentiment={sentiment} />
+        <Divider className="my-6" soft />
+        <Attribution val={attribution} setVal={setAttribution} categories={categories} />
       </DialogBody>
 
       <DialogActions>
