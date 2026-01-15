@@ -5,7 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import Sentiment from "./check-in/Sentiment";
 import Categories from "./check-in/Categories";
-import { Divider } from "@/components/ui/divider";
 
 type CheckInProps = {
   id: number;
@@ -29,19 +28,16 @@ export default function CheckIn(props: CheckInProps) {
     <Dialog open={props.dialogOpen} onClose={props.setDialogOpen}>
       <div className="flex justify-between">
         <DialogTitle>Check in</DialogTitle>
-        <span className="text-sm/6 text-zinc-500 sm:text-xs/6">Takes 1-2 minutes</span>
+        <span className="text-sm/6 text-zinc-500 sm:text-xs/6">Takes less than 1 min</span>
       </div>
 
       <DialogDescription className="text-wrap!">
         Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
-      <DialogBody>
-        <Divider className="mb-6" />
+      <DialogBody className="flex flex-col gap-8">
         <Sentiment val={sentiment} setVal={setSentiment} />
-        <Divider className="my-6" soft />
         <Categories val={categories} setVal={setCategories} sentiment={sentiment} />
-        <Divider className="mt-6" soft />
       </DialogBody>
 
       <DialogActions>
