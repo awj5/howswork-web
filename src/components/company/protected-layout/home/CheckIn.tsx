@@ -3,9 +3,9 @@
 import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
-import { Badge } from "@/components/ui/badge";
 import Sentiment from "./check-in/Sentiment";
 import Categories from "./check-in/Categories";
+import { Divider } from "@/components/ui/divider";
 
 type CheckInProps = {
   id: number;
@@ -15,22 +15,33 @@ type CheckInProps = {
 
 export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
-  const [categories, setCategories] = useState<boolean[]>([]);
+  const [categories, setCategories] = useState(Array(14).fill(false)); // 14 categories
+
+  const submit = () => {
+    props.setDialogOpen(false);
+
+    // Reset
+    setSentiment(0);
+    setCategories(Array(14).fill(false));
+  };
 
   return (
     <Dialog open={props.dialogOpen} onClose={props.setDialogOpen}>
       <div className="flex justify-between">
         <DialogTitle>Check in</DialogTitle>
-        <Badge color="indigo">Takes 1-2 minutes</Badge>
+        <span className="text-sm/6 text-zinc-500 sm:text-xs/6">Takes 1-2 minutes</span>
       </div>
 
       <DialogDescription className="text-wrap!">
         Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
-      <DialogBody className="flex flex-col gap-8">
+      <DialogBody>
+        <Divider className="mb-6" />
         <Sentiment val={sentiment} setVal={setSentiment} />
-        <Categories val={categories} setVal={setCategories} />
+        <Divider className="my-6" soft />
+        <Categories val={categories} setVal={setCategories} sentiment={sentiment} />
+        <Divider className="mt-6" soft />
       </DialogBody>
 
       <DialogActions>
@@ -38,7 +49,7 @@ export default function CheckIn(props: CheckInProps) {
           Cancel
         </Button>
 
-        <Button onClick={() => props.setDialogOpen(false)} color="indigo" disabled>
+        <Button onClick={submit} color="indigo" disabled={!sentiment}>
           Submit
         </Button>
       </DialogActions>
