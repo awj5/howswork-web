@@ -10,8 +10,8 @@ import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
-import Banner from "@/components/company/protected-layout/home/Banner";
-import CheckIn from "@/components/company/protected-layout/home/CheckIn";
+import Banner from "@/components/company/home/Banner";
+import CheckIn from "@/components/company/home/CheckIn";
 
 export default function Home() {
   const router = useRouter();
