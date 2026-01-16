@@ -17,7 +17,7 @@ type CheckInProps = {
 export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
   const [categories, setCategories] = useState<number[]>([]);
-  const [attribution, setAttribution] = useState(0);
+  const [attribution, setAttribution] = useState<number[]>([]);
 
   const submit = () => {
     props.setDialogOpen(false);
@@ -25,14 +25,12 @@ export default function CheckIn(props: CheckInProps) {
     // Reset
     setSentiment(0);
     setCategories([]);
+    setAttribution([]);
   };
 
   return (
     <Dialog open={props.dialogOpen} onClose={props.setDialogOpen}>
-      <div className="flex justify-between">
-        <DialogTitle>Check in</DialogTitle>
-        <span className="text-sm/6 text-zinc-500 sm:text-xs/6">Takes less than 1 min</span>
-      </div>
+      <DialogTitle>Check in</DialogTitle>
 
       <DialogDescription className="text-wrap!">
         Your responses are completely anonymous and help highlight issues that need attention.
@@ -40,9 +38,9 @@ export default function CheckIn(props: CheckInProps) {
 
       <DialogBody>
         <Sentiment val={sentiment} setVal={setSentiment} />
-        <Divider className="my-6" soft />
-        <Categories val={categories} setVal={setCategories} sentiment={sentiment} />
-        <Divider className="my-6" soft />
+        <Divider className="my-8" soft />
+        <Categories val={categories} setVal={setCategories} sentiment={sentiment} setAttribution={setAttribution} />
+        <Divider className="my-8" soft />
         <Attribution val={attribution} setVal={setAttribution} categories={categories} />
       </DialogBody>
 

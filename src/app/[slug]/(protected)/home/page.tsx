@@ -69,7 +69,7 @@ export default function Home() {
               className="mt-6"
             >
               <ChartPieIcon />
-              See the results
+              View previous check-in results
             </Button>
           </EmptyState>
         )
