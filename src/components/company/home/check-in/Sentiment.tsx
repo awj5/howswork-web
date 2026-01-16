@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction } from "react";
 import Image from "next/image";
 import SentimentsData from "@/data/sentiments.json";
-import { Subheading } from "@/components/ui/heading";
+import { Field, Label } from "@/components/ui/fieldset";
 
 type SentimentProps = {
   val: number;
@@ -12,10 +12,16 @@ type SentimentProps = {
 
 export default function Sentiment(props: SentimentProps) {
   return (
-    <div className="flex flex-col items-center">
-      <Subheading id="sentiment-label">How's work?</Subheading>
+    <Field className="flex flex-col items-center">
+      <Label>How's work?</Label>
 
-      <div role="radiogroup" aria-labelledby="sentiment-label" className="mt-4 grid grid-cols-5 gap-4">
+      <div
+        data-slot="control"
+        role="radiogroup"
+        aria-labelledby="headlessui-label-_r_4h_"
+        aria-required="true"
+        className="grid grid-cols-5 gap-4"
+      >
         {SentimentsData.map((sentiment) => (
           <button
             key={sentiment.id}
@@ -32,18 +38,18 @@ export default function Sentiment(props: SentimentProps) {
                 src={`/img/emoji-${sentiment.id}.svg`}
                 width={96}
                 height={96}
-                alt=""
+                alt={sentiment.label}
                 aria-hidden="true"
                 className="size-10 sm:size-9"
               />
 
-              <p className="text-sm leading-none font-medium text-zinc-950 sm:text-xs dark:text-white">
+              <span className="text-sm leading-none font-medium text-zinc-950 sm:text-xs dark:text-white">
                 {sentiment.label}
-              </p>
+              </span>
             </div>
           </button>
         ))}
       </div>
-    </div>
+    </Field>
   );
 }

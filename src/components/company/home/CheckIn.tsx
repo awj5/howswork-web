@@ -4,9 +4,11 @@ import { Dispatch, SetStateAction, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
+import { Fieldset } from "@/components/ui/fieldset";
 import Sentiment from "./check-in/Sentiment";
 import Categories from "./check-in/Categories";
 import Attribution from "./check-in/Attribution";
+import Team from "./check-in/Team";
 
 type CheckInProps = {
   id: number;
@@ -18,6 +20,7 @@ export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
   const [categories, setCategories] = useState<number[]>([]);
   const [attribution, setAttribution] = useState<number[]>([]);
+  const [team, setTeam] = useState(0);
 
   const submit = () => {
     props.setDialogOpen(false);
@@ -26,6 +29,7 @@ export default function CheckIn(props: CheckInProps) {
     setSentiment(0);
     setCategories([]);
     setAttribution([]);
+    setTeam(0);
   };
 
   return (
@@ -37,11 +41,15 @@ export default function CheckIn(props: CheckInProps) {
       </DialogDescription>
 
       <DialogBody>
-        <Sentiment val={sentiment} setVal={setSentiment} />
-        <Divider className="my-8" soft />
-        <Categories val={categories} setVal={setCategories} sentiment={sentiment} setAttribution={setAttribution} />
-        <Divider className="my-8" soft />
-        <Attribution val={attribution} setVal={setAttribution} categories={categories} />
+        <Fieldset>
+          <Sentiment val={sentiment} setVal={setSentiment} />
+          <Divider className="my-8" soft />
+          <Categories val={categories} setVal={setCategories} sentiment={sentiment} setAttribution={setAttribution} />
+          <Divider className="my-8" soft />
+          <Attribution val={attribution} setVal={setAttribution} categories={categories} />
+          <Divider className="my-8" soft />
+          <Team val={team} setVal={setTeam} sentiment={sentiment} />
+        </Fieldset>
       </DialogBody>
 
       <DialogActions>

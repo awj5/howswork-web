@@ -3,8 +3,8 @@
 import { Dispatch, SetStateAction, useMemo } from "react";
 import CategoriesData from "@/data/categories.json";
 import { shuffleArray } from "@/utils/helpers";
-import { Subheading } from "@/components/ui/heading";
 import { BadgeButton } from "@/components/ui/badge";
+import { Description, Field, Label } from "@/components/ui/fieldset";
 
 type CategoriesProps = {
   val: number[];
@@ -25,13 +25,11 @@ export default function Categories(props: CategoriesProps) {
   };
 
   return (
-    <div className={`transition-opacity ${!props.sentiment && "opacity-50"}`}>
-      <div className="flex items-baseline justify-between">
-        <Subheading>Work feels&hellip;</Subheading>
-        <span className="text-sm text-zinc-500 sm:text-xs">Select all that apply</span>
-      </div>
+    <Field disabled={!props.sentiment}>
+      <Label>Work feels&hellip;</Label>
+      <Description>Select all that apply</Description>
 
-      <div className="mt-4 flex flex-wrap gap-3.5 sm:gap-3">
+      <div data-slot="control" className={`flex flex-wrap gap-4 sm:gap-3 ${!props.sentiment && "opacity-50"}`}>
         {shuffled.map((category) => (
           <BadgeButton
             key={category.id}
@@ -43,6 +41,6 @@ export default function Categories(props: CategoriesProps) {
           </BadgeButton>
         ))}
       </div>
-    </div>
+    </Field>
   );
 }

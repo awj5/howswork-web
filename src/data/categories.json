@@ -14,7 +14,7 @@
   {
     "id": 3,
     "name": "Job control",
-    "tag": "restrictive",
+    "tag": "micromanaged",
     "description": "Level of autonomy and influence workers have over their work."
   },
   {
@@ -26,7 +26,7 @@
   {
     "id": 5,
     "name": "Role clarity",
-    "tag": "unclear",
+    "tag": "confusing",
     "description": "Clear understanding of responsibilities and expectations."
   },
   {
@@ -62,7 +62,7 @@
   {
     "id": 11,
     "name": "Physical environment",
-    "tag": "unsuitable",
+    "tag": "uncomfortable",
     "description": "Quality and safety of working conditions."
   },
   {
