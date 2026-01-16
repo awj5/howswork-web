@@ -1,6 +1,7 @@
 "use client";
 
 import { Dispatch, SetStateAction, useState } from "react";
+import type { TeamType } from "@/types";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
@@ -20,7 +21,8 @@ export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
   const [categories, setCategories] = useState<number[]>([]);
   const [attribution, setAttribution] = useState<number[]>([]);
-  const [team, setTeam] = useState(0);
+  const [team, setTeam] = useState<TeamType | null>(null);
+  const [disabled, setDisabled] = useState(false);
 
   const submit = () => {
     props.setDialogOpen(false);
@@ -29,19 +31,19 @@ export default function CheckIn(props: CheckInProps) {
     setSentiment(0);
     setCategories([]);
     setAttribution([]);
-    setTeam(0);
+    setTeam(null);
   };
 
   return (
-    <Dialog open={props.dialogOpen} onClose={props.setDialogOpen}>
+    <Dialog open={props.dialogOpen} onClose={props.setDialogOpen} size="xl">
       <DialogTitle>Check in</DialogTitle>
 
       <DialogDescription className="text-wrap!">
-        Your responses are completely anonymous and help highlight issues that need attention.
+        Takes less than a minute. Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
       <DialogBody>
-        <Fieldset>
+        <Fieldset disabled={disabled}>
           <Sentiment val={sentiment} setVal={setSentiment} />
           <Divider className="my-8" soft />
           <Categories val={categories} setVal={setCategories} sentiment={sentiment} setAttribution={setAttribution} />
@@ -57,7 +59,7 @@ export default function CheckIn(props: CheckInProps) {
           Cancel
         </Button>
 
-        <Button onClick={submit} color="indigo" disabled={!sentiment}>
+        <Button onClick={submit} color="indigo" disabled={!sentiment || disabled}>
           Submit
         </Button>
       </DialogActions>
