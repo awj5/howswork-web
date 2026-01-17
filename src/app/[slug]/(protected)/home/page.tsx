@@ -35,7 +35,7 @@ export default function Home() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      {currentCheckIn && checkInOpen ? (
+      {checkInOpen ? (
         <>
           <EmptyState>
             <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
@@ -51,7 +51,7 @@ export default function Home() {
             </Button>
           </EmptyState>
 
-          <CheckIn id={currentCheckIn.id} dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+          <CheckIn dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
         </>
       ) : (
         checkInOpen !== undefined && (

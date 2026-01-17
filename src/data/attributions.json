@@ -1,7 +1,7 @@
 [
-  { "id": 1, "label": "My manager" },
+  { "id": 1, "label": "Customers/clients" },
   { "id": 2, "label": "Coworkers" },
-  { "id": 3, "label": "Customers/clients" },
+  { "id": 3, "label": "My manager" },
   { "id": 4, "label": "Senior leadership" },
-  { "id": 7, "label": "Other" }
+  { "id": 5, "label": "Other" }
 ]

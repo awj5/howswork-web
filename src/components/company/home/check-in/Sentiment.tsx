@@ -8,20 +8,15 @@ import { Field, Label } from "@/components/ui/fieldset";
 type SentimentProps = {
   val: number;
   setVal: Dispatch<SetStateAction<number>>;
+  disabled: boolean;
 };
 
 export default function Sentiment(props: SentimentProps) {
   return (
-    <Field className="flex flex-col items-center">
+    <Field className="flex flex-col items-center" disabled={props.disabled}>
       <Label>How's work?</Label>
 
-      <div
-        data-slot="control"
-        role="radiogroup"
-        aria-labelledby="headlessui-label-_r_4h_"
-        aria-required="true"
-        className="grid grid-cols-5 gap-4"
-      >
+      <div role="radiogroup" aria-required="true" className="mt-4 grid grid-cols-5 gap-4">
         {SentimentsData.map((sentiment) => (
           <button
             key={sentiment.id}
@@ -29,10 +24,11 @@ export default function Sentiment(props: SentimentProps) {
             aria-checked={props.val === sentiment.id}
             aria-label={sentiment.label}
             onClick={() => props.setVal(sentiment.id)}
-            className="cursor-pointer rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+            className={`${!props.disabled && "cursor-pointer"} rounded-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500`}
+            disabled={props.disabled}
           >
             <div
-              className={`flex flex-col items-center gap-3 transition-opacity ${props.val && props.val !== sentiment.id && "opacity-50"}`}
+              className={`flex flex-col items-center gap-3 ${((props.val && props.val !== sentiment.id) || props.disabled) && "opacity-50"}`}
             >
               <Image
                 src={`/img/emoji-${sentiment.id}.svg`}

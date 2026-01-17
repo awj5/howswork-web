@@ -1,8 +1,7 @@
 "use client";
 
-import { Dispatch, SetStateAction, useMemo } from "react";
+import { Dispatch, SetStateAction } from "react";
 import CategoriesData from "@/data/categories.json";
-import { shuffleArray } from "@/utils/helpers";
 import { BadgeButton } from "@/components/ui/badge";
 import { Description, Field, Label } from "@/components/ui/fieldset";
 
@@ -11,30 +10,30 @@ type CategoriesProps = {
   setVal: Dispatch<SetStateAction<number[]>>;
   sentiment: number;
   setAttribution: Dispatch<SetStateAction<number[]>>;
+  disabled: boolean;
 };
 
 export default function Categories(props: CategoriesProps) {
-  const shuffled = useMemo(() => shuffleArray(CategoriesData), []); // useMemo to prevent re-shuffle on update
+  const disabled = !props.sentiment || props.disabled;
 
   const toggle = (id: number) => {
     props.setVal((prev) => {
       const newVal = prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id];
-      if (!newVal.length) props.setAttribution([]); // Clear
+      if (!newVal.length) props.setAttribution([]); // Clear attribution if no categories selected
       return newVal;
     });
   };
 
   return (
-    <Field disabled={!props.sentiment}>
-      <Label>Work feels&hellip;</Label>
-      <Description>Select all that apply</Description>
+    <Field disabled={disabled}>
+      <Label>Issues (optional)</Label>
+      <Description>Select any workplace issues you've experienced recently.</Description>
 
-      <div data-slot="control" className={`flex flex-wrap gap-4 sm:gap-3 ${!props.sentiment && "opacity-50"}`}>
-        {shuffled.map((category) => (
+      <div className={`mt-4 flex flex-wrap gap-4 sm:gap-3 ${disabled && "opacity-50"}`}>
+        {CategoriesData.map((category) => (
           <BadgeButton
             key={category.id}
             color={props.val.includes(category.id) ? "indigo" : "zinc"}
-            disabled={!props.sentiment}
             onClick={() => toggle(category.id)}
           >
             {category.tag}

@@ -1,18 +1,15 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
-import type { TeamType } from "@/types";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
-import { Fieldset } from "@/components/ui/fieldset";
 import Sentiment from "./check-in/Sentiment";
 import Categories from "./check-in/Categories";
 import Attribution from "./check-in/Attribution";
 import Team from "./check-in/Team";
 
 type CheckInProps = {
-  id: number;
   dialogOpen: boolean;
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
 };
@@ -21,18 +18,22 @@ export default function CheckIn(props: CheckInProps) {
   const [sentiment, setSentiment] = useState(0);
   const [categories, setCategories] = useState<number[]>([]);
   const [attribution, setAttribution] = useState<number[]>([]);
-  const [team, setTeam] = useState<TeamType | null>(null);
+  const [team, setTeam] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
   const submit = () => {
     props.setDialogOpen(false);
+  };
+
+  useEffect(() => {
+    if (!props.dialogOpen) return;
 
     // Reset
     setSentiment(0);
     setCategories([]);
     setAttribution([]);
-    setTeam(null);
-  };
+    setTeam(0);
+  }, [props.dialogOpen]);
 
   return (
     <Dialog open={props.dialogOpen} onClose={props.setDialogOpen} size="xl">
@@ -43,15 +44,22 @@ export default function CheckIn(props: CheckInProps) {
       </DialogDescription>
 
       <DialogBody>
-        <Fieldset disabled={disabled}>
-          <Sentiment val={sentiment} setVal={setSentiment} />
-          <Divider className="my-8" soft />
-          <Categories val={categories} setVal={setCategories} sentiment={sentiment} setAttribution={setAttribution} />
-          <Divider className="my-8" soft />
-          <Attribution val={attribution} setVal={setAttribution} categories={categories} />
-          <Divider className="my-8" soft />
-          <Team val={team} setVal={setTeam} sentiment={sentiment} />
-        </Fieldset>
+        <Divider className="mb-8" />
+        <Sentiment val={sentiment} setVal={setSentiment} disabled={disabled} />
+        <Divider className="my-8" soft />
+
+        <Categories
+          val={categories}
+          setVal={setCategories}
+          sentiment={sentiment}
+          setAttribution={setAttribution}
+          disabled={disabled}
+        />
+
+        <Attribution val={attribution} setVal={setAttribution} categories={categories} disabled={disabled} />
+        <Divider className="my-8" soft />
+        <Team val={team} setVal={setTeam} sentiment={sentiment} disabled={disabled} />
+        <Divider className="mt-8" soft />
       </DialogBody>
 
       <DialogActions>

@@ -9,8 +9,3 @@ export type CheckInType = {
   id: number;
   start: string;
 };
-
-export type TeamType = {
-  id: number;
-  name: string;
-};
