@@ -20,7 +20,7 @@ export default function Attribution(props: AttributionProps) {
       className={`transition-opacity duration-300 ease-in ${!props.categories.length ? "h-0 overflow-hidden opacity-0" : "opacity-100"}`}
     >
       <Divider className="my-8" soft />
-      <Label>Where are these issues coming from?</Label>
+      <Label>What's contributing to these issues?</Label>
 
       <CheckboxGroup className="grid sm:grid-cols-2">
         {AttributionsData.map((attribution) => (
