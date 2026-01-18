@@ -6,18 +6,18 @@ import { Field, Label } from "@/components/ui/fieldset";
 import { Checkbox, CheckboxField, CheckboxGroup } from "@/components/ui/checkbox";
 import { Divider } from "@/components/ui/divider";
 
-type AttributionProps = {
+type AttributionsProps = {
   val: number[];
   setVal: Dispatch<SetStateAction<number[]>>;
-  categories: number[];
+  issues: number[];
   disabled: boolean;
 };
 
-export default function Attribution(props: AttributionProps) {
+export default function Attributions(props: AttributionsProps) {
   return (
     <Field
-      disabled={!props.categories.length || props.disabled}
-      className={`transition-opacity duration-300 ease-in ${!props.categories.length ? "h-0 overflow-hidden opacity-0" : "opacity-100"}`}
+      disabled={!props.issues.length || props.disabled}
+      className={`transition-opacity duration-300 ease-in ${!props.issues.length ? "h-0 overflow-hidden opacity-0" : "opacity-100"}`}
     >
       <Divider className="my-8" soft />
       <Label>What's contributing to these issues?</Label>

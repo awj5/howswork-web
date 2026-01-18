@@ -1,25 +1,25 @@
 "use client";
 
 import { Dispatch, SetStateAction } from "react";
-import CategoriesData from "@/data/categories.json";
+import IssuesData from "@/data/issues.json";
 import { BadgeButton } from "@/components/ui/badge";
 import { Description, Field, Label } from "@/components/ui/fieldset";
 
-type CategoriesProps = {
+type IssuesProps = {
   val: number[];
   setVal: Dispatch<SetStateAction<number[]>>;
   sentiment: number;
-  setAttribution: Dispatch<SetStateAction<number[]>>;
+  setAttributions: Dispatch<SetStateAction<number[]>>;
   disabled: boolean;
 };
 
-export default function Categories(props: CategoriesProps) {
+export default function Issues(props: IssuesProps) {
   const disabled = !props.sentiment || props.disabled;
 
   const toggle = (id: number) => {
     props.setVal((prev) => {
       const newVal = prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id];
-      if (!newVal.length) props.setAttribution([]); // Clear attribution if no categories selected
+      if (!newVal.length) props.setAttributions([]); // Clear attributions if no issues selected
       return newVal;
     });
   };
@@ -30,13 +30,13 @@ export default function Categories(props: CategoriesProps) {
       <Description>Select any workplace issues you've experienced recently.</Description>
 
       <div className={`mt-4 flex flex-wrap gap-4 sm:gap-3 ${disabled && "opacity-50"}`}>
-        {CategoriesData.map((category) => (
+        {IssuesData.map((issue) => (
           <BadgeButton
-            key={category.id}
-            color={props.val.includes(category.id) ? "indigo" : "zinc"}
-            onClick={() => toggle(category.id)}
+            key={issue.id}
+            color={props.val.includes(issue.id) ? "indigo" : "zinc"}
+            onClick={() => toggle(issue.id)}
           >
-            {category.tag}
+            {issue.tag}
           </BadgeButton>
         ))}
       </div>

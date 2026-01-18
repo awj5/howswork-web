@@ -12,12 +12,8 @@ export default function Banner() {
   };
 
   useEffect(() => {
-    try {
-      const alreadyHidden = sessionStorage.getItem("home_banner_hidden");
-      setHidden(alreadyHidden !== null);
-    } catch (error) {
-      console.error(error);
-    }
+    const alreadyHidden = sessionStorage.getItem("home_banner_hidden");
+    setHidden(alreadyHidden !== null);
   }, []);
 
   return (

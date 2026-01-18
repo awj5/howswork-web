@@ -5,33 +5,35 @@ import { useRouter } from "next/navigation";
 import { ChartPieIcon, ArrowRightCircleIcon } from "@heroicons/react/16/solid";
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { useCurrentCheckIn } from "@/hooks/useCurrentCheckIn";
+import { getCurrentCheckIn } from "@/utils/helpers";
 import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import Banner from "@/components/company/home/Banner";
-import CheckIn from "@/components/company/home/CheckIn";
+import Feedback from "@/components/company/home/Feedback";
 
 export default function Home() {
   const router = useRouter();
   const { company } = useCompanyContext();
-  const currentCheckIn = useCurrentCheckIn();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
   const [dialogOpen, setDialogOpen] = useState(false);
 
   useEffect(() => {
-    if (!currentCheckIn) return;
+    if (!company || dialogOpen) return;
 
-    try {
-      // Check if open check-in already completed by user
+    const getCheckIn = async () => {
+      const currentCheckIn = await getCurrentCheckIn(company);
+      if (!currentCheckIn) return; // Pin invalid (will redirect)
+
+      // Check if current check-in already completed by user
+      //localStorage.removeItem(`check-in_completed_${currentCheckIn.id}`);
       const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
       setCheckInOpen(completed === null);
-    } catch (error) {
-      console.error(error);
-      alert("An unexpected error has occurred.");
-    }
-  }, [currentCheckIn]);
+    };
+
+    getCheckIn();
+  }, [company, dialogOpen]);
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -51,7 +53,7 @@ export default function Home() {
             </Button>
           </EmptyState>
 
-          <CheckIn dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+          <Feedback dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
         </>
       ) : (
         checkInOpen !== undefined && (
@@ -63,11 +65,7 @@ export default function Home() {
               requested.
             </Text>
 
-            <Button
-              onClick={() => router.push(`/${company?.slug}/check-ins/${currentCheckIn?.id}`)}
-              outline
-              className="mt-6"
-            >
+            <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
               <ChartPieIcon />
               View previous check-in results
             </Button>
