@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { CheckInType } from "@/types";
-import { useCurrentCheckIn } from "@/hooks/useCurrentCheckIn";
+import { getCurrentCheckIn } from "@/utils/helpers";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
@@ -15,15 +15,16 @@ import { getCheckIn } from "./actions";
 
 export default function CheckIn() {
   const params = useParams<{ id: string }>();
-  const currentCheckIn = useCurrentCheckIn();
   const { company } = useCompanyContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
   const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (!currentCheckIn || !company) return;
+    if (!company) return;
 
     const getCheckInData = async () => {
+      const currentCheckIn = await getCurrentCheckIn(company); // Validate access
+      if (!currentCheckIn) return; // Pin invalid (will redirect)
       const result = await getCheckIn(Number(params.id), company.id);
 
       if (result.error) {
@@ -36,7 +37,7 @@ export default function CheckIn() {
     };
 
     getCheckInData();
-  }, [currentCheckIn, company]);
+  }, [company]);
 
   return (
     <div className="mx-auto max-w-6xl">
