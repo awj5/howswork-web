@@ -21,9 +21,8 @@ export default function Login() {
   const [pinError, setPinError] = useState(false);
 
   const verifyPin = async (companyID: number, pin: number) => {
-    // Use API instead of server action for rate limiting
     try {
-      const response = await fetch("/api/verify", {
+      const response = await fetch("/api/verify-pin", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),
@@ -33,12 +32,13 @@ export default function Login() {
       return json;
     } catch (error) {
       console.error(error);
-      return { error: "Unable to verify PIN." };
+      return { error: "Something went wrong" };
     }
   };
 
   const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!company) return;
     setPinError(false);
 
     // Validate
@@ -48,7 +48,6 @@ export default function Login() {
     }
 
     // Verify
-    if (!company) return;
     setDisabled(true);
     const result = await verifyPin(company.id, Number(pin));
     setDisabled(false);

@@ -1,10 +1,9 @@
 "use client";
 
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { getCurrentCheckIn } from "@/utils/helpers";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { addFeedback } from "@/app/[slug]/(protected)/home/actions";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
@@ -19,6 +18,7 @@ type FeedbackProps = {
 };
 
 export default function Feedback(props: FeedbackProps) {
+  const router = useRouter();
   const { company } = useCompanyContext();
   const [sentiment, setSentiment] = useState(0);
   const [issues, setIssues] = useState<number[]>([]);
@@ -26,22 +26,49 @@ export default function Feedback(props: FeedbackProps) {
   const [team, setTeam] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
+  const addFeedback = async (
+    companyID: number,
+    pin: number,
+    sentiment: number,
+    issues: number[],
+    attributions: number[],
+    team: number
+  ) => {
+    try {
+      const response = await fetch("/api/feedback", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ companyID, pin, sentiment, issues, attributions, team }),
+      });
+
+      const json = await response.json();
+      json.status = response.status;
+      return json;
+    } catch (error) {
+      console.error(error);
+      return { error: "Something went wrong" };
+    }
+  };
+
   const submit = async () => {
     if (!company) return;
     setDisabled(true);
-    const currentCheckIn = await getCurrentCheckIn(company);
-    if (!currentCheckIn) return; // Pin invalid (will redirect)
-    const result = await addFeedback(currentCheckIn.id, sentiment, issues, attributions, team);
+    const pin = sessionStorage.getItem(`company_access_${company.slug}`);
+    const result = await addFeedback(company.id, Number(pin), sentiment, issues, attributions, team);
     setDisabled(false);
 
-    if (result.error) {
+    if (result.error && result.status === 401) {
+      // Pin invalid
+      sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
+      router.push(`/${company.slug}/error`); // Redirect
+    } else if (result.error) {
       toast.error(result.error);
       return;
     }
 
     // Success
-    toast.success("Check-in complete.");
-    localStorage.setItem(`check-in_completed_${currentCheckIn.id}`, "true");
+    toast.success("Check-in complete");
+    localStorage.setItem(`check-in_completed_${result.data}`, "true");
     props.setDialogOpen(false); // Close
   };
 
@@ -77,7 +104,6 @@ export default function Feedback(props: FeedbackProps) {
         />
 
         <Attributions val={attributions} setVal={setAttributions} issues={issues} disabled={disabled} />
-        <Divider className="my-8" soft />
         <Team val={team} setVal={setTeam} sentiment={sentiment} disabled={disabled} />
         <Divider className="mt-8" soft />
       </DialogBody>

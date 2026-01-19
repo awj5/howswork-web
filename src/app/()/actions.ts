@@ -6,7 +6,7 @@ import resend from "@/utils/resend";
 export async function subscribeToMailingList(formData: FormData) {
   let email = formData.get("email") as string;
   email = email.trim().toLowerCase();
-  if (!isValidEmail(email)) return { error: "Email is invalid." };
+  if (!isValidEmail(email)) return { error: "Email is invalid" };
 
   // Save to Resend
   try {
@@ -16,7 +16,7 @@ export async function subscribeToMailingList(formData: FormData) {
     });
   } catch (error) {
     console.error(error);
-    return { error: "Unexpected error subscribing." };
+    return { error: "Unexpected error subscribing" };
   }
 
   return { success: true };

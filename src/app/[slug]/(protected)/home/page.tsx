@@ -3,9 +3,8 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { ChartPieIcon, ArrowRightCircleIcon } from "@heroicons/react/16/solid";
-import { CheckCircleIcon } from "@heroicons/react/24/outline";
+import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { getCurrentCheckIn } from "@/utils/helpers";
 import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
@@ -18,21 +17,48 @@ export default function Home() {
   const { company } = useCompanyContext();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [error, setError] = useState("");
+
+  const getCurrentCheckInData = async (companyID: number, pin: number) => {
+    try {
+      const response = await fetch("/api/check-ins/current", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ companyID, pin }),
+      });
+
+      const json = await response.json();
+      json.status = response.status;
+      return json;
+    } catch (error) {
+      console.error(error);
+      return { error: "Something went wrong" };
+    }
+  };
 
   useEffect(() => {
     if (!company || dialogOpen) return;
 
-    const getCheckIn = async () => {
-      const currentCheckIn = await getCurrentCheckIn(company);
-      if (!currentCheckIn) return; // Pin invalid (will redirect)
+    const getCurrentCheckIn = async () => {
+      const pin = sessionStorage.getItem(`company_access_${company.slug}`);
+      const result = await getCurrentCheckInData(company.id, Number(pin));
+
+      if (result.error && result.status === 401) {
+        // Pin invalid
+        sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
+        router.push(`/${company.slug}/error`); // Redirect
+      } else if (result.error) {
+        setError(result.error);
+        return;
+      }
 
       // Check if current check-in already completed by user
-      //localStorage.removeItem(`check-in_completed_${currentCheckIn.id}`);
-      const completed = localStorage.getItem(`check-in_completed_${currentCheckIn.id}`);
+      //localStorage.removeItem(`check-in_completed_${result.data.id}`);
+      const completed = localStorage.getItem(`check-in_completed_${result.data.id}`);
       setCheckInOpen(completed === null);
     };
 
-    getCheckIn();
+    getCurrentCheckIn();
   }, [company, dialogOpen]);
 
   return (
@@ -55,20 +81,25 @@ export default function Home() {
 
           <Feedback dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
         </>
+      ) : checkInOpen !== undefined ? (
+        <EmptyState>
+          <Subheading>You're all set</Subheading>
+
+          <Text className="mt-1 text-center">
+            Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong> is
+            requested.
+          </Text>
+
+          <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
+            <ChartPieIcon />
+            View previous check-in results
+          </Button>
+        </EmptyState>
       ) : (
-        checkInOpen !== undefined && (
+        error && (
           <EmptyState>
-            <Subheading>You're all set</Subheading>
-
-            <Text className="mt-1 text-center">
-              Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong> is
-              requested.
-            </Text>
-
-            <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
-              <ChartPieIcon />
-              View previous check-in results
-            </Button>
+            <ExclamationCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
+            <Subheading className="mt-2 text-center">{error}</Subheading>
           </EmptyState>
         )
       )}
