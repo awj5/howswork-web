@@ -17,7 +17,7 @@ export default function Newsletter() {
     const email = formData.get("email") as string;
 
     if (!isValidEmail(email)) {
-      toast.error("Email is invalid.");
+      toast.error("Email is invalid");
       return;
     }
 
