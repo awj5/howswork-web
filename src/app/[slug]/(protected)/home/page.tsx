@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { ChartPieIcon, ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
 import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
+import { useConcernDialogContext } from "@/hooks/useConcernDialogContext";
 import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
@@ -15,6 +16,7 @@ import Feedback from "@/components/company/home/Feedback";
 export default function Home() {
   const router = useRouter();
   const { company } = useCompanyContext();
+  const { setConcernDialog } = useConcernDialogContext();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [error, setError] = useState("");
@@ -87,11 +89,12 @@ export default function Home() {
           <Subheading>You're all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. If something doesn't feel right, you can also raise a concern. It's anonymous and
-            helps ensure serious issues are seen and addressed.
+            Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
+            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It's anonymous and helps ensure serious issues are seen
+            and addressed.
           </Text>
 
-          <Button onClick={() => null} color="indigo" className="mt-6">
+          <Button onClick={() => setConcernDialog(true)} color="indigo" className="mt-6">
             <HandRaisedIcon />
             Raise a concern
           </Button>

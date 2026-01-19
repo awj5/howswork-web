@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import supabase from "@/utils/supabase";
-import CompanyProvider from "@/components/company/protected-layout/CompanyProvider";
-import AccessGuard from "@/components/company/protected-layout/AccessGuard";
+import CompanyProvider from "@/components/company/layout/CompanyProvider";
+import AccessGuard from "@/components/company/layout/AccessGuard";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   // Set page title

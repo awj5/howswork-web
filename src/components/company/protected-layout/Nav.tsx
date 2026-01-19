@@ -1,8 +1,9 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { HandRaisedIcon } from "@heroicons/react/16/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
+import { useConcernDialogContext } from "@/hooks/useConcernDialogContext";
 import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from "@/components/ui/navbar";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
@@ -16,8 +17,8 @@ export const navItems = [
 
 export default function Nav() {
   const pathname = usePathname();
-  const router = useRouter();
   const { company } = useCompanyContext();
+  const { setConcernDialog } = useConcernDialogContext();
 
   return (
     <Navbar>
@@ -33,7 +34,7 @@ export default function Nav() {
 
       <NavbarSpacer />
 
-      <Button onClick={() => router.push(`/${company?.slug}/concerns/new`)} color="indigo">
+      <Button onClick={() => setConcernDialog(true)} color="indigo">
         <HandRaisedIcon />
         Raise a concern
       </Button>
