@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import { ChartPieIcon, ArrowRightCircleIcon } from "@heroicons/react/16/solid";
+import { ChartPieIcon, ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
 import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import EmptyState from "@/components/EmptyState";
@@ -18,6 +18,7 @@ export default function Home() {
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
   const [dialogOpen, setDialogOpen] = useState(false);
   const [error, setError] = useState("");
+  const [showRaiseConcern, setShowRaiseConcern] = useState(false);
 
   const getCurrentCheckInData = async (companyID: number, pin: number) => {
     try {
@@ -79,8 +80,22 @@ export default function Home() {
             </Button>
           </EmptyState>
 
-          <Feedback dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+          <Feedback dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} setShowRaiseConcern={setShowRaiseConcern} />
         </>
+      ) : checkInOpen !== undefined && showRaiseConcern ? (
+        <EmptyState>
+          <Subheading>You're all set</Subheading>
+
+          <Text className="mt-1 text-center">
+            Thanks for checking in. If something doesn't feel right, you can also raise a concern. It's anonymous and
+            helps ensure serious issues are seen and addressed.
+          </Text>
+
+          <Button onClick={() => null} color="indigo" className="mt-6">
+            <HandRaisedIcon />
+            Raise a concern
+          </Button>
+        </EmptyState>
       ) : checkInOpen !== undefined ? (
         <EmptyState>
           <Subheading>You're all set</Subheading>

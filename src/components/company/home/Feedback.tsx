@@ -15,6 +15,7 @@ import Team from "./feedback/Team";
 type FeedbackProps = {
   dialogOpen: boolean;
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
+  setShowRaiseConcern: Dispatch<SetStateAction<boolean>>;
 };
 
 export default function Feedback(props: FeedbackProps) {
@@ -69,6 +70,7 @@ export default function Feedback(props: FeedbackProps) {
     // Success
     toast.success("Check-in complete");
     localStorage.setItem(`check-in_completed_${result.data}`, "true");
+    if ([8, 9, 11, 12, 13, 14, 15].some((id) => issues.includes(id))) props.setShowRaiseConcern(true); // Serious issues will show raise a concern button
     props.setDialogOpen(false); // Close
   };
 
