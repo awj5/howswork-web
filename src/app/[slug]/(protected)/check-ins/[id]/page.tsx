@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
@@ -16,6 +17,7 @@ export default function CheckIn() {
   const { company } = useCompanyContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
   const [error, setError] = useState("");
+  const [startDate, setStartDate] = useState<DateTime>();
 
   const getCheckInData = async (companyID: number, pin: number) => {
     try {
@@ -51,6 +53,7 @@ export default function CheckIn() {
       }
 
       setCheckIn(result.data);
+      setStartDate(DateTime.fromISO(result.data.start).toUTC()); // Convert to date object (UTC)
     };
 
     getCheckIn();
@@ -60,7 +63,7 @@ export default function CheckIn() {
     <div className="mx-auto max-w-6xl">
       {checkIn ? (
         <>
-          <Heading>Check-in {checkIn.start}</Heading>
+          <Heading>Check-in on {startDate?.setZone(company?.timezone).toFormat("cccc, dd LLLL yyyy")}</Heading>
           <Divider className="mt-6" />
         </>
       ) : (

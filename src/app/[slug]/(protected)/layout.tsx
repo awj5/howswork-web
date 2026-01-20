@@ -1,8 +1,9 @@
-import ConcernDialogProvider from "@/components/company/protected-layout/ConcernDialogProvider";
+import DialogProvider from "@/components/company/protected-layout/DialogProvider";
 import { StackedLayout } from "@/components/ui/stacked-layout";
 import Nav from "@/components/company/protected-layout/Nav";
 import Side from "@/components/company/protected-layout/Side";
 import Concern from "@/components/company/protected-layout/Concern";
+import Feedback from "@/components/company/protected-layout/Feedback";
 
 export default async function ProtectedLayout({
   children,
@@ -10,11 +11,12 @@ export default async function ProtectedLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ConcernDialogProvider>
+    <DialogProvider>
       <StackedLayout navbar={<Nav />} sidebar={<Side />}>
         {children}
+        <Feedback />
         <Concern />
       </StackedLayout>
-    </ConcernDialogProvider>
+    </DialogProvider>
   );
 }

@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { HandRaisedIcon } from "@heroicons/react/16/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { useConcernDialogContext } from "@/hooks/useConcernDialogContext";
+import { useDialogContext } from "@/hooks/useDialogContext";
 import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from "@/components/ui/navbar";
 import { Logo } from "@/components/Logo";
 import { Button } from "@/components/ui/button";
@@ -18,7 +18,7 @@ export const navItems = [
 export default function Nav() {
   const pathname = usePathname();
   const { company } = useCompanyContext();
-  const { setConcernDialog } = useConcernDialogContext();
+  const { setConcernDialog } = useDialogContext();
 
   return (
     <Navbar>

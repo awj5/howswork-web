@@ -1,9 +1,10 @@
 "use client";
 
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
+import { useDialogContext } from "@/hooks/useDialogContext";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
@@ -12,15 +13,10 @@ import Issues from "./feedback/Issues";
 import Attributions from "./feedback/Attributions";
 import Team from "./feedback/Team";
 
-type FeedbackProps = {
-  dialogOpen: boolean;
-  setDialogOpen: Dispatch<SetStateAction<boolean>>;
-  setShowRaiseConcern: Dispatch<SetStateAction<boolean>>;
-};
-
-export default function Feedback(props: FeedbackProps) {
+export default function Feedback() {
   const router = useRouter();
   const { company } = useCompanyContext();
+  const { feedbackDialog, setFeedbackDialog } = useDialogContext();
   const [sentiment, setSentiment] = useState(0);
   const [issues, setIssues] = useState<number[]>([]);
   const [attributions, setAttributions] = useState<number[]>([]);
@@ -70,22 +66,26 @@ export default function Feedback(props: FeedbackProps) {
     // Success
     toast.success("Check-in complete");
     localStorage.setItem(`check-in_completed_${result.data}`, "true");
-    if ([8, 9, 11, 12, 13, 14, 15].some((id) => issues.includes(id))) props.setShowRaiseConcern(true); // Serious issues will show raise a concern button
-    props.setDialogOpen(false); // Close
+    const flag = [8, 9, 11, 12, 13, 14, 15].some((id) => issues.includes(id)); // Serious issues will show raise a concern button
+    setFeedbackDialog({ open: false, flagConcern: flag }); // Close
   };
 
   useEffect(() => {
-    if (!props.dialogOpen) return;
+    if (!feedbackDialog?.open) return;
 
     // Reset on open
     setSentiment(0);
     setIssues([]);
     setAttributions([]);
     setTeam(0);
-  }, [props.dialogOpen]);
+  }, [feedbackDialog]);
 
   return (
-    <Dialog open={props.dialogOpen} onClose={props.setDialogOpen} size="xl">
+    <Dialog
+      open={feedbackDialog?.open ?? false}
+      onClose={() => setFeedbackDialog((prev) => ({ open: false, flagConcern: prev?.flagConcern ?? false }))}
+      size="xl"
+    >
       <DialogTitle>Check in</DialogTitle>
 
       <DialogDescription className="text-wrap!">
@@ -111,7 +111,7 @@ export default function Feedback(props: FeedbackProps) {
       </DialogBody>
 
       <DialogActions>
-        <Button plain onClick={() => props.setDialogOpen(false)}>
+        <Button plain onClick={() => setFeedbackDialog({ open: false, flagConcern: false })}>
           Cancel
         </Button>
 

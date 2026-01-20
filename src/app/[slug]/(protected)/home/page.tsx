@@ -5,22 +5,19 @@ import { useRouter } from "next/navigation";
 import { ChartPieIcon, ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
 import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { useConcernDialogContext } from "@/hooks/useConcernDialogContext";
+import { useDialogContext } from "@/hooks/useDialogContext";
 import EmptyState from "@/components/EmptyState";
 import { Subheading } from "@/components/ui/heading";
 import { Strong, Text } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import Banner from "@/components/company/home/Banner";
-import Feedback from "@/components/company/home/Feedback";
 
 export default function Home() {
   const router = useRouter();
   const { company } = useCompanyContext();
-  const { setConcernDialog } = useConcernDialogContext();
+  const { feedbackDialog, setFeedbackDialog, setConcernDialog } = useDialogContext();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
-  const [dialogOpen, setDialogOpen] = useState(false);
   const [error, setError] = useState("");
-  const [showRaiseConcern, setShowRaiseConcern] = useState(false);
 
   const getCurrentCheckInData = async (companyID: number, pin: number) => {
     try {
@@ -40,7 +37,7 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (!company || dialogOpen) return;
+    if (!company || feedbackDialog?.open) return;
 
     const getCurrentCheckIn = async () => {
       const pin = sessionStorage.getItem(`company_access_${company.slug}`);
@@ -62,7 +59,7 @@ export default function Home() {
     };
 
     getCurrentCheckIn();
-  }, [company, dialogOpen]);
+  }, [company, feedbackDialog]);
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -76,15 +73,17 @@ export default function Home() {
               <Strong>{company?.name}</Strong> wants to know how things are going.
             </Text>
 
-            <Button onClick={() => setDialogOpen(true)} color="indigo" className="mt-6">
+            <Button
+              onClick={() => setFeedbackDialog({ open: true, flagConcern: false })}
+              color="indigo"
+              className="mt-6"
+            >
               Complete check-in
               <ArrowRightCircleIcon />
             </Button>
           </EmptyState>
-
-          <Feedback dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} setShowRaiseConcern={setShowRaiseConcern} />
         </>
-      ) : checkInOpen !== undefined && showRaiseConcern ? (
+      ) : checkInOpen !== undefined && feedbackDialog?.flagConcern ? (
         <EmptyState>
           <Subheading>You're all set</Subheading>
 

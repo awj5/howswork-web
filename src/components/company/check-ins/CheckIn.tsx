@@ -17,11 +17,8 @@ export default function CheckIn(props: CheckInProps) {
   return (
     <TableRow href={isScheduled ? undefined : `/${company?.slug}/check-ins/${props.data.id}`}>
       <TableCell className={`font-medium ${isScheduled && "text-zinc-500"}`}>
-        <span className="sm:hidden">{startDT.setZone(props.timezone).toFormat("dd LLL yyyy, h:mm a")}</span>
-
-        <span className="hidden sm:inline">
-          {startDT.setZone(props.timezone).toFormat("cccc, dd LLLL yyyy, h:mm a")}
-        </span>
+        <span className="sm:hidden">{startDT.setZone(props.timezone).toFormat("ccc, dd LLL yyyy")}</span>
+        <span className="hidden sm:inline">{startDT.setZone(props.timezone).toFormat("cccc, dd LLLL yyyy")}</span>
       </TableCell>
 
       <TableCell>
