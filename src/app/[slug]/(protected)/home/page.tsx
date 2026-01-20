@@ -110,7 +110,7 @@ export default function Home() {
 
           <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
             <ChartPieIcon />
-            View previous check-in results
+            View check-in insights
           </Button>
         </EmptyState>
       ) : (

@@ -10,7 +10,7 @@ export async function POST(req: NextRequest) {
     // Get current check-in
     const { data: checkInData, error: checkInError } = await supabase
       .from("check_ins")
-      .select("id, start")
+      .select("id, start, status")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", "Open")

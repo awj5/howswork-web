@@ -8,4 +8,5 @@ export type CompanyType = {
 export type CheckInType = {
   id: number;
   start: string;
+  status: string;
 };

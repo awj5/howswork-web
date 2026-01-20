@@ -8,18 +8,18 @@ export async function POST(req: NextRequest) {
     const { companyID, pin } = await req.json();
 
     // Verify pin
-    const { data: checkInsData, error: checkInsError } = await supabase
+    const { data: verifyData, error: verifyError } = await supabase
       .from("check_ins")
-      .select("*")
+      .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", "Open")
       .limit(1);
 
-    if (checkInsError) throw new Error(checkInsError.message);
+    if (verifyError) throw new Error(verifyError.message);
 
     // Apply rate limiting if invalid
-    if (!checkInsData.length) {
+    if (!verifyData.length) {
       const ip = getIP(req);
       await rateLimit.limit(`company:${companyID}:ip:${ip}`); // Limit per company + IP using Upstash and Redis
       return NextResponse.json({ error: "Access denied" }, { status: 401 });

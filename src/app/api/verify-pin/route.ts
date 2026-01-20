@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
 
     const { data: checkInsData, error: checkInsError } = await supabase
       .from("check_ins")
-      .select("*")
+      .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", "Open")

@@ -3,10 +3,9 @@ import supabase from "@/utils/supabase";
 import rateLimit from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
-export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function POST(req: NextRequest) {
   try {
-    const { id } = await params;
-    const { companyID, pin } = await req.json();
+    const { companyID, pin, from, to } = await req.json();
 
     // Verify pin
     const { data: verifyData, error: verifyError } = await supabase
@@ -26,17 +25,22 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 
-    // Get check-in
-    const { data: checkInData, error: checkInError } = await supabase
+    // Get company check-ins
+    const {
+      data: checkInsData,
+      error: checkInsError,
+      count: checkInsCount,
+    } = await supabase
       .from("check_ins")
-      .select("id, start, status")
+      .select("id, start, status", {
+        count: "exact",
+      })
       .eq("company_id", companyID)
-      .eq("id", Number(id))
-      .maybeSingle();
+      .order("start", { ascending: false })
+      .range(from, to);
 
-    if (checkInError) throw new Error(checkInError.message);
-    if (!checkInData) return NextResponse.json({ error: "Check-in not found" }, { status: 404 });
-    return NextResponse.json({ data: checkInData }, { status: 200 }); // Success
+    if (checkInsError) throw new Error(checkInsError.message);
+    return NextResponse.json({ data: checkInsData, count: checkInsCount }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
