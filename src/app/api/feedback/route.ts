@@ -50,6 +50,7 @@ export async function POST(req: NextRequest) {
         issues: issues.length ? issues : null,
         attributions: attributions.length ? attributions : null,
         team: team || null,
+        company_id: companyID,
       });
 
       if (insertFeedbackError) throw new Error(insertFeedbackError.message);
