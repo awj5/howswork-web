@@ -38,7 +38,12 @@ export default function Details(props: DetailsProps) {
           {buttonText}
         </Button>
 
-        <TextLink href="" target="_blank" className="text-sm sm:text-xs">
+        <TextLink
+          href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+          target="_blank"
+          className={`text-sm sm:text-xs ${props.disabled && "pointer-events-none opacity-50"}`}
+          tabIndex={props.disabled ? -1 : undefined}
+        >
           What's this?
         </TextLink>
       </div>

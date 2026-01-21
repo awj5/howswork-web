@@ -53,7 +53,7 @@ export default function Concern() {
           Cancel
         </Button>
 
-        <Button onClick={submit} color="indigo" disabled={details === "" || disabled}>
+        <Button onClick={submit} color="indigo" disabled={details.trim() === "" || disabled}>
           Send
         </Button>
       </DialogActions>
