@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
 import { Button } from "@/components/ui/button";
@@ -19,7 +20,43 @@ export default function Concern() {
   const [details, setDetails] = useState("");
   const [disabled, setDisabled] = useState(false);
 
-  const submit = () => {};
+  const addConcern = async (companyID: number, pin: number, details: string, issues: number[]) => {
+    try {
+      const response = await fetch("/api/concern", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ companyID, pin, details, issues }),
+      });
+
+      const json = await response.json();
+      json.status = response.status;
+      return json;
+    } catch (error) {
+      console.error(error);
+      return { error: "Something went wrong" };
+    }
+  };
+
+  const submit = async () => {
+    if (!company) return;
+    setDisabled(true);
+    const pin = sessionStorage.getItem(`company_access_${company.slug}`);
+    const result = await addConcern(company.id, Number(pin), details, issues);
+    setDisabled(false);
+
+    if (result.error && result.status === 401) {
+      // Pin invalid
+      sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
+      router.push(`/${company.slug}/error`); // Redirect
+    } else if (result.error) {
+      toast.error(result.error);
+      return;
+    }
+
+    // Success
+    toast.success("Concern sent");
+    setConcernDialog(false); // Close
+  };
 
   useEffect(() => {
     if (!concernDialog) return;

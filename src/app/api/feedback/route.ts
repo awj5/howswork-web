@@ -6,6 +6,7 @@ import { getIP } from "@/utils/helpers";
 export async function POST(req: NextRequest) {
   try {
     const { companyID, pin, sentiment, issues, attributions, team } = await req.json();
+    if (!sentiment) throw new Error("Form is invalid");
 
     // Get current check-in
     const { data: checkInsData, error: checkInsError } = await supabase
