@@ -53,7 +53,7 @@ export default function Home() {
       }
 
       // Check if current check-in already completed by user
-      //localStorage.removeItem(`check-in_completed_${result.data.id}`);
+      //localStorage.removeItem(`check-in_completed_${result.data.id}`); // Used for testing
       const completed = localStorage.getItem(`check-in_completed_${result.data.id}`);
       setCheckInOpen(completed === null);
     };

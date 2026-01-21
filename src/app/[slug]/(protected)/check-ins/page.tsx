@@ -66,7 +66,7 @@ export default function CheckIns() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <Heading>{company?.name} Check-ins</Heading>
+      <Heading>Check-ins with {company?.name}</Heading>
 
       {checkIns && (
         <>
