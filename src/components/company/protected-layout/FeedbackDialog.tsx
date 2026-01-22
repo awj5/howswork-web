@@ -52,7 +52,6 @@ export default function FeedbackDialog() {
     setDisabled(true);
     const pin = sessionStorage.getItem(`company_access_${company.slug}`);
     const result = await addFeedback(company.id, Number(pin), sentiment, issues, attributions, team);
-    setDisabled(false);
 
     if (result.error && result.status === 401) {
       // Pin invalid
@@ -60,6 +59,7 @@ export default function FeedbackDialog() {
       router.push(`/${company.slug}/error`); // Redirect
     } else if (result.error) {
       toast.error(result.error);
+      setDisabled(false);
       return;
     }
 
@@ -74,6 +74,7 @@ export default function FeedbackDialog() {
     if (!feedbackDialog?.open) return;
 
     // Reset on open
+    setDisabled(false);
     setSentiment(0);
     setIssues([]);
     setAttributions([]);

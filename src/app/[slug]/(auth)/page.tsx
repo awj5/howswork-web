@@ -50,10 +50,10 @@ export default function Login() {
     // Verify
     setDisabled(true);
     const result = await verifyPin(company.id, Number(pin));
-    setDisabled(false);
 
     if (result.error) {
       toast.error(result.error);
+      setDisabled(false);
       return;
     }
 

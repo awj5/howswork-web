@@ -44,7 +44,6 @@ export default function ConcernDialog() {
     setDisabled(true);
     const pin = sessionStorage.getItem(`company_access_${company.slug}`);
     const result = await addConcern(company.id, Number(pin), details, issues);
-    setDisabled(false);
 
     if (result.error && result.status === 401) {
       // Pin invalid
@@ -52,6 +51,7 @@ export default function ConcernDialog() {
       router.push(`/${company.slug}/error`); // Redirect
     } else if (result.error) {
       toast.error(result.error);
+      setDisabled(false);
       return;
     }
 
@@ -65,6 +65,7 @@ export default function ConcernDialog() {
     if (!concernDialog) return;
 
     // Reset on open
+    setDisabled(false);
     setDetails("");
     setIssues([]);
   }, [concernDialog]);
