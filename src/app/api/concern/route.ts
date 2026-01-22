@@ -27,12 +27,10 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 
-    // Generate tracking no. and access code
-    const tracking = Array.from({ length: 6 }, () =>
+    // Generate tracking no.
+    const tracking = Array.from({ length: 8 }, () =>
       "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".charAt(Math.floor(Math.random() * 36))
     ).join("");
-
-    const code = Math.floor(1000 + Math.random() * 9000).toString();
 
     // Add concern
     const { error: insertConcernError } = await supabase.from("concerns").insert({
@@ -40,11 +38,10 @@ export async function POST(req: NextRequest) {
       issues: issues.length ? issues : null,
       company_id: companyID,
       tracking,
-      access_code: code,
     });
 
     if (insertConcernError) throw new Error(insertConcernError.message);
-    return NextResponse.json({ data: checkInsData.id, tracking, code }, { status: 200 }); // Success
+    return NextResponse.json({ data: checkInsData.id, tracking }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

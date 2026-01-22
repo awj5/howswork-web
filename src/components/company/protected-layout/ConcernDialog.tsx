@@ -57,7 +57,7 @@ export default function ConcernDialog() {
 
     // Success
     toast.success("Concern sent");
-    setConcernAlert({ open: true, tracking: result.tracking, code: result.code });
+    setConcernAlert({ open: true, tracking: result.tracking });
     setConcernDialog(false); // Close
   };
 

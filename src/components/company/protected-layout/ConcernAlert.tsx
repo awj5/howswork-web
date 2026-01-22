@@ -10,24 +10,21 @@ export default function ConcernAlert() {
   const { concernAlert, setConcernAlert } = useAlertContext();
 
   const copyClick = () => {
-    const text = `Tracking: HW-${concernAlert?.tracking}\nAccess code: ${concernAlert?.code}`;
+    const text = `HW-${concernAlert?.tracking}`;
     navigator.clipboard.writeText(text);
   };
 
   return (
     <Alert open={concernAlert?.open ?? false} onClose={() => null}>
-      <AlertTitle>Keep these details safe</AlertTitle>
+      <AlertTitle>Save your tracking number</AlertTitle>
 
       <AlertDescription>
         Tracking: <Code>HW-{concernAlert?.tracking}</Code>
       </AlertDescription>
 
       <AlertDescription>
-        Access code: <Code>{concernAlert?.code}</Code>
-      </AlertDescription>
-
-      <AlertDescription>
-        Copy these now. You'll need them to check back for updates. These can't be recovered if lost.
+        You'll need this to check back for updates on your concern. We can't recover it if you lose it, so save it
+        somewhere private and secure.
       </AlertDescription>
 
       <AlertActions>
