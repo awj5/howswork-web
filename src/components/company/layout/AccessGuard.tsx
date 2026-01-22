@@ -20,7 +20,7 @@ export default function AccessGuard({ slug, children }: { slug: string; children
 
     // Redirect to access page if pin is invalid
     if (!isAuthPage && !pin) {
-      router.push(`/${slug}`);
+      router.push(`/${slug}${pathname !== `/${slug}/home` ? `?return_to=${encodeURIComponent(pathname)}` : ""}`);
       return;
     }
 

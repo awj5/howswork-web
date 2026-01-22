@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { toast } from "sonner";
 import VerificationInput from "react-verification-input";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
@@ -15,6 +15,7 @@ import Banner from "@/components/company/login/Banner";
 
 export default function Login() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { company } = useCompanyContext();
   const [disabled, setDisabled] = useState(false);
   const [pin, setPin] = useState("");
@@ -59,7 +60,8 @@ export default function Login() {
 
     // Success
     sessionStorage.setItem(`company_access_${company.slug}`, pin); // Store pin for this session
-    router.push(`/${company.slug}/home`); // Redirect
+    const returnTo = validateReturnTo(searchParams.get("return_to")); // Validate redirect
+    router.push(returnTo ?? `/${company.slug}/home`); // Redirect
   };
 
   return (
@@ -114,4 +116,10 @@ export default function Login() {
       </AuthLayout>
     </>
   );
+}
+
+function validateReturnTo(path: string | null) {
+  if (!path) return null;
+  if (path.startsWith("/") && !path.startsWith("//")) return path; // Only allow paths starting with / but not //
+  return null;
 }
