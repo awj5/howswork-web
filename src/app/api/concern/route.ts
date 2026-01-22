@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
 import rateLimit from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
+import { encrypt } from "@/utils/encryption";
 
 export async function POST(req: NextRequest) {
   try {
     const { companyID, pin, details, issues } = await req.json();
-    if (!details) throw new Error("Form is invalid");
+    if (!details.trim()) throw new Error("Form is invalid");
 
     // Get current check-in
     const { data: checkInsData, error: checkInsError } = await supabase
@@ -35,7 +36,7 @@ export async function POST(req: NextRequest) {
 
     // Add concern
     const { error: insertConcernError } = await supabase.from("concerns").insert({
-      details,
+      details: encrypt(details.trim().slice(0, 800)),
       issues: issues.length ? issues : null,
       company_id: companyID,
       tracking,
