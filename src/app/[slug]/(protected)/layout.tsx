@@ -1,9 +1,11 @@
 import DialogProvider from "@/components/company/protected-layout/DialogProvider";
+import AlertProvider from "@/components/company/protected-layout/AlertProvider";
 import { StackedLayout } from "@/components/ui/stacked-layout";
 import Nav from "@/components/company/protected-layout/Nav";
 import Side from "@/components/company/protected-layout/Side";
-import Concern from "@/components/company/protected-layout/Concern";
-import Feedback from "@/components/company/protected-layout/Feedback";
+import ConcernDialog from "@/components/company/protected-layout/ConcernDialog";
+import FeedbackDialog from "@/components/company/protected-layout/FeedbackDialog";
+import ConcernAlert from "@/components/company/protected-layout/ConcernAlert";
 
 export default async function ProtectedLayout({
   children,
@@ -11,12 +13,15 @@ export default async function ProtectedLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <DialogProvider>
-      <StackedLayout navbar={<Nav />} sidebar={<Side />}>
-        {children}
-        <Feedback />
-        <Concern />
-      </StackedLayout>
-    </DialogProvider>
+    <AlertProvider>
+      <DialogProvider>
+        <StackedLayout navbar={<Nav />} sidebar={<Side />}>
+          {children}
+          <FeedbackDialog />
+          <ConcernDialog />
+          <ConcernAlert />
+        </StackedLayout>
+      </DialogProvider>
+    </AlertProvider>
   );
 }

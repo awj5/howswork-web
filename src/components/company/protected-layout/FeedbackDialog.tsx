@@ -13,7 +13,7 @@ import Issues from "./feedback/Issues";
 import Attributions from "./feedback/Attributions";
 import Team from "./feedback/Team";
 
-export default function Feedback() {
+export default function FeedbackDialog() {
   const router = useRouter();
   const { company } = useCompanyContext();
   const { feedbackDialog, setFeedbackDialog } = useDialogContext();
@@ -81,11 +81,7 @@ export default function Feedback() {
   }, [feedbackDialog]);
 
   return (
-    <Dialog
-      open={feedbackDialog?.open ?? false}
-      onClose={() => setFeedbackDialog((prev) => ({ open: false, flagConcern: prev?.flagConcern ?? false }))}
-      size="xl"
-    >
+    <Dialog open={feedbackDialog?.open ?? false} onClose={() => setFeedbackDialog(null)} size="xl">
       <DialogTitle>Check in</DialogTitle>
 
       <DialogDescription className="text-wrap!">
@@ -111,7 +107,7 @@ export default function Feedback() {
       </DialogBody>
 
       <DialogActions>
-        <Button plain onClick={() => setFeedbackDialog({ open: false, flagConcern: false })}>
+        <Button plain onClick={() => setFeedbackDialog(null)}>
           Cancel
         </Button>
 

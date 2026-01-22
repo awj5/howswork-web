@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
+import { useAlertContext } from "@/hooks/useAlertContext";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
@@ -12,10 +13,11 @@ import { TextLink } from "@/components/ui/text";
 import Issues from "./concern/Issues";
 import Details from "./concern/Details";
 
-export default function Concern() {
+export default function ConcernDialog() {
   const router = useRouter();
   const { company } = useCompanyContext();
   const { concernDialog, setConcernDialog } = useDialogContext();
+  const { setConcernAlert } = useAlertContext();
   const [issues, setIssues] = useState<number[]>([]);
   const [details, setDetails] = useState("");
   const [disabled, setDisabled] = useState(false);
@@ -55,6 +57,7 @@ export default function Concern() {
 
     // Success
     toast.success("Concern sent");
+    setConcernAlert({ open: true, tracking: result.tracking, code: result.code });
     setConcernDialog(false); // Close
   };
 

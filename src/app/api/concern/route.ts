@@ -44,7 +44,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (insertConcernError) throw new Error(insertConcernError.message);
-    return NextResponse.json({ data: checkInsData.id }, { status: 200 }); // Success
+    return NextResponse.json({ data: checkInsData.id, tracking, code }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
