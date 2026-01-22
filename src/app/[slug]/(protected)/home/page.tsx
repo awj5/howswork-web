@@ -85,7 +85,8 @@ export default function Home() {
         </>
       ) : checkInOpen !== undefined && feedbackDialog?.flagConcern ? (
         <EmptyState>
-          <Subheading>You're all set</Subheading>
+          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
+          <Subheading className="mt-2">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
@@ -100,7 +101,8 @@ export default function Home() {
         </EmptyState>
       ) : checkInOpen !== undefined ? (
         <EmptyState>
-          <Subheading>You're all set</Subheading>
+          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
+          <Subheading className="mt-2">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong> is

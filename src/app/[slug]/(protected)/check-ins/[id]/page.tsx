@@ -74,7 +74,8 @@ export default function CheckIn() {
     <div className="mx-auto max-w-6xl">
       {checkIn?.status === "Open" && completed && feedbackDialog?.flagConcern ? (
         <EmptyState>
-          <Subheading>You're all set</Subheading>
+          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
+          <Subheading className="mt-2">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
@@ -89,7 +90,8 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn?.status === "Open" && completed ? (
         <EmptyState>
-          <Subheading>You're all set</Subheading>
+          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
+          <Subheading className="mt-2">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. Insights from this check-in will be available once the next check-in opens.
