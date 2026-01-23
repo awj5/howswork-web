@@ -57,6 +57,7 @@ export default function FeedbackDialog() {
       // Pin invalid
       sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
       router.push(`/${company.slug}/error`); // Redirect
+      return;
     } else if (result.error) {
       toast.error(result.error);
       setDisabled(false);

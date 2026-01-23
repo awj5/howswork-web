@@ -60,7 +60,7 @@ export default function Details(props: DetailsProps) {
 
       {!backupVal ? (
         <div className="mt-4 flex items-center gap-3">
-          <Button onClick={anonymizeClick} outline>
+          <Button onClick={anonymizeClick} outline disabled={!props.val.trim()}>
             <SparklesIcon />
             {buttonText}
           </Button>

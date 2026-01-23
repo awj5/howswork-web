@@ -1,12 +1,18 @@
 import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
-import rateLimit from "@/utils/rate-limit";
+import { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
 export async function POST(req: NextRequest) {
   try {
     const { companyID, pin, sentiment, issues, attributions, team } = await req.json();
     if (!sentiment) throw new Error("Form is invalid");
+    const ip = getIP(req);
+    const identifier = `company:${companyID}:ip:${ip}`;
+
+    // Check if already blocked
+    const blocked = await redis.get(`blocked:${identifier}`);
+    if (blocked) return NextResponse.json({ error: "Access denied" }, { status: 401 });
 
     // Get current check-in
     const { data: checkInsData, error: checkInsError } = await supabase
@@ -21,8 +27,7 @@ export async function POST(req: NextRequest) {
 
     // Apply rate limiting if invalid
     if (!checkInsData) {
-      const ip = getIP(req);
-      await rateLimit.limit(`company:${companyID}:ip:${ip}`); // Limit per company + IP using Upstash and Redis
+      await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 

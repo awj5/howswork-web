@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
-import rateLimit from "@/utils/rate-limit";
+import { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 import { encrypt } from "@/utils/encryption";
 
@@ -8,22 +8,27 @@ export async function POST(req: NextRequest) {
   try {
     const { companyID, pin, details, issues } = await req.json();
     if (!details.trim()) throw new Error("Form is invalid");
+    const ip = getIP(req);
+    const identifier = `company:${companyID}:ip:${ip}`;
 
-    // Get current check-in
-    const { data: checkInsData, error: checkInsError } = await supabase
+    // Check if already blocked
+    const blocked = await redis.get(`blocked:${identifier}`);
+    if (blocked) return NextResponse.json({ error: "Access denied" }, { status: 401 });
+
+    // Verify pin
+    const { data: verifyData, error: verifyError } = await supabase
       .from("check_ins")
       .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", "Open")
-      .maybeSingle();
+      .limit(1);
 
-    if (checkInsError) throw new Error(checkInsError.message);
+    if (verifyError) throw new Error(verifyError.message);
 
-    // Apply rate limiting if invalid
-    if (!checkInsData) {
-      const ip = getIP(req);
-      await rateLimit.limit(`company:${companyID}:ip:${ip}`); // Limit per company + IP using Upstash and Redis
+    // Block immediately if PIN invalid
+    if (!verifyData.length) {
+      await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 
@@ -41,7 +46,7 @@ export async function POST(req: NextRequest) {
     });
 
     if (insertConcernError) throw new Error(insertConcernError.message);
-    return NextResponse.json({ data: checkInsData.id, tracking }, { status: 200 }); // Success
+    return NextResponse.json({ tracking }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

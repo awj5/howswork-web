@@ -47,6 +47,7 @@ export default function Home() {
         // Pin invalid
         sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
         router.push(`/${company.slug}/error`); // Redirect
+        return;
       } else if (result.error) {
         setError(result.error);
         return;

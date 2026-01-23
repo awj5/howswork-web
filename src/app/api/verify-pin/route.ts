@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
-import rateLimit from "@/utils/rate-limit";
+import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
 export async function POST(req: NextRequest) {
   try {
     const { companyID, pin } = await req.json();
+    const ip = getIP(req);
+    const identifier = `verify-pin:company:${companyID}:ip:${ip}`;
+
+    // Check if already blocked
+    const blocked = await redis.get(`blocked:${identifier}`);
+    if (blocked) return NextResponse.json({ error: "Too many attempts. Try again shortly." }, { status: 429 });
 
     const { data: checkInsData, error: checkInsError } = await supabase
       .from("check_ins")
@@ -17,20 +23,13 @@ export async function POST(req: NextRequest) {
 
     if (checkInsError) throw new Error(checkInsError.message);
 
-    // Apply rate limiting if invalid
+    // Apply rate limiting if PIN invalid
     if (!checkInsData.length) {
-      const ip = getIP(req);
-      const { success, reset, remaining } = await rateLimit.limit(`company:${companyID}:ip:${ip}`); // Limit per company + IP using Upstash and Redis
+      const { success } = await rateLimit.limit(identifier);
 
       if (!success) {
-        return NextResponse.json(
-          {
-            error: "Too many attempts. Try again shortly.",
-            reset, // unix ms timestamp
-            remaining,
-          },
-          { status: 429 }
-        );
+        await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
+        return NextResponse.json({ error: "Too many attempts. Try again shortly." }, { status: 429 });
       }
 
       return NextResponse.json({ error: "The access PIN is invalid" }, { status: 401 });

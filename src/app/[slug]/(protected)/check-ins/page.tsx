@@ -51,6 +51,7 @@ export default function CheckIns() {
         // Pin invalid
         sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
         router.push(`/${company.slug}/error`); // Redirect
+        return;
       } else if (result.error) {
         console.error(result.error);
         return;

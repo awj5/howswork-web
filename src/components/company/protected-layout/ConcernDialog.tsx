@@ -24,7 +24,7 @@ export default function ConcernDialog() {
 
   const addConcern = async (companyID: number, pin: number, details: string, issues: number[]) => {
     try {
-      const response = await fetch("/api/concern", {
+      const response = await fetch("/api/concerns", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin, details, issues }),
@@ -49,6 +49,7 @@ export default function ConcernDialog() {
       // Pin invalid
       sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
       router.push(`/${company.slug}/error`); // Redirect
+      return;
     } else if (result.error) {
       toast.error(result.error);
       setDisabled(false);
@@ -94,7 +95,7 @@ export default function ConcernDialog() {
           Cancel
         </Button>
 
-        <Button onClick={submit} color="indigo" disabled={details.trim() === "" || disabled}>
+        <Button onClick={submit} color="indigo" disabled={!details.trim() || disabled}>
           Send
         </Button>
       </DialogActions>
