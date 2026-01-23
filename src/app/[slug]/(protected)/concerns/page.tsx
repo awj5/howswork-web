@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
+import { useTrackingContext } from "@/hooks/useTrackingContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Input, InputGroup } from "@/components/ui/input";
@@ -14,8 +15,10 @@ import { Button } from "@/components/ui/button";
 export default function Concerns() {
   const router = useRouter();
   const { company } = useCompanyContext();
-  const [tracking, setTracking] = useState("");
+  const { setTracking } = useTrackingContext();
+  const [trackingNumber, setTrackingNumber] = useState("");
   const [disabled, setDisabled] = useState(false);
+  const invalid = !trackingNumber.trim() || trackingNumber.trim().length <= 3;
 
   const getConcernData = async (companyID: number, pin: number, tracking: string) => {
     try {
@@ -35,10 +38,11 @@ export default function Concerns() {
   };
 
   const search = async () => {
-    if (!company || !tracking.trim()) return;
+    if (!company || invalid) return;
     setDisabled(true);
     const pin = sessionStorage.getItem(`company_access_${company.slug}`);
-    const result = await getConcernData(company.id, Number(pin), tracking.trim());
+    const cleanTracking = trackingNumber.trim().replace(/^HW-/i, ""); // Strip HW- and trim
+    const result = await getConcernData(company.id, Number(pin), cleanTracking);
 
     if (result.error && result.status === 401) {
       // Pin invalid
@@ -52,7 +56,7 @@ export default function Concerns() {
     }
 
     // Success
-    // Update context
+    setTracking(cleanTracking); // Context for view page
     router.push(`/${company.slug}/concerns/view`); // Redirect
   };
 
@@ -67,8 +71,8 @@ export default function Concerns() {
             <MagnifyingGlassIcon />
 
             <Input
-              value={tracking}
-              onChange={(e) => setTracking(e.target.value)}
+              value={trackingNumber}
+              onChange={(e) => setTrackingNumber(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") search();
               }}
@@ -78,7 +82,7 @@ export default function Concerns() {
             />
           </InputGroup>
 
-          <Button color="indigo" onClick={search} disabled={disabled || !tracking.trim()}>
+          <Button color="indigo" onClick={search} disabled={disabled || invalid}>
             Search
           </Button>
         </div>
