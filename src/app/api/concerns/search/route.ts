@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
     // Get concern
     const { data: concernData, error: concernError } = await supabase
       .from("concerns")
-      .select("tracking, details")
+      .select("details, created_at")
       .eq("company_id", companyID)
       .eq("tracking", tracking)
       .maybeSingle();

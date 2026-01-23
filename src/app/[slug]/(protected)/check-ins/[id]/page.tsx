@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { DateTime } from "luxon";
 import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ChartPieIcon, ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
+import { ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
 import { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
@@ -14,6 +14,7 @@ import { Heading } from "@/components/ui/heading";
 import { Divider } from "@/components/ui/divider";
 import { Text, Strong } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
+import Breadcrumb from "@/components/Breadcrumb";
 
 export default function CheckIn() {
   const router = useRouter();
@@ -25,9 +26,9 @@ export default function CheckIn() {
   const [startDate, setStartDate] = useState<DateTime>();
   const [completed, setCompleted] = useState(false);
 
-  const getCheckInData = async (companyID: number, pin: number) => {
+  const getCheckInData = async (companyID: number, pin: number, id: number) => {
     try {
-      const response = await fetch(`/api/check-ins/${params.id}`, {
+      const response = await fetch(`/api/check-ins/${id}`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),
@@ -47,7 +48,7 @@ export default function CheckIn() {
 
     const getCheckIn = async () => {
       const pin = sessionStorage.getItem(`company_access_${company.slug}`);
-      const result = await getCheckInData(company.id, Number(pin));
+      const result = await getCheckInData(company.id, Number(pin), Number(params.id));
 
       if (result.error && result.status === 401) {
         // Pin invalid
@@ -114,8 +115,12 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn ? (
         <>
-          <Heading>Check-in on {startDate?.setZone(company?.timezone).toFormat("cccc, dd LLLL yyyy")}</Heading>
-          <Divider className="mt-6" />
+          <Breadcrumb href={`/${company?.slug}/check-ins`}>Check-ins</Breadcrumb>
+
+          <div className="lg:mt-8">
+            <Heading>Check-in on {startDate?.setZone(company?.timezone).toFormat("cccc, dd LLLL yyyy")}</Heading>
+            <Divider className="mt-6" />
+          </div>
         </>
       ) : (
         error && (

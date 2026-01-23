@@ -79,6 +79,7 @@ export default function Concerns() {
               placeholder="HW-XXXXXXXX"
               aria-label="Search"
               disabled={disabled}
+              autoComplete="off"
             />
           </InputGroup>
 
