@@ -2,11 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
 import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
+import { decrypt } from "@/utils/encryption";
 
 export async function POST(req: NextRequest) {
   try {
     const { companyID, pin, tracking } = await req.json();
-    if (!tracking.trim()) throw new Error("Form is invalid");
+    if (!tracking.trim()) throw new Error("Tracking number is invalid");
     const ip = getIP(req);
     const pinIdentifier = `company:${companyID}:ip:${ip}`;
     const trackingIdentifier = `verify-tracking:company:${companyID}:ip:${ip}`;
@@ -40,7 +41,7 @@ export async function POST(req: NextRequest) {
     // Get concern
     const { data: concernData, error: concernError } = await supabase
       .from("concerns")
-      .select("details, created_at")
+      .select("tracking, details, created_at")
       .eq("company_id", companyID)
       .eq("tracking", tracking)
       .maybeSingle();
@@ -59,6 +60,7 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "Concern not found" }, { status: 404 });
     }
 
+    concernData.details = decrypt(concernData.details); // Decrypt details
     return NextResponse.json({ data: concernData }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);

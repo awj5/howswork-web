@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { MagnifyingGlassIcon } from "@heroicons/react/16/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
-import { useTrackingContext } from "@/hooks/useTrackingContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Input, InputGroup } from "@/components/ui/input";
@@ -15,10 +14,9 @@ import { Button } from "@/components/ui/button";
 export default function Concerns() {
   const router = useRouter();
   const { company } = useCompanyContext();
-  const { setTracking } = useTrackingContext();
-  const [trackingNumber, setTrackingNumber] = useState("");
+  const [tracking, setTracking] = useState("");
   const [disabled, setDisabled] = useState(false);
-  const invalid = !trackingNumber.trim() || trackingNumber.trim().length <= 3;
+  const invalid = !tracking.trim() || tracking.trim().length <= 3;
 
   const getConcernData = async (companyID: number, pin: number, tracking: string) => {
     try {
@@ -41,7 +39,7 @@ export default function Concerns() {
     if (!company || invalid) return;
     setDisabled(true);
     const pin = sessionStorage.getItem(`company_access_${company.slug}`);
-    const cleanTracking = trackingNumber.trim().replace(/^HW-/i, ""); // Strip HW- and trim
+    const cleanTracking = tracking.trim().replace(/^HW-/i, ""); // Strip HW- and trim
     const result = await getConcernData(company.id, Number(pin), cleanTracking);
 
     if (result.error && result.status === 401) {
@@ -56,7 +54,7 @@ export default function Concerns() {
     }
 
     // Success
-    setTracking(cleanTracking); // Context for view page
+    sessionStorage.setItem("concern_tracking", cleanTracking);
     router.push(`/${company.slug}/concerns/view`); // Redirect
   };
 
@@ -71,8 +69,8 @@ export default function Concerns() {
             <MagnifyingGlassIcon />
 
             <Input
-              value={trackingNumber}
-              onChange={(e) => setTrackingNumber(e.target.value)}
+              value={tracking}
+              onChange={(e) => setTracking(e.target.value)}
               onKeyDown={(e) => {
                 if (e.key === "Enter") search();
               }}

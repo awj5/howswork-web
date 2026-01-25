@@ -1,6 +1,5 @@
 import DialogProvider from "@/components/company/protected-layout/providers/DialogProvider";
 import AlertProvider from "@/components/company/protected-layout/providers/AlertProvider";
-import TrackingProvider from "@/components/company/protected-layout/providers/TrackingProvider";
 import { StackedLayout } from "@/components/ui/stacked-layout";
 import Nav from "@/components/company/protected-layout/Nav";
 import Side from "@/components/company/protected-layout/Side";
@@ -16,14 +15,12 @@ export default async function ProtectedLayout({
   return (
     <AlertProvider>
       <DialogProvider>
-        <TrackingProvider>
-          <StackedLayout navbar={<Nav />} sidebar={<Side />}>
-            {children}
-            <FeedbackDialog />
-            <ConcernDialog />
-            <ConcernAlert />
-          </StackedLayout>
-        </TrackingProvider>
+        <StackedLayout navbar={<Nav />} sidebar={<Side />}>
+          {children}
+          <FeedbackDialog />
+          <ConcernDialog />
+          <ConcernAlert />
+        </StackedLayout>
       </DialogProvider>
     </AlertProvider>
   );
