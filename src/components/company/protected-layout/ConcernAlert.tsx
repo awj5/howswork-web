@@ -1,5 +1,6 @@
 "use client";
 
+import { toast } from "sonner";
 import { ClipboardIcon } from "@heroicons/react/16/solid";
 import { useAlertContext } from "@/hooks/useAlertContext";
 import { Alert, AlertActions, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -12,6 +13,7 @@ export default function ConcernAlert() {
   const copyClick = () => {
     const text = `HW-${concernAlert?.tracking}`;
     navigator.clipboard.writeText(text);
+    toast.success("Copied to clipboard");
   };
 
   return (
