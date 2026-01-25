@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { CalendarIcon } from "@heroicons/react/16/solid";
+import IssuesData from "@/data/issues.json";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Heading, Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
@@ -17,6 +18,7 @@ type ConcernType = {
   tracking: string;
   details: string;
   created_at: string;
+  issues: number[];
 };
 
 export default function Concern() {
@@ -96,21 +98,30 @@ export default function Concern() {
           </div>
 
           <div className="mt-12 flex flex-col gap-8 sm:flex-row">
-            <div className="flex flex-col gap-8">
+            <div className="flex w-full flex-col gap-8">
               <div>
                 <Subheading>Details</Subheading>
                 <Divider className="mt-4" />
                 <Text className="mt-3">{concern.details}</Text>
               </div>
 
-              <div>
-                <Subheading>Issues</Subheading>
-                <Divider className="mt-4" />
-                <Text className="mt-3">{concern.details}</Text>
-              </div>
+              {concern.issues && (
+                <div>
+                  <Subheading>Issues</Subheading>
+                  <Divider className="mt-4" />
+
+                  <div className="mt-5 flex flex-wrap gap-4 sm:gap-3">
+                    {concern.issues.map((issue) => (
+                      <Badge key={issue} color="indigo">
+                        {IssuesData.find((i) => i.id === issue)?.tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
 
-            <div>
+            <div className="w-full">
               <Subheading>Activity</Subheading>
               <Divider className="mt-4" />
               <Text className="mt-3">{concern.details}</Text>
