@@ -16,6 +16,7 @@ export type ConcernActivityType = {
   status?: number;
   comment?: string;
   type: string;
+  admin?: boolean;
 };
 
 export type ConcernType = {

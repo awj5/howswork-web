@@ -1,5 +1,5 @@
 import { DateTime } from "luxon";
-import { HandRaisedIcon, CheckIcon, ChatBubbleOvalLeftEllipsisIcon } from "@heroicons/react/20/solid";
+import { HandRaisedIcon, CheckIcon, ChatBubbleOvalLeftEllipsisIcon, UserIcon } from "@heroicons/react/20/solid";
 import StatusData from "@/data/status.json";
 import type { ConcernActivityType } from "@/types";
 import { Text } from "@/components/ui/text";
@@ -12,12 +12,19 @@ const icons = {
   start: HandRaisedIcon,
   status: CheckIcon,
   comment: ChatBubbleOvalLeftEllipsisIcon,
+  adminComment: UserIcon,
 };
 
 export default function Event(props: EventProps) {
   const date = DateTime.fromISO(props.data.created_at); // Convert to date object
   const status = props.data.status ?? null;
-  const Icon = status === 0 ? icons["start"] : icons[props.data.type as keyof typeof icons];
+
+  const Icon =
+    status === 0
+      ? icons["start"]
+      : props.data.admin
+        ? icons["adminComment"]
+        : icons[props.data.type as keyof typeof icons];
 
   return (
     <div className="flex gap-3">
@@ -37,7 +44,12 @@ export default function Event(props: EventProps) {
               </span>
             </>
           ) : (
-            props.data.comment
+            <>
+              <span className="block font-medium text-gray-900 dark:text-white">
+                {props.data.admin ? "Administrator" : "You"} commented
+              </span>
+              {props.data.comment}
+            </>
           )}
         </Text>
 

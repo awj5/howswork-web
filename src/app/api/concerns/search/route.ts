@@ -74,7 +74,7 @@ export async function POST(req: NextRequest) {
     // Get comments
     const { data: concernCommentsData, error: concernCommentsError } = await supabase
       .from("concern_comments")
-      .select("created_at, comment")
+      .select("created_at, comment, admin")
       .eq("concern_id", concernData.id)
       .order("created_at", { ascending: false });
 
