@@ -81,7 +81,7 @@ export default function Concerns() {
             />
           </InputGroup>
 
-          <Button color="indigo" onClick={search} disabled={disabled || invalid}>
+          <Button onClick={search} disabled={disabled || invalid}>
             Search
           </Button>
         </div>

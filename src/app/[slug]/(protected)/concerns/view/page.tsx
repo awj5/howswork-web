@@ -6,6 +6,8 @@ import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { CalendarIcon } from "@heroicons/react/16/solid";
 import IssuesData from "@/data/issues.json";
+import StatusData from "@/data/status.json";
+import type { ConcernType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Heading, Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
@@ -13,20 +15,16 @@ import Breadcrumb from "@/components/Breadcrumb";
 import { Badge } from "@/components/ui/badge";
 import { Text } from "@/components/ui/text";
 import { Divider } from "@/components/ui/divider";
-
-type ConcernType = {
-  tracking: string;
-  details: string;
-  created_at: string;
-  issues: number[];
-};
+import { Button } from "@/components/ui/button";
+import Activity from "@/components/company/concerns/view/Activity";
 
 export default function Concern() {
   const router = useRouter();
   const { company } = useCompanyContext();
   const [concern, setConcern] = useState<ConcernType>();
   const [error, setError] = useState("");
-  const [date, setDate] = useState<DateTime>();
+  const date = concern ? DateTime.fromISO(concern.created_at) : undefined; // Convert to date object
+  const status = concern?.activity.find((i) => i.type === "status")?.status ?? 1; // Latest status or default to "Awaiting review"
 
   const getConcernData = async (companyID: number, pin: number, tracking: string) => {
     try {
@@ -70,7 +68,6 @@ export default function Concern() {
       }
 
       setConcern(result.data);
-      setDate(DateTime.fromISO(result.data.created_at).toUTC()); // Convert to date object (UTC)
     };
 
     getConcern();
@@ -85,15 +82,20 @@ export default function Concern() {
           <div className="lg:mt-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Heading>Concern HW-{concern.tracking}</Heading>
-              <Badge color="amber">Acknowledged</Badge>
+
+              <Badge color={status === 5 ? "zinc" : status === 4 ? "green" : status === 1 ? "red" : "amber"}>
+                {StatusData.find((i) => i.id === status)?.title}
+              </Badge>
             </div>
 
-            <div className="mt-4 flex items-center gap-3">
-              <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
+            <div className="mt-4 flex flex-col justify-between gap-4 sm:mt-2.5 sm:flex-row">
+              <time className="flex items-center gap-3">
+                <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
 
-              <Text className="text-zinc-950! dark:text-white!">
-                {date?.setZone(company?.timezone).toFormat("dd LLL yyyy")}
-              </Text>
+                <Text className="text-zinc-950! dark:text-white!">{date?.toLocal().toFormat("dd LLL yyyy")}</Text>
+              </time>
+
+              <Button className="w-fit">Leave a comment</Button>
             </div>
           </div>
 
@@ -124,7 +126,7 @@ export default function Concern() {
             <div className="w-full">
               <Subheading>Activity</Subheading>
               <Divider className="mt-4" />
-              <Text className="mt-3">{concern.details}</Text>
+              <Activity date={concern.created_at} data={concern.activity} />
             </div>
           </div>
         </>

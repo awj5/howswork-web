@@ -10,3 +10,18 @@ export type CheckInType = {
   start: string;
   status: string;
 };
+
+export type ConcernActivityType = {
+  created_at: string;
+  status?: number;
+  comment?: string;
+  type: string;
+};
+
+export type ConcernType = {
+  tracking: string;
+  details: string;
+  created_at: string;
+  issues: number[];
+  activity: ConcernActivityType[];
+};

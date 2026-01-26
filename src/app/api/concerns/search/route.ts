@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {
     // Get concern
     const { data: concernData, error: concernError } = await supabase
       .from("concerns")
-      .select("tracking, details, created_at, issues")
+      .select("id, tracking, details, created_at, issues")
       .eq("company_id", companyID)
       .eq("tracking", tracking)
       .maybeSingle();
@@ -61,7 +61,37 @@ export async function POST(req: NextRequest) {
     }
 
     concernData.details = decrypt(concernData.details); // Decrypt details
-    return NextResponse.json({ data: concernData }, { status: 200 }); // Success
+
+    // Get status updates
+    const { data: concernStatusData, error: concernStatusError } = await supabase
+      .from("concern_status")
+      .select("created_at, status")
+      .eq("concern_id", concernData.id)
+      .order("created_at", { ascending: false });
+
+    if (concernStatusError) throw new Error(concernStatusError.message);
+
+    // Get comments
+    const { data: concernCommentsData, error: concernCommentsError } = await supabase
+      .from("concern_comments")
+      .select("created_at, comment")
+      .eq("concern_id", concernData.id)
+      .order("created_at", { ascending: false });
+
+    if (concernCommentsError) throw new Error(concernCommentsError.message);
+
+    // Combine status updates and comments
+    const activity = [
+      ...concernStatusData.map((item) => ({ ...item, type: "status" })),
+      ...concernCommentsData.map((item) => ({ ...item, type: "comment" })),
+    ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+
+    const response = {
+      ...concernData,
+      activity,
+    };
+
+    return NextResponse.json({ data: response }, { status: 200 }); // Success
   } catch (error) {
     console.error(error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
