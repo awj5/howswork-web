@@ -59,7 +59,7 @@ export async function POST(req: NextRequest) {
       .eq("id", companyID)
       .single();
 
-    if (companyError) return { error: companyError.message };
+    if (companyError) throw new Error(companyError.message);
 
     // Get all company admins
     const { data: companyUsersData, error: companyUsersError } = await supabase
@@ -67,7 +67,7 @@ export async function POST(req: NextRequest) {
       .select("user_id")
       .eq("company_id", companyID);
 
-    if (companyUsersError) return { error: companyUsersError.message };
+    if (companyUsersError) throw new Error(companyUsersError.message);
 
     // Get admin profiles
     const { data: profilesData, error: profilesError } = await supabase
@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
         companyUsersData.map((u) => u.user_id)
       );
 
-    if (profilesError) return { error: profilesError.message };
+    if (profilesError) throw new Error(profilesError.message);
 
     // Email
     try {
