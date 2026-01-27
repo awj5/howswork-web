@@ -189,7 +189,7 @@ export async function resendPin(formData: FormData) {
         });
       } catch (error) {
         console.error(error);
-        return { error: "Error sending PIN." };
+        return { error: "Error sending PIN" };
       }
     } else {
       // SMS
@@ -211,7 +211,7 @@ Do not share externally.
         });
       } catch (error) {
         console.error(error);
-        return { error: "Error sending PIN." };
+        return { error: "Error sending PIN" };
       }
     }
   }
