@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
+import { randomInt } from "crypto";
 import supabase from "@/utils/supabase";
 import { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
@@ -33,9 +34,8 @@ export async function POST(req: NextRequest) {
     }
 
     // Generate tracking no.
-    const tracking = Array.from({ length: 8 }, () =>
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".charAt(Math.floor(Math.random() * 36))
-    ).join("");
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    const tracking = Array.from({ length: 8 }, () => chars.charAt(randomInt(0, chars.length))).join("");
 
     // Add concern
     const { error: insertConcernError } = await supabase.from("concerns").insert({

@@ -81,10 +81,9 @@ export async function POST(req: NextRequest) {
     if (concernCommentsError) throw new Error(concernCommentsError.message);
 
     // Combine status updates and comments
-    const activity = [
-      ...concernStatusData.map((item) => ({ ...item, type: "status" })),
-      ...concernCommentsData.map((item) => ({ ...item, type: "comment" })),
-    ].sort((a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime());
+    const activity = [...concernStatusData, ...concernCommentsData].sort(
+      (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+    );
 
     const response = {
       ...concernData,

@@ -1,5 +1,14 @@
 import { DateTime } from "luxon";
-import { HandRaisedIcon, CheckIcon, ChatBubbleOvalLeftEllipsisIcon, UserIcon } from "@heroicons/react/20/solid";
+import {
+  HandRaisedIcon,
+  CheckIcon,
+  ChatBubbleOvalLeftEllipsisIcon,
+  UserIcon,
+  ClockIcon,
+  EyeIcon,
+  ArchiveBoxIcon,
+  CalendarDaysIcon,
+} from "@heroicons/react/20/solid";
 import StatusData from "@/data/status.json";
 import type { ConcernActivityType } from "@/types";
 import { Text } from "@/components/ui/text";
@@ -9,33 +18,49 @@ type EventProps = {
 };
 
 const icons = {
-  start: HandRaisedIcon,
-  status: CheckIcon,
-  comment: ChatBubbleOvalLeftEllipsisIcon,
+  userComment: ChatBubbleOvalLeftEllipsisIcon,
   adminComment: UserIcon,
+  status0: HandRaisedIcon,
+  status1: ClockIcon,
+  status2: EyeIcon,
+  status3: CalendarDaysIcon,
+  status4: CheckIcon,
+  status5: ArchiveBoxIcon,
 };
 
 export default function Event(props: EventProps) {
   const date = DateTime.fromISO(props.data.created_at); // Convert to date object
   const status = props.data.status ?? null;
 
-  const Icon =
-    status === 0
-      ? icons["start"]
-      : props.data.admin
-        ? icons["adminComment"]
-        : icons[props.data.type as keyof typeof icons];
+  const Icon = props.data.comment
+    ? props.data.admin
+      ? icons["adminComment"]
+      : icons["userComment"]
+    : icons[("status" + status) as keyof typeof icons];
+
+  const iconBgColor =
+    status === 1
+      ? "bg-red-500"
+      : status === 2 || status === 3
+        ? "bg-amber-500"
+        : status === 4
+          ? "bg-green-500"
+          : "bg-gray-100 dark:bg-zinc-800";
+
+  const iconColor = status && status < 5 ? "text-white" : "text-gray-500 dark:text-gray-400";
 
   return (
     <div className="flex gap-3">
-      <div className="flex size-8 items-center justify-center rounded-full bg-gray-100 ring-8 ring-white dark:bg-zinc-800 dark:ring-zinc-900">
-        <Icon className="size-5 text-gray-500 dark:text-gray-400" aria-hidden="true" />
+      <div
+        className={`flex size-8 items-center justify-center rounded-full ring-8 ring-white dark:ring-zinc-900 ${iconBgColor}`}
+      >
+        <Icon className={`size-5 ${iconColor}`} aria-hidden="true" />
       </div>
 
       <div className="flex flex-1 justify-between gap-4 pt-1">
         <Text>
           {status === 0 ? (
-            "Concern was raised"
+            "You raised this concern"
           ) : status ? (
             <>
               Status was updated to{" "}

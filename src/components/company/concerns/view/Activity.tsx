@@ -16,7 +16,7 @@ export default function Activity(props: ActivityProps) {
           <Event key={event.created_at} data={event} />
         ))}
 
-        <Event data={{ created_at: props.date, status: 0, type: "status" }} />
+        <Event data={{ created_at: props.date, status: 0 }} />
       </div>
     </div>
   );

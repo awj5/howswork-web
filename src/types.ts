@@ -15,7 +15,6 @@ export type ConcernActivityType = {
   created_at: string;
   status?: number;
   comment?: string;
-  type: string;
   admin?: boolean;
 };
 

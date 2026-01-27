@@ -24,7 +24,7 @@ export default function Concern() {
   const [concern, setConcern] = useState<ConcernType>();
   const [error, setError] = useState("");
   const date = concern ? DateTime.fromISO(concern.created_at) : undefined; // Convert to date object
-  const status = concern?.activity.find((i) => i.type === "status")?.status ?? 1; // Latest status or default to "Awaiting review"
+  const status = concern?.activity.find((i) => i.status)?.status ?? 1; // Latest status or default to "Awaiting review"
 
   const getConcernData = async (companyID: number, pin: number, tracking: string) => {
     try {
@@ -100,7 +100,7 @@ export default function Concern() {
           </div>
 
           <div className="mt-12 flex flex-col gap-8 sm:flex-row">
-            <div className="flex w-full flex-col gap-8">
+            <div className="top-8 flex w-full flex-col gap-8 self-start sm:sticky">
               <div>
                 <Subheading>Details</Subheading>
                 <Divider className="mt-4" />
