@@ -1,0 +1,74 @@
+"use client";
+
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { toast } from "sonner";
+import { SparklesIcon, ArrowTurnUpLeftIcon } from "@heroicons/react/16/solid";
+import { anonymizeDetails } from "@/app/[slug]/(protected)/actions";
+import { Button } from "@/components/ui/button";
+import { TextLink } from "@/components/ui/text";
+
+type AnonymizeWritingProps = {
+  val: string;
+  setVal: Dispatch<SetStateAction<string>>;
+  disabled: boolean;
+  setDisabled: Dispatch<SetStateAction<boolean>>;
+};
+
+export default function AnonymizeWriting(props: AnonymizeWritingProps) {
+  const [buttonText, setButtonText] = useState("");
+  const [backupVal, setBackupVal] = useState("");
+
+  const undoClick = () => {
+    props.setVal(backupVal);
+    setBackupVal("");
+  };
+
+  const anonymizeClick = async () => {
+    props.setDisabled(true);
+    const loadingToast = toast.loading("Thinking...");
+    const result = await anonymizeDetails(props.val, navigator.language);
+    props.setDisabled(false);
+    toast.dismiss(loadingToast);
+
+    if (result.error) {
+      toast.error(result.error);
+      return;
+    }
+
+    setBackupVal(props.val);
+    props.setVal(result);
+  };
+
+  useEffect(() => {
+    setButtonText(navigator.language === "en-US" ? "Anonymize writing" : "Anonymise writing");
+  }, []);
+
+  return (
+    <>
+      {!backupVal ? (
+        <div className="mt-4 flex items-center gap-3">
+          <Button onClick={anonymizeClick} disabled={!props.val.trim() || props.disabled}>
+            <SparklesIcon />
+            {buttonText}
+          </Button>
+
+          <TextLink
+            href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+            target="_blank"
+            className={`text-sm sm:text-xs ${props.disabled && "pointer-events-none opacity-50"}`}
+            tabIndex={props.disabled ? -1 : undefined}
+          >
+            What's this?
+          </TextLink>
+        </div>
+      ) : (
+        <div className="mt-4 flex justify-end">
+          <Button onClick={undoClick} outline>
+            <ArrowTurnUpLeftIcon />
+            Undo
+          </Button>
+        </div>
+      )}
+    </>
+  );
+}

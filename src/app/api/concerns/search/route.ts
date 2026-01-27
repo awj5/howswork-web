@@ -80,6 +80,11 @@ export async function POST(req: NextRequest) {
 
     if (concernCommentsError) throw new Error(concernCommentsError.message);
 
+    // Decrypt comments
+    concernCommentsData.forEach((item) => {
+      item.comment = decrypt(item.comment);
+    });
+
     // Combine status updates and comments
     const activity = [...concernStatusData, ...concernCommentsData].sort(
       (a, b) => new Date(b.created_at).getTime() - new Date(a.created_at).getTime()

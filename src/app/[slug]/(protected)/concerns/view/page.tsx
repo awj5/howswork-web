@@ -17,12 +17,14 @@ import { Text } from "@/components/ui/text";
 import { Divider } from "@/components/ui/divider";
 import { Button } from "@/components/ui/button";
 import Activity from "@/components/company/concerns/view/Activity";
+import Comment from "@/components/company/concerns/view/Comment";
 
 export default function Concern() {
   const router = useRouter();
   const { company } = useCompanyContext();
   const [concern, setConcern] = useState<ConcernType>();
   const [error, setError] = useState("");
+  const [dialogOpen, setDialogOpen] = useState(false);
   const date = concern ? DateTime.fromISO(concern.created_at) : undefined; // Convert to date object
   const status = concern?.activity.find((i) => i.status)?.status ?? 1; // Latest status or default to "Awaiting review"
 
@@ -44,7 +46,7 @@ export default function Concern() {
   };
 
   useEffect(() => {
-    if (!company) return;
+    if (!company || dialogOpen) return;
 
     const getConcern = async () => {
       const pin = sessionStorage.getItem(`company_access_${company.slug}`);
@@ -71,7 +73,7 @@ export default function Concern() {
     };
 
     getConcern();
-  }, [company]);
+  }, [company, dialogOpen]);
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -95,7 +97,9 @@ export default function Concern() {
                 <Text className="text-zinc-950! dark:text-white!">{date?.toLocal().toFormat("dd LLL yyyy")}</Text>
               </time>
 
-              <Button className="w-fit">Leave a comment</Button>
+              <Button onClick={() => setDialogOpen(true)} className="w-fit">
+                Leave a comment
+              </Button>
             </div>
           </div>
 
@@ -129,6 +133,8 @@ export default function Concern() {
               <Activity date={concern.created_at} data={concern.activity} />
             </div>
           </div>
+
+          <Comment dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
         </>
       ) : (
         error && (

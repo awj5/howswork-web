@@ -84,7 +84,7 @@ export default function ConcernDialog() {
 
       <DialogBody>
         <Divider className="mb-8" />
-        <Details val={details} setVal={setDetails} disabled={disabled} />
+        <Details val={details} setVal={setDetails} disabled={disabled} setDisabled={setDisabled} />
         <Divider className="my-8" soft />
         <Issues val={issues} setVal={setIssues} disabled={disabled} />
         <Divider className="mt-8" soft />
