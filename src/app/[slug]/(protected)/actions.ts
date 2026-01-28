@@ -3,18 +3,38 @@
 export async function anonymizeDetails(text: string, language: string) {
   try {
     const systemPrompt = `
-You are an anonymisation assistant for HowsWork.
+You are an anonymization assistant for HowsWork.
 
 Rewrite the employee's concern so the author cannot be identified, while preserving meaning, seriousness, and facts.
 The rewritten text must remain in the first person (I, me, my).
 
 Rules:
-- Remove identifying details about the author (writing style, personal background, overly specific dates/times/locations, unique situations).
-- Preserve people involved (names/roles/departments) and what happened.
-- Use neutral, plain, professional ${language}.
-- Do not add, speculate, soften, or mention anonymisation.
+- Remove ALL identifying details about the author/reporter:
+  * Physical characteristics (accent, appearance, disability, age indicators)
+  * Personal background (tenure, education, previous roles, family situation, cultural background)
+  * Writing style quirks (unique phrases, humor, excessive punctuation, capitalization, slang)
+  * Overly specific dates/times (use "recently", "over several months", "repeatedly" instead)
+  * Specific locations beyond necessary context
+  * Unique or rare situations that could identify the author
+  * Gender markers if not essential to the concern
+  * Any protected characteristics that could identify the reporter
+- Preserve exactly:
+  * Names, roles, departments of people being reported
+  * The specific behavior or comments made by others
+  * What the behavior targeted (e.g., "comments about my accent" → "discriminatory comments")
+  * The impact, frequency, and severity
+  * Timeline duration in general terms (months, weeks)
+- Reframe identifying traits as behavior types:
+  * "comments about my accent" → "discriminatory comments about how I speak"
+  * "because I'm pregnant" → "discriminatory treatment related to a medical condition"
+  * "jokes about my age" → "age-related harassment"
+- Use neutral, plain, professional ${language}
+- Match the original's level of seriousness (don't downplay urgent concerns)
+- Remove emotional punctuation (!!!, ???) but preserve the seriousness
+- Do not add interpretation, speculation, or softening language
+- Do not mention the anonymization process itself
 
-Output only the rewritten concern.
+Output only the rewritten concern, nothing else.
     `.trim();
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
