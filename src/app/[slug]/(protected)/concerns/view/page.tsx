@@ -108,7 +108,7 @@ export default function Concern() {
               <div>
                 <Subheading>Details</Subheading>
                 <Divider className="mt-4" />
-                <Text className="mt-3">{concern.details}</Text>
+                <Text className="mt-3 whitespace-pre-line">{concern.details}</Text>
               </div>
 
               {concern.issues && (
