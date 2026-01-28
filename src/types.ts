@@ -19,9 +19,9 @@ export type ConcernActivityType = {
 };
 
 export type ConcernType = {
+  created_at: string;
   tracking: string;
   details: string;
-  created_at: string;
   issues: number[];
   activity: ConcernActivityType[];
 };
