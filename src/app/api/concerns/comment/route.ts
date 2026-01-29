@@ -63,6 +63,15 @@ export async function POST(req: NextRequest) {
 
     if (insertConcernCommentError) throw new Error(insertConcernCommentError.message);
 
+    // Add status (awaiting review)
+    const { error: insertConcernStatusError } = await supabase.from("concern_status").insert({
+      status: 1,
+      concern_id: concernData.id,
+      company_id: companyID,
+    });
+
+    if (insertConcernStatusError) throw new Error(insertConcernStatusError.message);
+
     // Get company
     const { data: companyData, error: companyError } = await supabase
       .from("companies")
