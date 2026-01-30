@@ -33,7 +33,7 @@ export default function Event(props: EventProps) {
   const status = props.data.status ?? null;
 
   const Icon = props.data.comment
-    ? props.data.admin
+    ? props.data.admin_name
       ? icons["adminComment"]
       : icons["userComment"]
     : icons[("status" + status) as keyof typeof icons];
