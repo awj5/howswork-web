@@ -71,7 +71,7 @@ export default function Event(props: EventProps) {
           ) : (
             <>
               <span className="block font-medium text-gray-900 dark:text-white">
-                {props.data.admin ? "Administrator" : "You"} commented
+                {props.data.admin_name ?? "You"} commented
               </span>
 
               <span className="whitespace-pre-line">{props.data.comment}</span>
