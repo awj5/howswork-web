@@ -23,7 +23,10 @@ export async function resendPin(formData: FormData) {
     .eq("company_id", formData.get("companyID"))
     .single();
 
-  if (peopleError) return { error: peopleError.message };
+  if (peopleError) {
+    console.error(peopleError.message);
+    return { error: "Internal server error" };
+  }
 
   // Check if user is included in contacts
   if (peopleData.contacts.includes(contact)) {
@@ -35,7 +38,11 @@ export async function resendPin(formData: FormData) {
       .eq("status", "Open")
       .maybeSingle();
 
-    if (checkInError) return { error: checkInError.message };
+    if (checkInError) {
+      console.error(checkInError.message);
+      return { error: "Internal server error" };
+    }
+
     if (!checkInData) return { error: "PIN not available." }; // Only send email or SMS if there is an open check-in
 
     // Get company info
@@ -45,7 +52,11 @@ export async function resendPin(formData: FormData) {
       .eq("id", formData.get("companyID"))
       .single();
 
-    if (companyError) return { error: companyError.message };
+    if (companyError) {
+      console.error(companyError.message);
+      return { error: "Internal server error" };
+    }
+
     const isAus = companyData.timezone.includes("Australia"); // Use .com.au domain
 
     if (contact.includes("@")) {

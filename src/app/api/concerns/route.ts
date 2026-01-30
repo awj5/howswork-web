@@ -75,7 +75,7 @@ export async function POST(req: NextRequest) {
       .select("email")
       .in(
         "user_id",
-        companyUsersData.map((u) => u.user_id)
+        companyUsersData.map((i) => i.user_id)
       );
 
     if (profilesError) throw new Error(profilesError.message);
@@ -84,7 +84,7 @@ export async function POST(req: NextRequest) {
     try {
       await resend.emails.send({
         from: "HowsWork <no-reply@updates.howswork.app>",
-        to: profilesData.map((p) => p.email),
+        to: profilesData.map((i) => i.email),
         subject: `New workplace concern at ${companyData.name}`,
         html: `
 <table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
                   width="32"
                 />
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
-                  An employee at <strong>Acme, Inc.</strong> has raised a concern.
+                  An employee at <strong>${companyData}</strong> has raised a concern.
                 </p>
                 <a
                   href="https://admin.howswork.app/concerns/${insertConcernData.id}"

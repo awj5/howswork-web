@@ -71,7 +71,7 @@ export default function CheckIns() {
 
       {checkIns && (
         <>
-          <Table className="mt-8 [--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]">
+          <Table striped className="mt-8 [--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]">
             <TableHead>
               <TableRow>
                 <TableHeader>Date</TableHeader>
