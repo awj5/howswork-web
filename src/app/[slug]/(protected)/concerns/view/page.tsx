@@ -26,7 +26,7 @@ export default function Concern() {
   const [error, setError] = useState("");
   const [dialogOpen, setDialogOpen] = useState(false);
   const date = concern ? DateTime.fromISO(concern.created_at) : undefined; // Convert to date object
-  const status = concern?.activity.find((i) => i.status)?.status ?? 1; // Latest status or default to "Awaiting review"
+  const status = concern?.activity.find((i) => i.status)?.status ?? 0; // Latest status or default to "Awaiting review"
 
   const getConcernData = async (companyID: number, pin: number, tracking: string) => {
     try {
@@ -85,7 +85,9 @@ export default function Concern() {
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Heading>Concern HW-{concern.tracking}</Heading>
 
-              <Badge color={status === 5 ? "zinc" : status === 4 ? "green" : status === 1 ? "red" : "amber"}>
+              <Badge
+                color={status === 5 ? "zinc" : status === 4 ? "green" : status === 3 || status === 2 ? "amber" : "red"}
+              >
                 {StatusData.find((i) => i.id === status)?.title}
               </Badge>
             </div>
