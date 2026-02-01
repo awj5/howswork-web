@@ -21,7 +21,7 @@ export type ConcernActivityType = {
 export type ConcernType = {
   created_at: string;
   tracking: string;
-  details: string;
   issues: number[];
+  details: string;
   activity: ConcernActivityType[];
 };
