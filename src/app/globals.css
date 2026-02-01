@@ -5,6 +5,11 @@
   --font-sans--font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
+body,
+html {
+  overscroll-behavior-y: none;
+}
+
 /* react-verification-input */
 
 .container {

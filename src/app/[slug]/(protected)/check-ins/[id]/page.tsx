@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { DateTime } from "luxon";
-import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/outline";
+import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
 import { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
@@ -15,6 +15,7 @@ import { Divider } from "@/components/ui/divider";
 import { Text, Strong } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import Breadcrumb from "@/components/Breadcrumb";
+import Doodle from "@/components/Doodle";
 
 export default function CheckIn() {
   const router = useRouter();
@@ -76,8 +77,8 @@ export default function CheckIn() {
     <div className="mx-auto max-w-6xl">
       {checkIn?.status === "Open" && completed && feedbackDialog?.flagConcern ? (
         <EmptyState>
-          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
-          <Subheading className="mt-2">You're all set</Subheading>
+          <Doodle doodles={[12, 13]} />
+          <Subheading className="mt-4">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
@@ -92,8 +93,8 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn?.status === "Open" && completed ? (
         <EmptyState>
-          <CheckCircleIcon className="size-16 text-indigo-600 sm:size-12 dark:text-indigo-500" />
-          <Subheading className="mt-2">You're all set</Subheading>
+          <Doodle doodles={[5, 16, 3, 24]} />
+          <Subheading className="mt-4">You're all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. Insights from this check-in will be available once the next check-in opens.
@@ -101,8 +102,8 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn?.status === "Open" ? (
         <EmptyState>
-          <CheckCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
-          <Subheading className="mt-2">Time for your check-in</Subheading>
+          <Doodle doodles={[2, 4, 8, 27]} />
+          <Subheading className="mt-4">Time for your check-in</Subheading>
 
           <Text className="mt-1 text-center">
             Share how work is going at <Strong>{company?.name}</Strong> anonymously. It takes less than a minute.

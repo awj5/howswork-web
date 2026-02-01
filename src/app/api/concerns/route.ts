@@ -117,7 +117,7 @@ export async function POST(req: NextRequest) {
                   width="32"
                 />
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
-                  An employee at <strong>${companyData}</strong> has raised a concern.
+                  An employee at <strong>${companyData.name}</strong> has raised a concern.
                 </p>
                 <a
                   href="https://admin.howswork.app/concerns/${insertConcernData.id}"
