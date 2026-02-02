@@ -10,3 +10,14 @@ export function isValidPhone(number: string) {
 export function getIP(req: Request) {
   return req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? "unknown";
 }
+
+export function statusColor(status: number) {
+  const colors: Record<number, "zinc" | "green" | "yellow" | "orange" | "blue"> = {
+    1: "blue",
+    2: "orange",
+    3: "yellow",
+    4: "green",
+  };
+
+  return colors[status] ?? "zinc";
+}
