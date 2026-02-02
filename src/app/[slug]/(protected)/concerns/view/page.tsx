@@ -95,7 +95,6 @@ export default function Concern() {
             <div className="mt-4 flex flex-col justify-between gap-4 sm:mt-2.5 sm:flex-row">
               <time className="flex items-center gap-3">
                 <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
-
                 <Text className="text-zinc-950! dark:text-white!">{date?.toLocal().toFormat("dd LLL yyyy")}</Text>
               </time>
 
