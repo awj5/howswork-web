@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
 import { ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
@@ -18,8 +18,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Doodle from "@/components/Doodle";
 
 export default function CheckIn() {
-  const router = useRouter();
   const params = useParams<{ id: string }>();
+  const router = useRouter();
+  const searchParams = useSearchParams();
   const { company } = useCompanyContext();
   const { feedbackDialog, setFeedbackDialog, setConcernDialog } = useDialogContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
@@ -116,7 +117,9 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn ? (
         <>
-          <Breadcrumb href={`/${company?.slug}/check-ins`}>Check-ins</Breadcrumb>
+          <Breadcrumb href={`/${company?.slug}/check-ins${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
+            Check-ins
+          </Breadcrumb>
 
           <div className="lg:mt-8">
             <Heading>Check-in on {startDate?.setZone(company?.timezone).toFormat("cccc, dd LLLL yyyy")}</Heading>
