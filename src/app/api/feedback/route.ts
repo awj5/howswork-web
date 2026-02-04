@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
-import { redis } from "@/utils/rate-limit";
+import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
 export async function POST(req: NextRequest) {
@@ -17,7 +17,7 @@ export async function POST(req: NextRequest) {
     // Get current check-in
     const { data: checkInsData, error: checkInsError } = await supabase
       .from("check_ins")
-      .select("id")
+      .select("id, contact_count")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", "Open")
@@ -25,20 +25,12 @@ export async function POST(req: NextRequest) {
 
     if (checkInsError) throw new Error(checkInsError.message);
 
-    // Apply rate limiting if invalid
+    // Rate limit if PIN invalid
     if (!checkInsData) {
-      await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
+      const { success } = await rateLimit.limit(identifier);
+      if (!success) await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
-
-    // Count company staff
-    const { data: peopleData, error: peopleError } = await supabase
-      .from("people")
-      .select("contacts")
-      .eq("company_id", companyID)
-      .single();
-
-    if (peopleError) throw new Error(peopleError.message);
 
     // Get feedback for check-in
     const { data: feedbackData, error: feedbackError } = await supabase
@@ -48,8 +40,8 @@ export async function POST(req: NextRequest) {
 
     if (feedbackError) throw new Error(feedbackError.message);
 
-    // Add feedback if submission count is less than number of company contacts
-    if (feedbackData.length < peopleData.contacts.length) {
+    // Add feedback if submission count is less than number of check-in contacts
+    if (feedbackData.length < checkInsData.contact_count) {
       const { error: insertFeedbackError } = await supabase.from("feedback").insert({
         check_in_id: checkInsData.id,
         sentiment,

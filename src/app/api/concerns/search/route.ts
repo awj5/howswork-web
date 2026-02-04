@@ -32,9 +32,10 @@ export async function POST(req: NextRequest) {
 
     if (verifyError) throw new Error(verifyError.message);
 
-    // Block immediately if PIN invalid
+    // Rate limit if PIN invalid
     if (!verifyData.length) {
-      await redis.set(`blocked:${pinIdentifier}`, 1, { ex: 300 }); // Block for 5 mins
+      const { success } = await rateLimit.limit(pinIdentifier);
+      if (!success) await redis.set(`blocked:${pinIdentifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 

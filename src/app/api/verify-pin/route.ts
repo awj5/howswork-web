@@ -7,17 +7,11 @@ export async function POST(req: NextRequest) {
   try {
     const { companyID, pin } = await req.json();
     const ip = getIP(req);
-    const accessIdentifier = `access:company:${companyID}:ip:${ip}`;
-    const pinIdentifier = `company:${companyID}:ip:${ip}`;
+    const identifier = `company:${companyID}:ip:${ip}`;
 
     // Check if already blocked
-    const [accessBlocked, pinBlocked] = await Promise.all([
-      redis.get(`blocked:${accessIdentifier}`),
-      redis.get(`blocked:${pinIdentifier}`),
-    ]);
-
-    if (accessBlocked || pinBlocked)
-      return NextResponse.json({ error: "Too many attempts. Try again shortly." }, { status: 429 });
+    const blocked = await redis.get(`blocked:${identifier}`);
+    if (blocked) return NextResponse.json({ error: "Too many attempts. Try again shortly." }, { status: 429 });
 
     const { data: checkInsData, error: checkInsError } = await supabase
       .from("check_ins")
@@ -31,10 +25,10 @@ export async function POST(req: NextRequest) {
 
     // Apply rate limiting if PIN invalid
     if (!checkInsData.length) {
-      const { success } = await rateLimit.limit(accessIdentifier);
+      const { success } = await rateLimit.limit(identifier);
 
       if (!success) {
-        await redis.set(`blocked:${accessIdentifier}`, 1, { ex: 300 }); // Block for 5 mins
+        await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
         return NextResponse.json({ error: "Too many attempts. Try again shortly." }, { status: 429 });
       }
 

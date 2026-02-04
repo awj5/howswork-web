@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
-import { redis } from "@/utils/rate-limit";
+import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
 export async function POST(req: NextRequest) {
@@ -24,9 +24,10 @@ export async function POST(req: NextRequest) {
 
     if (verifyError) throw new Error(verifyError.message);
 
-    // Block immediately if PIN invalid
+    // Rate limit if PIN invalid
     if (!verifyData.length) {
-      await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
+      const { success } = await rateLimit.limit(identifier);
+      if (!success) await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 
