@@ -76,7 +76,7 @@ export default function CheckIn() {
   return (
     <div className="mx-auto max-w-6xl">
       {checkIn?.status === "Open" && completed && feedbackDialog?.flagConcern ? (
-        <EmptyState>
+        <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
           <Subheading className="mt-4">You're all set</Subheading>
 
@@ -92,7 +92,7 @@ export default function CheckIn() {
           </Button>
         </EmptyState>
       ) : checkIn?.status === "Open" && completed ? (
-        <EmptyState>
+        <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
           <Subheading className="mt-4">You're all set</Subheading>
 
@@ -101,7 +101,7 @@ export default function CheckIn() {
           </Text>
         </EmptyState>
       ) : checkIn?.status === "Open" ? (
-        <EmptyState>
+        <EmptyState className="fade-in">
           <Doodle doodles={[2, 4, 8, 27]} />
           <Subheading className="mt-4">Time for your check-in</Subheading>
 
@@ -115,7 +115,7 @@ export default function CheckIn() {
           </Button>
         </EmptyState>
       ) : checkIn ? (
-        <>
+        <div className="fade-in">
           <Breadcrumb href={`/${company?.slug}/check-ins${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
             Check-ins
           </Breadcrumb>
@@ -136,7 +136,7 @@ export default function CheckIn() {
           </div>
 
           <div className="mt-8 grid gap-8 sm:grid-cols-3"></div>
-        </>
+        </div>
       ) : (
         error && (
           <EmptyState>

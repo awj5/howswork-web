@@ -79,7 +79,7 @@ export default function Concern() {
   return (
     <div className="mx-auto max-w-6xl">
       {concern ? (
-        <>
+        <div className="fade-in">
           <Breadcrumb href={`/${company?.slug}/concerns`}>Concerns</Breadcrumb>
 
           <div className="lg:mt-8">
@@ -132,7 +132,7 @@ export default function Concern() {
           </div>
 
           <Comment dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
-        </>
+        </div>
       ) : (
         error && (
           <EmptyState>

@@ -70,7 +70,7 @@ export default function CheckIns() {
       <Heading>Check-ins with {company?.name}</Heading>
 
       {checkIns && (
-        <>
+        <div className="fade-in">
           <Table striped className="mt-8 [--gutter:--spacing(6)] sm:[--gutter:--spacing(8)]">
             <TableHead>
               <TableRow>
@@ -87,7 +87,7 @@ export default function CheckIns() {
           </Table>
 
           <TablePagination page={page} pageCount={pageCount} route={`/${company?.slug}/check-ins`} />
-        </>
+        </div>
       )}
     </div>
   );

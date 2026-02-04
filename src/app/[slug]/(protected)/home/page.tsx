@@ -66,27 +66,21 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-6xl">
       {checkInOpen ? (
-        <>
-          <EmptyState>
-            <Doodle doodles={[2, 4, 8, 27]} />
-            <Subheading className="mt-4">You've got a check-in</Subheading>
+        <EmptyState className="fade-in">
+          <Doodle doodles={[2, 4, 8, 27]} />
+          <Subheading className="mt-4">You've got a check-in</Subheading>
 
-            <Text className="mt-1 text-center">
-              <Strong>{company?.name}</Strong> wants to know how things are going.
-            </Text>
+          <Text className="mt-1 text-center">
+            <Strong>{company?.name}</Strong> wants to know how things are going.
+          </Text>
 
-            <Button
-              onClick={() => setFeedbackDialog({ open: true, flagConcern: false })}
-              color="indigo"
-              className="mt-6"
-            >
-              Complete check-in
-              <ArrowRightCircleIcon />
-            </Button>
-          </EmptyState>
-        </>
+          <Button onClick={() => setFeedbackDialog({ open: true, flagConcern: false })} color="indigo" className="mt-6">
+            Complete check-in
+            <ArrowRightCircleIcon />
+          </Button>
+        </EmptyState>
       ) : checkInOpen !== undefined && feedbackDialog?.flagConcern ? (
-        <EmptyState>
+        <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
           <Subheading className="mt-4">You're all set</Subheading>
 
@@ -102,7 +96,7 @@ export default function Home() {
           </Button>
         </EmptyState>
       ) : checkInOpen !== undefined ? (
-        <EmptyState>
+        <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
           <Subheading className="mt-4">You're all set</Subheading>
 
