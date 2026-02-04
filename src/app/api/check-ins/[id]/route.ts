@@ -37,6 +37,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       .select("id, start, status")
       .eq("company_id", companyID)
       .eq("id", Number(id))
+      .in("status", ["Open", "Closed"])
       .maybeSingle();
 
     if (checkInError) throw new Error(checkInError.message);

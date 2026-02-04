@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ArrowRightCircleIcon, HandRaisedIcon } from "@heroicons/react/16/solid";
+import { ArrowRightCircleIcon, HandRaisedIcon, CalendarIcon } from "@heroicons/react/16/solid";
 import { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Heading } from "@/components/ui/heading";
-import { Divider } from "@/components/ui/divider";
 import { Text, Strong } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import Breadcrumb from "@/components/Breadcrumb";
 import Doodle from "@/components/Doodle";
+import { Badge } from "@/components/ui/badge";
 
 export default function CheckIn() {
   const params = useParams<{ id: string }>();
@@ -25,8 +25,8 @@ export default function CheckIn() {
   const { feedbackDialog, setFeedbackDialog, setConcernDialog } = useDialogContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
   const [error, setError] = useState("");
-  const [startDate, setStartDate] = useState<DateTime>();
   const [completed, setCompleted] = useState(false);
+  const date = checkIn ? DateTime.fromISO(checkIn.start).toUTC() : undefined;
 
   const getCheckInData = async (companyID: number, pin: number, id: number) => {
     try {
@@ -63,7 +63,6 @@ export default function CheckIn() {
       }
 
       setCheckIn(result.data);
-      setStartDate(DateTime.fromISO(result.data.start).toUTC()); // Convert to date object (UTC)
 
       // Check if check-in was completed by user in this browser
       //localStorage.removeItem(`check-in_completed_${result.data.id}`); // Used for testing
@@ -122,9 +121,21 @@ export default function CheckIn() {
           </Breadcrumb>
 
           <div className="lg:mt-8">
-            <Heading>Check-in on {startDate?.setZone(company?.timezone).toFormat("cccc, dd LLLL yyyy")}</Heading>
-            <Divider className="mt-6" />
+            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+              <Heading>Check-in with {company?.name}</Heading>
+              <Badge color="green">Closed</Badge>
+            </div>
+
+            <time className="mt-4 flex items-center gap-3 sm:mt-2.5">
+              <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
+
+              <Text className="text-zinc-950! dark:text-white!">
+                {date?.setZone(company?.timezone).toFormat("dd LLL yyyy")}
+              </Text>
+            </time>
           </div>
+
+          <div className="mt-8 grid gap-8 sm:grid-cols-3"></div>
         </>
       ) : (
         error && (
