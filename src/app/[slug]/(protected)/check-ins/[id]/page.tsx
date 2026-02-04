@@ -16,6 +16,7 @@ import { Button } from "@/components/ui/button";
 import Breadcrumb from "@/components/Breadcrumb";
 import Doodle from "@/components/Doodle";
 import { Badge } from "@/components/ui/badge";
+import Stat from "@/components/company/check-ins/check-in/Stat";
 
 export default function CheckIn() {
   const params = useParams<{ id: string }>();
@@ -135,7 +136,11 @@ export default function CheckIn() {
             </time>
           </div>
 
-          <div className="mt-8 grid gap-8 sm:grid-cols-3"></div>
+          <div className="mt-8 grid gap-8 sm:grid-cols-3">
+            {checkIn.stats?.map((stat) => (
+              <Stat key={stat.title} data={stat} />
+            ))}
+          </div>
         </div>
       ) : (
         error && (

@@ -5,10 +5,17 @@ export type CompanyType = {
   timezone: string;
 };
 
+export type CheckInStatType = {
+  title: string;
+  primary: string;
+  secondary: number;
+};
+
 export type CheckInType = {
   id: number;
   start: string;
   status: string;
+  stats?: CheckInStatType[];
 };
 
 export type ConcernActivityType = {

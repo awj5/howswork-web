@@ -46,6 +46,7 @@ export async function POST(req: NextRequest) {
         issues: issues.length ? issues : null,
         company_id: companyID,
         tracking,
+        check_in_id: verifyData[0].id,
       })
       .select("id")
       .single();
