@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { CheckInStatType } from "@/types";
 import supabase from "@/utils/supabase";
-import { redis } from "@/utils/rate-limit";
+import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 
 export async function POST(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
@@ -26,16 +26,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     if (verifyError) throw new Error(verifyError.message);
 
-    // Block immediately if PIN invalid
+    // Rate limit if PIN invalid
     if (!verifyData.length) {
-      await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
+      const { success } = await rateLimit.limit(identifier);
+      if (!success) await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
     }
 
     // Get check-in
     const { data: checkInData, error: checkInError } = await supabase
       .from("check_ins")
-      .select("id, start, status")
+      .select("id, start, status, contact_count")
       .eq("company_id", companyID)
       .eq("id", Number(id))
       .in("status", ["Open", "Closed"])
@@ -44,13 +45,13 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     if (checkInError) throw new Error(checkInError.message);
     if (!checkInData) return NextResponse.json({ error: "Check-in not found" }, { status: 404 });
 
-    // Create stats
+    // Generate stats
     const stats: CheckInStatType[] = [];
 
     // Get previous check-in
     const { data: prevCheckInData, error: prevCheckInError } = await supabase
       .from("check_ins")
-      .select("id")
+      .select("id, contact_count")
       .eq("company_id", companyID)
       .lt("start", checkInData.start)
       .order("start", { ascending: false })
@@ -58,7 +59,36 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     if (prevCheckInError) throw new Error(prevCheckInError.message);
 
-    // Create concern stat
+    // Generate participation stat
+    const { data: feedbackData, error: feedbackError } = await supabase
+      .from("feedback")
+      .select("id")
+      .eq("check_in_id", checkInData.id);
+
+    if (feedbackError) throw new Error(feedbackError.message);
+    const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
+    let participationTrend = 0;
+
+    if (prevCheckInData.length) {
+      // Get previous check-in concern count
+      const { data: prevFeedbackData, error: prevFeedbackError } = await supabase
+        .from("feedback")
+        .select("id")
+        .eq("check_in_id", prevCheckInData[0].id);
+
+      if (prevFeedbackError) throw new Error(prevFeedbackError.message);
+      const prevParticipation = Math.round((prevFeedbackData.length / prevCheckInData[0].contact_count) * 100); // Percentage
+      participationTrend = Math.round(((participation - prevParticipation) / prevParticipation) * 100);
+    }
+
+    stats.push({
+      title: "Participation",
+      primary: participation,
+      secondary: participationTrend ?? undefined,
+      percentage: true,
+    });
+
+    // Generate concern stat
     const { data: concernsData, error: concernsError } = await supabase
       .from("concerns")
       .select("id")
@@ -80,7 +110,11 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
         concernTrend = Math.round(((concernsData.length - prevConcernsData.length) / prevConcernsData.length) * 100); // Percentage
     }
 
-    stats.push({ title: "Concerns raised", primary: String(concernsData.length), secondary: concernTrend });
+    stats.push({
+      title: "Concerns raised",
+      primary: concernsData.length,
+      secondary: concernTrend ?? undefined,
+    });
 
     // Add stats to check-in
     const data = {
