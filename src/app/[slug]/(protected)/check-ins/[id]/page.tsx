@@ -127,7 +127,7 @@ export default function CheckIn() {
               <Badge color="green">Closed</Badge>
             </div>
 
-            <time className="mt-4 flex items-center gap-3 sm:mt-2.5">
+            <time className="mt-4 flex items-center gap-3">
               <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
 
               <Text className="text-zinc-950! dark:text-white!">
