@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { CheckInStatType } from "@/types";
+import SentimentsData from "@/data/sentiments.json";
 import supabase from "@/utils/supabase";
 import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
@@ -47,6 +48,34 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     // Generate stats
     const stats: CheckInStatType[] = [];
+    let participationTrend = 0;
+    let sentimentTrend = 0;
+    let concernTrend = 0;
+
+    // Get feedback
+    const { data: feedbackData, error: feedbackError } = await supabase
+      .from("feedback")
+      .select("id, sentiment")
+      .eq("check_in_id", checkInData.id);
+
+    if (feedbackError) throw new Error(feedbackError.message);
+
+    // Get concerns
+    const { data: concernsData, error: concernsError } = await supabase
+      .from("concerns")
+      .select("id")
+      .eq("check_in_id", checkInData.id);
+
+    if (concernsError) throw new Error(concernsError.message);
+    const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
+
+    // Average and convert to percentage
+    const sentiment = feedbackData.length
+      ? Math.round(
+          (feedbackData.reduce((sum, feedback) => sum + feedback.sentiment, 0) / feedbackData.length) *
+            (100 / SentimentsData.length)
+        )
+      : 0;
 
     // Get previous check-in
     const { data: prevCheckInData, error: prevCheckInError } = await supabase
@@ -59,61 +88,61 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     if (prevCheckInError) throw new Error(prevCheckInError.message);
 
-    // Generate participation stat
-    const { data: feedbackData, error: feedbackError } = await supabase
-      .from("feedback")
-      .select("id")
-      .eq("check_in_id", checkInData.id);
-
-    if (feedbackError) throw new Error(feedbackError.message);
-    const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
-    let participationTrend = 0;
-
     if (prevCheckInData.length) {
-      // Get previous check-in concern count
+      // Get previous check-in feedback
       const { data: prevFeedbackData, error: prevFeedbackError } = await supabase
         .from("feedback")
-        .select("id")
+        .select("id, sentiment")
         .eq("check_in_id", prevCheckInData[0].id);
 
       if (prevFeedbackError) throw new Error(prevFeedbackError.message);
-      const prevParticipation = Math.round((prevFeedbackData.length / prevCheckInData[0].contact_count) * 100); // Percentage
-      participationTrend = Math.round(((participation - prevParticipation) / prevParticipation) * 100);
-    }
 
-    stats.push({
-      title: "Participation",
-      primary: participation,
-      secondary: participationTrend ?? undefined,
-      percentage: true,
-    });
-
-    // Generate concern stat
-    const { data: concernsData, error: concernsError } = await supabase
-      .from("concerns")
-      .select("id")
-      .eq("check_in_id", checkInData.id);
-
-    if (concernsError) throw new Error(concernsError.message);
-    let concernTrend = 0;
-
-    if (prevCheckInData.length) {
-      // Get previous check-in concern count
+      // Get previous check-in concerns
       const { data: prevConcernsData, error: prevConcernsError } = await supabase
         .from("concerns")
         .select("id")
         .eq("check_in_id", prevCheckInData[0].id);
 
       if (prevConcernsError) throw new Error(prevConcernsError.message);
+      const prevParticipation = Math.round((prevFeedbackData.length / prevCheckInData[0].contact_count) * 100); // Percentage
+
+      // Average and convert to percentage
+      const prevSentiment = prevFeedbackData.length
+        ? Math.round(
+            (prevFeedbackData.reduce((sum, feedback) => sum + feedback.sentiment, 0) / prevFeedbackData.length) *
+              (100 / SentimentsData.length)
+          )
+        : 0;
+
+      // Calculate trends
+      if (prevParticipation)
+        participationTrend = Math.round(((participation - prevParticipation) / prevParticipation) * 100); // Percentage
+
+      if (prevSentiment) sentimentTrend = Math.round(((sentiment - prevSentiment) / prevSentiment) * 100); // Percentage
 
       if (prevConcernsData.length)
         concernTrend = Math.round(((concernsData.length - prevConcernsData.length) / prevConcernsData.length) * 100); // Percentage
     }
 
     stats.push({
+      title: "Participation",
+      primary: participation,
+      secondary: participationTrend,
+      percentage: true,
+    });
+
+    stats.push({
+      title: "Sentiment",
+      primary: sentiment,
+      secondary: sentimentTrend,
+      percentage: true,
+      sentiment: true,
+    });
+
+    stats.push({
       title: "Concerns raised",
       primary: concernsData.length,
-      secondary: concernTrend ?? undefined,
+      secondary: concernTrend,
     });
 
     // Add stats to check-in

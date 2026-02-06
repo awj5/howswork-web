@@ -8,8 +8,9 @@ export type CompanyType = {
 export type CheckInStatType = {
   title: string;
   primary: number;
-  secondary?: number;
+  secondary: number;
   percentage?: boolean;
+  sentiment?: boolean;
 };
 
 export type CheckInType = {
