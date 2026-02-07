@@ -11,7 +11,7 @@ export function getIP(req: Request) {
   return req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? "unknown";
 }
 
-export function statusColor(status: number) {
+export function concernStatusColor(status: number) {
   const colors: Record<number, "zinc" | "green" | "yellow" | "orange" | "blue"> = {
     1: "blue",
     2: "orange",
@@ -20,4 +20,14 @@ export function statusColor(status: number) {
   };
 
   return colors[status] ?? "zinc";
+}
+
+export function checkInStatusText(status: number) {
+  const texts: Record<number, string> = {
+    1: "Upcoming",
+    2: "Scheduled",
+    3: "Open",
+  };
+
+  return texts[status] ?? "Closed";
 }

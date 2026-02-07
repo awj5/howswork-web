@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
-      .eq("status", "Open")
+      .eq("status", 3)
       .limit(1);
 
     if (verifyError) throw new Error(verifyError.message);

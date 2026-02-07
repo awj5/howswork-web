@@ -2,6 +2,7 @@ import { useSearchParams } from "next/navigation";
 import { DateTime } from "luxon";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import type { CheckInType } from "@/types";
+import { checkInStatusText } from "@/utils/helpers";
 import { TableCell, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
 
@@ -14,7 +15,7 @@ export default function CheckIn(props: CheckInProps) {
   const searchParams = useSearchParams();
   const { company } = useCompanyContext();
   const startDT = DateTime.fromISO(props.data.start).toUTC(); // Convert to date object (UTC)
-  const isScheduled = props.data.status === "Scheduled" || props.data.status === "Upcoming";
+  const isScheduled = props.data.status <= 2;
 
   return (
     <TableRow
@@ -30,8 +31,8 @@ export default function CheckIn(props: CheckInProps) {
       </TableCell>
 
       <TableCell>
-        <Badge color={props.data.status === "Closed" ? "green" : isScheduled ? "zinc" : "amber"}>
-          {props.data.status}
+        <Badge color={props.data.status === 4 ? "green" : isScheduled ? "zinc" : "amber"}>
+          {checkInStatusText(props.data.status)}
         </Badge>
       </TableCell>
     </TableRow>

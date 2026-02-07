@@ -76,7 +76,7 @@ export default function CheckIn() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      {checkIn?.status === "Open" && completed && feedbackDialog?.flagConcern ? (
+      {checkIn?.status === 3 && completed && feedbackDialog?.flagConcern ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
           <Subheading className="mt-4">You're all set</Subheading>
@@ -92,7 +92,7 @@ export default function CheckIn() {
             Raise a concern
           </Button>
         </EmptyState>
-      ) : checkIn?.status === "Open" && completed ? (
+      ) : checkIn?.status === 3 && completed ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
           <Subheading className="mt-4">You're all set</Subheading>
@@ -101,7 +101,7 @@ export default function CheckIn() {
             Thanks for checking in. Insights from this check-in will be available once the next check-in opens.
           </Text>
         </EmptyState>
-      ) : checkIn?.status === "Open" ? (
+      ) : checkIn?.status === 3 ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[2, 4, 8, 27]} />
           <Subheading className="mt-4">Time for your check-in</Subheading>

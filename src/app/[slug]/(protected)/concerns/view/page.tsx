@@ -8,7 +8,7 @@ import { CalendarIcon } from "@heroicons/react/16/solid";
 import IssuesData from "@/data/issues.json";
 import StatusData from "@/data/status.json";
 import type { ConcernType } from "@/types";
-import { statusColor } from "@/utils/helpers";
+import { concernStatusColor } from "@/utils/helpers";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Heading, Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
@@ -85,7 +85,7 @@ export default function Concern() {
           <div className="lg:mt-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
               <Heading>Concern HW-{concern.tracking}</Heading>
-              <Badge color={statusColor(status)}>{StatusData.find((i) => i.id === status)?.title}</Badge>
+              <Badge color={concernStatusColor(status)}>{StatusData.find((i) => i.id === status)?.title}</Badge>
             </div>
 
             <div className="mt-4 flex flex-col justify-between gap-4 sm:mt-2.5 sm:flex-row">

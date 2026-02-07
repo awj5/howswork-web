@@ -20,7 +20,7 @@ export async function POST(req: NextRequest) {
       .select("id, contact_count")
       .eq("company_id", companyID)
       .eq("pin", pin)
-      .eq("status", "Open")
+      .eq("status", 3)
       .maybeSingle();
 
     if (checkInsError) throw new Error(checkInsError.message);

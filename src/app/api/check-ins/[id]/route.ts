@@ -22,7 +22,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
-      .eq("status", "Open")
+      .eq("status", 3)
       .limit(1);
 
     if (verifyError) throw new Error(verifyError.message);
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       .select("id, start, status, contact_count")
       .eq("company_id", companyID)
       .eq("id", Number(id))
-      .in("status", ["Open", "Closed"])
+      .in("status", [3, 4])
       .maybeSingle();
 
     if (checkInError) throw new Error(checkInError.message);

@@ -16,7 +16,7 @@ export type CheckInStatType = {
 export type CheckInType = {
   id: number;
   start: string;
-  status: string;
+  status: number;
   stats?: CheckInStatType[];
 };
 
