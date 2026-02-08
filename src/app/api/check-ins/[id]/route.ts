@@ -46,16 +46,10 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     if (checkInError) throw new Error(checkInError.message);
     if (!checkInData) return NextResponse.json({ error: "Check-in not found" }, { status: 404 });
 
-    // Generate stats
-    const stats: CheckInStatType[] = [];
-    let participationTrend = 0;
-    let sentimentTrend = 0;
-    let concernTrend = 0;
-
     // Get feedback
     const { data: feedbackData, error: feedbackError } = await supabase
       .from("feedback")
-      .select("id, sentiment")
+      .select("id, sentiment, issues")
       .eq("check_in_id", checkInData.id);
 
     if (feedbackError) throw new Error(feedbackError.message);
@@ -67,6 +61,23 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       .eq("check_in_id", checkInData.id);
 
     if (concernsError) throw new Error(concernsError.message);
+
+    // Get issues
+    const issueCounts = new Map<number, number>();
+
+    feedbackData.forEach((feedback) => {
+      feedback.issues?.forEach((id: number) => {
+        issueCounts.set(id, (issueCounts.get(id) || 0) + 1);
+      });
+    });
+
+    const issues = Array.from(issueCounts, ([id, count]) => ({ id, count })).sort((a, b) => b.count - a.count); // Order by most common
+
+    // Generate stats
+    const stats: CheckInStatType[] = [];
+    let participationTrend = 0;
+    let sentimentTrend = 0;
+    let concernTrend = 0;
     const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
 
     // Average and convert to percentage
@@ -149,6 +160,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const data = {
       ...checkInData,
       stats,
+      issues,
     };
 
     return NextResponse.json({ data }, { status: 200 }); // Success

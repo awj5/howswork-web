@@ -13,11 +13,17 @@ export type CheckInStatType = {
   sentiment?: boolean;
 };
 
+export type CheckInIssueType = {
+  id: number;
+  count: number;
+};
+
 export type CheckInType = {
   id: number;
   start: string;
   status: number;
   stats?: CheckInStatType[];
+  issues?: CheckInIssueType[];
 };
 
 export type ConcernActivityType = {

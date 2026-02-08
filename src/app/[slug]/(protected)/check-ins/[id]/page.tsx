@@ -17,6 +17,7 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Doodle from "@/components/Doodle";
 import { Badge } from "@/components/ui/badge";
 import Stat from "@/components/company/check-ins/check-in/Stat";
+import Issues from "@/components/company/check-ins/check-in/Issues";
 
 export default function CheckIn() {
   const params = useParams<{ id: string }>();
@@ -141,6 +142,9 @@ export default function CheckIn() {
               <Stat key={stat.title} data={stat} />
             ))}
           </div>
+
+          <Subheading className="mt-12">Issues experienced</Subheading>
+          <Issues data={checkIn.issues} />
         </div>
       ) : (
         error && (
