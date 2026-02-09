@@ -113,7 +113,7 @@ export default function Home() {
       ) : (
         error && (
           <EmptyState>
-            <ExclamationCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
+            <ExclamationCircleIcon className="size-16 text-zinc-400 sm:size-12 dark:text-zinc-500" />
             <Subheading className="mt-2 text-center">{error}</Subheading>
           </EmptyState>
         )

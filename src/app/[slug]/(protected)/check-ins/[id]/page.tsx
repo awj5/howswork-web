@@ -132,7 +132,7 @@ export default function CheckIn() {
 
             <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row">
               <time className="flex items-center gap-3">
-                <CalendarIcon className="size-4 text-gray-400 dark:text-gray-500" />
+                <CalendarIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
 
                 <Text className="text-zinc-950! dark:text-white!">
                   {date?.setZone(company?.timezone).toFormat("dd LLL yyyy")}
@@ -144,7 +144,7 @@ export default function CheckIn() {
                   <ShieldCheckIcon aria-hidden="true" className="size-5 text-zinc-500 dark:text-zinc-400" />
                 </div>
 
-                <Text>
+                <Text className="text-sm/6">
                   All responses are anonymous.{" "}
                   <TextLink href="https://articles.howswork.app/how-howswork-protects-your-privacy/" target="_blank">
                     Learn more
@@ -167,7 +167,7 @@ export default function CheckIn() {
       ) : (
         error && (
           <EmptyState>
-            <ExclamationCircleIcon className="size-16 text-gray-400 sm:size-12 dark:text-gray-500" />
+            <ExclamationCircleIcon className="size-16 text-zinc-400 sm:size-12 dark:text-zinc-500" />
             <Subheading className="mt-2 text-center">{error}</Subheading>
           </EmptyState>
         )
