@@ -153,13 +153,13 @@ export default function CheckIn() {
             </div>
           </div>
 
-          <div className="mt-8 grid gap-8 sm:grid-cols-4">
+          <div className="mt-8 grid gap-8 sm:grid-cols-2 md:grid-cols-4">
             {checkIn.stats?.map((stat) => (
               <Stat key={stat.title} data={stat} />
             ))}
           </div>
 
-          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
             <Issues data={checkIn.issues} />
           </div>
         </div>
