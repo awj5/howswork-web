@@ -77,7 +77,10 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const stats: CheckInStatType[] = [];
     let participationTrend = 0;
     let sentimentTrend = 0;
-    const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
+
+    const participation = checkInData.contact_count
+      ? Math.round((feedbackData.length / checkInData.contact_count) * 100)
+      : 0; // Percentage
 
     const participationText =
       participation >= 80
