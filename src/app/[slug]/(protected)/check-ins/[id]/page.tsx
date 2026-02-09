@@ -159,7 +159,7 @@ export default function CheckIn() {
             ))}
           </div>
 
-          <div className="mt-12 grid gap-8 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-2">
             <Issues data={checkIn.issues} />
           </div>
         </div>
