@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams, useRouter, useSearchParams } from "next/navigation";
 import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { ShieldCheckIcon } from "@heroicons/react/20/solid";
 import { ArrowRightCircleIcon, HandRaisedIcon, CalendarIcon } from "@heroicons/react/16/solid";
 import { CheckInType } from "@/types";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
@@ -12,14 +11,13 @@ import { useDialogContext } from "@/hooks/useDialogContext";
 import { Subheading } from "@/components/ui/heading";
 import EmptyState from "@/components/EmptyState";
 import { Heading } from "@/components/ui/heading";
-import { Text, Strong, TextLink } from "@/components/ui/text";
+import { Text, Strong } from "@/components/ui/text";
 import { Button } from "@/components/ui/button";
 import Breadcrumb from "@/components/Breadcrumb";
 import Doodle from "@/components/Doodle";
 import { Badge } from "@/components/ui/badge";
 import Stat from "@/components/company/check-ins/check-in/Stat";
 import Issues from "@/components/company/check-ins/check-in/Issues";
-import { Divider } from "@/components/ui/divider";
 
 export default function CheckIn() {
   const params = useParams<{ id: string }>();
@@ -130,28 +128,13 @@ export default function CheckIn() {
               <Badge color="green">Closed</Badge>
             </div>
 
-            <div className="mt-4 flex flex-col justify-between gap-4 sm:flex-row">
-              <time className="flex items-center gap-3">
-                <CalendarIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
+            <time className="mt-4 flex items-center gap-3">
+              <CalendarIcon className="size-4 text-zinc-400 dark:text-zinc-500" />
 
-                <Text className="text-zinc-950! dark:text-white!">
-                  {date?.setZone(company?.timezone).toFormat("dd LLL yyyy")}
-                </Text>
-              </time>
-
-              <div className="flex gap-2">
-                <div className="shrink-0">
-                  <ShieldCheckIcon aria-hidden="true" className="size-5 text-zinc-500 dark:text-zinc-400" />
-                </div>
-
-                <Text className="text-sm/6">
-                  All responses are anonymous.{" "}
-                  <TextLink href="https://articles.howswork.app/how-howswork-protects-your-privacy/" target="_blank">
-                    Learn more
-                  </TextLink>
-                </Text>
-              </div>
-            </div>
+              <Text className="text-zinc-950! dark:text-white!">
+                {date?.setZone(company?.timezone).toFormat("dd LLL yyyy")}
+              </Text>
+            </time>
           </div>
 
           <div className="mt-8 grid gap-8 sm:grid-cols-4">
@@ -160,9 +143,9 @@ export default function CheckIn() {
             ))}
           </div>
 
-          <Subheading className="mt-12">Issues experienced</Subheading>
-          <Divider className="mt-4" />
-          <Issues data={checkIn.issues} />
+          <div className="mt-12 grid gap-8 sm:grid-cols-2">
+            <Issues data={checkIn.issues} />
+          </div>
         </div>
       ) : (
         error && (
