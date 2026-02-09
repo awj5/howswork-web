@@ -1,4 +1,3 @@
-import { CheckInIssueType } from "@/types";
 import IssuesData from "@/data/issues.json";
 import { Text } from "@/components/ui/text";
 import { Badge } from "@/components/ui/badge";
@@ -6,22 +5,22 @@ import { Subheading } from "@/components/ui/heading";
 import { Divider } from "@/components/ui/divider";
 
 type IssuesProps = {
-  data: CheckInIssueType[] | undefined;
+  data: number[] | undefined;
 };
 
 export default function Issues(props: IssuesProps) {
   return (
-    <div>
+    <>
       <Subheading>Issues experienced</Subheading>
       <Divider className="mt-4" />
 
       <div className="mt-5 flex flex-wrap gap-4 sm:gap-3">
         {props.data?.length ? (
           props.data.map((issue) => {
-            const tag = IssuesData.find((i) => i.id === issue.id)?.tag;
+            const tag = IssuesData.find((i) => i.id === issue)?.tag;
 
             return (
-              <Badge key={issue.id} color="indigo">
+              <Badge key={issue} color="indigo">
                 {tag}
               </Badge>
             );
@@ -30,6 +29,6 @@ export default function Issues(props: IssuesProps) {
           <Text>No issues reported</Text>
         )}
       </div>
-    </div>
+    </>
   );
 }

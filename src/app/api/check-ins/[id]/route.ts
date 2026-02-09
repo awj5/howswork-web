@@ -71,7 +71,10 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       });
     });
 
-    const issues = Array.from(issueCounts, ([id, count]) => ({ id, count })).sort((a, b) => b.count - a.count); // Order by most common
+    // Order by most common
+    const issues = Array.from(issueCounts, ([id, count]) => ({ id, count }))
+      .sort((a, b) => b.count - a.count)
+      .map(({ id }) => id);
 
     // Generate stats
     const stats: CheckInStatType[] = [];
@@ -132,14 +135,9 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
       if (prevFeedbackError) throw new Error(prevFeedbackError.message);
 
-      // Get previous check-in concerns
-      const { data: prevConcernsData, error: prevConcernsError } = await supabase
-        .from("concerns")
-        .select("id")
-        .eq("check_in_id", prevCheckInData[0].id);
-
-      if (prevConcernsError) throw new Error(prevConcernsError.message);
-      const prevParticipation = Math.round((prevFeedbackData.length / prevCheckInData[0].contact_count) * 100); // Percentage
+      const prevParticipation = prevCheckInData[0].contact_count
+        ? Math.round((prevFeedbackData.length / prevCheckInData[0].contact_count) * 100)
+        : 0; // Percentage
 
       // Average and convert to percentage
       const prevSentiment = prevFeedbackData.length
@@ -159,7 +157,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     stats.push({
       title: "Invited",
       primary: checkInData.contact_count,
-      secondary: 0,
       primaryText: checkInData.contact_count,
     });
 
@@ -180,7 +177,6 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     stats.push({
       title: "Concerns raised",
       primary: concernsData.length,
-      secondary: 0,
       primaryText: String(concernsData.length),
     });
 

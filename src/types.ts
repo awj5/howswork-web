@@ -8,13 +8,8 @@ export type CompanyType = {
 export type CheckInStatType = {
   title: string;
   primary: number;
-  secondary: number;
+  secondary?: number;
   primaryText?: string;
-};
-
-export type CheckInIssueType = {
-  id: number;
-  count: number;
 };
 
 export type CheckInType = {
@@ -23,7 +18,7 @@ export type CheckInType = {
   status: number;
   contact_count?: number;
   stats?: CheckInStatType[];
-  issues?: CheckInIssueType[];
+  issues?: number[];
 };
 
 export type ConcernActivityType = {
