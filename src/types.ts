@@ -20,6 +20,7 @@ export type CheckInIssueType = {
 export type CheckInType = {
   id: number;
   start: string;
+  contact_count: number;
   status: number;
   stats?: CheckInStatType[];
   issues?: CheckInIssueType[];

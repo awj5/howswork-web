@@ -77,8 +77,18 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
     const stats: CheckInStatType[] = [];
     let participationTrend = 0;
     let sentimentTrend = 0;
-    let concernTrend = 0;
     const participation = Math.round((feedbackData.length / checkInData.contact_count) * 100); // Percentage
+
+    const participationText =
+      participation >= 80
+        ? "Very high"
+        : participation >= 60
+          ? "High"
+          : participation >= 40
+            ? "Moderate"
+            : participation >= 30
+              ? "Low"
+              : "Very low";
 
     // Average and convert to percentage
     const sentiment = feedbackData.length
@@ -87,6 +97,17 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
             (100 / SentimentsData.length)
         )
       : 0;
+
+    const sentimentText =
+      sentiment >= 80
+        ? "Amazing"
+        : sentiment >= 60
+          ? "Good"
+          : sentiment >= 40
+            ? "Fine"
+            : sentiment >= 30
+              ? "Difficult"
+              : "Terrible";
 
     // Get previous check-in
     const { data: prevCheckInData, error: prevCheckInError } = await supabase
@@ -130,29 +151,33 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
         participationTrend = Math.round(((participation - prevParticipation) / prevParticipation) * 100); // Percentage
 
       if (prevSentiment) sentimentTrend = Math.round(((sentiment - prevSentiment) / prevSentiment) * 100); // Percentage
-
-      if (prevConcernsData.length)
-        concernTrend = Math.round(((concernsData.length - prevConcernsData.length) / prevConcernsData.length) * 100); // Percentage
     }
+
+    stats.push({
+      title: "Invited",
+      primary: checkInData.contact_count,
+      secondary: 0,
+      primaryText: checkInData.contact_count,
+    });
 
     stats.push({
       title: "Participation",
       primary: participation,
       secondary: participationTrend,
-      primaryText: participation ? `${participation}%` : undefined,
+      primaryText: participation ? `${participationText}` : undefined,
     });
 
     stats.push({
       title: "Sentiment",
       primary: sentiment,
       secondary: sentimentTrend,
-      primaryText: sentiment ? `${sentiment}%` : undefined,
+      primaryText: sentiment ? `${sentimentText}` : undefined,
     });
 
     stats.push({
       title: "Concerns raised",
       primary: concernsData.length,
-      secondary: concernTrend,
+      secondary: 0,
       primaryText: String(concernsData.length),
     });
 

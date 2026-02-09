@@ -30,6 +30,8 @@ export default function CheckIn(props: CheckInProps) {
         <time className="hidden sm:inline">{startDT.setZone(props.timezone).toFormat("cccc, dd LLLL yyyy")}</time>
       </TableCell>
 
+      <TableCell>{props.data.contact_count ?? "—"}</TableCell>
+
       <TableCell>
         <Badge color={props.data.status === 4 ? "green" : isScheduled ? "zinc" : "amber"}>
           {checkInStatusText(props.data.status)}

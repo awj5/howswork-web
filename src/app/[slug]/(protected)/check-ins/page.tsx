@@ -75,6 +75,7 @@ export default function CheckIns() {
             <TableHead>
               <TableRow>
                 <TableHeader>Date</TableHeader>
+                <TableHeader>Invited</TableHeader>
                 <TableHeader>Status</TableHeader>
               </TableRow>
             </TableHead>

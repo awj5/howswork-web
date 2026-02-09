@@ -124,7 +124,7 @@ export default function CheckIn() {
 
           <div className="lg:mt-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Heading>Check-in with {company?.name}</Heading>
+              <Heading>Check-in Insights</Heading>
               <Badge color="green">Closed</Badge>
             </div>
 
@@ -137,7 +137,7 @@ export default function CheckIn() {
             </time>
           </div>
 
-          <div className="mt-8 grid gap-8 sm:grid-cols-3">
+          <div className="mt-8 grid gap-8 sm:grid-cols-4">
             {checkIn.stats?.map((stat) => (
               <Stat key={stat.title} data={stat} />
             ))}

@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
       count: checkInsCount,
     } = await supabase
       .from("check_ins")
-      .select("id, start, status", {
+      .select("id, start, status, contact_count", {
         count: "exact",
       })
       .eq("company_id", companyID)
