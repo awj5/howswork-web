@@ -35,7 +35,8 @@ export async function POST(req: NextRequest) {
     const { data: teamsData, error: teamsError } = await supabase
       .from("teams")
       .select("id, name")
-      .eq("company_id", companyID);
+      .eq("company_id", companyID)
+      .order("name", { ascending: true });
 
     if (teamsError) throw new Error(teamsError.message);
     return NextResponse.json({ data: teamsData }, { status: 200 }); // Success
