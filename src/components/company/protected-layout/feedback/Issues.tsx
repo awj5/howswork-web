@@ -27,7 +27,7 @@ export default function Issues(props: IssuesProps) {
   return (
     <Field disabled={disabled}>
       <Label>Issues (optional)</Label>
-      <Description>Select any workplace issues you've experienced recently.</Description>
+      <Description>Select any workplace issues you&apos;ve experienced recently.</Description>
 
       <div className={`mt-4 flex flex-wrap gap-4 sm:gap-3 ${disabled && "opacity-50"}`}>
         {IssuesData.map((issue) => (

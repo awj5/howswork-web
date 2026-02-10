@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Hero() {
   return (
     <div className="relative isolate pt-14">
@@ -18,7 +20,7 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Psychosocial risks are now part of Australia's WHS laws.{" "}
+              Psychosocial risks are now part of Australia&apos;s WHS laws.{" "}
               <a
                 href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
                 target="_blank"
@@ -56,19 +58,21 @@ export default function Hero() {
 
           <div className="mt-16 flow-root sm:mt-24">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-2xl lg:p-4 dark:bg-white/2.5 dark:ring-white/10">
-              <img
+              <Image
                 alt="App screenshot"
-                src="img/hero.png"
+                src="/img/hero.png"
                 width={2432}
                 height={1442}
                 className="w-304 rounded-md bg-gray-50 shadow-xl ring-1 ring-gray-900/10 dark:hidden"
+                loading="eager"
               />
-              <img
+              <Image
                 alt="App screenshot"
-                src="img/hero-dark.png"
+                src="/img/hero-dark.png"
                 width={2432}
                 height={1442}
                 className="w-304 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 not-dark:hidden"
+                loading="eager"
               />
             </div>
           </div>

@@ -14,7 +14,7 @@ type SentimentProps = {
 export default function Sentiment(props: SentimentProps) {
   return (
     <Field className="flex flex-col items-center" disabled={props.disabled}>
-      <Label>How's work?</Label>
+      <Label>How&apos;s work?</Label>
 
       <div role="radiogroup" aria-required="true" className="mt-4 grid grid-cols-5 gap-4">
         {SentimentsData.map((sentiment) => (

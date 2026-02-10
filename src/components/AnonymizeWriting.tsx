@@ -58,7 +58,7 @@ export default function AnonymizeWriting(props: AnonymizeWritingProps) {
             className={`text-sm sm:text-xs ${props.disabled && "pointer-events-none opacity-50"}`}
             tabIndex={props.disabled ? -1 : undefined}
           >
-            What's this?
+            What&apos;s this?
           </TextLink>
         </div>
       ) : (

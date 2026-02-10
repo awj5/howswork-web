@@ -68,7 +68,7 @@ export default function Home() {
       {checkInOpen ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[2, 4, 8, 27]} />
-          <Subheading className="mt-4">You've got a check-in</Subheading>
+          <Subheading className="mt-4">You&apos;ve got a check-in</Subheading>
 
           <Text className="mt-1 text-center">
             <Strong>{company?.name}</Strong> wants to know how things are going.
@@ -82,11 +82,11 @@ export default function Home() {
       ) : checkInOpen !== undefined && feedbackDialog?.flagConcern ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
-          <Subheading className="mt-4">You're all set</Subheading>
+          <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
-            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It's anonymous and helps ensure serious issues are seen
+            Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
+            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are seen
             and addressed.
           </Text>
 
@@ -98,10 +98,10 @@ export default function Home() {
       ) : checkInOpen !== undefined ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
-          <Subheading className="mt-4">You're all set</Subheading>
+          <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. You'll be notified when the next check-in from <Strong>{company?.name}</Strong> is
+            Thanks for checking in. You&apos;ll be notified when the next check-in from <Strong>{company?.name}</Strong> is
             requested.
           </Text>
 

@@ -81,11 +81,11 @@ export default function CheckIn() {
       {checkIn?.status === 3 && completed && feedbackDialog?.flagConcern ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
-          <Subheading className="mt-4">You're all set</Subheading>
+          <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. If something doesn't feel right, you can also raise a concern with{" "}
-            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It's anonymous and helps ensure serious issues are seen
+            Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
+            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are seen
             and addressed.
           </Text>
 
@@ -97,7 +97,7 @@ export default function CheckIn() {
       ) : checkIn?.status === 3 && completed ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
-          <Subheading className="mt-4">You're all set</Subheading>
+          <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. Insights from this check-in will be available once the next check-in opens.

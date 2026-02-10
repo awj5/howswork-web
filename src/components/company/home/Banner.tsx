@@ -27,7 +27,7 @@ export default function Banner() {
           </div>
 
           <p className="text-sm/6">
-            You're completely anonymous.{" "}
+            You&apos;re completely anonymous.{" "}
             <a
               href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
               target="_blank"

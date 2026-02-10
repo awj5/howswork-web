@@ -25,7 +25,7 @@ export default function ConcernAlert() {
       </AlertDescription>
 
       <AlertDescription>
-        You'll need this to check back for updates on your concern. We can't recover it if you lose it, so save it
+        You&apos;ll need this to check back for updates on your concern. We can&apos;t recover it if you lose it, so save it
         somewhere private and secure.
       </AlertDescription>
 
