@@ -11,6 +11,7 @@ import AnonymizeWriting from "@/components/AnonymizeWriting";
 type CommentProps = {
   dialogOpen: boolean;
   setDialogOpen: Dispatch<SetStateAction<boolean>>;
+  getConcern: () => Promise<void>;
 };
 
 export default function Comment(props: CommentProps) {
@@ -59,6 +60,7 @@ export default function Comment(props: CommentProps) {
     // Success
     toast.success("Comment added");
     props.setDialogOpen(false); // Close
+    props.getConcern();
   };
 
   useEffect(() => {

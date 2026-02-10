@@ -46,35 +46,34 @@ export default function Concern() {
     }
   };
 
+  const getConcern = async () => {
+    if (!company) return;
+    const pin = sessionStorage.getItem(`company_access_${company.slug}`);
+    const tracking = sessionStorage.getItem("concern_tracking");
+
+    if (!tracking) {
+      setError("Concern not found");
+      return;
+    }
+
+    const result = await getConcernData(company.id, Number(pin), tracking);
+
+    if (result.error && result.status === 401) {
+      // Pin invalid
+      sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
+      router.push(`/${company.slug}/error`); // Redirect
+      return;
+    } else if (result.error) {
+      setError(result.error);
+      return;
+    }
+
+    setConcern(result.data);
+  };
+
   useEffect(() => {
-    if (!company || dialogOpen) return;
-
-    const getConcern = async () => {
-      const pin = sessionStorage.getItem(`company_access_${company.slug}`);
-      const tracking = sessionStorage.getItem("concern_tracking");
-
-      if (!tracking) {
-        setError("Concern not found");
-        return;
-      }
-
-      const result = await getConcernData(company.id, Number(pin), tracking);
-
-      if (result.error && result.status === 401) {
-        // Pin invalid
-        sessionStorage.removeItem(`company_access_${company.slug}`); // Remove stored pin
-        router.push(`/${company.slug}/error`); // Redirect
-        return;
-      } else if (result.error) {
-        setError(result.error);
-        return;
-      }
-
-      setConcern(result.data);
-    };
-
     getConcern();
-  }, [company, dialogOpen]);
+  }, [company]);
 
   return (
     <div className="mx-auto max-w-6xl">
@@ -131,7 +130,7 @@ export default function Concern() {
             </div>
           </div>
 
-          <Comment dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} />
+          <Comment dialogOpen={dialogOpen} setDialogOpen={setDialogOpen} getConcern={getConcern} />
         </div>
       ) : (
         error && (

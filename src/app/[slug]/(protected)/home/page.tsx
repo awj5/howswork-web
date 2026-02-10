@@ -86,8 +86,8 @@ export default function Home() {
 
           <Text className="mt-1 text-center">
             Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
-            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are seen
-            and addressed.
+            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are
+            seen and addressed.
           </Text>
 
           <Button onClick={() => setConcernDialog(true)} color="indigo" className="mt-6">
@@ -101,8 +101,8 @@ export default function Home() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. You&apos;ll be notified when the next check-in from <Strong>{company?.name}</Strong> is
-            requested.
+            Thanks for checking in. You&apos;ll be notified when the next check-in from <Strong>{company?.name}</Strong>{" "}
+            is requested.
           </Text>
 
           <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
