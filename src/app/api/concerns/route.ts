@@ -88,8 +88,7 @@ export async function POST(req: NextRequest) {
         from: "HowsWork <no-reply@updates.howswork.app>",
         to: profilesData.map((i) => i.email),
         subject: `New workplace concern at ${companyData.name}`,
-        html: `
-<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
+        html: `<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
   <tbody>
     <tr>
       <td
@@ -189,8 +188,7 @@ export async function POST(req: NextRequest) {
       </td>
     </tr>
   </tbody>
-</table>
-          `,
+</table>`,
       });
     } catch (error) {
       console.error(error);

@@ -66,8 +66,7 @@ export async function resendPin(formData: FormData) {
           from: `HowsWork <no-reply@updates.howswork.${isAus ? "com.au" : "app"}>`,
           to: contact,
           subject: `Access PIN for ${companyData.name}`,
-          html: `
-<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
+          html: `<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
   <tbody>
     <tr>
       <td
@@ -195,8 +194,7 @@ export async function resendPin(formData: FormData) {
       </td>
     </tr>
   </tbody>
-</table>
-          `,
+</table>`,
         });
       } catch (error) {
         console.error(error);
@@ -208,8 +206,7 @@ export async function resendPin(formData: FormData) {
         await twilioClient.messages.create({
           to: contact,
           from: twilioPhoneNumber,
-          body: `
-${companyData.name} is using HowsWork, a safe, anonymous way to raise workplace concerns.
+          body: `${companyData.name} is using HowsWork, a safe, anonymous way to raise workplace concerns.
 
 New shared access PIN: ${checkInData.pin}
 
@@ -217,8 +214,7 @@ https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug}
 
 ${companyData.name} has requested a check-in. Use this link anytime to raise concerns. No login, no tracking, fully encrypted.
 
-Do not share externally.
-          `,
+Do not share externally.`,
         });
       } catch (error) {
         console.error(error);
