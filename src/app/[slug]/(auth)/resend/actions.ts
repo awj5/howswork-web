@@ -35,7 +35,7 @@ export async function resendPin(formData: FormData) {
       .from("check_ins")
       .select("pin")
       .eq("company_id", formData.get("companyID"))
-      .eq("status", 3)
+      .eq("status", 2)
       .maybeSingle();
 
     if (checkInError) {

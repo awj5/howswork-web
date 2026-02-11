@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
       .select("id")
       .eq("company_id", companyID)
       .eq("pin", pin)
-      .eq("status", 3)
+      .eq("status", 2)
       .limit(1);
 
     if (checkInsError) throw new Error(checkInsError.message);

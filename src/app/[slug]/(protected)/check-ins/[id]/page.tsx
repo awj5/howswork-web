@@ -78,15 +78,15 @@ export default function CheckIn() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      {checkIn?.status === 3 && completed && feedbackDialog?.flagConcern ? (
+      {checkIn?.status === 2 && completed && feedbackDialog?.flagConcern ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[12, 13]} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
             Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
-            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are seen
-            and addressed.
+            <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are
+            seen and addressed.
           </Text>
 
           <Button onClick={() => setConcernDialog(true)} color="indigo" className="mt-6">
@@ -94,7 +94,7 @@ export default function CheckIn() {
             Raise a concern
           </Button>
         </EmptyState>
-      ) : checkIn?.status === 3 && completed ? (
+      ) : checkIn?.status === 2 && completed ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[5, 16, 3, 24]} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
@@ -103,7 +103,7 @@ export default function CheckIn() {
             Thanks for checking in. Insights from this check-in will be available once the next check-in opens.
           </Text>
         </EmptyState>
-      ) : checkIn?.status === 3 ? (
+      ) : checkIn?.status === 2 ? (
         <EmptyState className="fade-in">
           <Doodle doodles={[2, 4, 8, 27]} />
           <Subheading className="mt-4">Time for your check-in</Subheading>
