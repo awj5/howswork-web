@@ -147,7 +147,7 @@ export async function resendPin(formData: FormData) {
                     margin-bottom: 16px;
                   "
                 >
-                  <strong>No login, no tracking, fully encrypted.</strong>
+                  <strong>No login. No tracking. Fully encrypted.</strong>
                 </p>
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
                   You can visit https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug} anytime to raise
