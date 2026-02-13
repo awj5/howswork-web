@@ -19,6 +19,7 @@ export default function Home() {
   const { feedbackDialog, setFeedbackDialog, setConcernDialog } = useDialogContext();
   const [checkInOpen, setCheckInOpen] = useState<boolean>();
   const [error, setError] = useState("");
+  const [doodleLoaded, setDoodleLoaded] = useState(false);
 
   const getCurrentCheckInData = async (companyID: number, pin: number) => {
     try {
@@ -57,6 +58,7 @@ export default function Home() {
       // Check if current check-in already completed by user
       //localStorage.removeItem(`check-in_completed_${result.data.id}`); // Used for testing
       const completed = localStorage.getItem(`check-in_completed_${result.data.id}`);
+      if (checkInOpen && completed !== null) setDoodleLoaded(false); // Doodle will change
       setCheckInOpen(completed === null);
     };
 
@@ -66,8 +68,8 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-6xl">
       {checkInOpen ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[2, 4, 8, 27]} />
+        <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">You&apos;ve got a check-in</Subheading>
 
           <Text className="mt-1 text-center">
@@ -80,8 +82,8 @@ export default function Home() {
           </Button>
         </EmptyState>
       ) : checkInOpen !== undefined && feedbackDialog?.flagConcern ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[12, 13]} />
+        <EmptyState key="all-set-concern" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[12, 13]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
@@ -96,8 +98,8 @@ export default function Home() {
           </Button>
         </EmptyState>
       ) : checkInOpen !== undefined ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[5, 16, 3, 24]} />
+        <EmptyState key="all-set" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[5, 16, 3, 24]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">

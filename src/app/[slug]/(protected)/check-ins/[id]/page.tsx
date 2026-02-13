@@ -28,7 +28,8 @@ export default function CheckIn() {
   const { feedbackDialog, setFeedbackDialog, setConcernDialog } = useDialogContext();
   const [checkIn, setCheckIn] = useState<CheckInType>();
   const [error, setError] = useState("");
-  const [completed, setCompleted] = useState(false);
+  const [doodleLoaded, setDoodleLoaded] = useState(false);
+  const [checkIncompleted, setCheckInCompleted] = useState(false);
   const date = checkIn ? DateTime.fromISO(checkIn.start).toUTC() : undefined;
 
   const getCheckInData = async (companyID: number, pin: number, id: number) => {
@@ -70,7 +71,8 @@ export default function CheckIn() {
       // Check if check-in was completed by user in this browser
       //localStorage.removeItem(`check-in_completed_${result.data.id}`); // Used for testing
       const completed = localStorage.getItem(`check-in_completed_${result.data.id}`);
-      setCompleted(completed !== null);
+      if (checkIncompleted && completed !== null) setDoodleLoaded(false); // Doodle will change
+      setCheckInCompleted(completed !== null);
     };
 
     getCheckIn();
@@ -78,9 +80,9 @@ export default function CheckIn() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      {checkIn?.status === 2 && completed && feedbackDialog?.flagConcern ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[12, 13]} />
+      {checkIn?.status === 2 && checkIncompleted && feedbackDialog?.flagConcern ? (
+        <EmptyState key="all-set-concern" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[12, 13]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
@@ -94,9 +96,9 @@ export default function CheckIn() {
             Raise a concern
           </Button>
         </EmptyState>
-      ) : checkIn?.status === 2 && completed ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[5, 16, 3, 24]} />
+      ) : checkIn?.status === 2 && checkIncompleted ? (
+        <EmptyState key="all-set" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[5, 16, 3, 24]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
@@ -104,8 +106,8 @@ export default function CheckIn() {
           </Text>
         </EmptyState>
       ) : checkIn?.status === 2 ? (
-        <EmptyState className="fade-in">
-          <Doodle doodles={[2, 4, 8, 27]} />
+        <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
+          <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
           <Subheading className="mt-4">Time for your check-in</Subheading>
 
           <Text className="mt-1 text-center">
