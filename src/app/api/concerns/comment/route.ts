@@ -160,10 +160,10 @@ export async function POST(req: NextRequest) {
                     mso-padding-alt: 0px;
                     border-radius: 6px;
                     background-color: rgb(79, 57, 246);
-                    padding-right: 14px;
-                    padding-left: 14px;
-                    padding-bottom: 10px;
-                    padding-top: 10px;
+                    padding-right: 16px;
+                    padding-left: 16px;
+                    padding-bottom: 12px;
+                    padding-top: 12px;
                     font-size: 14px;
                     font-weight: 600;
                     color: rgb(255, 255, 255);
