@@ -13,15 +13,23 @@ export default async function ProtectedLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <AlertProvider>
-      <DialogProvider>
-        <StackedLayout navbar={<Nav />} sidebar={<Side />}>
-          {children}
-          <FeedbackDialog />
-          <ConcernDialog />
-          <ConcernAlert />
-        </StackedLayout>
-      </DialogProvider>
-    </AlertProvider>
+    <>
+      <link rel="preload" href="/img/emoji-1.svg" as="image" />
+      <link rel="preload" href="/img/emoji-2.svg" as="image" />
+      <link rel="preload" href="/img/emoji-3.svg" as="image" />
+      <link rel="preload" href="/img/emoji-4.svg" as="image" />
+      <link rel="preload" href="/img/emoji-5.svg" as="image" />
+
+      <AlertProvider>
+        <DialogProvider>
+          <StackedLayout navbar={<Nav />} sidebar={<Side />}>
+            {children}
+            <FeedbackDialog />
+            <ConcernDialog />
+            <ConcernAlert />
+          </StackedLayout>
+        </DialogProvider>
+      </AlertProvider>
+    </>
   );
 }

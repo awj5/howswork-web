@@ -24,12 +24,14 @@ export default function CheckIn(props: CheckInProps) {
           : `/${company?.slug}/check-ins/${props.data.id}${searchParams.size ? `?${searchParams.toString()}` : ""}`
       }
     >
-      <TableCell className={`font-medium ${props.data.status === 1 && "text-zinc-500"}`}>
+      <TableCell className={`font-medium ${props.data.status === 1 && "text-zinc-500 dark:text-zinc-400"}`}>
         <time className="sm:hidden">{startDT.setZone(props.timezone).toFormat("ccc, dd LLL yyyy")}</time>
         <time className="hidden sm:inline">{startDT.setZone(props.timezone).toFormat("cccc, dd LLLL yyyy")}</time>
       </TableCell>
 
-      <TableCell>{props.data.contact_count ?? "—"}</TableCell>
+      <TableCell className={`${props.data.status === 1 && "text-zinc-500 dark:text-zinc-400"}`}>
+        {props.data.contact_count ?? "—"}
+      </TableCell>
 
       <TableCell>
         <Badge color={props.data.status === 3 ? "green" : props.data.status === 2 ? "amber" : "zinc"}>

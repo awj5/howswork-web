@@ -102,7 +102,7 @@ export default function CheckIn() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. Insights from this check-in will be available once the next check-in opens.
+            Thanks for checking in. Insights from this check-in will be available once the next check-in begins.
           </Text>
         </EmptyState>
       ) : checkIn?.status === 2 ? (

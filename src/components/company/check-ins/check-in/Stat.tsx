@@ -31,7 +31,11 @@ export default function Stat(props: StatProps) {
           />
         )}
 
-        <div className="text-3xl/8 font-semibold sm:text-2xl/8">{props.data.primaryText ?? "—"}</div>
+        <div
+          className={`text-3xl/8 font-semibold ${!props.data.primaryText && "text-zinc-500 dark:text-zinc-400"} sm:text-2xl/8`}
+        >
+          {props.data.primaryText ?? "—"}
+        </div>
       </div>
 
       {props.data.primaryText && props.data.secondary ? (
@@ -47,7 +51,7 @@ export default function Stat(props: StatProps) {
             <ArrowTrendingDownIcon className="size-7 text-red-500 sm:size-6" />
           )}
 
-          <span className="text-sm/6 text-zinc-500 sm:text-xs/6">from last check-in</span>
+          <span className="text-sm/6 text-zinc-500 sm:text-xs/6 dark:text-zinc-400">from last check-in</span>
         </div>
       ) : null}
     </div>
