@@ -10,8 +10,8 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
 import { TextLink } from "@/components/ui/text";
-import Issues from "./concern/Issues";
-import Details from "./concern/Details";
+import Issues from "./concern-dialog/Issues";
+import Details from "./concern-dialog/Details";
 
 export default function ConcernDialog() {
   const router = useRouter();

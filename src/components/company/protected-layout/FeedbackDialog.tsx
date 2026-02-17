@@ -8,10 +8,10 @@ import { useDialogContext } from "@/hooks/useDialogContext";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogActions, DialogBody, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { Divider } from "@/components/ui/divider";
-import Sentiment from "./feedback/Sentiment";
-import Issues from "./feedback/Issues";
-import Attributions from "./feedback/Attributions";
-import Team from "./feedback/Team";
+import Sentiment from "./feedback-dialog/Sentiment";
+import Issues from "./feedback-dialog/Issues";
+import Attributions from "./feedback-dialog/Attributions";
+import Team from "./feedback-dialog/Team";
 
 export default function FeedbackDialog() {
   const router = useRouter();

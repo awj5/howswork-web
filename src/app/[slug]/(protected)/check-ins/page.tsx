@@ -15,7 +15,7 @@ export default function CheckIns() {
   const { company } = useCompanyContext();
   const [checkIns, setCheckIns] = useState<CheckInType[]>();
   const [pageCount, setPageCount] = useState(0);
-  const pageSize = 25;
+  const pageSize = 50;
   const page = Number(searchParams.get("page")) || 1; // Default to page 1
 
   const getCheckInsData = async (companyID: number, pin: number, from: number, to: number) => {
