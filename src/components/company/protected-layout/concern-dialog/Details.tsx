@@ -20,7 +20,6 @@ export default function Details(props: DetailsProps) {
         value={props.val}
         onChange={(e) => props.setVal(e.target.value)}
         placeholder={"Describe what's happening&hellip;"}
-        disabled={props.disabled}
         maxLength={800}
       />
 

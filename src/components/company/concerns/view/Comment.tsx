@@ -81,13 +81,12 @@ export default function Comment(props: CommentProps) {
       </DialogDescription>
 
       <DialogBody>
-        <Field>
+        <Field disabled={disabled}>
           <Textarea
             rows={5}
             value={val}
             onChange={(e) => setVal(e.target.value)}
             placeholder={"Share additional details&hellip;"}
-            disabled={disabled}
             maxLength={800}
           />
 
