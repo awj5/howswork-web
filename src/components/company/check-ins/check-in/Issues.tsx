@@ -17,11 +17,7 @@ export default function Issues(props: IssuesProps) {
           props.data.map((issue) => {
             const tag = IssuesData.find((i) => i.id === issue)?.tag;
 
-            return (
-              <Badge key={issue} color="indigo">
-                {tag}
-              </Badge>
-            );
+            return <Badge key={issue}>{tag}</Badge>;
           })
         ) : (
           <Text>No issues reported</Text>

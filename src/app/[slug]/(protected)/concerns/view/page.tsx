@@ -114,9 +114,7 @@ export default function Concern() {
 
                   <div className="mt-5 flex flex-wrap gap-4 sm:gap-3">
                     {concern.issues.map((issue) => (
-                      <Badge key={issue} color="indigo">
-                        {IssuesData.find((i) => i.id === issue)?.tag}
-                      </Badge>
+                      <Badge key={issue}>{IssuesData.find((i) => i.id === issue)?.tag}</Badge>
                     ))}
                   </div>
                 </div>
