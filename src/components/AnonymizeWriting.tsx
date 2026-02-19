@@ -47,8 +47,13 @@ export default function AnonymizeWriting(props: AnonymizeWritingProps) {
     <>
       {!backupVal ? (
         <div className="mt-4 flex items-center gap-3">
-          <Button onClick={anonymizeClick} disabled={!props.val.trim() || props.disabled}>
-            <SparklesIcon />
+          <Button
+            onClick={anonymizeClick}
+            disabled={!props.val.trim() || props.disabled}
+            className="bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent! hover:from-indigo-400 hover:to-fuchsia-400 hover:[&>svg]:fill-indigo-400"
+            outline
+          >
+            <SparklesIcon className="fill-indigo-500" />
             {buttonText}
           </Button>
 
@@ -63,7 +68,7 @@ export default function AnonymizeWriting(props: AnonymizeWritingProps) {
         </div>
       ) : (
         <div className="mt-4 flex justify-end">
-          <Button onClick={undoClick} outline>
+          <Button onClick={undoClick}>
             <ArrowTurnUpLeftIcon />
             Undo
           </Button>
