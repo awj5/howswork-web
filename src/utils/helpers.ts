@@ -8,7 +8,12 @@ export function isValidPhone(number: string) {
 }
 
 export function getIP(req: Request) {
-  return req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? "unknown";
+  return (
+    req.headers.get("x-nf-client-connection-ip") ??
+    (process.env.NODE_ENV === "development"
+      ? (req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? "unknown")
+      : "unknown")
+  );
 }
 
 export function concernStatusColor(status: number) {
