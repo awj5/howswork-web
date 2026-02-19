@@ -16,7 +16,7 @@ export default function Details(props: DetailsProps) {
       <Label>Details</Label>
 
       <Textarea
-        rows={5}
+        rows={6}
         value={props.val}
         onChange={(e) => props.setVal(e.target.value)}
         placeholder={"Describe what's happening&hellip;"}
