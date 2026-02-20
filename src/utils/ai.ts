@@ -1,3 +1,5 @@
+"use server";
+
 export async function generateDescription(text: string) {
   try {
     const systemPrompt = `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
