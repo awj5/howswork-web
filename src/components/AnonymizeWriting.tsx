@@ -3,7 +3,7 @@
 import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { toast } from "sonner";
 import { SparklesIcon, ArrowTurnUpLeftIcon } from "@heroicons/react/16/solid";
-import { anonymizeDetails } from "@/app/[slug]/(protected)/actions";
+import { anonymizeDetails } from "@/utils/ai";
 import { Button } from "@/components/ui/button";
 import { TextLink } from "@/components/ui/text";
 

@@ -5,7 +5,7 @@ import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 import { encrypt } from "@/utils/encryption";
 import resend from "@/utils/resend";
-import { generateDescription } from "@/app/[slug]/(protected)/concerns/view/actions";
+import { generateDescription } from "@/utils/ai";
 
 export async function POST(req: NextRequest) {
   try {
