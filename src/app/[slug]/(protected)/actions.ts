@@ -2,8 +2,7 @@
 
 export async function anonymizeDetails(text: string, language: string) {
   try {
-    const systemPrompt = `
-You are an anonymization assistant for HowsWork.
+    const systemPrompt = `You are an anonymization assistant for HowsWork.
 
 Rewrite the employee's concern so the author cannot be identified, while preserving meaning, seriousness, and facts.
 The rewritten text must remain in the first person (I, me, my).
@@ -34,8 +33,7 @@ Rules:
 - Do not add interpretation, speculation, or softening language
 - Do not mention the anonymization process itself
 
-Output only the rewritten concern, nothing else.
-    `.trim();
+Output only the rewritten concern, nothing else.`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",

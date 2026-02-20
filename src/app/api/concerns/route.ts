@@ -5,6 +5,7 @@ import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
 import { encrypt } from "@/utils/encryption";
 import resend from "@/utils/resend";
+import { generateDescription } from "@/app/[slug]/(protected)/concerns/view/actions";
 
 export async function POST(req: NextRequest) {
   try {
@@ -49,10 +50,27 @@ export async function POST(req: NextRequest) {
         tracking,
         check_in_id: verifyData[0].id,
       })
-      .select("id")
+      .select("id, tracking")
       .single();
 
     if (insertConcernError) throw new Error(insertConcernError.message);
+    const generated = await generateDescription(details);
+
+    // Add risk
+    const { error: insertRiskError } = await supabase
+      .from("risks")
+      .insert({
+        company_id: companyID,
+        concern_id: insertConcernData.id,
+        issues: issues.length ? issues : null,
+        description: encrypt(generated.description ?? "Unable to generate a description. See concern for details."),
+        level: generated.riskLevel ?? 2,
+        concern_tracking: insertConcernData.tracking,
+        ai_description: true,
+      })
+      .single();
+
+    if (insertRiskError) throw new Error(insertRiskError.message);
 
     // Get company
     const { data: companyData, error: companyError } = await supabase
