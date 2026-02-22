@@ -38,7 +38,7 @@ export default function Stat(props: StatProps) {
         </div>
       </div>
 
-      {props.data.primaryText && props.data.secondary ? (
+      {!!(props.data.primaryText && props.data.secondary) && (
         <div className="mt-3 flex items-center gap-1">
           {props.data.title === "Concerns raised" ? (
             <Badge>
@@ -53,7 +53,7 @@ export default function Stat(props: StatProps) {
 
           <span className="text-sm/6 text-zinc-500 sm:text-xs/6 dark:text-zinc-400">from last check-in</span>
         </div>
-      ) : null}
+      )}
     </div>
   );
 }

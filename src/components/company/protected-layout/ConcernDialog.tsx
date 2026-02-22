@@ -42,8 +42,10 @@ export default function ConcernDialog() {
   const submit = async () => {
     if (!company) return;
     setDisabled(true);
+    const loadingToast = toast.loading("Sending...");
     const pin = sessionStorage.getItem(`company_access_${company.slug}`);
     const result = await addConcern(company.id, Number(pin), details, issues);
+    toast.dismiss(loadingToast);
 
     if (result.error && result.status === 401) {
       // Pin invalid

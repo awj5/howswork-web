@@ -19,7 +19,7 @@ export default function Resend() {
   const [contactError, setContactError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     setContactError(false);
     const formData = new FormData(e.currentTarget);

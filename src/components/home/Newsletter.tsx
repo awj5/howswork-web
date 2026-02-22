@@ -9,7 +9,7 @@ export default function Newsletter() {
   const [disabled, setDisabled] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 

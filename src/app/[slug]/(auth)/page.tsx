@@ -37,7 +37,7 @@ export default function Login() {
     }
   };
 
-  const submitForm = async (e: React.FormEvent<HTMLFormElement>) => {
+  const submitForm = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!company) return;
     setPinError(false);
