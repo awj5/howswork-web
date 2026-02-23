@@ -52,9 +52,9 @@ Risk level guidance:
 
     const json = await response.json();
     if (!response.ok) throw new Error(json.error.message);
-    const content = json.choices[0].message.content;
-    if (!content) throw new Error("Response is empty");
-    const parsed = JSON.parse(content);
+    const result = json.choices[0].message.content;
+    if (!result) throw new Error("Response is empty");
+    const parsed = JSON.parse(result);
     if (!parsed.description || ![1, 2, 3].includes(parsed.riskLevel)) throw new Error("Invalid response structure");
     return { description: parsed.description, riskLevel: parsed.riskLevel };
   } catch (error) {
@@ -123,9 +123,9 @@ Output only the rewritten concern, nothing else.`;
 
     const json = await response.json();
     if (!response.ok) throw new Error(json.error.message);
-    const newText = json.choices[0].message.content;
-    if (!newText) throw new Error("Response is empty");
-    return newText;
+    const result = json.choices[0].message.content;
+    if (!result) throw new Error("Response is empty");
+    return result;
   } catch (error) {
     console.error(error);
     return { error: "Something went wrong" };
