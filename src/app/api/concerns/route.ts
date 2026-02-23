@@ -54,7 +54,7 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (insertConcernError) throw new Error(insertConcernError.message);
-    const generated = await generateDescription(details);
+    const generated = await generateDescription(details); // AI response
 
     // Add risk
     const { error: insertRiskError } = await supabase
