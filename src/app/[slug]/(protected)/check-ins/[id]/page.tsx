@@ -140,7 +140,7 @@ export default function CheckIn() {
                 </Text>
               </time>
 
-              <div className="flex gap-1.5">
+              <div className="flex gap-1.5 sm:items-center">
                 <div className="shrink-0">
                   <ShieldCheckIcon aria-hidden="true" className="size-5" />
                 </div>
