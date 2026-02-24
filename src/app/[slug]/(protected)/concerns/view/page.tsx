@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { DateTime } from "luxon";
 import { ExclamationCircleIcon } from "@heroicons/react/24/outline";
-import { CalendarIcon } from "@heroicons/react/16/solid";
+import { CalendarIcon, ChatBubbleOvalLeftIcon } from "@heroicons/react/16/solid";
 import IssuesData from "@/data/issues.json";
 import StatusData from "@/data/status.json";
 import type { ConcernType } from "@/types";
@@ -94,6 +94,7 @@ export default function Concern() {
               </time>
 
               <Button onClick={() => setDialogOpen(true)} className="w-fit">
+                <ChatBubbleOvalLeftIcon />
                 Leave a comment
               </Button>
             </div>

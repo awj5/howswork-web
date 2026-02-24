@@ -17,6 +17,7 @@ type AnonymizeWritingProps = {
 export default function AnonymizeWriting(props: AnonymizeWritingProps) {
   const [buttonText, setButtonText] = useState("");
   const [backupVal, setBackupVal] = useState("");
+  const disabled = !props.val.trim() || props.disabled;
 
   const undoClick = () => {
     props.setVal(backupVal);
@@ -49,8 +50,8 @@ export default function AnonymizeWriting(props: AnonymizeWritingProps) {
         <div className="mt-4 flex items-center gap-3">
           <Button
             onClick={anonymizeClick}
-            disabled={!props.val.trim() || props.disabled}
-            className="bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent! hover:from-indigo-400 hover:to-fuchsia-400 hover:[&>svg]:fill-indigo-400"
+            disabled={disabled}
+            className={`bg-gradient-to-r from-indigo-500 to-fuchsia-500 bg-clip-text text-transparent! ${!disabled && "hover:from-indigo-400 hover:to-fuchsia-400 hover:[&>svg]:fill-indigo-400"}`}
             outline
           >
             <SparklesIcon className="fill-indigo-500" />
