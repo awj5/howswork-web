@@ -210,7 +210,6 @@ export async function POST(req: NextRequest) {
       });
     } catch (error) {
       console.error(error);
-      throw new Error("Error sending email");
     }
 
     return NextResponse.json({ tracking }, { status: 200 }); // Success
