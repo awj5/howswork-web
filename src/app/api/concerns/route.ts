@@ -54,21 +54,18 @@ export async function POST(req: NextRequest) {
       .single();
 
     if (insertConcernError) throw new Error(insertConcernError.message);
-    const generated = await generateDescription(details); // AI response
+    const generated = await generateDescription(details, "concern"); // AI response
 
     // Add risk
-    const { error: insertRiskError } = await supabase
-      .from("risks")
-      .insert({
-        company_id: companyID,
-        concern_id: insertConcernData.id,
-        issues: issues.length ? issues : null,
-        description: encrypt(generated.description ?? "Unable to generate a description. See concern for details."),
-        level: generated.riskLevel ?? 2,
-        concern_tracking: insertConcernData.tracking,
-        ai_description: true,
-      })
-      .single();
+    const { error: insertRiskError } = await supabase.from("risks").insert({
+      company_id: companyID,
+      concern_id: insertConcernData.id,
+      issues: issues.length ? issues : null,
+      description: encrypt(generated.description ?? "Unable to generate a description. See concern for details."),
+      level: generated.riskLevel ?? 2,
+      concern_tracking: insertConcernData.tracking,
+      ai_description: true,
+    });
 
     if (insertRiskError) throw new Error(insertRiskError.message);
 
@@ -136,7 +133,7 @@ export async function POST(req: NextRequest) {
                   width="32"
                 />
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
-                  An employee at <strong>${companyData.name}</strong> has raised a concern.
+                  An employee at <strong>${companyData.name}</strong> has raised a concern and it has been added to the risk register.
                 </p>
                 <a
                   href="https://admin.howswork.app/concerns/${insertConcernData.id}"

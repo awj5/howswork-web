@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import IssuesData from "@/data/issues.json";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
 import { Button } from "@/components/ui/button";
@@ -67,7 +68,8 @@ export default function FeedbackDialog() {
     // Success
     toast.success("Check-in complete");
     localStorage.setItem(`check-in_completed_${result.data}`, "true");
-    const flag = [8, 9, 11, 12, 13, 14, 15].some((id) => issues.includes(id)); // Serious issues will show raise a concern button
+    const seriousIDs = IssuesData.filter((i) => i.serious).map((i) => i.id);
+    const flag = seriousIDs.some((id) => issues.includes(id)); // Serious issues will show raise a concern button
     setFeedbackDialog({ open: false, flagConcern: flag }); // Close
   };
 

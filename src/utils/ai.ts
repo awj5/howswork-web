@@ -1,8 +1,10 @@
 "use server";
 
-export async function generateDescription(text: string) {
+export async function generateDescription(text: string, type: string) {
   try {
-    const systemPrompt = `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
+    const systemPrompt =
+      type === "concern"
+        ? `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
 
 Summarise the following employee concern for a risk register entry and assess its risk level.
 
@@ -24,7 +26,32 @@ Do not:
 Risk level guidance:
 - 1 (Low): Minor interpersonal friction, one-off incidents, low impact on wellbeing or work
 - 2 (Medium): Recurring issues, moderate impact on wellbeing or productivity, potential policy breaches
-- 3 (High): Serious misconduct, safety risks, legal exposure, significant harm to wellbeing`;
+- 3 (High): Serious misconduct, safety risks, legal exposure, significant harm to wellbeing`
+        : `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
+
+The data shows issues raised by employees, how many selected each issue, the percentage of respondents they represent, and may include team or attribution information where available.
+
+Return a JSON object with exactly two fields:
+- "description": a two to three sentence summary of the issues raised
+- "riskLevel": an integer, either 1 (Low), 2 (Medium), or 3 (High)
+
+The description should be:
+- Written in third person (e.g. "Employees reported..." not "I experienced...")
+- Two to three sentences maximum
+- Focused on the most significant issues and their prevalence
+- Reference the scale of the issue where relevant (e.g. "raised by a significant portion of respondents")
+- Free of any identifying details
+
+Do not:
+- Prefix the description with labels like "Summary:" or "Check-in results:"
+- Include exact counts or percentages in the description
+- Include recommendations or suggested actions
+- List every issue individually if there are many — focus on the most significant
+
+Risk level guidance:
+- 1 (Low): Minor or isolated issues, low prevalence, limited impact on wellbeing or work
+- 2 (Medium): Recurring or moderate prevalence issues, impact on wellbeing or productivity, potential policy concerns
+- 3 (High): High prevalence issues, serious categories such as bullying or harassment present, significant harm to wellbeing or legal exposure`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
