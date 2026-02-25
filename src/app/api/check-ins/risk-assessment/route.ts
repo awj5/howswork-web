@@ -33,20 +33,20 @@ export async function POST(req: NextRequest) {
     const issueTeams = new Map<number, Map<number, number>>();
 
     feedbackData.forEach((feedback) => {
-      feedback.issues?.forEach((id: number) => {
-        issueCounts.set(id, (issueCounts.get(id) || 0) + 1);
+      feedback.issues?.forEach((issueID: number) => {
+        issueCounts.set(issueID, (issueCounts.get(issueID) || 0) + 1);
 
         // Attributions
-        if (!issueAttributions.has(id)) issueAttributions.set(id, new Map());
-        const attributions = issueAttributions.get(id)!;
+        if (!issueAttributions.has(issueID)) issueAttributions.set(issueID, new Map());
+        const attributions = issueAttributions.get(issueID)!;
 
         feedback.attributions?.forEach((attrID: number) => {
           attributions.set(attrID, (attributions.get(attrID) || 0) + 1);
         });
 
         // Team
-        if (!issueTeams.has(id)) issueTeams.set(id, new Map());
-        const teams = issueTeams.get(id)!;
+        if (!issueTeams.has(issueID)) issueTeams.set(issueID, new Map());
+        const teams = issueTeams.get(issueID)!;
         if (feedback.team) teams.set(feedback.team, (teams.get(feedback.team) || 0) + 1);
       });
     });
