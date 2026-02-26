@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import { HandRaisedIcon } from "@heroicons/react/16/solid";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { useDialogContext } from "@/hooks/useDialogContext";
 import { Navbar, NavbarItem, NavbarSection, NavbarSpacer } from "@/components/ui/navbar";
@@ -12,7 +13,6 @@ export const navItems = [
   { href: "home", label: "Home" },
   { href: "check-ins", label: "Check-ins" },
   { href: "concerns", label: "Concerns" },
-  { href: "resources", label: "Resources" },
 ];
 
 export default function Nav() {
@@ -30,6 +30,11 @@ export default function Nav() {
             {label}
           </NavbarItem>
         ))}
+
+        <NavbarItem href="https://articles.howswork.app" target="_blank">
+          Resources
+          <ArrowTopRightOnSquareIcon />
+        </NavbarItem>
       </NavbarSection>
 
       <NavbarSpacer />

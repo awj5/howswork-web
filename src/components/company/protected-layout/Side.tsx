@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
+import { ArrowTopRightOnSquareIcon } from "@heroicons/react/20/solid";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Sidebar, SidebarBody, SidebarItem, SidebarSection } from "@/components/ui/sidebar";
 import { Logo } from "@/components/Logo";
@@ -23,6 +24,11 @@ export default function Side() {
               {label}
             </SidebarItem>
           ))}
+
+          <SidebarItem href="https://articles.howswork.app" target="_blank">
+            Resources
+            <ArrowTopRightOnSquareIcon />
+          </SidebarItem>
         </SidebarSection>
       </SidebarBody>
     </Sidebar>
