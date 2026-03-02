@@ -107,7 +107,7 @@ export default function Home() {
             is requested.
           </Text>
 
-          <Button onClick={() => router.push(`/${company?.slug}/check-ins`)} outline className="mt-6">
+          <Button href={`/${company?.slug}/check-ins`} outline className="mt-6">
             <ChartPieIcon />
             View check-in insights
           </Button>

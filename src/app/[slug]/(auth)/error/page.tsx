@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useCompanyContext } from "@/hooks/useCompanyContext";
 import { Subheading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
@@ -8,7 +7,6 @@ import { Text } from "@/components/ui/text";
 import Doodle from "@/components/Doodle";
 
 export default function Error() {
-  const router = useRouter();
   const { company } = useCompanyContext();
 
   return (
@@ -19,7 +17,7 @@ export default function Error() {
           <Subheading className="mt-4 text-center">We couldn&apos;t verify the PIN</Subheading>
           <Text className="mt-1 text-center">The PIN may have expired or there was a temporary issue.</Text>
 
-          <Button onClick={() => router.push(`/${company?.slug}`)} className="mt-6" outline>
+          <Button href={`/${company?.slug}`} className="mt-6" outline>
             Try again
           </Button>
         </div>
