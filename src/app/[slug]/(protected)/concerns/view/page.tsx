@@ -105,7 +105,7 @@ export default function Concern() {
               <div>
                 <Subheading>Details</Subheading>
                 <Divider className="mt-4" />
-                <Text className="mt-3 whitespace-pre-line">{concern.details}</Text>
+                <Text className="mt-4 whitespace-pre-line">{concern.details}</Text>
               </div>
 
               {concern.issues && (
@@ -113,7 +113,7 @@ export default function Concern() {
                   <Subheading>Issues</Subheading>
                   <Divider className="mt-4" />
 
-                  <div className="mt-5 flex flex-wrap gap-4 sm:gap-3">
+                  <div className="mt-4 flex flex-wrap gap-4 sm:gap-3">
                     {concern.issues.map((issue) => (
                       <Badge key={issue}>{IssuesData.find((i) => i.id === issue)?.tag}</Badge>
                     ))}
