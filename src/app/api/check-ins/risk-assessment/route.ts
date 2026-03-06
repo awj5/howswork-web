@@ -126,7 +126,8 @@ export async function POST(req: NextRequest) {
       const { data: companyUsersData, error: companyUsersError } = await supabase
         .from("company_users")
         .select("user_id")
-        .eq("company_id", checkInData.company_id);
+        .eq("company_id", checkInData.company_id)
+        .not("user_id", "is", null);
 
       if (companyUsersError) throw new Error(companyUsersError.message);
 
