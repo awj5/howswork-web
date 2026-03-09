@@ -12,7 +12,7 @@ export default async function Layout({
       {/* Use a client component to update HTML bg color */}
       <HtmlBackground />
       <Header />
-      {/*children*/}
+      {children}
       <Footer />
     </div>
   );
