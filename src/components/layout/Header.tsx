@@ -35,7 +35,7 @@ export default function Header() {
 
         <div className="hidden lg:flex lg:gap-x-12">
           {navigation.map((item) => (
-            <Link key={item.name} href={item.href} className="text-sm/6 font-semibold text-zinc-900 dark:text-white">
+            <Link key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900 dark:text-white">
               {item.name}
             </Link>
           ))}
@@ -44,7 +44,7 @@ export default function Header() {
         <div className="flex flex-1 items-center justify-end gap-x-6">
           <a
             href="https://admin.howswork.app"
-            className="hidden text-sm/6 font-semibold text-zinc-900 lg:block dark:text-white"
+            className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white"
           >
             Employer log in
           </a>
@@ -61,7 +61,7 @@ export default function Header() {
           <button
             type="button"
             onClick={() => setMobileMenuOpen(true)}
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-zinc-700 dark:text-zinc-400"
+            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700 dark:text-gray-400"
           >
             <span className="sr-only">Open main menu</span>
             <Bars3Icon aria-hidden="true" className="size-6" />
@@ -72,7 +72,7 @@ export default function Header() {
       <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
         <div className="fixed inset-0 z-50" />
 
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-zinc-900/10 dark:bg-zinc-900 dark:sm:ring-zinc-100/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
           <div className="flex items-center gap-x-6">
             <Link href="/" className="-m-1.5 p-1.5">
               <span className="sr-only">HowsWork</span>
@@ -97,7 +97,7 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(false)}
-              className="-m-2.5 rounded-md p-2.5 text-zinc-700 dark:text-zinc-400"
+              className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-400"
             >
               <span className="sr-only">Close menu</span>
               <XMarkIcon aria-hidden="true" className="size-6" />
@@ -105,13 +105,13 @@ export default function Header() {
           </div>
 
           <div className="mt-6 flow-root">
-            <div className="-my-6 divide-y divide-zinc-500/10 dark:divide-white/10">
+            <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
               <div className="space-y-2 py-6">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50 dark:text-white dark:hover:bg-white/5"
+                    className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                   >
                     {item.name}
                   </Link>
@@ -121,7 +121,7 @@ export default function Header() {
               <div className="py-6">
                 <a
                   href="https://admin.howswork.app"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-zinc-900 hover:bg-zinc-50 dark:text-white dark:hover:bg-white/5"
+                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
                   Log in
                 </a>

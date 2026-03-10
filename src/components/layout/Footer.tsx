@@ -78,7 +78,7 @@ export default function Footer() {
             <a
               key={item.name}
               href={item.href}
-              className="text-zinc-600 hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-white"
+              className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             >
               {item.name}
             </a>
@@ -91,7 +91,7 @@ export default function Footer() {
               key={item.name}
               href={item.href}
               target="_blank"
-              className="text-zinc-600 hover:text-zinc-800 dark:text-zinc-400 dark:hover:text-white"
+              className="text-gray-600 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white"
             >
               <span className="sr-only">{item.name}</span>
               <item.icon aria-hidden="true" className="size-6" />
@@ -99,7 +99,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <p className="mt-10 text-center text-sm/6 text-zinc-600 dark:text-zinc-400">
+        <p className="mt-10 text-center text-sm/6 text-gray-600 dark:text-gray-400">
           &copy; {year} HowsWork Pty Ltd. All rights reserved.
         </p>
       </div>
