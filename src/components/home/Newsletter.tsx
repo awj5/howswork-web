@@ -3,7 +3,6 @@
 import { useState } from "react";
 import { toast } from "sonner";
 import { subscribeToMailingList } from "@/app/()/actions";
-import { isValidEmail } from "@/utils/helpers";
 
 export default function Newsletter() {
   const [disabled, setDisabled] = useState(false);
@@ -13,23 +12,13 @@ export default function Newsletter() {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-
-    // Validate
-    const email = formData.get("email") as string;
-
-    if (!isValidEmail(email)) {
-      toast.error("Email is invalid");
-      return;
-    }
-
-    // Subscribe
+    setSubmitted(false);
     setDisabled(true);
     const result = await subscribeToMailingList(formData);
     setDisabled(false);
 
     if (result.error) {
       toast.error(result.error);
-      setSubmitted(false);
       return;
     }
 

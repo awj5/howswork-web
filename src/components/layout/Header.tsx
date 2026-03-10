@@ -7,8 +7,9 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
+  { name: "Product", href: "/" },
   { name: "Pricing", href: "/pricing" },
-  { name: "About", href: "/about" },
+  { name: "Company", href: "/company" },
   { name: "Support", href: "/support" },
 ];
 
@@ -16,7 +17,7 @@ export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header className="absolute inset-x-0 top-0 z-50">
       <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between gap-x-6 p-6 lg:px-8">
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
@@ -42,10 +43,7 @@ export default function Header() {
         </div>
 
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <a
-            href="https://admin.howswork.app"
-            className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white"
-          >
+          <a href="#" className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white">
             Employer log in
           </a>
 
@@ -123,7 +121,7 @@ export default function Header() {
                   href="https://admin.howswork.app"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                 >
-                  Log in
+                  Employer log in
                 </a>
               </div>
             </div>
