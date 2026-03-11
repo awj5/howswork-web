@@ -20,7 +20,7 @@ export default function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Psychosocial risks are now part of Australia&apos;s WHS laws.{" "}
+              Australian employers must identify and manage psychosocial hazards.{" "}
               <a
                 href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
                 target="_blank"
@@ -39,7 +39,7 @@ export default function Hero() {
 
             <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
               Give your team a trusted channel for raising workplace concerns. End-to-end encryption ensures genuine
-              anonymity, supporting psychological safety and early risk detection.
+              anonymity, helping organisations meet WHS obligations and identify risks early.
             </p>
           </div>
 
