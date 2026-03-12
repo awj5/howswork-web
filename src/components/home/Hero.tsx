@@ -14,7 +14,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="mx-auto max-w-2xl pt-32 pb-24 sm:pt-48 sm:pb-32">
+      <div className="mx-auto max-w-2xl py-24 sm:py-32">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
             Australian employers must now identify psychosocial hazards.{" "}
