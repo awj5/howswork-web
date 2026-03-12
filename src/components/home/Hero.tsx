@@ -45,7 +45,7 @@ export default function Hero() {
 
           <Image
             alt="App screenshot"
-            src="/img/hero.png"
+            src="/img/risk-register.png"
             width={2432}
             height={1442}
             className="mt-16 rounded-md bg-gray-50 shadow-xl ring-1 ring-gray-900/10 sm:mt-24 dark:hidden"
@@ -54,7 +54,7 @@ export default function Hero() {
 
           <Image
             alt="App screenshot"
-            src="/img/hero-dark.png"
+            src="/img/concern-dark.png"
             width={2432}
             height={1442}
             className="mt-16 rounded-md bg-white/5 shadow-2xl ring-1 ring-white/10 not-dark:hidden sm:mt-24"
