@@ -7,10 +7,9 @@ import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Product", href: "/" },
+  { name: "How it works", href: "/" },
   { name: "Pricing", href: "/pricing" },
   { name: "Company", href: "/company" },
-  { name: "Support", href: "/support" },
 ];
 
 export default function Header() {

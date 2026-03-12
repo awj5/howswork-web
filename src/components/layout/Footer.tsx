@@ -2,6 +2,7 @@ import { SVGProps } from "react";
 
 const navigation = {
   main: [
+    { name: "Support", href: "/support" },
     { name: "Resources", href: "https://articles.howswork.app" },
     { name: "Terms of use", href: "https://articles.howswork.app/terms-of-use/" },
     { name: "Privacy policy", href: "https://articles.howswork.app/privacy-policy/" },
