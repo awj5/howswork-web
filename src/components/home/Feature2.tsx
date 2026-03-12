@@ -42,7 +42,7 @@ const features = [
 
 export default function Feature2() {
   return (
-    <div className="bg-white py-24 sm:py-32 dark:bg-gray-900">
+    <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Everything you need</h2>
@@ -59,14 +59,14 @@ export default function Feature2() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <img
             alt="App screenshot"
-            src="https://tailwindcss.com/plus-assets/img/component-images/project-app-screenshot.png"
+            src="img/risk-register.png"
             width={2432}
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 dark:hidden dark:ring-white/10"
           />
           <img
             alt="App screenshot"
-            src="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
+            src="img/risk-register-dark.png"
             width={2432}
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 not-dark:hidden dark:ring-white/10"

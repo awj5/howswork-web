@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 export default function Hero() {
@@ -16,7 +18,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="py-24 sm:py-32">
+      <div className="pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
@@ -47,10 +49,19 @@ export default function Hero() {
                 href="https://admin.howswork.app/register"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
               >
-                Start for free
+                Get started
               </a>
 
-              <p className="text-sm/6 font-semibold text-gray-900 dark:text-white">No credit card required</p>
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById("feature1")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="text-sm/6 font-semibold text-gray-900 dark:text-white"
+              >
+                Learn more <span aria-hidden="true">→</span>
+              </a>
             </div>
           </div>
 
