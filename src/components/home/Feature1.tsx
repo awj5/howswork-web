@@ -2,15 +2,25 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Invite team members",
-    description: "Rerum repellat labore necessitatibus reprehenderit molestiae praesentium.",
+    name: "Automated check-ins",
+    description:
+      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
   },
-  { name: "List view", description: "Corporis asperiores ea nulla temporibus asperiores non tempore assumenda aut." },
   {
-    name: "Keyboard shortcuts",
-    description: "In sit qui aliquid deleniti et. Ad nobis sunt omnis. Quo sapiente dicta laboriosam.",
+    name: "Anonymous reporting",
+    description:
+      "Employees can raise concerns securely. All submissions are encrypted to keep their identity protected.",
   },
-  { name: "Calendars", description: "Sed rerum sunt dignissimos ullam. Iusto iure occaecati voluptate eligendi." },
+  {
+    name: "Risk register",
+    description:
+      "Risks are automatically identified and logged, giving you an audit-ready record without the manual work.",
+  },
+  {
+    name: "AI anonymisation",
+    description:
+      "Employee responses are rewritten by AI to remove identifying language, so people feel genuinely safe speaking up.",
+  },
 ];
 
 export default function Feature1() {
@@ -19,15 +29,18 @@ export default function Feature1() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-5">
           <div className="col-span-2">
-            <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Everything you need</h2>
+            <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Complete toolkit</h2>
+
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
-              All-in-one platform
+              Psych safety, sorted
             </p>
+
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-              dolor cupiditate blanditiis ratione.
+              Australian employers are legally required to manage psychosocial hazards. HowsWork makes compliance
+              straightforward and auditable.
             </p>
           </div>
+
           <dl className="col-span-3 grid grid-cols-1 gap-x-8 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:gap-y-16 dark:text-gray-400">
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-9">
@@ -38,6 +51,7 @@ export default function Feature1() {
                   />
                   {feature.name}
                 </dt>
+
                 <dd className="mt-2">{feature.description}</dd>
               </div>
             ))}

@@ -1,42 +1,43 @@
 import {
-  ArrowPathIcon,
-  CloudArrowUpIcon,
-  Cog6ToothIcon,
-  FingerPrintIcon,
-  LockClosedIcon,
-  ServerIcon,
+  ListBulletIcon,
+  ShieldExclamationIcon,
+  FolderOpenIcon,
+  BellAlertIcon,
+  ArrowDownTrayIcon,
+  SparklesIcon,
 } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Push to deploy.",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.",
-    icon: CloudArrowUpIcon,
+    name: "Auto-generated entries.",
+    description: "Concerns and flagged check-ins are automatically added to your risk register.",
+    icon: ListBulletIcon,
   },
   {
-    name: "SSL certificates.",
-    description: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
-    icon: LockClosedIcon,
+    name: "AI-generated summaries.",
+    description:
+      "Raw responses are automatically turned into clear, professional summaries ready for leadership or auditors.",
+    icon: SparklesIcon,
   },
   {
-    name: "Simple queues.",
-    description: "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.",
-    icon: ArrowPathIcon,
+    name: "Hazard categorisation.",
+    description: "Issues are automatically mapped to Safe Work Australia's 14 psychosocial hazards.",
+    icon: FolderOpenIcon,
   },
   {
-    name: "Advanced security.",
-    description: "Lorem ipsum, dolor sit amet consectetur adipisicing elit aute id magna.",
-    icon: FingerPrintIcon,
+    name: "Action recommendations.",
+    description: "HowsWork suggests next steps for each risk, so you're never unsure how to respond.",
+    icon: ShieldExclamationIcon,
   },
   {
-    name: "Powerful API.",
-    description: "Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo.",
-    icon: Cog6ToothIcon,
+    name: "Audit-ready export.",
+    description: "Download a complete record of identified risks, summaries, and actions taken.",
+    icon: ArrowDownTrayIcon,
   },
   {
-    name: "Database backups.",
-    description: "Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus.",
-    icon: ServerIcon,
+    name: "Real-time alerts.",
+    description: "Receive a notification when a new risk is logged so it never goes unacknowledged in your register.",
+    icon: BellAlertIcon,
   },
 ];
 
@@ -45,16 +46,19 @@ export default function Feature2() {
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Everything you need</h2>
+          <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Audit-ready</h2>
+
           <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
-            No server? No problem.
+            Your risk register, built automatically
           </p>
+
           <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores impedit perferendis suscipit eaque, iste
-            dolor cupiditate blanditiis.
+            Concerns are automatically logged, categorised, and summarised, so you always know what needs attention and
+            can prove you've acted.
           </p>
         </div>
       </div>
+
       <div className="relative overflow-hidden pt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <img
@@ -64,6 +68,7 @@ export default function Feature2() {
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 dark:hidden dark:ring-white/10"
           />
+
           <img
             alt="App screenshot"
             src="img/risk-register-dark.png"
@@ -71,11 +76,13 @@ export default function Feature2() {
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 not-dark:hidden dark:ring-white/10"
           />
+
           <div aria-hidden="true" className="relative">
             <div className="absolute -inset-x-20 bottom-0 bg-linear-to-t from-white pt-[7%] dark:from-gray-900" />
           </div>
         </div>
       </div>
+
       <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
         <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16 dark:text-gray-400">
           {features.map((feature) => (
