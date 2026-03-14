@@ -31,7 +31,7 @@ export default function Feature1() {
           <div className="col-span-2">
             <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Complete toolkit</h2>
 
-            <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
+            <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
               Psych safety, sorted
             </p>
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   ListBulletIcon,
   ShieldExclamationIcon,
@@ -21,12 +22,12 @@ const features = [
   },
   {
     name: "Hazard categorisation.",
-    description: "Issues are automatically mapped to Safe Work Australia's 14 psychosocial hazards.",
+    description: "Issues are automatically mapped to Safe Work Australia\u2019s 14 psychosocial hazards.",
     icon: FolderOpenIcon,
   },
   {
     name: "Action recommendations.",
-    description: "HowsWork suggests next steps for each risk, so you're never unsure how to respond.",
+    description: "HowsWork suggests next steps for each risk, so you\u2019re never unsure how to respond.",
     icon: ShieldExclamationIcon,
   },
   {
@@ -48,30 +49,30 @@ export default function Feature2() {
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Audit-ready</h2>
 
-          <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
+          <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
             Your risk register, built automatically
           </p>
 
           <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
             Concerns are automatically logged, categorised, and summarised, so you always know what needs attention and
-            can prove you've acted.
+            can prove you&apos;ve acted.
           </p>
         </div>
       </div>
 
       <div className="relative overflow-hidden pt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <img
+          <Image
             alt="App screenshot"
-            src="img/risk-register.png"
+            src="/img/risk-register.png"
             width={2432}
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 dark:hidden dark:ring-white/10"
           />
 
-          <img
+          <Image
             alt="App screenshot"
-            src="img/risk-register-dark.png"
+            src="/img/risk-register-dark.png"
             width={2432}
             height={1442}
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10 not-dark:hidden dark:ring-white/10"
