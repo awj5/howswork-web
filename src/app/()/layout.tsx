@@ -8,12 +8,12 @@ export default async function Layout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div className="bg-white dark:bg-gray-900">
       {/* Use a client component to update HTML bg color */}
       <HtmlBackground />
       <Header />
       {children}
       <Footer />
-    </>
+    </div>
   );
 }
