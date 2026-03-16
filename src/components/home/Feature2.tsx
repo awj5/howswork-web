@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {
   ListBulletIcon,
-  ShieldExclamationIcon,
+  LightBulbIcon,
   FolderOpenIcon,
   BellAlertIcon,
   ArrowDownTrayIcon,
@@ -16,8 +16,7 @@ const features = [
   },
   {
     name: "AI-generated summaries.",
-    description:
-      "Raw responses are automatically turned into clear, professional summaries ready for leadership or auditors.",
+    description: "AI generates risk descriptions and documents employer responses automatically.",
     icon: SparklesIcon,
   },
   {
@@ -39,8 +38,8 @@ const features = [
   },
   {
     name: "Action recommendations.",
-    description: "HowsWork suggests next steps for each risk, so you\u2019re never unsure how to respond.",
-    icon: ShieldExclamationIcon,
+    description: "HowsWork suggests a next step for each risk to help guide your response.",
+    icon: LightBulbIcon,
   },
   {
     name: "Audit-ready export.",

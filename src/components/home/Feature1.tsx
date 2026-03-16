@@ -2,14 +2,14 @@ import { CheckIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
+    name: "Anonymous reporting",
+    description:
+      "Employees raise concerns without an account or login, so there's no way to link a submission back to an individual.",
+  },
+  {
     name: "Automated check-ins",
     description:
       "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
-  },
-  {
-    name: "Anonymous reporting",
-    description:
-      "Employees can raise concerns securely. All submissions are encrypted to keep their identity protected.",
   },
   {
     name: "Risk register",
