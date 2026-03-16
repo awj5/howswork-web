@@ -1,22 +1,44 @@
 const faqs = [
   {
-    question: "How do you make holy water?",
+    question: "Are submissions really anonymous?",
     answer:
-      "You boil the hell out of it... Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Yes. There are no accounts and no logins. Everyone on your team accesses HowsWork using a shared rotating PIN, so there\u2019s no way to link a submission to an individual.",
   },
   {
-    question: "What's the best thing about Switzerland?",
-    answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+    question: "Which laws does HowsWork help me comply with?",
+    answer: (
+      <>
+        HowsWork is built around{" "}
+        <a
+          href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
+          className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          target="_blank"
+        >
+          Australia&apos;s Work Health and Safety laws
+        </a>{" "}
+        and the psychosocial hazard regulations that came into effect across most states and territories from 2023.
+      </>
+    ),
   },
   {
-    question: "What do you call someone with no body and no nose?",
-    answer: "Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+    question: "How long does it take to set up?",
+    answer:
+      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
   },
   {
-    question: "Why do you never see elephants hiding in trees?",
+    question: "What are check-ins and how do they work?",
     answer:
-      "Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Check-ins are short pulse surveys sent automatically to your team on a schedule you set. They take less than a minute to complete and feed into your risk register.",
+  },
+  {
+    question: "Can employees be identified from their check-in responses?",
+    answer:
+      "No. Responses are never linked to an account or identity. Neither your organisation nor HowsWork can trace a response back to a specific person.",
+  },
+  {
+    question: "Is there a free trial?",
+    answer:
+      "No, but you can get started for free. Smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
   },
 ];
 
@@ -30,7 +52,7 @@ export default function Faq() {
           </h2>
 
           <p className="mt-4 text-base/7 text-gray-600 dark:text-gray-400">
-            Can't find the answer you're looking for? Browse our{" "}
+            Can&apos;t find the answer you&apos;re looking for? Browse our{" "}
             <a
               href="https://articles.howswork.app"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
