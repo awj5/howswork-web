@@ -11,7 +11,7 @@ const faqs = [
         HowsWork is built around{" "}
         <a
           href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
-          className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
           target="_blank"
         >
           Australia&apos;s Work Health and Safety laws
@@ -55,6 +55,7 @@ export default function Faq() {
             Can&apos;t find the answer you&apos;re looking for? Browse our{" "}
             <a
               href="https://articles.howswork.app"
+              target="_blank"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               resources

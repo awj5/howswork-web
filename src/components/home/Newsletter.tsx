@@ -6,13 +6,11 @@ import { subscribeToMailingList } from "@/app/()/actions";
 
 export default function Newsletter() {
   const [disabled, setDisabled] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
 
   const submitForm = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     const formData = new FormData(form);
-    setSubmitted(false);
     setDisabled(true);
     const result = await subscribeToMailingList(formData);
     setDisabled(false);
@@ -24,7 +22,7 @@ export default function Newsletter() {
 
     // Success
     form.reset();
-    setSubmitted(true);
+    toast.success("Thanks for subscribing");
   };
 
   return (
@@ -60,20 +58,17 @@ export default function Newsletter() {
             </button>
           </div>
 
-          {submitted ? (
-            <p className="mt-4 text-sm/6 text-gray-900 dark:text-gray-300">Thanks for subscribing.</p>
-          ) : (
-            <p className="mt-4 text-sm/6 text-gray-900 dark:text-gray-300">
-              We care about your data. Read our{" "}
-              <a
-                href="https://articles.howswork.app/privacy-policy/"
-                className="font-semibold whitespace-nowrap text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-              >
-                privacy policy
-              </a>
-              .
-            </p>
-          )}
+          <p className="mt-4 text-sm/6 text-gray-900 dark:text-gray-300">
+            We care about your data. Read our{" "}
+            <a
+              href="https://articles.howswork.app/privacy-policy/"
+              target="_blank"
+              className="font-semibold whitespace-nowrap text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+            >
+              privacy policy
+            </a>
+            .
+          </p>
         </form>
       </div>
     </div>

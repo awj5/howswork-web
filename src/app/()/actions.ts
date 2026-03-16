@@ -16,7 +16,7 @@ export async function subscribeToMailingList(formData: FormData) {
     });
   } catch (error) {
     console.error(error);
-    return { error: "Unexpected error subscribing" };
+    return { error: "Internal server error" };
   }
 
   return { success: true };
