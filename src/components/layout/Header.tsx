@@ -21,14 +21,14 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">HowsWork</span>
-            <Image src="/img/logo.svg" width={728} height={128} alt="HowsWork" className="h-6 w-auto dark:hidden" />
+            <Image src="/img/logo.svg" width={728} height={128} alt="HowsWork" className="h-8 w-auto dark:hidden" />
 
             <Image
               src="/img/logo-dark.svg"
               width={728}
               height={128}
               alt="HowsWork"
-              className="h-6 w-auto not-dark:hidden"
+              className="h-8 w-auto not-dark:hidden"
             />
           </Link>
         </div>
