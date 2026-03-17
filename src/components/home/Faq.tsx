@@ -21,6 +21,11 @@ const faqs = [
     ),
   },
   {
+    question: "Is this the same as psychological safety?",
+    answer:
+      "They're related. Psychological safety is the outcome: a team that feels safe to speak up. Psychosocial hazard management is the legal obligation that gets you there.",
+  },
+  {
     question: "How long does it take to set up?",
     answer:
       "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
@@ -28,12 +33,7 @@ const faqs = [
   {
     question: "What are check-ins and how do they work?",
     answer:
-      "Check-ins are short pulse surveys sent automatically to your team on a schedule you set. They take less than a minute to complete and feed into your risk register.",
-  },
-  {
-    question: "Can employees be identified from their check-in responses?",
-    answer:
-      "No. Responses are never linked to an account or identity. Neither your organisation nor HowsWork can trace a response back to a specific person.",
+      "Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take less than a minute and feed into your risk register.",
   },
   {
     question: "Is there a free trial?",
