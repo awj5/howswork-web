@@ -25,7 +25,7 @@ export default function Hero() {
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
               Australian employers must now identify psychosocial hazards.{" "}
               <a
-                href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
+                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
                 target="_blank"
                 className="font-semibold text-indigo-600 dark:text-indigo-400"
               >
