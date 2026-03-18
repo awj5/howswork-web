@@ -1,8 +1,8 @@
 const faqs = [
   {
-    question: "Are submissions really anonymous?",
+    question: "Are reported concerns really anonymous?",
     answer:
-      "Yes. There are no accounts and no logins. Everyone on your team accesses HowsWork using a shared rotating PIN, so there\u2019s no way to link a submission to an individual.",
+      "Yes. There are no accounts and no logins. Your team accesses HowsWork using a shared rotating PIN, so there's no way to link a reported concern to an individual.",
   },
   {
     question: "Which laws does HowsWork help me comply with?",
@@ -22,8 +22,20 @@ const faqs = [
   },
   {
     question: "Is this the same as psychological safety?",
-    answer:
-      "They're related. Psychological safety is the outcome: a team that feels safe to speak up. Psychosocial hazard management is the legal obligation that gets you there.",
+    answer: (
+      <>
+        They&apos;re related.{" "}
+        <a
+          href="https://articles.howswork.app/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          target="_blank"
+        >
+          Psychological safety
+        </a>{" "}
+        is the outcome: a team that feels safe to speak up. Psychosocial hazard management is the legal obligation that
+        gets you there.
+      </>
+    ),
   },
   {
     question: "How long does it take to set up?",
@@ -36,9 +48,9 @@ const faqs = [
       "Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take less than a minute and feed into your risk register.",
   },
   {
-    question: "Is there a free trial?",
+    question: "Can I use HowsWork for free?",
     answer:
-      "No, but you can get started for free. Smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
+      "Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
   },
 ];
 

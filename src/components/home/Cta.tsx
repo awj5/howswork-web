@@ -24,7 +24,7 @@ export default function Cta() {
 
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
           <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
-            Psych safety compliance, ready to go in minutes
+            WHS compliance, ready to go in minutes
           </h2>
 
           <p className="mt-6 text-lg/8 text-gray-300">

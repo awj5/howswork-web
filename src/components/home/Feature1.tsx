@@ -32,7 +32,7 @@ export default function Feature1() {
             <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Complete toolkit</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
-              Psych safety, sorted
+              Built for compliance
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
