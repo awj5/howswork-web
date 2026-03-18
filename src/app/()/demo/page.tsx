@@ -55,7 +55,7 @@ export default function Demo() {
           </h2>
 
           <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-400">
-            See how HowsWork can help you meet your psychosocial safety obligations. We'll walk you through the platform
+            See how HowsWork can help you meet your psychosocial risk obligations. We'll walk you through the platform
             and answer any questions.
           </p>
         </div>
