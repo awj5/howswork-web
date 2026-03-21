@@ -39,13 +39,15 @@ export default function Header() {
           </Link>
         </div>
 
-        {/*<div className="hidden lg:flex lg:gap-x-12">
-          {navigation.map((item) => (
+        {
+          <div className="hidden lg:flex lg:gap-x-12">
+            {/*navigation.map((item) => (
             <Link key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900 dark:text-white">
               {item.name}
             </Link>
-          ))}
-        </div>*/}
+          ))*/}
+          </div>
+        }
 
         <div className="flex flex-1 items-center justify-end gap-x-6">
           <a
@@ -113,7 +115,7 @@ export default function Header() {
           <div className="mt-6 flow-root">
             <div className="-my-6 divide-y divide-gray-500/10 dark:divide-white/10">
               <div className="space-y-2 py-6">
-                {navigation.map((item) => (
+                {/*navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
@@ -121,7 +123,7 @@ export default function Header() {
                   >
                     {item.name}
                   </Link>
-                ))}
+                ))*/}
               </div>
 
               <div className="py-6">
