@@ -34,7 +34,7 @@ export default function Demo() {
   };
 
   return (
-    <main>
+    <main className="pt-14">
       <div className="isolate bg-white px-6 pt-24 sm:pt-32 lg:px-8 dark:bg-gray-900">
         <div
           aria-hidden="true"
@@ -136,7 +136,7 @@ export default function Demo() {
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Let us know your availability for a demo"
+                  placeholder="Let us know your availability"
                   rows={4}
                   className="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 dark:bg-white/5 dark:text-white dark:outline-white/10 dark:placeholder:text-gray-500 dark:focus:outline-indigo-500"
                   defaultValue={""}
