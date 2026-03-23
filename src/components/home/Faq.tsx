@@ -1,8 +1,20 @@
 const faqs = [
   {
     question: "Are reported concerns really anonymous?",
-    answer:
-      "Yes. There are no accounts and no logins. Your team accesses HowsWork using a shared rotating PIN, so there's no way to link a reported concern to an individual.",
+    answer: (
+      <>
+        Yes. There are{" "}
+        <a
+          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          target="_blank"
+        >
+          no accounts and no logins
+        </a>
+        . Your team accesses HowsWork using a shared rotating PIN, so there's no way to link a reported concern to an
+        individual.
+      </>
+    ),
   },
   {
     question: "Which laws does HowsWork help me comply with?",

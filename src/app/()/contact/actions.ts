@@ -3,23 +3,23 @@
 import { isValidEmail } from "@/utils/helpers";
 import resend from "@/utils/resend";
 
-export async function requestDemo(formData: FormData) {
+export async function contact(formData: FormData, to: string, subject: string) {
   let email = formData.get("email") as string;
   email = email.trim().toLowerCase();
   if (!isValidEmail(email)) return { error: "Email is invalid" };
 
   try {
-    // Save to Resend
+    // Save email to Resend
     await resend.contacts.create({
       email,
       audienceId: process.env.RESEND_AUDIENCE_ID!,
     });
 
-    // Send email
+    // Send email to HowsWork
     const send = await resend.emails.send({
       from: "HowsWork <no-reply@updates.howswork.app>",
-      to: "support@howswork.app",
-      subject: "Demo request",
+      to,
+      subject,
       html: `<p>First name: ${formData.get("first-name")}<br />Last name: ${formData.get("last-name")}<br />Company: ${formData.get("company")}<br />Email: ${email}<br />Message:<br />${(formData.get("message") as string)?.replace(/\n/g, "<br />")}</p>`,
     });
 
