@@ -8,8 +8,8 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
   { name: "Product", href: "/" },
+  { name: "Company", href: "/about" },
   { name: "Support", href: "/contact/support" },
-  { name: "Resources", href: "https://articles.howswork.app/" },
 ];
 
 export default function Header() {
