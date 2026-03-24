@@ -82,7 +82,7 @@ export default function Header() {
 
         <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900 dark:sm:ring-gray-100/10">
           <div className="flex items-center gap-x-6">
-            <Link href="/" className="-m-1.5 p-1.5">
+            <Link href="/" onClick={() => setMobileMenuOpen(false)} className="-m-1.5 p-1.5">
               <span className="sr-only">HowsWork</span>
               <Image src="/img/logo.svg" width={728} height={128} alt="HowsWork" className="h-6 w-auto dark:hidden" />
 
@@ -97,6 +97,7 @@ export default function Header() {
 
             <Link
               href="/contact/demo"
+              onClick={() => setMobileMenuOpen(false)}
               className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
             >
               {/*Sign up*/}Book a demo
@@ -119,6 +120,7 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.href}
+                    onClick={() => setMobileMenuOpen(false)}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
                   >
                     {item.name}

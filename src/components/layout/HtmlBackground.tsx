@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export default function HtmlBackground() {
   useEffect(() => {
     const updateBackgroundColor = (isDark: boolean) => {
-      document.documentElement.style.backgroundColor = isDark ? "var(--color-zinc-900)" : "white";
+      document.documentElement.style.backgroundColor = isDark ? "var(--color-gray-900)" : "white";
     };
 
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
