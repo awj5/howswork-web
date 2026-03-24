@@ -89,7 +89,7 @@ export default function Mission() {
             <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4 dark:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Annual cost of psychosocial harm to Australian businesses
+                  Annual cost of psychosocial harm to Australian businesses in 2024
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
