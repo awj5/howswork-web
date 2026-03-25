@@ -75,12 +75,12 @@ export default function ConcernDialog() {
 
   return (
     <Dialog open={concernDialog} onClose={setConcernDialog} size="2xl">
-      <DialogTitle>Raise a concern</DialogTitle>
+      <DialogTitle>Raise a concern with {company?.name}</DialogTitle>
 
       <DialogDescription className="text-wrap!">
-        Your concern is anonymous. We cannot identify who submitted this.{" "}
+        Your concern is anonymous and fully encrypted. We cannot identify who submitted this.{" "}
         <TextLink href="https://articles.howswork.app/how-howswork-protects-your-privacy/" target="_blank">
-          Learn more about how anonymity works
+          Learn more
         </TextLink>
       </DialogDescription>
 

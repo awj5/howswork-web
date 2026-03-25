@@ -86,7 +86,7 @@ export default function FeedbackDialog() {
 
   return (
     <Dialog open={feedbackDialog?.open ?? false} onClose={() => setFeedbackDialog(null)} size="xl">
-      <DialogTitle>Check in</DialogTitle>
+      <DialogTitle>Check in with {company?.name}</DialogTitle>
 
       <DialogDescription className="text-wrap!">
         Takes less than a minute. Your responses are completely anonymous and help highlight issues that need attention.

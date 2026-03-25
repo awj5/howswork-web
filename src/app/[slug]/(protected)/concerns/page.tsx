@@ -62,7 +62,7 @@ export default function Concerns() {
     <div className="mx-auto max-w-6xl">
       <EmptyState>
         <Subheading>Look up your concern</Subheading>
-        <Text className="mt-1 text-center">Enter your tracking number to view updates.</Text>
+        <Text className="mt-1 text-center">Enter a tracking number to view updates.</Text>
 
         <div className="mt-6 flex flex-col gap-4 sm:flex-row">
           <InputGroup>
