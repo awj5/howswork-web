@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
+import { headers } from "next/headers";
 import ogImage from "../../public/img/og.png";
 import "./globals.css";
 
@@ -11,25 +12,38 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
-export const metadata: Metadata = {
-  title: "HowsWork - A safe, anonymous way for employees to speak up",
-  description:
-    "A trusted channel for raising workplace concerns, surfacing risks early and helping reduce exposure to psychological injury claims and compliance failures.",
-  icons: {
-    icon: [
-      { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },
-      { url: "/img/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
-    ],
-  },
-  metadataBase: new URL("https://www.howswork.app"),
-  openGraph: {
-    images: [
-      {
-        url: ogImage.src,
+export async function generateMetadata(): Promise<Metadata> {
+  const headersList = await headers();
+  const host = (headersList.get("host") ?? "howswork.app").replace(/^www\./, "");
+  const canonical = `https://${host}`;
+
+  return {
+    title: "HowsWork - A safe, anonymous way for employees to speak up",
+    description:
+      "A trusted channel for raising workplace concerns, surfacing risks early and helping reduce exposure to psychological injury claims and compliance failures.",
+    icons: {
+      icon: [
+        { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },
+        { url: "/img/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
+      ],
+    },
+    metadataBase: new URL(canonical),
+    openGraph: {
+      images: [
+        {
+          url: ogImage.src,
+        },
+      ],
+    },
+    alternates: {
+      canonical,
+      languages: {
+        en: "https://howswork.app",
+        "en-AU": "https://howswork.com.au",
       },
-    ],
-  },
-};
+    },
+  };
+}
 
 export default function RootLayout({
   children,

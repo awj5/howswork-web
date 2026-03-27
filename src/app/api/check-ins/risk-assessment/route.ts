@@ -173,7 +173,7 @@ export async function POST(req: NextRequest) {
                 <img
                   alt="HowsWork"
                   height="32"
-                  src="https://www.howswork.app/img/email-icon.png"
+                  src="https://howswork.app/img/email-icon.png"
                   style="display: block; outline: none; border: none; text-decoration: none"
                   width="32"
                 />
