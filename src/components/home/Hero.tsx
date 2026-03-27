@@ -41,8 +41,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Give your team a trusted channel for raising workplace concerns. HowsWork automatically builds a risk
-              register, helping you demonstrate WHS compliance and identify risks early.
+              A trusted channel for raising workplace concerns, surfacing risks early and helping reduce exposure to
+              psychological injury claims and compliance failures.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
