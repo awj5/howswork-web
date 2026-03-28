@@ -2,8 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Cookies from "js-cookie";
 
 export default function Hero() {
+  const country = Cookies.get("x-country");
+  console.log(country);
+
   return (
     <div className="relative isolate pt-14">
       <div

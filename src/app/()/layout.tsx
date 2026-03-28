@@ -9,7 +9,7 @@ export default async function Layout({
 }>) {
   return (
     <div className="bg-white dark:bg-gray-900">
-      {/* Use a client component to update HTML bg color */}
+      {/* Use a component to update HTML bg color */}
       <HtmlBackground />
       <Header />
       {children}
