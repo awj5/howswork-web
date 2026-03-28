@@ -3,9 +3,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import Cookies from "js-cookie";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const country = Cookies.get("x-country");
+  const [country, setCountry] = useState<string>();
+
+  useEffect(() => {
+    setCountry(Cookies.get("x-country"));
+  }, []);
 
   return (
     <div className="relative isolate pt-14">
@@ -24,7 +29,7 @@ export default function Hero() {
 
       <div className="pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="hidden sm:mb-8 sm:flex sm:justify-center">
+          <div className={`hidden sm:mb-8 sm:flex sm:justify-center ${country === undefined && "invisible"}`}>
             {country === "AU" ? (
               <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
                 Australian employers must now identify psychosocial hazards.{" "}
