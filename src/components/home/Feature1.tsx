@@ -1,4 +1,7 @@
+"use client";
+
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
   {
@@ -15,13 +18,13 @@ const features = [
     name: "Risk register",
     description: (
       <>
-        Risks are automatically identified and logged, giving you an{" "}
+        Risks are automatically identified and logged, giving you a{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
-          audit-ready record
+          record of action
         </a>{" "}
         without the manual work.
       </>
@@ -35,6 +38,8 @@ const features = [
 ];
 
 export default function Feature1() {
+  const { country } = useCountryContext();
+
   return (
     <div id="feature1" className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -60,7 +65,7 @@ export default function Feature1() {
                     aria-hidden="true"
                     className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
                   />
-                  {feature.name}
+                  {country === "US" ? feature.name.replace("anonymisation", "anonymization") : feature.name}
                 </dt>
 
                 <dd className="mt-2">{feature.description}</dd>

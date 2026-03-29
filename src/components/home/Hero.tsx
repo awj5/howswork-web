@@ -2,15 +2,10 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Cookies from "js-cookie";
-import { useEffect, useState } from "react";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Hero() {
-  const [country, setCountry] = useState<string>();
-
-  useEffect(() => {
-    setCountry(Cookies.get("x-country"));
-  }, []);
+  const { country } = useCountryContext();
 
   return (
     <div className="relative isolate pt-14">
