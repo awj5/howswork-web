@@ -1,3 +1,7 @@
+"use client";
+
+import { useCountryContext } from "@/hooks/useCountry";
+
 const faqs = [
   {
     question: "Are reported concerns really anonymous?",
@@ -16,6 +20,36 @@ const faqs = [
       </>
     ),
   },
+  {
+    question: "How long does it take to set up?",
+    answer:
+      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
+  },
+  {
+    question: "What are check-ins and how do they work?",
+    answer: (
+      <>
+        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
+        less than a minute and feed into your{" "}
+        <a
+          href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          target="_blank"
+        >
+          risk register
+        </a>
+        .
+      </>
+    ),
+  },
+  {
+    question: "Can I use HowsWork for free?",
+    answer:
+      "Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
+  },
+];
+
+const ausFaqs = [
   {
     question: "Which laws does HowsWork help me comply with?",
     answer: (
@@ -49,24 +83,11 @@ const faqs = [
       </>
     ),
   },
-  {
-    question: "How long does it take to set up?",
-    answer:
-      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
-  },
-  {
-    question: "What are check-ins and how do they work?",
-    answer:
-      "Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take less than a minute and feed into your risk register.",
-  },
-  {
-    question: "Can I use HowsWork for free?",
-    answer:
-      "Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
-  },
 ];
 
 export default function Faq() {
+  const { country } = useCountryContext();
+
   return (
     <div id="faq" className="mx-auto max-w-7xl px-6 pt-32 sm:pt-56 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -95,6 +116,14 @@ export default function Faq() {
                 <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
               </div>
             ))}
+
+            {country === "AU" &&
+              ausFaqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="text-base/7 font-semibold text-gray-900 dark:text-white">{faq.question}</dt>
+                  <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
+                </div>
+              ))}
           </dl>
         </div>
       </div>

@@ -6,8 +6,19 @@ import { useCountryContext } from "@/hooks/useCountry";
 const features = [
   {
     name: "Anonymous reporting",
-    description:
-      "Employees raise concerns without an account or login, so there's no way to link a submission back to an individual.",
+    description: (
+      <>
+        Employees raise concerns{" "}
+        <a
+          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          without an account or login
+        </a>
+        , so there's no way to link a submission back to an individual.
+      </>
+    ),
   },
   {
     name: "Automated check-ins",
