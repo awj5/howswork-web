@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { Toaster } from "sonner";
-import { headers } from "next/headers";
 import ogImage from "../../public/img/og.png";
 import "./globals.css";
 
@@ -13,10 +12,6 @@ const inter = Inter({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const headersList = await headers();
-  const host = (headersList.get("host") ?? "howswork.app").replace(/^www\./, "");
-  const canonical = `https://${host}`;
-
   return {
     title: "HowsWork - A safe, anonymous way for employees to speak up",
     description:
@@ -27,7 +22,7 @@ export async function generateMetadata(): Promise<Metadata> {
         { url: "/img/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
       ],
     },
-    metadataBase: new URL(canonical),
+    metadataBase: "https://howswork.app",
     openGraph: {
       images: [
         {
@@ -36,7 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
       ],
     },
     alternates: {
-      canonical,
+      canonical: "https://howswork.app",
       languages: {
         en: "https://howswork.app",
         "en-AU": "https://howswork.com.au",
