@@ -24,7 +24,20 @@ const features = [
   },
   {
     name: "Hazard mapping.",
-    description: "Issues are automatically grouped by workplace hazard type.",
+    description: "Issues are automatically mapped to known workplace hazards.",
+    auDescription: (
+      <>
+        Issues are automatically mapped to{" "}
+        <a
+          href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
+          target="_blank"
+          className="text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          Safe Work Australia&apos;s 14 psychosocial hazards
+        </a>
+        .
+      </>
+    ),
     icon: FolderOpenIcon,
   },
   {
@@ -33,7 +46,7 @@ const features = [
     icon: LightBulbIcon,
   },
   {
-    name: "Exportable record.",
+    name: "Ready to export.",
     description: "Download a complete record of identified risks, summaries, and actions taken.",
     icon: ArrowDownTrayIcon,
   },
@@ -52,7 +65,7 @@ export default function Feature2() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
           <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">
-            {country === "AU" ? "Audit-ready" : "Proof you acted"}
+            {country === "AU" ? "Audit-ready" : "Record of action"}
           </h2>
 
           <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
@@ -99,12 +112,10 @@ export default function Feature2() {
                   aria-hidden="true"
                   className="absolute top-1 left-1 size-5 text-indigo-600 dark:text-indigo-400"
                 />
-                {country === "AU" ? feature.name.replace("Exportable record", "Audit-ready export") : feature.name}
+                {feature.name}
               </dt>{" "}
               <dd className="inline">
-                {country === "AU"
-                  ? feature.description.replace("workplace hazard", "psychosocial hazard")
-                  : feature.description}
+                {country === "AU" && feature.auDescription ? feature.auDescription : feature.description}
               </dd>
             </div>
           ))}

@@ -40,9 +40,23 @@ const features = [
         without the manual work.
       </>
     ),
+    auDescription: (
+      <>
+        Risks are automatically identified and logged, giving you an{" "}
+        <a
+          href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          audit-ready record
+        </a>{" "}
+        without the manual work.
+      </>
+    ),
   },
   {
     name: "AI anonymisation",
+    usName: "AI anonymization",
     description:
       "Employee responses are rewritten by AI to remove identifying language, so people feel genuinely safe speaking up.",
   },
@@ -76,10 +90,12 @@ export default function Feature1() {
                     aria-hidden="true"
                     className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
                   />
-                  {country === "US" ? feature.name.replace("anonymisation", "anonymization") : feature.name}
+                  {country === "US" && feature.usName ? feature.usName : feature.name}
                 </dt>
 
-                <dd className="mt-2">{feature.description}</dd>
+                <dd className="mt-2">
+                  {country === "AU" && feature.auDescription ? feature.auDescription : feature.description}
+                </dd>
               </div>
             ))}
           </dl>
