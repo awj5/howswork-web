@@ -12,8 +12,8 @@ export default function Mission() {
           </h1>
 
           <p className="mt-6 text-xl/8 text-balance text-gray-700 dark:text-gray-300">
-            HowsWork helps businesses identify and manage psychosocial risks before they become injuries, complaints, or
-            claims.
+            HowsWork gives employees a safe, anonymous way to speak up about psychological health and safety risks at
+            work, before they become injuries or claims.
           </p>
         </div>
 
@@ -24,7 +24,7 @@ export default function Mission() {
             </h2>
 
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Most workplaces don&apos;t have a psychosocial safety problem because they don&apos;t care. They have one
+              Most workplaces don&apos;t have a psychological harm problem because they don&apos;t care. They have one
               because they have no reliable way to know what&apos;s actually happening on the floor, in the field, or
               across shifts. The people who experience harm rarely tell the people who cause it. And the people
               responsible for fixing it are often the last to find out.
@@ -32,9 +32,13 @@ export default function Mission() {
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
               Formal channels don&apos;t solve this. Workers avoid them because they feel visible, unsafe, or pointless.
-              Most concerns never get raised at all. HowsWork exists to fix that. We give employees a genuinely
-              anonymous way to raise concerns and share how they&apos;re doing. We give employers the structured
-              visibility they need to act early.
+              Most concerns never get raised at all.
+            </p>
+
+            <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
+              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about workplace
+              hazards and psychological health. We give employers the structured visibility they need to act early, with
+              a clear record of action taken.
             </p>
           </div>
 
@@ -89,49 +93,40 @@ export default function Mission() {
             <dl className="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2">
               <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4 dark:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Annual cost of psychosocial harm to Australian businesses in 2024
+                  Annual cost of workplace psychological harm to the global economy
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  $<span>6</span>B
+                  $1 trillion
                 </dd>
               </div>
 
               <div className="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4 dark:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Psychosocial hazard categories under the{" "}
-                  <a
-                    href="https://www.comcare.gov.au/safe-healthy-work/prevent-harm/psychosocial-hazards"
-                    target="_blank"
-                    className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                  >
-                    WHS Code of Practice
-                  </a>
+                  Working days lost each year to workplace psychological harm
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  <span>17</span>
+                  12 billion
                 </dd>
               </div>
 
               <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4 dark:max-sm:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Takes five times longer than a physical injury claim
+                  Working-age adults affected by a psychological health condition at any point in time
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  <span>5</span>x
+                  1 in 6
                 </dd>
               </div>
 
               <div className="flex flex-col gap-y-2">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Increase in mental health compensation claims over 10 years
+                  Of employees have left a job due to psychological health concerns
                 </dt>
 
-                <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  <span>161</span>%
-                </dd>
+                <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">48%</dd>
               </div>
             </dl>
           </div>
