@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function proxy(req: NextRequest) {
+export default function proxy(req: NextRequest) {
   const country = req.headers.get("x-country") ?? "unknown";
   const res = NextResponse.next();
   res.headers.set("x-country", country);
