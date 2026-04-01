@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export function proxy(req: NextRequest) {
-  const country = req.headers.get("x-vercel-ip-country") ?? "unknown";
+export async function proxy(request: NextRequest) {
+  const country = request.headers.get("x-country") ?? "unknown";
   const res = NextResponse.next();
   res.headers.set("x-country", country);
   res.cookies.set("x-country", country, { path: "/", sameSite: "lax" });
@@ -17,6 +17,6 @@ export const config = {
      * - favicon.ico (favicon file)
      * Feel free to modify this pattern to include more paths.
      */
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!_next/static|_next/image|_next/data|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
