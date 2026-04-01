@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { ClockIcon, EyeIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
 
 const features = [
@@ -51,6 +52,28 @@ export default function CheckIn() {
                 </div>
               ))}
             </dl>
+
+            <p className="mt-10 text-lg/8 font-semibold text-gray-900 dark:text-white">
+              PIN notifications also available via Slack and Microsoft Teams
+            </p>
+
+            <div className="mt-10 inline-flex gap-8 sm:gap-10">
+              <Image
+                alt="Slack"
+                src="/img/how-it-works/slack.svg"
+                width={127}
+                height={127}
+                className="max-h-12 w-full object-contain"
+              />
+
+              <Image
+                alt="Teams"
+                src="/img/how-it-works/teams.svg"
+                width={36}
+                height={38}
+                className="max-h-12 w-full object-contain"
+              />
+            </div>
           </div>
 
           <div className="mb-16 sm:mb-24 lg:mb-0 lg:shrink-0 lg:grow">
