@@ -16,7 +16,7 @@ const features = [
         >
           without an account or login
         </a>
-        , so there's no way to link a submission back to an individual.
+        , so there&apos;s no way to link a submission back to an individual.
       </>
     ),
   },
@@ -66,7 +66,7 @@ export default function Feature1() {
   const { country } = useCountryContext();
 
   return (
-    <div id="feature1" className="pt-32 sm:pt-56">
+    <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-5">
           <div className="col-span-2">

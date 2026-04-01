@@ -8,8 +8,9 @@ import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
   { name: "Product", href: "/" },
+  { name: "How it works", href: "/how-it-works" },
+  { name: "Pricing", href: "/pricing" },
   { name: "Company", href: "/about" },
-  { name: "Support", href: "/contact/support" },
 ];
 
 export default function Header() {
@@ -54,7 +55,7 @@ export default function Header() {
             href="https://admin.howswork.app"
             className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white"
           >
-            Employer log in
+            Log in
           </a>
 
           <Link
@@ -98,7 +99,7 @@ export default function Header() {
             <Link
               href="/contact/demo"
               onClick={() => setMobileMenuOpen(false)}
-              className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+              className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
             >
               {/* Get started */}Request a demo
             </Link>

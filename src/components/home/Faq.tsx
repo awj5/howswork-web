@@ -15,8 +15,8 @@ const faqs = [
         >
           no accounts and no logins
         </a>
-        . Your team accesses HowsWork using a shared rotating PIN, so there's no way to link a reported concern to an
-        individual.
+        . Your team accesses HowsWork using a shared rotating PIN, so there&apos;s no way to link a reported concern to
+        an individual.
       </>
     ),
   },
@@ -89,7 +89,7 @@ export default function Faq() {
   const { country } = useCountryContext();
 
   return (
-    <div id="faq" className="mx-auto max-w-7xl px-6 pt-32 sm:pt-56 lg:px-8">
+    <div className="mx-auto max-w-7xl px-6 pt-32 sm:pt-56 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <h2 className="text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-white">

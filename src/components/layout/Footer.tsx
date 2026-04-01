@@ -1,4 +1,5 @@
 import { SVGProps } from "react";
+import Link from "next/link";
 
 const navigation = {
   main: [
@@ -74,6 +75,13 @@ export default function Footer() {
     <footer>
       <div className="mx-auto max-w-7xl overflow-hidden px-6 pt-32 pb-20 sm:pt-56 sm:pb-24 lg:px-8">
         <nav aria-label="Footer" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
+          <Link
+            href="/contact/support"
+            className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
+          >
+            Support
+          </Link>
+
           {navigation.main.map((item) => (
             <a
               key={item.name}

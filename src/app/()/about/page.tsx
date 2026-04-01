@@ -1,5 +1,5 @@
 import Mission from "@/components/about/Mission";
-import Cta from "@/components/about/Cta";
+import Cta from "@/components/Cta";
 
 export default function About() {
   return (

@@ -47,16 +47,9 @@ export default function Cta() {
               {/* Get started */}Request a demo
             </Link>
 
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" });
-              }}
-              className="text-sm/6 font-semibold text-white hover:text-gray-100"
-            >
+            <Link href="/how-it-works" className="text-sm/6 font-semibold text-white hover:text-gray-100">
               Learn more <span aria-hidden="true">→</span>
-            </a>
+            </Link>
           </div>
         </div>
 

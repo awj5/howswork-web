@@ -70,16 +70,9 @@ export default function Hero() {
                 {/* Get started */}Request a demo
               </Link>
 
-              <a
-                href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById("feature1")?.scrollIntoView({ behavior: "smooth" });
-                }}
-                className="text-sm/6 font-semibold text-gray-900 dark:text-white"
-              >
+              <Link href="/how-it-works" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
                 Learn more <span aria-hidden="true">→</span>
-              </a>
+              </Link>
             </div>
           </div>
 

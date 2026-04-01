@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Cta() {
   return (
-    <div className="mx-auto max-w-7xl pt-24 sm:px-6 sm:pt-32 lg:px-8">
+    <div className="mx-auto max-w-7xl pt-32 sm:px-6 sm:pt-56 lg:px-8">
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 py-24 text-center shadow-2xl sm:rounded-3xl sm:px-16 dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-0 dark:after:inset-ring dark:after:inset-ring-white/10 dark:after:sm:rounded-3xl">
         <h2 className="text-4xl font-semibold tracking-tight text-balance text-white sm:text-5xl">
           Ready to get started?
