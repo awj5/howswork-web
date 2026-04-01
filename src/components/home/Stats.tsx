@@ -1,14 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Stats() {
-  const [country, setCountry] = useState<string>();
-
-  useEffect(() => {
-    setCountry(Cookies.get("x-country"));
-  }, []);
+  const { country } = useCountryContext();
 
   if (country !== "AU") return null;
 

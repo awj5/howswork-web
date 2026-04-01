@@ -1,16 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Cookies from "js-cookie";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Cta() {
-  const [country, setCountry] = useState<string>();
-
-  useEffect(() => {
-    setCountry(Cookies.get("x-country"));
-  }, []);
+  const { country } = useCountryContext();
 
   return (
     <div className="mx-auto max-w-7xl pt-32 sm:px-6 sm:pt-56 lg:px-8">
