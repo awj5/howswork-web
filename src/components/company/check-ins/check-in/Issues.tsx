@@ -10,7 +10,7 @@ type IssuesProps = {
 export default function Issues(props: IssuesProps) {
   return (
     <div className="mt-12">
-      <Subheading>Issues experienced</Subheading>
+      <Subheading>Issues flagged</Subheading>
 
       <div className="mt-4 flex flex-wrap gap-4 sm:gap-3">
         {props.data?.length ? (
@@ -20,7 +20,7 @@ export default function Issues(props: IssuesProps) {
             return <Badge key={issue}>{tag}</Badge>;
           })
         ) : (
-          <Text>No issues reported</Text>
+          <Text>No significant issues detected</Text>
         )}
       </div>
     </div>

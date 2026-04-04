@@ -64,6 +64,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
 
     // Get issues
     const issueCounts = new Map<number, number>();
+    const threshold = checkInData.contact_count * 0.2; // 20%
 
     feedbackData.forEach((feedback) => {
       feedback.issues?.forEach((id: number) => {
@@ -71,8 +72,10 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       });
     });
 
+    const riskIssues = new Map([...issueCounts].filter(([, count]) => count >= 2 && count >= threshold)); // Issues selected by 20% or more users (must be selected more than once)
+
     // Order by most common
-    const issues = Array.from(issueCounts, ([id, count]) => ({ id, count }))
+    const issues = Array.from(riskIssues, ([id, count]) => ({ id, count }))
       .sort((a, b) => b.count - a.count)
       .map(({ id }) => id);
 
