@@ -1,5 +1,8 @@
+"use client";
+
 import Link from "next/link";
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useCountryContext } from "@/hooks/useCountry";
 
 const tiers = [
   {
@@ -7,27 +10,38 @@ const tiers = [
     id: "tier-starter",
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
+    audPrice: { monthly: "$0", annually: "$0" },
     description: "For small teams new to psychological health and safety.",
-    features: ["Up to 10 employees", "Check-ins", "Concern reporting", "Risk register"],
+    features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
     featured: true,
   },
   {
     name: "Team",
     id: "tier-team",
     href: "/contact/demo",
-    price: { monthly: "$0", annually: "$0" },
+    price: { monthly: "$99", annually: "$990" },
+    audPrice: { monthly: "$149", annually: "$1,490" },
     description: "For growing teams that need AI features and more capacity.",
-    features: ["Up to 50 employees", "Check-ins", "Concern reporting", "Risk register", "AI features"],
+    features: [
+      "Up to 50 employees",
+      "3 admin accounts",
+      "Check-ins",
+      "Concern reporting",
+      "Risk register",
+      "AI features",
+    ],
     featured: false,
   },
   {
     name: "Business",
     id: "tier-business",
     href: "/contact/demo",
-    price: { monthly: "$0", annually: "$0" },
+    price: { monthly: "$249", annually: "$2,490" },
+    audPrice: { monthly: "$349", annually: "$3,490" },
     description: "For larger teams that need the full feature set including SMS.",
     features: [
       "Up to 200 employees",
+      "5 admin accounts",
       "Check-ins",
       "Concern reporting",
       "Risk register",
@@ -41,9 +55,11 @@ const tiers = [
     id: "tier-enterprise",
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
+    audPrice: { monthly: "$0", annually: "$0" },
     description: "For large employers with advanced support requirements.",
     features: [
       "Unlimited employees",
+      "Unlimited admin accounts",
       "Check-ins",
       "Concern reporting",
       "Risk register",
@@ -57,6 +73,8 @@ const tiers = [
 ];
 
 export default function Pricing() {
+  const { country } = useCountryContext();
+
   return (
     <main className="pt-14">
       <form className="group/tiers pt-24 sm:pt-32">
@@ -125,21 +143,25 @@ export default function Pricing() {
 
                 <p className="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">{tier.description}</p>
 
-                {/*<p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
-                  <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {tier.price.monthly}
-                  </span>
+                {tier.id !== "tier-enterprise" && (
+                  <>
+                    <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
+                      <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        {country === "AU" ? tier.audPrice.monthly : tier.price.monthly}
+                      </span>
 
-                  <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
-                </p>
+                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
+                    </p>
 
-                <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden">
-                  <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {tier.price.annually}
-                  </span>
+                    <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden">
+                      <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                        {country === "AU" ? tier.audPrice.annually : tier.price.annually}
+                      </span>
 
-                  <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
-                </p>*/}
+                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
+                    </p>
+                  </>
+                )}
 
                 <Link
                   href={tier.href}
