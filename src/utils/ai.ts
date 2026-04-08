@@ -4,7 +4,7 @@ export async function generateDescription(text: string, type: string) {
   try {
     const systemPrompt =
       type === "concern"
-        ? `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
+        ? `You are a summarisation assistant for HowsWork, a workplace psychological health and safety platform.
 
 Summarise the following employee concern for a risk register entry and assess its risk level.
 
@@ -92,7 +92,7 @@ Risk level guidance:
 
 export async function anonymizeDetails(text: string, language: string) {
   try {
-    const systemPrompt = `You are an anonymization assistant for HowsWork.
+    const systemPrompt = `You are an anonymization assistant for HowsWork, a workplace psychological health and safety platform.
 
 Rewrite the employee's concern so the author cannot be identified, while preserving meaning, seriousness, and facts.
 The rewritten text must remain in the first person (I, me, my).
