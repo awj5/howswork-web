@@ -1,4 +1,4 @@
-import { ShieldCheckIcon, SparklesIcon, BellAlertIcon } from "@heroicons/react/20/solid";
+import { ShieldCheckIcon, SparklesIcon, HashtagIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
@@ -12,9 +12,10 @@ const features = [
     icon: SparklesIcon,
   },
   {
-    name: "Employer notified.",
-    description: "When a concern is submitted, the employer is alerted so they can respond without delay.",
-    icon: BellAlertIcon,
+    name: "Ongoing communication.",
+    description:
+      "Employees receive a tracking number to follow up and communicate with their employer, without revealing their identity.",
+    icon: HashtagIcon,
   },
 ];
 
