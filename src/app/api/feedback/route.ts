@@ -52,6 +52,14 @@ export async function POST(req: NextRequest) {
       });
 
       if (insertFeedbackError) throw new Error(insertFeedbackError.message);
+    } else {
+      // Record that limit was reached
+      const { error: limitSignalsError } = await supabase.from("limit_signals").insert({
+        check_in_id: checkInsData.id,
+        type: "feedback",
+      });
+
+      if (limitSignalsError) throw new Error(limitSignalsError.message);
     }
 
     return NextResponse.json({ data: checkInsData.id }, { status: 200 }); // Success

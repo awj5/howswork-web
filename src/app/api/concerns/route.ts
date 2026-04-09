@@ -21,7 +21,7 @@ export async function POST(req: NextRequest) {
     // Verify pin
     const { data: verifyData, error: verifyError } = await supabase
       .from("check_ins")
-      .select("id")
+      .select("id, contact_count")
       .eq("company_id", companyID)
       .eq("pin", pin)
       .eq("status", 2)
@@ -34,6 +34,25 @@ export async function POST(req: NextRequest) {
       const { success } = await rateLimit.limit(identifier);
       if (!success) await redis.set(`blocked:${identifier}`, 1, { ex: 300 }); // Block for 5 mins
       return NextResponse.json({ error: "Access denied" }, { status: 401 });
+    }
+
+    // Get check-in concern count
+    const { count: concernsCount, error: concernsError } = await supabase
+      .from("concerns")
+      .select("id", { count: "exact", head: true })
+      .eq("check_in_id", verifyData[0].id);
+
+    if (concernsError) throw new Error(concernsError.message);
+
+    // Flag if concerns are more than double the invited contacts
+    if (concernsCount && concernsCount >= verifyData[0].contact_count * 2) {
+      // Record that limit was reached
+      const { error: limitSignalsError } = await supabase.from("limit_signals").insert({
+        check_in_id: verifyData[0].id,
+        type: "concern",
+      });
+
+      if (limitSignalsError) throw new Error(limitSignalsError.message);
     }
 
     // Generate tracking no.
