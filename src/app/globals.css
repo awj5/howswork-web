@@ -23,6 +23,12 @@ html {
   }
 }
 
+@utility gradient-text {
+  background-image: linear-gradient(to right, var(--color-indigo-500), var(--color-fuchsia-500));
+  background-clip: text;
+  color: transparent !important;
+}
+
 /* react-verification-input */
 
 .container {

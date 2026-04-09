@@ -2,7 +2,7 @@ export default function Header() {
   return (
     <div className="px-6 pt-24 sm:pt-32 lg:px-8">
       <div className="mx-auto max-w-2xl text-center">
-        <p className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">How it works</p>
+        <p className="gradient-text inline text-base/7 font-semibold">How it works</p>
 
         <h2 className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl dark:text-white">
           Simple by design

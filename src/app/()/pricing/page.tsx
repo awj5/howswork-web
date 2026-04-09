@@ -80,7 +80,7 @@ export default function Pricing() {
       <form className="group/tiers pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">Pricing</h2>
+            <h2 className="gradient-text inline text-base/7 font-semibold">Pricing</h2>
 
             <p className="mt-2 text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-6xl dark:text-white">
               Plans for every team size

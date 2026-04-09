@@ -64,7 +64,7 @@ export default function Feature2() {
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base/7 font-semibold text-indigo-600 dark:text-indigo-400">
+          <h2 className="gradient-text inline text-base/7 font-semibold">
             {country === "AU" ? "Audit-ready" : "Record of action"}
           </h2>
 

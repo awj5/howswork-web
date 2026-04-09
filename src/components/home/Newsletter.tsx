@@ -28,7 +28,7 @@ export default function Newsletter() {
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-6 lg:grid-cols-12 lg:gap-8 lg:px-8">
-        <h2 className="max-w-xl text-3xl font-semibold tracking-tight text-balance text-gray-900 sm:text-4xl lg:col-span-7 dark:text-white">
+        <h2 className="gradient-text max-w-xl text-3xl font-semibold tracking-tight text-balance sm:text-4xl lg:col-span-7">
           Want product news and updates? Sign up for our newsletter.
         </h2>
 
