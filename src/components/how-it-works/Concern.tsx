@@ -8,7 +8,19 @@ const features = [
   },
   {
     name: "Anonymous writing.",
-    description: "An AI tool rewrites the concern to remove identifying language before it\u2019s submitted.",
+    description: (
+      <>
+        An AI tool rewrites the concern to{" "}
+        <a
+          href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          remove identifying language
+        </a>{" "}
+        before it&apos;s submitted.
+      </>
+    ),
     icon: SparklesIcon,
   },
   {

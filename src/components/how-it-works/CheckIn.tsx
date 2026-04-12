@@ -4,7 +4,19 @@ import { ClockIcon, EyeIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
 const features = [
   {
     name: "No login required.",
-    description: "Employees receive a rotating PIN to access HowsWork. No account, no profile, nothing traceable.",
+    description: (
+      <>
+        Employees receive a rotating PIN to access HowsWork.{" "}
+        <a
+          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          No account, no profile
+        </a>
+        , nothing traceable.
+      </>
+    ),
     icon: ShieldCheckIcon,
   },
   {

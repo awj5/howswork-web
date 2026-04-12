@@ -57,8 +57,19 @@ const features = [
   {
     name: "AI anonymisation",
     usName: "AI anonymization",
-    description:
-      "Employee responses are rewritten by AI to remove identifying language, so people feel genuinely safe speaking up.",
+    description: (
+      <>
+        Employee responses are rewritten by AI to{" "}
+        <a
+          href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          remove identifying language
+        </a>
+        , so people feel genuinely safe speaking up.
+      </>
+    ),
   },
 ];
 
