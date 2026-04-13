@@ -1,8 +1,6 @@
 "use client";
 
-export const dynamic = "force-dynamic";
-
-import { useEffect } from "react";
+import { Suspense, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckIcon } from "@heroicons/react/20/solid";
@@ -77,7 +75,7 @@ const tiers = [
   },
 ];
 
-export default function Pricing() {
+function PricingContent() {
   const searchParams = useSearchParams();
   const { country } = useCountryContext();
   const { loggedIn, setLoggedIn } = useLoggedInContext();
@@ -202,5 +200,13 @@ export default function Pricing() {
         </div>
       </form>
     </main>
+  );
+}
+
+export default function Pricing() {
+  return (
+    <Suspense>
+      <PricingContent />
+    </Suspense>
   );
 }
