@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import CountryProvider from "@/components/layout/CountryProvider";
 import LoggedInProvider from "@/components/layout/LoggedInProvider";
 import Header from "@/components/layout/Header";
@@ -11,15 +12,17 @@ export default async function Layout({
 }>) {
   return (
     <CountryProvider>
-      <LoggedInProvider>
-        <div className="bg-white dark:bg-gray-900">
-          {/* Use a component to update HTML bg color */}
-          <HtmlBackground />
-          <Header />
-          {children}
-          <Footer />
-        </div>
-      </LoggedInProvider>
+      <Suspense>
+        <LoggedInProvider>
+          <div className="bg-white dark:bg-gray-900">
+            {/* Use a component to update HTML bg color */}
+            <HtmlBackground />
+            <Header />
+            {children}
+            <Footer />
+          </div>
+        </LoggedInProvider>
+      </Suspense>
     </CountryProvider>
   );
 }
