@@ -1,6 +1,8 @@
 "use client";
 
+import { useEffect } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { useCountryContext } from "@/hooks/useCountry";
 import { useLoggedInContext } from "@/hooks/useLoggedInContext";
@@ -74,8 +76,13 @@ const tiers = [
 ];
 
 export default function Pricing() {
+  const searchParams = useSearchParams();
   const { country } = useCountryContext();
-  const { loggedIn } = useLoggedInContext();
+  const { loggedIn, setLoggedIn } = useLoggedInContext();
+
+  useEffect(() => {
+    if (searchParams.has("upgrade")) setLoggedIn(true);
+  }, [searchParams]);
 
   return (
     <main className="pt-14">
