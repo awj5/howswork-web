@@ -5,6 +5,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useLoggedInContext } from "@/hooks/useLoggedInContext";
+import { dashboardURL } from "@/utils/helpers";
 
 const navigation = [
   { name: "Product", href: "/" },
@@ -14,6 +16,7 @@ const navigation = [
 ];
 
 export default function Header() {
+  const { loggedIn } = useLoggedInContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -51,19 +54,27 @@ export default function Header() {
         }
 
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          <a
-            href="https://admin.howswork.app"
-            className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white"
-          >
-            Log in
-          </a>
+          {!loggedIn ? (
+            <>
+              <a href={dashboardURL} className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white">
+                Log in
+              </a>
 
-          <Link
-            href="/contact/demo"
-            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
-          >
-            {/* Get started */}Request a demo
-          </Link>
+              <Link
+                href="/contact/demo"
+                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+              >
+                {/* Get started */}Request a demo
+              </Link>
+            </>
+          ) : (
+            <Link
+              href={dashboardURL}
+              className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+            >
+              Dashboard
+            </Link>
+          )}
         </div>
 
         <div className="flex lg:hidden">
@@ -96,13 +107,23 @@ export default function Header() {
               />
             </Link>
 
-            <Link
-              href="/contact/demo"
-              onClick={() => setMobileMenuOpen(false)}
-              className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
-            >
-              {/* Get started */}Request a demo
-            </Link>
+            {!loggedIn ? (
+              <Link
+                href="/contact/demo"
+                onClick={() => setMobileMenuOpen(false)}
+                className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+              >
+                {/* Get started */}Request a demo
+              </Link>
+            ) : (
+              <Link
+                href={dashboardURL}
+                onClick={() => setMobileMenuOpen(false)}
+                className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
+              >
+                Dashboard
+              </Link>
+            )}
 
             <button
               type="button"
@@ -129,14 +150,16 @@ export default function Header() {
                 ))}
               </div>
 
-              <div className="py-6">
-                <a
-                  href="https://admin.howswork.app"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
-                >
-                  Log in
-                </a>
-              </div>
+              {!loggedIn && (
+                <div className="py-6">
+                  <a
+                    href="https://admin.howswork.app"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50 dark:text-white dark:hover:bg-white/5"
+                  >
+                    Log in
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </DialogPanel>

@@ -1,3 +1,6 @@
+export const dashboardURL =
+  process.env.NODE_ENV === "production" ? "https://admin.howswork.app" : "http://localhost:3000";
+
 export const isValidEmail = (email: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
 export function isValidPhone(number: string) {
