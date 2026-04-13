@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { useLoggedInContext } from "@/hooks/useLoggedInContext";
+import { useDashboardContext } from "@/hooks/useDashboardContext";
 import { dashboardURL } from "@/utils/helpers";
 
 const navigation = [
@@ -16,7 +16,7 @@ const navigation = [
 ];
 
 export default function Header() {
-  const { loggedIn } = useLoggedInContext();
+  const { dashboard } = useDashboardContext();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
@@ -54,7 +54,7 @@ export default function Header() {
         }
 
         <div className="flex flex-1 items-center justify-end gap-x-6">
-          {!loggedIn ? (
+          {!dashboard ? (
             <>
               <a href={dashboardURL} className="hidden text-sm/6 font-semibold text-gray-900 lg:block dark:text-white">
                 Log in
@@ -107,7 +107,7 @@ export default function Header() {
               />
             </Link>
 
-            {!loggedIn ? (
+            {!dashboard ? (
               <Link
                 href="/contact/demo"
                 onClick={() => setMobileMenuOpen(false)}
@@ -150,7 +150,7 @@ export default function Header() {
                 ))}
               </div>
 
-              {!loggedIn && (
+              {!dashboard && (
                 <div className="py-6">
                   <a
                     href="https://admin.howswork.app"
