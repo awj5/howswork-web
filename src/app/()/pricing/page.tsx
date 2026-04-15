@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 import { CheckIcon } from "@heroicons/react/20/solid";
 import { dashboardURL } from "@/utils/helpers";
 import { useCountryContext } from "@/hooks/useCountry";
-import { useDashboardContext } from "@/hooks/useDashboardContext";
+import { useAdminCompanyContext } from "@/hooks/useAdminCompanyContext";
 
 const tiers = [
   {
@@ -83,10 +83,10 @@ const tiers = [
 function PricingContent() {
   const searchParams = useSearchParams();
   const { country } = useCountryContext();
-  const { dashboard, setDashboard } = useDashboardContext();
+  const { adminCompany, setAdminCompany } = useAdminCompanyContext();
 
   useEffect(() => {
-    if (searchParams.has("company")) setDashboard(Number(searchParams.get("company")));
+    if (searchParams.has("company")) setAdminCompany(Number(searchParams.get("company")));
   }, [searchParams]);
 
   return (
@@ -140,7 +140,9 @@ function PricingContent() {
               <div
                 key={tier.id}
                 data-featured={
-                  (tier.featured && !dashboard) || (dashboard && tier.id === "tier-enterprise") ? "true" : undefined
+                  (tier.featured && !adminCompany) || (adminCompany && tier.id === "tier-enterprise")
+                    ? "true"
+                    : undefined
                 }
                 data-free={tier.id === "tier-starter" ? "true" : undefined}
                 className="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-featured:ring-2 data-featured:ring-indigo-600 dark:bg-gray-800/50 dark:ring-white/15 dark:data-featured:ring-indigo-400"
@@ -182,26 +184,26 @@ function PricingContent() {
 
                 <Link
                   href={
-                    !dashboard || tier.id === "tier-enterprise"
+                    !adminCompany || tier.id === "tier-enterprise"
                       ? tier.href
-                      : `${dashboardURL}/upgrade?company=${dashboard}&plan=${tier.planID}&billing=monthly`
+                      : `${dashboardURL}/upgrade?company=${adminCompany}&plan=${tier.planID}&billing=monthly`
                   }
                   aria-describedby={tier.id}
                   className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
                 >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : dashboard ? "Select" : "Request a demo"}
+                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
                 </Link>
 
                 <Link
                   href={
-                    !dashboard || tier.id === "tier-enterprise"
+                    !adminCompany || tier.id === "tier-enterprise"
                       ? tier.href
-                      : `${dashboardURL}/upgrade?company=${dashboard}&plan=${tier.planID}&billing=annually`
+                      : `${dashboardURL}/upgrade?company=${adminCompany}&plan=${tier.planID}&billing=annually`
                   }
                   aria-describedby={tier.id}
                   className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
                 >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : dashboard ? "Select" : "Request a demo"}
+                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
                 </Link>
 
                 <ul role="list" className="mt-8 space-y-3 text-sm/6 text-gray-600 dark:text-gray-300">

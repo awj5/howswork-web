@@ -1,5 +1,5 @@
 import CountryProvider from "@/components/layout/CountryProvider";
-import DashboardProvider from "@/components/layout/DashboardProvider";
+import AdminCompanyProvider from "@/components/layout/AdminCompanyProvider";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import HtmlBackground from "@/components/layout/HtmlBackground";
@@ -11,7 +11,7 @@ export default async function Layout({
 }>) {
   return (
     <CountryProvider>
-      <DashboardProvider>
+      <AdminCompanyProvider>
         <div className="bg-white dark:bg-gray-900">
           {/* Use a component to update HTML bg color */}
           <HtmlBackground />
@@ -19,7 +19,7 @@ export default async function Layout({
           {children}
           <Footer />
         </div>
-      </DashboardProvider>
+      </AdminCompanyProvider>
     </CountryProvider>
   );
 }
