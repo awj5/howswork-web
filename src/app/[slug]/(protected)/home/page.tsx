@@ -23,7 +23,7 @@ export default function Home() {
 
   const getCurrentCheckInData = async (companyID: number, pin: number) => {
     try {
-      const response = await fetch("/api/check-ins/current", {
+      const response = await fetch("/api/surveys/current", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),
