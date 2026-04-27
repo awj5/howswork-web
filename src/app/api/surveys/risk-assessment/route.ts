@@ -182,7 +182,7 @@ export async function POST(req: NextRequest) {
                   the risk register.
                 </p>
                 <a
-                  href="https://admin.howswork.app/check-ins/${id}"
+                  href="https://admin.howswork.app/assessments/${id}"
                   style="
                     line-height: 100%;
                     text-decoration: none;

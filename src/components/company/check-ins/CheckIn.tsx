@@ -21,7 +21,7 @@ export default function CheckIn(props: CheckInProps) {
       href={
         props.data.status === 1
           ? undefined
-          : `/${company?.slug}/check-ins/${props.data.id}${searchParams.size ? `?${searchParams.toString()}` : ""}`
+          : `/${company?.slug}/surveys/${props.data.id}${searchParams.size ? `?${searchParams.toString()}` : ""}`
       }
     >
       <TableCell className={`font-medium ${props.data.status === 1 && "text-zinc-500 dark:text-zinc-400"}`}>

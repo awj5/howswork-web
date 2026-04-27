@@ -87,7 +87,7 @@ export default function CheckIns() {
             </TableBody>
           </Table>
 
-          <TablePagination page={page} pageCount={pageCount} route={`/${company?.slug}/check-ins`} />
+          <TablePagination page={page} pageCount={pageCount} route={`/${company?.slug}/surveys`} />
         </div>
       )}
     </div>

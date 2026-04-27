@@ -121,7 +121,7 @@ export default function CheckIn() {
         </EmptyState>
       ) : checkIn ? (
         <div className="fade-in">
-          <Breadcrumb href={`/${company?.slug}/check-ins${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
+          <Breadcrumb href={`/${company?.slug}/surveys${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
             Check-ins
           </Breadcrumb>
 
