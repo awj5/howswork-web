@@ -86,7 +86,7 @@ export default function CheckIn() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
+            Thanks for responding. If something doesn&apos;t feel right, you can also raise a concern with{" "}
             <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are
             seen and addressed.
           </Text>
@@ -102,32 +102,32 @@ export default function CheckIn() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. Insights from this check-in will be available once the next check-in begins.
+            Thanks for responding. Insights from this survey will be available once the next survey is sent.
           </Text>
         </EmptyState>
       ) : checkIn?.status === 2 ? (
         <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
           <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
-          <Subheading className="mt-4">Time for your check-in</Subheading>
+          <Subheading className="mt-4">Time for your survey</Subheading>
 
           <Text className="mt-1 text-center">
-            Share how work is going at <Strong>{company?.name}</Strong> anonymously. It takes less than a minute.
+            Share how work is going at <Strong>{company?.name}</Strong> anonymously. It only takes a few minutes.
           </Text>
 
           <Button onClick={() => setFeedbackDialog({ open: true, flagConcern: false })} color="indigo" className="mt-6">
-            Complete check-in
+            Complete survey
             <ArrowRightCircleIcon />
           </Button>
         </EmptyState>
       ) : checkIn ? (
         <div className="fade-in">
           <Breadcrumb href={`/${company?.slug}/surveys${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
-            Check-ins
+            Surveys
           </Breadcrumb>
 
           <div className="lg:mt-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Heading>Check-in Insights</Heading>
+              <Heading>Survey Insights</Heading>
               <Badge color="green">Closed</Badge>
             </div>
 

@@ -67,7 +67,7 @@ export default function CheckIns() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <Heading>Check-ins with {company?.name}</Heading>
+      <Heading>Surveys with {company?.name}</Heading>
 
       {checkIns && (
         <div className="fade-in">

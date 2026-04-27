@@ -51,7 +51,7 @@ export default function Stat(props: StatProps) {
             <ArrowTrendingDownIcon className="size-7 text-red-500 sm:size-6" />
           )}
 
-          <span className="text-sm/6 text-zinc-500 sm:text-xs/6 dark:text-zinc-400">from last check-in</span>
+          <span className="text-sm/6 text-zinc-500 sm:text-xs/6 dark:text-zinc-400">from last survey</span>
         </div>
       )}
     </div>

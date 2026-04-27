@@ -70,14 +70,14 @@ export default function Home() {
       {checkInOpen ? (
         <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
           <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
-          <Subheading className="mt-4">You&apos;ve got a check-in</Subheading>
+          <Subheading className="mt-4">You&apos;ve got a survey</Subheading>
 
           <Text className="mt-1 text-center">
             <Strong>{company?.name}</Strong> wants to know how things are going.
           </Text>
 
           <Button onClick={() => setFeedbackDialog({ open: true, flagConcern: false })} color="indigo" className="mt-6">
-            Complete check-in
+            Complete survey
             <ArrowRightCircleIcon />
           </Button>
         </EmptyState>
@@ -87,7 +87,7 @@ export default function Home() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. If something doesn&apos;t feel right, you can also raise a concern with{" "}
+            Thanks for responding. If something doesn&apos;t feel right, you can also raise a concern with{" "}
             <Strong>{company?.name.replace(/\.$/, "")}</Strong>. It&apos;s anonymous and helps ensure serious issues are
             seen and addressed.
           </Text>
@@ -103,13 +103,13 @@ export default function Home() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for checking in. You&apos;ll be notified when the next check-in from <Strong>{company?.name}</Strong>{" "}
-            is requested.
+            Thanks for responding. You&apos;ll be notified when the next survey from <Strong>{company?.name}</Strong> is
+            sent.
           </Text>
 
           <Button href={`/${company?.slug}/surveys`} outline className="mt-6">
             <ChartPieIcon />
-            View check-in insights
+            View survey insights
           </Button>
         </EmptyState>
       ) : (
