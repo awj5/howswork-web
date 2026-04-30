@@ -34,7 +34,7 @@ export default function CheckIn() {
 
   const getCheckInData = async (companyID: number, pin: number, id: number) => {
     try {
-      const response = await fetch(`/api/surveys/${id}`, {
+      const response = await fetch(`/api/check-ins/${id}`, {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ companyID, pin }),
