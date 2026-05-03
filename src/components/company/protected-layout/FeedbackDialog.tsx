@@ -66,7 +66,7 @@ export default function FeedbackDialog() {
     }
 
     // Success
-    toast.success("Check-in complete");
+    toast.success("Survey complete");
     localStorage.setItem(`check-in_completed_${result.data}`, "true");
     const seriousIDs = IssuesData.filter((i) => i.serious).map((i) => i.id);
     const flag = seriousIDs.some((id) => issues.includes(id)); // Serious issues will show raise a concern button

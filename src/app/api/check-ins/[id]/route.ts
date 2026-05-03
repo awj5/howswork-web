@@ -44,7 +44,7 @@ export async function POST(req: NextRequest, { params }: { params: Promise<{ id:
       .maybeSingle();
 
     if (checkInError) throw new Error(checkInError.message);
-    if (!checkInData) return NextResponse.json({ error: "Check-in not found" }, { status: 404 });
+    if (!checkInData) return NextResponse.json({ error: "Survey not found" }, { status: 404 });
 
     // Get feedback
     const { data: feedbackData, error: feedbackError } = await supabase

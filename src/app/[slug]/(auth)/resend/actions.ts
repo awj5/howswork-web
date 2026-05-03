@@ -208,11 +208,11 @@ export async function resendPin(formData: FormData) {
           from: twilioPhoneNumber,
           body: `${companyData.name} is using HowsWork, a safe, anonymous way to raise workplace concerns.
 
-New shared access PIN: ${checkInData.pin}
+Company-wide access PIN: ${checkInData.pin}
 
 https://howswork.${isAus ? "com.au" : "app"}/${companyData.slug}
 
-${companyData.name} has requested a check-in. Use this link anytime to raise concerns. No login, no tracking, fully encrypted.
+Use this link anytime to raise concerns. No login, no tracking, fully encrypted.
 
 Do not share externally.`,
         });
