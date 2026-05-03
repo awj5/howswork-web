@@ -89,7 +89,7 @@ export default function FeedbackDialog() {
       <DialogTitle>{company?.name} survey</DialogTitle>
 
       <DialogDescription className="text-wrap!">
-        Takes a few minutes. Your responses are completely anonymous and help highlight issues that need attention.
+        Takes only a few minutes. Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
       <DialogBody>
