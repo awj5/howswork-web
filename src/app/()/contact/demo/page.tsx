@@ -23,7 +23,7 @@ export default function Demo() {
           </h2>
 
           <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-400">
-            See how HowsWork helps you identify and manage psychological health and safety risks in your workplace.
+            See how HowsWork helps you identify, document, and manage psychosocial risks in your workplace.
           </p>
         </div>
 

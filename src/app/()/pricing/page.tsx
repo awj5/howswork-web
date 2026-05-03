@@ -16,8 +16,8 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
-    description: "For small teams new to psychological health and safety.",
-    features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
+    description: "For small teams ready to start managing psychosocial risk.",
+    features: ["Up to 10 employees", "1 admin account", "Smart assessments", "Concern reporting", "Risk register"],
     featured: true,
   },
   {
@@ -27,14 +27,14 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$99", annually: "$990" },
     audPrice: { monthly: "$149", annually: "$1,490" },
-    description: "For growing teams that need AI features and more capacity.",
+    description: "For growing teams that need AI-powered risk insights.",
     features: [
       "Up to 50 employees",
       "3 admin accounts",
-      "Check-ins",
+      "Smart assessments",
       "Concern reporting",
       "Risk register",
-      "AI features",
+      "AI risk analysis",
     ],
     featured: false,
   },
@@ -45,14 +45,14 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$249", annually: "$2,490" },
     audPrice: { monthly: "$349", annually: "$3,490" },
-    description: "For larger teams that need the full feature set including SMS.",
+    description: "For larger teams managing psychosocial risk at scale.",
     features: [
       "Up to 200 employees",
       "5 admin accounts",
-      "Check-ins",
+      "Smart assessments",
       "Concern reporting",
       "Risk register",
-      "AI features",
+      "AI risk analysis",
       "SMS notifications",
     ],
     featured: false,
@@ -64,14 +64,14 @@ const tiers = [
     href: "/contact/sales",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
-    description: "For large employers with advanced support requirements.",
+    description: "For large employers that require dedicated support.",
     features: [
       "Unlimited employees",
       "Unlimited admin accounts",
-      "Check-ins",
+      "Smart assessments",
       "Concern reporting",
       "Risk register",
-      "AI features",
+      "AI risk analysis",
       "SMS notifications",
       "Advanced support",
       "Custom integrations",
@@ -102,8 +102,8 @@ function PricingContent() {
           </div>
 
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8 dark:text-gray-400">
-            From small teams to large employers, HowsWork scales with your workforce as your psychological health and
-            safety needs grow.
+            From small teams to large employers, HowsWork scales with your workforce as your psychosocial risk
+            obligations grow.
           </p>
 
           <div className="mt-16 flex justify-center">

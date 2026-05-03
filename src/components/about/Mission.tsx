@@ -12,8 +12,8 @@ export default function Mission() {
           </h1>
 
           <p className="mt-6 text-xl/8 text-balance text-gray-700 dark:text-gray-300">
-            HowsWork gives employees a safe, anonymous way to speak up about psychological health and safety risks at
-            work, before they become injuries or claims.
+            HowsWork gives employees a safe, anonymous way to speak up about psychosocial hazards at work, before they
+            become injuries or claims.
           </p>
         </div>
 
@@ -36,9 +36,9 @@ export default function Mission() {
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about workplace
-              hazards and psychological health. We give employers the structured visibility they need to act early, with
-              a clear record of action taken.
+              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about
+              psychosocial hazards at work. We give employers the structured visibility they need to act early, with a
+              clear record of action taken.
             </p>
           </div>
 
@@ -113,7 +113,7 @@ export default function Mission() {
 
               <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4 dark:max-sm:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Working-age adults affected by a psychological health condition at any point in time
+                  Working-age adults affected by a psychological injury at any point in time
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -123,7 +123,7 @@ export default function Mission() {
 
               <div className="flex flex-col gap-y-2">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Of employees have left a job due to psychological health concerns
+                  Of employees have left a job due to psychological injury or harm
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">48%</dd>

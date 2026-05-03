@@ -54,12 +54,12 @@ export default function Hero() {
 
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl dark:text-white">
-              A safe, anonymous way for employees to speak up
+              Psychosocial risk assessment, made simple.
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              A trusted psychological health and safety platform to raise workplace concerns, surfacing risks early with
-              a clear record of action taken.
+              A smart, anonymous psychosocial risk assessment tool for Australian businesses, with a trusted channel to
+              raise concerns at any time.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">

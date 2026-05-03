@@ -9,7 +9,7 @@ export default function Cta() {
         </h2>
 
         <p className="mx-auto mt-6 max-w-xl text-lg/8 text-pretty text-gray-300">
-          Request a demo and we&apos;ll walk you through how HowsWork works for your team and your industry.
+          Request a demo and we&apos;ll walk you through how HowsWork works for your business.
         </p>
 
         <div className="mt-10 flex items-center justify-center gap-x-6">
