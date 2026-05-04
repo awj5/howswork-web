@@ -24,7 +24,7 @@ export default function Mission() {
             </h2>
 
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Most workplaces don&apos;t have a psychological harm problem because they don&apos;t care. They have one
+              Most workplaces don&apos;t have a psychosocial risk problem because they don&apos;t care. They have one
               because they have no reliable way to know what&apos;s actually happening on the floor, in the field, or
               across shifts. The people who experience harm rarely tell the people who cause it. And the people
               responsible for fixing it are often the last to find out.
@@ -113,20 +113,22 @@ export default function Mission() {
 
               <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4 dark:max-sm:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Working-age adults affected by a psychological injury at any point in time
+                  Increase in Australian psychological injury claims over the past decade
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  1 in 6
+                  161%
                 </dd>
               </div>
 
               <div className="flex flex-col gap-y-2">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Of employees have left a job due to psychological injury or harm
+                  Median weeks off work following a psychological injury claim
                 </dt>
 
-                <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">48%</dd>
+                <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  35.7
+                </dd>
               </div>
             </dl>
           </div>

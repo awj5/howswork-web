@@ -102,8 +102,8 @@ function PricingContent() {
           </div>
 
           <p className="mx-auto mt-6 max-w-2xl text-center text-lg font-medium text-pretty text-gray-600 sm:text-xl/8 dark:text-gray-400">
-            From small teams to large employers, HowsWork scales with your workforce as your psychosocial risk
-            obligations grow.
+            Whether you're managing a team of ten or a workforce of thousands, HowsWork has a plan that fits your
+            business and your budget.
           </p>
 
           <div className="mt-16 flex justify-center">
