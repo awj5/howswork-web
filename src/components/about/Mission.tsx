@@ -1,6 +1,11 @@
+"use client";
+
 import Image from "next/image";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Mission() {
+  const { country } = useCountryContext();
+
   return (
     <div className="overflow-hidden pt-24 sm:pt-32">
       <div className="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
@@ -113,11 +118,13 @@ export default function Mission() {
 
               <div className="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4 dark:max-sm:border-gray-700">
                 <dt className="text-sm/6 text-gray-600 dark:text-gray-400">
-                  Increase in Australian psychological injury claims over the past decade
+                  {country === "AU"
+                    ? "Increase in Australian psychological injury claims over the past decade"
+                    : "Working-age adults affected by a psychological injury at any point in time"}
                 </dt>
 
                 <dd className="order-first text-6xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                  161%
+                  {country === "AU" ? "161%" : "1 in 6"}
                 </dd>
               </div>
 

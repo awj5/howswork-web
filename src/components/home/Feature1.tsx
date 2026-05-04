@@ -5,6 +5,10 @@ import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
   {
+    name: "Smart assessments",
+    description: "Automatically scheduled assessments that adapt in real time based on your team's responses.",
+  },
+  {
     name: "Anonymous reporting",
     description: (
       <>
@@ -19,11 +23,6 @@ const features = [
         , so there&apos;s no way to link a submission back to an individual.
       </>
     ),
-  },
-  {
-    name: "Automated check-ins",
-    description:
-      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
   },
   {
     name: "Risk register",
@@ -88,8 +87,8 @@ export default function Feature1() {
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork helps employers identify and manage psychological health and safety risks before they become
-              claims or compliance failures.
+              HowsWork helps employers identify, document, and manage psychosocial risks before they become
+              psychological injury claims or compliance failures.
             </p>
           </div>
 
