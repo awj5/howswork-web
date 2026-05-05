@@ -4,6 +4,7 @@ import { isValidEmail } from "@/utils/helpers";
 import resend from "@/utils/resend";
 
 export async function contact(formData: FormData, to: string, subject: string) {
+  if (formData.get("website")) return { success: true }; // Honeypot
   let email = formData.get("email") as string;
   email = email.trim().toLowerCase();
   if (!isValidEmail(email)) return { error: "Email is invalid" };
