@@ -6,7 +6,7 @@ import { useCountryContext } from "@/hooks/useCountry";
 const features = [
   {
     name: "Smart assessments",
-    description: "Automatically scheduled assessments that adapt in real time based on your team's responses.",
+    description: "Automatically scheduled assessments that adapt in real time based on your team\u2019s responses.",
   },
   {
     name: "Anonymous reporting",
