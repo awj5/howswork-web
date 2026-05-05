@@ -23,14 +23,14 @@ const faqs = [
   {
     question: "How long does it take to set up?",
     answer:
-      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
+      "Most employers are up and running in under 15 minutes. You add your team, schedule your assessment, and HowsWork handles the rest. No IT support required.",
   },
   {
-    question: "What are check-ins and how do they work?",
+    question: "What are smart assessments and how do they work?",
     answer: (
       <>
-        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
-        less than a minute and feed into your{" "}
+        Short, anonymous surveys sent automatically to your team. Questions adapt based on what employees share, and
+        results feed directly into your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
@@ -44,8 +44,18 @@ const faqs = [
   },
   {
     question: "Can I use HowsWork for free?",
-    answer:
-      "Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
+    answer: (
+      <>
+        Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a{" "}
+        <a
+          href="/pricing"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          subscription
+        </a>{" "}
+        unlocks check-in results and reported concerns.
+      </>
+    ),
   },
 ];
 
