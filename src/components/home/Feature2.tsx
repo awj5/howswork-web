@@ -1,5 +1,3 @@
-"use client";
-
 import Image from "next/image";
 import {
   ListBulletIcon,
@@ -9,12 +7,11 @@ import {
   ArrowDownTrayIcon,
   SparklesIcon,
 } from "@heroicons/react/20/solid";
-import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
   {
     name: "Auto-generated entries.",
-    description: "Concerns and assessments are automatically added to your risk register.",
+    description: "Assessments and concerns are automatically logged and added to your risk register.",
     icon: ListBulletIcon,
   },
   {
@@ -24,8 +21,7 @@ const features = [
   },
   {
     name: "Hazard mapping.",
-    description: "Issues are automatically mapped to known workplace hazards.",
-    auDescription: (
+    description: (
       <>
         Issues are automatically mapped to{" "}
         <a
@@ -58,15 +54,11 @@ const features = [
 ];
 
 export default function Feature2() {
-  const { country } = useCountryContext();
-
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="gradient-text inline text-base/7 font-semibold">
-            {country === "AU" ? "Audit-ready" : "Record of action"}
-          </h2>
+          <h2 className="gradient-text inline text-base/7 font-semibold">Audit-ready</h2>
 
           <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
             Your risk register, built automatically
@@ -114,9 +106,7 @@ export default function Feature2() {
                 />
                 {feature.name}
               </dt>{" "}
-              <dd className="inline">
-                {country === "AU" && feature.auDescription ? feature.auDescription : feature.description}
-              </dd>
+              <dd className="inline">{feature.description}</dd>
             </div>
           ))}
         </dl>

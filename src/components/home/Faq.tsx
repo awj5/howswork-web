@@ -1,7 +1,3 @@
-"use client";
-
-import { useCountryContext } from "@/hooks/useCountry";
-
 const faqs = [
   {
     question: "Are reported concerns really anonymous?",
@@ -57,9 +53,6 @@ const faqs = [
       </>
     ),
   },
-];
-
-const ausFaqs = [
   {
     question: "Which laws does HowsWork help me comply with?",
     answer: (
@@ -96,8 +89,6 @@ const ausFaqs = [
 ];
 
 export default function Faq() {
-  const { country } = useCountryContext();
-
   return (
     <div className="mx-auto max-w-7xl px-6 pt-32 sm:pt-56 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -127,14 +118,6 @@ export default function Faq() {
                 <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
               </div>
             ))}
-
-            {country === "AU" &&
-              ausFaqs.map((faq) => (
-                <div key={faq.question}>
-                  <dt className="text-base/7 font-semibold text-gray-900 dark:text-white">{faq.question}</dt>
-                  <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
-                </div>
-              ))}
           </dl>
         </div>
       </div>
