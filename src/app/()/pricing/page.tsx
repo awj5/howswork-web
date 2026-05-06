@@ -3,7 +3,7 @@
 import { Suspense, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { dashboardURL } from "@/utils/helpers";
 import { useCountryContext } from "@/hooks/useCountry";
 import { useAdminCompanyContext } from "@/hooks/useAdminCompanyContext";
@@ -209,10 +209,17 @@ function PricingContent() {
                 <ul role="list" className="mt-8 space-y-3 text-sm/6 text-gray-600 dark:text-gray-300">
                   {tier.features.map((feature) => (
                     <li key={feature} className="flex gap-x-3">
-                      <CheckIcon
-                        aria-hidden="true"
-                        className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400"
-                      />
+                      {feature === "AI risk analysis" ? (
+                        <SparklesIcon
+                          aria-hidden="true"
+                          className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400"
+                        />
+                      ) : (
+                        <CheckIcon
+                          aria-hidden="true"
+                          className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400"
+                        />
+                      )}
                       {feature}
                     </li>
                   ))}
