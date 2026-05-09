@@ -67,7 +67,7 @@ export default function CheckIns() {
 
   return (
     <div className="mx-auto max-w-6xl">
-      <Heading>Surveys with {company?.name}</Heading>
+      <Heading>Check-ins with {company?.name}</Heading>
 
       {checkIns && (
         <div className="fade-in">
@@ -87,7 +87,7 @@ export default function CheckIns() {
             </TableBody>
           </Table>
 
-          <TablePagination page={page} pageCount={pageCount} route={`/${company?.slug}/surveys`} />
+          <TablePagination page={page} pageCount={pageCount} route={`/${company?.slug}/check-ins`} />
         </div>
       )}
     </div>

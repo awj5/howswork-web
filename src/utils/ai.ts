@@ -43,7 +43,7 @@ The description should be:
 - Free of any identifying details
 
 Do not:
-- Prefix the description with labels like "Summary:" or "Survey results:"
+- Prefix the description with labels like "Summary:" or "Check-in results:"
 - Include exact counts or percentages in the description
 - Include recommendations or suggested actions
 - List every issue individually if there are many — focus on the most significant

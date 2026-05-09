@@ -66,7 +66,7 @@ export default function FeedbackDialog() {
     }
 
     // Success
-    toast.success("Survey complete");
+    toast.success("Check-in complete");
     localStorage.setItem(`check-in_completed_${result.data}`, "true");
     const seriousIDs = IssuesData.filter((i) => i.serious).map((i) => i.id);
     const flag = seriousIDs.some((id) => issues.includes(id)); // Serious issues will show raise a concern button
@@ -86,10 +86,10 @@ export default function FeedbackDialog() {
 
   return (
     <Dialog open={feedbackDialog?.open ?? false} onClose={() => setFeedbackDialog(null)} size="xl">
-      <DialogTitle>{company?.name} survey</DialogTitle>
+      <DialogTitle>{company?.name} check-in</DialogTitle>
 
       <DialogDescription className="text-wrap!">
-        Takes only a few minutes. Your responses are completely anonymous and help highlight issues that need attention.
+        Takes less than a minute. Your responses are completely anonymous and help highlight issues that need attention.
       </DialogDescription>
 
       <DialogBody>

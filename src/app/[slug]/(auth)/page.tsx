@@ -74,7 +74,7 @@ export default function Login() {
           <Heading>Enter the access PIN</Heading>
 
           <Text>
-            Complete surveys and raise concerns with <Strong>{company?.name}</Strong> with complete anonymity.{" "}
+            Complete check-ins and raise concerns with <Strong>{company?.name}</Strong> with complete anonymity.{" "}
             <Strong>No login or account required</Strong>.
           </Text>
 

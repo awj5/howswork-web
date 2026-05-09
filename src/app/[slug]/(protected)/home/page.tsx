@@ -70,14 +70,14 @@ export default function Home() {
       {checkInOpen ? (
         <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
           <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
-          <Subheading className="mt-4">You&apos;ve got a survey</Subheading>
+          <Subheading className="mt-4">You&apos;ve got a check-in</Subheading>
 
           <Text className="mt-1 text-center">
             <Strong>{company?.name}</Strong> wants to know how things are going.
           </Text>
 
           <Button onClick={() => setFeedbackDialog({ open: true, flagConcern: false })} color="indigo" className="mt-6">
-            Complete survey
+            Complete check-in
             <ArrowRightCircleIcon />
           </Button>
         </EmptyState>
@@ -103,13 +103,13 @@ export default function Home() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for responding. You&apos;ll be notified when the next survey from <Strong>{company?.name}</Strong> is
-            sent.
+            Thanks for responding. You&apos;ll be notified when the next check-in from <Strong>{company?.name}</Strong>{" "}
+            is sent.
           </Text>
 
-          <Button href={`/${company?.slug}/surveys`} outline className="mt-6">
+          <Button href={`/${company?.slug}/check-ins`} outline className="mt-6">
             <ChartPieIcon />
-            View survey insights
+            View check-in insights
           </Button>
         </EmptyState>
       ) : (

@@ -102,32 +102,32 @@ export default function CheckIn() {
           <Subheading className="mt-4">You&apos;re all set</Subheading>
 
           <Text className="mt-1 text-center">
-            Thanks for responding. Insights from this survey will be available once the next survey is sent.
+            Thanks for responding. Insights from this check-in will be available once the next check-in is sent.
           </Text>
         </EmptyState>
       ) : checkIn?.status === 2 ? (
         <EmptyState key="check-in" className={doodleLoaded ? "fade-in" : "opacity-0"}>
           <Doodle doodles={[2, 4, 8, 27]} onLoad={() => setDoodleLoaded(true)} />
-          <Subheading className="mt-4">Time for your survey</Subheading>
+          <Subheading className="mt-4">Time for your check-in</Subheading>
 
           <Text className="mt-1 text-center">
-            Share how work is going at <Strong>{company?.name}</Strong> anonymously. It only takes a few minutes.
+            Share how work is going at <Strong>{company?.name}</Strong> anonymously. It takes less than a minute.
           </Text>
 
           <Button onClick={() => setFeedbackDialog({ open: true, flagConcern: false })} color="indigo" className="mt-6">
-            Complete survey
+            Complete check-in
             <ArrowRightCircleIcon />
           </Button>
         </EmptyState>
       ) : checkIn ? (
         <div className="fade-in">
-          <Breadcrumb href={`/${company?.slug}/surveys${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
-            Surveys
+          <Breadcrumb href={`/${company?.slug}/check-ins${searchParams.size ? `?${searchParams.toString()}` : ""}`}>
+            Check-ins
           </Breadcrumb>
 
           <div className="lg:mt-8">
             <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-              <Heading>Survey Insights</Heading>
+              <Heading>Check-in Insights</Heading>
               <Badge color="green">Closed</Badge>
             </div>
 

@@ -105,7 +105,7 @@ export async function POST(req: NextRequest) {
         company_id: checkInData.company_id,
         check_in_id: id,
         issues: riskIssues.map((i) => i.id),
-        description: encrypt(generated.description ?? "Unable to generate a description. See assessment for details."),
+        description: encrypt(generated.description ?? "Unable to generate a description. See check-in for details."),
         level: generated.riskLevel ?? 2,
         ai_description: true,
         check_in_date: checkInData.start,
@@ -147,7 +147,7 @@ export async function POST(req: NextRequest) {
         await resend.emails.send({
           from: "HowsWork <no-reply@updates.howswork.app>",
           to: profilesData.map((i) => i.email),
-          subject: `${companyData.name} assessment results require attention`,
+          subject: `${companyData.name} check-in results require attention`,
           html: `<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
   <tbody>
     <tr>
@@ -178,11 +178,11 @@ export async function POST(req: NextRequest) {
                   width="32"
                 />
                 <p style="font-size: 16px; line-height: 24px; margin-top: 16px; margin-bottom: 16px">
-                  A recent assessment at <strong>${companyData.name}</strong> has identified workplace issues and has been added to
+                  A recent check-in at <strong>${companyData.name}</strong> has identified workplace issues and has been added to
                   the risk register.
                 </p>
                 <a
-                  href="https://admin.howswork.app/assessments/${id}"
+                  href="https://admin.howswork.app/check-ins/${id}"
                   style="
                     line-height: 100%;
                     text-decoration: none;
@@ -212,7 +212,7 @@ export async function POST(req: NextRequest) {
                       mso-padding-alt: 0px;
                       mso-text-raise: 9px;
                     "
-                    >View assessment</span
+                    >View check-in</span
                   ><span
                     ><!--[if mso]><i style="mso-font-width: 400%" hidden>&#8202;&#8202;&#8203;</i><![endif]--></span
                   ></a
