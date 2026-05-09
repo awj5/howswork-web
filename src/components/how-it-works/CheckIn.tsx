@@ -20,9 +20,9 @@ const features = [
     icon: ShieldCheckIcon,
   },
   {
-    name: "Questions that adapt.",
+    name: "Scheduled automatically.",
     description:
-      "Questions adjust based on what employees share, going deeper where it matters and staying brief where they don\u2019t.",
+      "Employers set the check-in cadence, keeping a continuous view of psychological health across their workforce.",
     icon: ClockIcon,
   },
   {
@@ -39,15 +39,15 @@ export default function CheckIn() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto flex max-w-2xl flex-col-reverse lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2">
           <div className="lg:pt-4">
-            <h2 className="gradient-text inline text-base/7 font-semibold">Employee experience</h2>
+            <h2 className="gradient-text inline text-base/7 font-semibold">For employees</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
-              Smart assessments
+              Check in
             </p>
 
             <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-              Employees complete a short anonymous assessment on a regular schedule. Results are aggregated so employers
-              can spot patterns and identify psychosocial hazards before they escalate.
+              Employees share how they&apos;re feeling at work on a regular schedule. Responses are anonymous, and
+              results are aggregated so employers can spot patterns and identify workplace hazards before they escalate.
             </p>
 
             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none dark:text-gray-400">
