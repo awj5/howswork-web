@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Cta() {
+  const { country } = useCountryContext();
+
   return (
     <div className="mx-auto max-w-7xl pt-32 sm:px-6 sm:pt-56 lg:px-8">
       <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 dark:bg-gray-800 dark:shadow-none dark:after:pointer-events-none dark:after:absolute dark:after:inset-0 dark:after:inset-ring dark:after:inset-ring-white/10 dark:after:sm:rounded-3xl">
@@ -22,7 +27,7 @@ export default function Cta() {
 
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
           <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
-            WHS compliance, ready to go in minutes
+            {country === "AU" ? "WHS compliance, ready to go in minutes" : "Start hearing from your team in minutes"}
           </h2>
 
           <p className="mt-6 text-lg/8 text-gray-300">
