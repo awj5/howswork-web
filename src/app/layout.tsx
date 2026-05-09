@@ -13,9 +13,9 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "HowsWork - A safe, anonymous way for employees to speak up.",
+    title: "HowsWork - Spot risks early. Prove you acted.",
     description:
-      "A trusted psychological health and safety platform to raise workplace concerns, surfacing risks early with a clear record of action taken.",
+      "Manage psychological health and safety through regular team check-ins, anonymous reporting, and automated risk tracking.",
     icons: {
       icon: [
         { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },

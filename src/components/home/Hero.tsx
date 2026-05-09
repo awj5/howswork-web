@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useCountryContext } from "@/hooks/useCountry";
 
 export default function Hero() {
+  const { country } = useCountryContext();
+
   return (
     <div className="relative isolate pt-14">
       <div
@@ -20,27 +25,41 @@ export default function Hero() {
       <div className="pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Australian employers must now identify psychosocial hazards.{" "}
-              <a
-                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
-                target="_blank"
-                className="font-semibold text-indigo-600 dark:text-indigo-400"
-              >
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
+            {country === "AU" ? (
+              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
+                Australian employers must now identify psychosocial hazards.{" "}
+                <a
+                  href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 dark:text-indigo-400"
+                >
+                  <span aria-hidden="true" className="absolute inset-0" />
+                  Read more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            ) : (
+              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
+                Psychological harm at work is a growing employer risk.{" "}
+                <a
+                  href="https://articles.howswork.app/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 dark:text-indigo-400"
+                >
+                  <span aria-hidden="true" className="absolute inset-0" />
+                  Read more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl dark:text-white">
-              Psychosocial risk assessment, made simple.
+              Spot risks early. Prove you acted.
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              A smart, anonymous psychosocial risk assessment tool for Australian businesses, with a trusted channel to
-              raise concerns at any time.
+              Manage psychological health and safety through regular team check-ins, anonymous reporting, and automated
+              risk tracking.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
