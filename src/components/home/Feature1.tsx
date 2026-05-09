@@ -1,6 +1,6 @@
 "use client";
 
-import { CheckIcon } from "@heroicons/react/20/solid";
+import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
@@ -94,13 +94,20 @@ export default function Feature1() {
           </div>
 
           <dl className="col-span-3 grid grid-cols-1 gap-x-8 gap-y-10 text-base/7 text-gray-600 sm:grid-cols-2 lg:gap-y-16 dark:text-gray-400">
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <div key={feature.name} className="relative pl-9">
                 <dt className="font-semibold text-gray-900 dark:text-white">
-                  <CheckIcon
-                    aria-hidden="true"
-                    className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
-                  />
+                  {index === 3 ? (
+                    <SparklesIcon
+                      aria-hidden="true"
+                      className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
+                    />
+                  ) : (
+                    <CheckIcon
+                      aria-hidden="true"
+                      className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
+                    />
+                  )}
                   {country === "US" && feature.usName ? feature.usName : feature.name}
                 </dt>
 

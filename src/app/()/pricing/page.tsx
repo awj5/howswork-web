@@ -16,8 +16,8 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
-    description: "For small teams ready to start managing psychosocial risk.",
-    features: ["Up to 10 employees", "1 admin account", "Smart assessments", "Concern reporting", "Risk register"],
+    description: "For small teams new to psychological health and safety.",
+    features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
     featured: true,
   },
   {
@@ -31,7 +31,7 @@ const tiers = [
     features: [
       "Up to 50 employees",
       "3 admin accounts",
-      "Smart assessments",
+      "Check-ins",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
@@ -45,11 +45,11 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$249", annually: "$2,490" },
     audPrice: { monthly: "$349", annually: "$3,490" },
-    description: "For larger teams managing psychosocial risk at scale.",
+    description: "For larger teams that need the full feature set including SMS.",
     features: [
       "Up to 200 employees",
       "5 admin accounts",
-      "Smart assessments",
+      "Check-ins",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
@@ -68,7 +68,7 @@ const tiers = [
     features: [
       "Unlimited employees",
       "Unlimited admin accounts",
-      "Smart assessments",
+      "Check-ins",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
