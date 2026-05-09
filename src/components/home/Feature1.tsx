@@ -1,9 +1,13 @@
+"use client";
+
 import { CheckIcon } from "@heroicons/react/20/solid";
+import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
   {
-    name: "Smart assessments",
-    description: "Automatically scheduled assessments that adapt in real time based on your team\u2019s responses.",
+    name: "Automated check-ins",
+    description:
+      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
   },
   {
     name: "Anonymous reporting",
@@ -25,6 +29,19 @@ const features = [
     name: "Risk register",
     description: (
       <>
+        Risks are automatically identified and logged, giving you a{" "}
+        <a
+          href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+          target="_blank"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+        >
+          record of action
+        </a>{" "}
+        without the manual work.
+      </>
+    ),
+    auDescription: (
+      <>
         Risks are automatically identified and logged, giving you an{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
@@ -39,6 +56,7 @@ const features = [
   },
   {
     name: "AI anonymisation",
+    usName: "AI anonymization",
     description: (
       <>
         Employee responses are rewritten by AI to{" "}
@@ -56,6 +74,8 @@ const features = [
 ];
 
 export default function Feature1() {
+  const { country } = useCountryContext();
+
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -64,12 +84,12 @@ export default function Feature1() {
             <h2 className="gradient-text inline text-base/7 font-semibold">For employers</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
-              Spot risks early
+              Risk, managed.
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork helps employers identify, document, and manage psychosocial risks before they become
-              psychological injury claims or compliance failures.
+              HowsWork helps employers identify and manage psychological health and safety risks before they become
+              claims or compliance failures.
             </p>
           </div>
 
@@ -81,10 +101,12 @@ export default function Feature1() {
                     aria-hidden="true"
                     className="absolute top-1 left-0 size-5 text-indigo-500 dark:text-indigo-400"
                   />
-                  {feature.name}
+                  {country === "US" && feature.usName ? feature.usName : feature.name}
                 </dt>
 
-                <dd className="mt-2">{feature.description}</dd>
+                <dd className="mt-2">
+                  {country === "AU" && feature.auDescription ? feature.auDescription : feature.description}
+                </dd>
               </div>
             ))}
           </dl>
