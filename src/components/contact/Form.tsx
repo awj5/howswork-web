@@ -43,9 +43,9 @@ export default function Form(props: FormProps) {
 
   return (
     <form onSubmit={submitForm} className="mx-auto mt-16 max-w-xl sm:mt-20">
-      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="absolute top-0 left-full" />
-
       <fieldset className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2" disabled={disabled}>
+        <input type="text" name="website" tabIndex={-1} autoComplete="off" className="absolute top-0 left-full" />
+
         <div>
           <label htmlFor="first-name" className="block text-sm/6 font-semibold text-gray-900 dark:text-white">
             First name
