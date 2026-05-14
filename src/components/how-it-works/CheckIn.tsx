@@ -46,8 +46,8 @@ export default function CheckIn() {
             </p>
 
             <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-              Employees share how they&apos;re feeling at work on a regular schedule. Responses are anonymous, and
-              results are aggregated so employers can spot patterns and identify workplace hazards before they escalate.
+              Employees share how work is affecting them on a regular schedule. Responses are anonymous, and results are
+              aggregated so employers can spot patterns and identify hazards before they escalate.
             </p>
 
             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none dark:text-gray-400">

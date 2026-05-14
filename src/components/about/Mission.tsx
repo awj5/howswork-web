@@ -34,9 +34,9 @@ export default function Mission() {
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              Formal reporting channels don&apos;t solve this. Workers avoid them because they feel visible, unsafe, or
-              pointless. Most concerns never get raised at all. And the people responsible for managing risk are often
-              the last to find out.
+              Formal reporting channels don&apos;t solve this. Employees avoid them because they feel visible, unsafe,
+              or pointless. Most concerns never get raised at all. And the people responsible for managing risk are
+              often the last to find out.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
