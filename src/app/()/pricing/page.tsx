@@ -16,7 +16,7 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
-    description: "For small teams new to psychological health and safety.",
+    description: "For small teams new to managing psychosocial risk.",
     features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
     featured: true,
   },

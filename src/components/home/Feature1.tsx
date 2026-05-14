@@ -88,7 +88,7 @@ export default function Feature1() {
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork helps employers identify and manage psychological health and safety risks before they become
+              HowsWork gives businesses a practical system to identify and manage psychosocial risks before they become
               claims or compliance failures.
             </p>
           </div>

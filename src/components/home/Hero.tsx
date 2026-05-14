@@ -58,8 +58,8 @@ export default function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Manage psychological health and safety through regular team check-ins, anonymous reporting, and automated
-              risk tracking.
+              Identify and manage psychosocial risks through regular team check-ins, anonymous reporting, and an
+              automated risk register.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">

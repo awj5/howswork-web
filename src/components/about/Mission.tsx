@@ -17,8 +17,8 @@ export default function Mission() {
           </h1>
 
           <p className="mt-6 text-xl/8 text-balance text-gray-700 dark:text-gray-300">
-            HowsWork gives employees a safe, anonymous way to speak up about psychological health and safety risks at
-            work, before they become injuries or claims.
+            HowsWork gives employees a safe, anonymous channel to report psychosocial concerns at work, before they
+            become injuries or claims.
           </p>
         </div>
 
@@ -29,20 +29,20 @@ export default function Mission() {
             </h2>
 
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Workplaces don&apos;t fail on psychological health and safety because they don&apos;t care. They fail
-              because they&apos;re relying on systems that employees don&apos;t trust and managers can&apos;t act on.
+              Workplaces don&apos;t fail on psychosocial risk management because they don&apos;t care. They fail because
+              they&apos;re relying on systems that employees don&apos;t trust and managers can&apos;t act on.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              Formal channels don&apos;t solve this. Workers avoid them because they feel visible, unsafe, or pointless.
-              Most concerns never get raised at all. And the people responsible for fixing things are often the last to
-              find out.
+              Formal reporting channels don&apos;t solve this. Workers avoid them because they feel visible, unsafe, or
+              pointless. Most concerns never get raised at all. And the people responsible for managing risk are often
+              the last to find out.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about workplace
-              hazards and psychological health. We give employers the structured visibility they need to act early, with
-              a clear record of action taken.
+              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about
+              psychosocial hazards. We give employers the structured visibility they need to act early, with a clear
+              record of action taken.
             </p>
           </div>
 

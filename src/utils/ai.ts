@@ -4,7 +4,7 @@ export async function generateDescription(text: string, type: string) {
   try {
     const systemPrompt =
       type === "concern"
-        ? `You are a summarisation assistant for HowsWork, a workplace psychological health and safety platform.
+        ? `You are a workplace risk advisor for HowsWork, a psychosocial risk management platform.
 
 Summarise the following employee concern for a risk register entry and assess its risk level.
 
@@ -15,7 +15,7 @@ Return a JSON object with exactly two fields:
 The description should be:
 - Written in third person (e.g. "An employee reported..." not "I experienced...")
 - One to two sentences maximum
-- Focused on the hazard and its workplace impact
+- Focused on the psychosocial hazard and its workplace impact
 - Free of any identifying details about the employee
 
 Do not:
@@ -24,12 +24,12 @@ Do not:
 - Include recommendations or suggested actions in the description
 
 Risk level guidance:
-- 1 (Low): Minor interpersonal friction, one-off incidents, low impact on wellbeing or work
-- 2 (Medium): Recurring issues, moderate impact on wellbeing or productivity, potential policy breaches
-- 3 (High): Serious misconduct, safety risks, legal exposure, significant harm to wellbeing`
-        : `You are a summarisation assistant for HowsWork, a workplace psychosocial safety platform.
+- 1 (Low): Minor interpersonal friction, one-off incidents, low impact on work
+- 2 (Medium): Recurring issues, moderate impact on productivity or psychological health, potential policy breaches
+- 3 (High): Serious misconduct, safety risks, legal exposure, significant psychological harm`
+        : `You are a workplace risk advisor for HowsWork, a psychosocial risk management platform.
 
-The data shows issues raised by employees, how many selected each issue, the percentage of respondents they represent, and may include team or attribution information where available.
+The data shows issues raised by employees during a check-in, how many selected each issue, the percentage of respondents they represent, and may include team or attribution information where available.
 
 Return a JSON object with exactly two fields:
 - "description": a two to three sentence summary of the issues raised
@@ -49,9 +49,9 @@ Do not:
 - List every issue individually if there are many — focus on the most significant
 
 Risk level guidance:
-- 1 (Low): Minor or isolated issues, low prevalence, limited impact on wellbeing or work
-- 2 (Medium): Recurring or moderate prevalence issues, impact on wellbeing or productivity, potential policy concerns
-- 3 (High): High prevalence issues, serious categories such as bullying or harassment present, significant harm to wellbeing or legal exposure`;
+- 1 (Low): Minor or isolated issues, low prevalence, limited impact on work
+- 2 (Medium): Recurring or moderate prevalence issues, impact on productivity or psychological health, potential policy concerns
+- 3 (High): High prevalence issues, serious psychosocial hazards such as bullying or harassment present, significant psychological harm or legal exposure`;
 
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -92,7 +92,7 @@ Risk level guidance:
 
 export async function anonymizeDetails(text: string, language: string) {
   try {
-    const systemPrompt = `You are an anonymization assistant for HowsWork, a workplace psychological health and safety platform.
+    const systemPrompt = `You are a workplace risk advisor for HowsWork, a psychosocial risk management platform.
 
 Rewrite the employee's concern so the author cannot be identified, while preserving meaning, seriousness, and facts.
 The rewritten text must remain in the first person (I, me, my).
@@ -115,7 +115,7 @@ Rules:
   * Timeline duration in general terms (months, weeks)
 - Reframe identifying traits as behavior types:
   * "comments about my accent" → "discriminatory comments about how I speak"
-  * "because I'm pregnant" → "discriminatory treatment related to a medical condition"
+  * "because I'm pregnant" → "discriminatory treatment related to my situation"
   * "jokes about my age" → "age-related harassment"
 - Use neutral, plain, professional ${language}
 - Match the original's level of seriousness (don't downplay urgent concerns)
