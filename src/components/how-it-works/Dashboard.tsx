@@ -44,7 +44,7 @@ export default function Dashboard() {
               </p>
 
               <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-                Employers get a clear view of psychosocial risk across their workforce, with check-in trends, open
+                Employers get a clear view of psychosocial health across their workforce, with check-in trends, open
                 concerns, and flagged workplace hazards all in one place.
               </p>
 

@@ -10,7 +10,7 @@ export default function Header() {
 
         <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">
           Employees check in regularly and raise concerns safely and anonymously. Employers get early visibility into
-          workplace hazards and a clear record of action taken.
+          psychosocial hazards and a clear record of action taken.
         </p>
       </div>
     </div>

@@ -16,9 +16,9 @@ export default function Mission() {
             We built the tool we wished existed
           </h1>
 
-          <p className="mt-6 text-xl/8 text-balance text-gray-700 dark:text-gray-300">
-            HowsWork gives employees a safe, anonymous channel to report psychosocial concerns at work, before they
-            become injuries or claims.
+          <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
+            Workplace psychological harm rarely gets reported until it&apos;s too late. We built a platform that makes
+            it safe for employees to speak up, and helps employers act early.
           </p>
         </div>
 
@@ -29,14 +29,14 @@ export default function Mission() {
             </h2>
 
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-              Workplaces don&apos;t fail on psychosocial risk management because they don&apos;t care. They fail because
-              they&apos;re relying on systems that employees don&apos;t trust and managers can&apos;t act on.
+              Workplaces don&apos;t fail on psychological health and safety because they don&apos;t care. They fail
+              because they rely on systems employees don&apos;t trust and managers can&apos;t act on.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
               Formal reporting channels don&apos;t solve this. Employees avoid them because they feel visible, unsafe,
-              or pointless. Most concerns never get raised at all. And the people responsible for managing risk are
-              often the last to find out.
+              or pointless. Most concerns never get raised at all. The people responsible for managing risk are often
+              the last to find out.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">

@@ -66,7 +66,7 @@ export default function CheckIn() {
             </dl>
 
             <p className="mt-10 text-lg/8 font-semibold text-gray-900 dark:text-white">
-              PIN notifications also available via Slack and Microsoft Teams
+              Check-in notifications also available via Slack and Microsoft Teams
             </p>
 
             <div className="mt-10 inline-flex gap-8 sm:gap-10">
