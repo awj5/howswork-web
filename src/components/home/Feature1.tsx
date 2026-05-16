@@ -84,11 +84,11 @@ export default function Feature1() {
             <h2 className="gradient-text inline text-base/7 font-semibold">For employers</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
-              Risk, managed
+              Know the risks
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork gives businesses a practical system to identify and manage psychosocial risks before they become
+              HowsWork gives employers a practical system to identify and manage psychosocial risks before they become
               claims or compliance failures.
             </p>
           </div>

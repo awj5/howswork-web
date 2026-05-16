@@ -13,7 +13,7 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "HowsWork - Spot risks early. Prove you acted.",
+    title: "HowsWork - Surface risks early. Prove you acted.",
     description:
       "Identify and manage psychosocial risks through regular team check-ins, anonymous reporting, and an automated risk register.",
     icons: {

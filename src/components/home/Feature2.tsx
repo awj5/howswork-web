@@ -24,7 +24,7 @@ const features = [
   },
   {
     name: "Hazard mapping.",
-    description: "Issues are automatically mapped to known workplace hazards.",
+    description: "Issues are automatically mapped to known psychosocial hazards.",
     auDescription: (
       <>
         Issues are automatically mapped to{" "}

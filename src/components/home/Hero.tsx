@@ -39,7 +39,7 @@ export default function Hero() {
               </div>
             ) : (
               <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-                Psychological harm at work is a growing employer risk.{" "}
+                Workplace psychological harm is an increasing legal liability.{" "}
                 <a
                   href="https://articles.howswork.app/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
                   target="_blank"
@@ -54,7 +54,7 @@ export default function Hero() {
 
           <div className="mx-auto max-w-2xl text-center">
             <h1 className="text-5xl font-semibold tracking-tight text-balance text-gray-900 sm:text-7xl dark:text-white">
-              Spot risks early. Prove you acted.
+              Surface risks early. Prove you acted.
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">

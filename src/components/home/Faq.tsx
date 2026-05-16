@@ -45,7 +45,7 @@ const faqs = [
   {
     question: "Can I use HowsWork for free?",
     answer:
-      "Yes. You can get started for free and smaller teams can use HowsWork at no cost. As your team grows, a subscription unlocks check-in results and reported concerns.",
+      "Yes. Smaller teams can use HowsWork at no cost. A subscription gives you a larger team limit, additional admins, and AI features.",
   },
 ];
 

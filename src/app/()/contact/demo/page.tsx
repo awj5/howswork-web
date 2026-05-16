@@ -19,18 +19,18 @@ export default function Demo() {
 
         <div className="mx-auto max-w-2xl text-center">
           <h2 className="text-4xl font-semibold tracking-tight text-balance text-gray-900 sm:text-5xl dark:text-white">
-            Get a personal walkthrough
+            Get a demo
           </h2>
 
           <p className="mt-2 text-lg/8 text-gray-600 dark:text-gray-400">
-            See how HowsWork helps your business identify and manage psychosocial risks in your workplace.
+            See how HowsWork can help you identify and manage psychosocial risk in your workplace.
           </p>
         </div>
 
         <Form
           to="support@howswork.app"
           subject="Demo request"
-          placeholder="Let us know your availability"
+          placeholder="Anything you'd like us to know?"
           buttonText="Request a demo"
           successText="Demo request sent"
         />
