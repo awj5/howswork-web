@@ -2,10 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 import supabase from "@/utils/supabase";
 import rateLimit, { redis } from "@/utils/rate-limit";
 import { getIP } from "@/utils/helpers";
+import { encrypt } from "@/utils/encryption";
 
 export async function POST(req: NextRequest) {
   try {
-    const { companyID, pin, sentiment, issues, attributions, team } = await req.json();
+    const { companyID, pin, sentiment, issues, attributions, details, team } = await req.json();
     if (!sentiment) throw new Error("Form is invalid");
     const ip = getIP(req);
     const identifier = `company:${companyID}:ip:${ip}`;
@@ -47,6 +48,7 @@ export async function POST(req: NextRequest) {
         sentiment,
         issues: issues.length ? issues : null,
         attributions: attributions.length ? attributions : null,
+        details: details ? encrypt(details.trim().slice(0, 800)) : null,
         team: team || null,
         company_id: companyID,
       });
