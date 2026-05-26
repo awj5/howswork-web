@@ -4,3 +4,17 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
+
+[[redirects]]
+from = "/articles/*"
+to = "https://howswork.ghost.io/blog/:splat"
+status = 200
+force = true
+headers = {X-Forwarded-Host = "howswork.app"}
+
+[[redirects]]
+from = "/articles"
+to = "https://howswork.ghost.io/blog/"
+status = 200
+force = true
+headers = {X-Forwarded-Host = "howswork.app"}
