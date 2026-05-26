@@ -12,7 +12,6 @@ import { Divider } from "@/components/ui/divider";
 import Sentiment from "./feedback-dialog/Sentiment";
 import Issues from "./feedback-dialog/Issues";
 import Attributions from "./feedback-dialog/Attributions";
-import Details from "./feedback-dialog/Details";
 import Team from "./feedback-dialog/Team";
 
 export default function FeedbackDialog() {
@@ -22,7 +21,6 @@ export default function FeedbackDialog() {
   const [sentiment, setSentiment] = useState(0);
   const [issues, setIssues] = useState<number[]>([]);
   const [attributions, setAttributions] = useState<number[]>([]);
-  const [details, setDetails] = useState("");
   const [team, setTeam] = useState(0);
   const [disabled, setDisabled] = useState(false);
 
@@ -38,7 +36,7 @@ export default function FeedbackDialog() {
       const response = await fetch("/api/feedback", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ companyID, pin, sentiment, issues, attributions, details, team }),
+        body: JSON.stringify({ companyID, pin, sentiment, issues, attributions, team }),
       });
 
       const json = await response.json();
@@ -108,16 +106,6 @@ export default function FeedbackDialog() {
         />
 
         <Attributions val={attributions} setVal={setAttributions} issues={issues} disabled={disabled} />
-        <Divider className="my-8" soft />
-
-        <Details
-          val={details}
-          setVal={setDetails}
-          disabled={disabled}
-          setDisabled={setDisabled}
-          sentiment={sentiment}
-        />
-
         <Team val={team} setVal={setTeam} sentiment={sentiment} disabled={disabled} />
         <Divider className="mt-8" soft />
       </DialogBody>
