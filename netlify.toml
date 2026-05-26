@@ -7,14 +7,14 @@
 
 [[redirects]]
 from = "/articles/*"
-to = "https://howswork.ghost.io/blog/:splat"
+to = "https://howswork.ghost.io/:splat"
 status = 200
 force = true
 headers = {X-Forwarded-Host = "howswork.app"}
 
 [[redirects]]
 from = "/articles"
-to = "https://howswork.ghost.io/blog/"
+to = "https://howswork.ghost.io"
 status = 200
 force = true
 headers = {X-Forwarded-Host = "howswork.app"}
