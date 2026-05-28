@@ -4,17 +4,3 @@
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
-
-[[redirects]]
-from = "/articles/*"
-to = "https://articles.howswork.app/:splat"
-status = 200
-force = true
-headers = {X-Forwarded-Host = "howswork.app"}
-
-[[redirects]]
-from = "/articles"
-to = "https://articles.howswork.app"
-status = 200
-force = true
-headers = {X-Forwarded-Host = "howswork.app"}
