@@ -18,231 +18,297 @@ export default function Post() {
           </p>
 
           <p className="mt-6 text-xl/8">
-            These terms apply to anyone who uses HowsWork, including employers (administrators) who set up and manage an
-            account, and employees who access the platform through their employer.
+            HowsWork is a psychological health and safety platform that gives employers a practical system for
+            identifying and managing psychosocial risk. It runs regular check-ins, gives employees a trusted anonymous
+            channel to raise concerns, and automatically builds a risk register that records what was identified and
+            what action was taken.
           </p>
 
           <p className="mt-8 text-xl/8">
-            By using HowsWork, you agree to these terms. If you are accepting on behalf of a company, you confirm you
-            have the authority to do so.
+            This policy covers both employees using HowsWork through their employer, and employers (administrators)
+            managing the platform.
           </p>
 
           <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
             <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              1. What HowsWork is
+              1. Who we are
             </h2>
 
             <p className="mt-6">
-              HowsWork is a psychological health and safety platform that gives employers a practical system for
-              identifying and managing psychosocial risk. It runs regular check-ins, gives employees a trusted anonymous
-              channel to raise concerns, and automatically builds a risk register that records what was identified and
-              what action was taken.
+              HowsWork Pty Ltd (ACN 682 840 884) is the data controller for this service. Questions? Contact us at:
+              legal@howswork.app
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              2. What we collect
+            </h2>
+
+            <h3 className="mt-6 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              From employees
+            </h3>
+
+            <p className="mt-6">When you complete a check-in or submit a concern, we may collect:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Your sentiment rating and any issue tags you select</li>
+              <li>A written description of your concern, if you choose to provide one</li>
+              <li>Whether you&apos;ve attributed a check-in to a team (optional)</li>
+            </ul>
+
+            <p className="mt-8">
+              <strong className="font-semibold text-gray-900 dark:text-white">About your identity:</strong> Your
+              employer provides us with your work email address or phone number solely to deliver a rotating access PIN.
+              Once the PIN is issued, your contact details are not linked to your check-ins. We never connect your name
+              or contact information to what you submit.
+            </p>
+
+            <h3 className="mt-8 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              From administrators
+            </h3>
+
+            <p className="mt-6">When you set up and manage a HowsWork account, we collect:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Your name and work email address</li>
+              <li>Company details (name, size, timezone)</li>
+              <li>
+                Billing information (handled securely via our payment provider{" "}
+                <a
+                  href="https://stripe.com/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Stripe
+                </a>
+                )
+              </li>
+              <li>Usage data such as which features you access and when</li>
+            </ul>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              3. How we use your data
+            </h2>
+
+            <p className="mt-6">We use employee data to:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Aggregate anonymous check-in results for employer reporting</li>
+              <li>Flag patterns or threshold breaches that may require an employer&apos;s attention</li>
+              <li>Improve the accuracy and relevance of the platform</li>
+            </ul>
+
+            <p className="mt-8">We use administrator data to:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Operate and deliver the HowsWork service</li>
+              <li>Send you account notifications and product updates</li>
+              <li>Provide customer support</li>
+              <li>Meet our legal and regulatory obligations</li>
+            </ul>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              4. Anonymity
+            </h2>
+
+            <p className="mt-6">
+              Employee check-ins and concerns are anonymous by design. The PIN-based identifier is a shared rotating
+              code, it cannot be reverse-engineered to identify you. Employers see only aggregated data unless you
+              explicitly choose to submit a named concern.
+            </p>
+
+            <p className="mt-8">We take this seriously. Anonymity is the foundation of honest reporting.</p>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              5. Who we share data with
+            </h2>
+
+            <p className="mt-6">We do not sell your data. We may share data with:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>
+                Infrastructure providers (e.g.{" "}
+                <a
+                  href="https://supabase.com/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Supabase
+                </a>{" "}
+                for database hosting,{" "}
+                <a
+                  href="https://resend.com/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Resend
+                </a>{" "}
+                for email,{" "}
+                <a
+                  href="https://www.twilio.com/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  Twilio
+                </a>{" "}
+                for SMS), only to the extent needed to operate the service
+              </li>
+
+              <li>Your employer, aggregated and anonymous employee data only, unless you submit a named concern</li>
+
+              <li>
+                Law enforcement or regulators, if required by law. As concerns and check-ins are submitted anonymously
+                with no account or login, we are unable to identify which individual submitted any particular response,
+                even if compelled to do so.
+              </li>
+
+              <li>
+                AI processing providers (e.g.{" "}
+                <a
+                  href="https://openai.com/"
+                  target="_blank"
+                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+                >
+                  OpenAI
+                </a>
+                ), used to generate privacy-preserving summaries of concern text
+              </li>
+            </ul>
+
+            <p className="mt-8">
+              All third-party providers are bound by data processing agreements and are required to protect your data.
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              6. Where your data is stored
+            </h2>
+
+            <p className="mt-6">
+              HowsWork stores data in Australia (Asia Pacific &mdash; Sydney region). If you are accessing the platform
+              from outside Australia, please be aware that your data will be transferred to and stored in Australia.
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              7. How long we keep your data
+            </h2>
+
+            <ul
+              role="list"
+              className="mt-6 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>
+                Employee check-in data: retained for the duration of your employer&apos;s active subscription, then
+                deleted within 90 days of account closure
+              </li>
+
+              <li>Administrator account data: retained for the duration of the subscription</li>
+              <li>You can request deletion of your data at any time (see Section 9)</li>
+            </ul>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              8. Security
+            </h2>
+
+            <p className="mt-6">We use industry-standard security measures including:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Encryption in transit (HTTPS/TLS) and at rest</li>
+              <li>Row-level security on our database</li>
+              <li>Access controls limiting who within HowsWork can view data</li>
+            </ul>
+
+            <p className="mt-8">
+              No system is perfectly secure. If we become aware of a breach affecting your data, we will notify you in
+              accordance with Australian Privacy Act requirements.
+            </p>
+          </div>
+
+          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
+            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+              9. Your rights
+            </h2>
+
+            <p className="mt-6">Under the Australian Privacy Act 1988, you have the right to:</p>
+
+            <ul
+              role="list"
+              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
+            >
+              <li>Access the personal information we hold about you</li>
+              <li>Request correction of inaccurate information</li>
+              <li>Request deletion of your data</li>
+              <li>Complain about how we&apos;ve handled your data</li>
+            </ul>
+
+            <p className="mt-8">
+              To exercise any of these rights, email legal@howswork.app. We will respond within 30 days.
             </p>
 
             <p className="mt-8">
-              We are not a crisis service, a mental health provider, or a substitute for professional advice. If you or
-              someone else is in immediate danger, contact{" "}
-              <Link
-                href="/articles/urgent-support/"
+              If you&apos;re not satisfied with our response, you can lodge a complaint with the Office of the
+              Australian Information Commissioner (OAIC) at{" "}
+              <a
+                href="https://www.oaic.gov.au/"
+                target="_blank"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
-                emergency services
-              </Link>
+                oaic.gov.au
+              </a>
               .
             </p>
           </div>
 
           <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
             <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              2. Accounts
-            </h2>
-
-            <h3 className="mt-6 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              Administrators
-            </h3>
-
-            <p className="mt-6">
-              You are responsible for keeping your login credentials secure and for all activity that occurs under your
-              account. You must provide accurate information when setting up your account and keep it up to date.
-            </p>
-
-            <h3 className="mt-6 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              Employees
-            </h3>
-
-            <p className="mt-6">
-              Employees access HowsWork using a shared rotating PIN issued by the platform. You are responsible for
-              keeping PINs secure. If you believe the current PIN has been compromised, contact your administrator.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              3. Acceptable use
-            </h2>
-
-            <p className="mt-6">You agree not to:</p>
-
-            <ul
-              role="list"
-              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
-            >
-              <li>Use HowsWork for any unlawful purpose</li>
-              <li>Submit false, misleading, or malicious content</li>
-              <li>Attempt to identify other employees from their anonymous submissions</li>
-              <li>Interfere with or disrupt the platform or its infrastructure</li>
-              <li>Reverse engineer, copy, or resell any part of the service</li>
-            </ul>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              4. Employer responsibilities
-            </h2>
-
-            <p className="mt-6">Administrators are responsible for:</p>
-
-            <ul
-              role="list"
-              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
-            >
-              <li>Ensuring employees are informed that HowsWork is in use</li>
-              <li>Using the platform and its data in accordance with applicable employment and privacy laws</li>
-              <li>Not using HowsWork data to identify, target, or take adverse action against individual employees</li>
-            </ul>
-
-            <p className="mt-8">
-              HowsWork provides tools to support legal compliance in some countries. It does not constitute legal
-              advice, and we make no warranty that use of the platform satisfies any specific regulatory obligation.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              5. Our responsibilities
-            </h2>
-
-            <p className="mt-6">We will:</p>
-
-            <ul
-              role="list"
-              className="mt-8 max-w-xl list-disc space-y-4 pl-4 text-gray-600 marker:text-indigo-600 dark:text-gray-400 dark:marker:text-indigo-400"
-            >
-              <li>Use reasonable efforts to keep the platform available and secure</li>
-
-              <li>
-                Notify administrators of any material changes to these terms or our{" "}
-                <Link
-                  href="/articles/privacy-policy/"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-
-              <li>
-                Handle your data in accordance with our{" "}
-                <Link
-                  href="/articles/privacy-policy/"
-                  className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-
-            <p className="mt-8">
-              We do not guarantee uninterrupted access to the platform. Scheduled maintenance or unforeseen outages may
-              occur.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              6. Subscriptions and payment
+              10. Cookies
             </h2>
 
             <p className="mt-6">
-              HowsWork is offered on a subscription basis.{" "}
-              <Link
-                href="/pricing"
-                className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-              >
-                Pricing
-              </Link>{" "}
-              is set out on our website. If a subscription lapses or payment fails, access to the platform may be
-              suspended and the account may be closed.
+              HowsWork uses cookies and similar technologies to keep you logged in, remember your preferences, and
+              understand how the platform is being used. We do not use cookies for advertising.
             </p>
           </div>
 
           <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
             <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              7. Intellectual property
+              11. Changes to this policy
             </h2>
 
             <p className="mt-6">
-              HowsWork and its content, features, and functionality are owned by HowsWork Pty Ltd. You may not copy,
-              modify, or distribute any part of the platform without our written permission.
-            </p>
-
-            <p className="mt-8">
-              Content you submit (such as concern descriptions) remains yours. By submitting it, you grant us permission
-              to process and store it as needed to operate the service.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              8. Limitation of liability
-            </h2>
-
-            <p className="mt-6">
-              To the extent permitted by law, HowsWork Pty Ltd is not liable for any indirect, incidental, or
-              consequential loss arising from your use of the platform.
-            </p>
-
-            <p className="mt-8">
-              Our total liability to you for any claim arising out of or in connection with these terms will not exceed
-              the amount you paid us in the 12 months preceding the claim.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              9. Termination
-            </h2>
-
-            <p className="mt-6">
-              You may stop using HowsWork at any time. Administrators can delete their personal account from the My
-              Account section, or delete the company and all associated data from Settings.
-            </p>
-
-            <p className="mt-8">
-              We may suspend or terminate access if these terms are breached, or if we reasonably believe continued
-              access poses a risk to the platform or other users.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              10. Governing law
-            </h2>
-
-            <p className="mt-6">
-              These terms are governed by the laws of Australia. Any disputes will be subject to the non-exclusive
-              jurisdiction of the Australian courts.
-            </p>
-          </div>
-
-          <div className="mt-16 max-w-2xl text-gray-600 dark:text-gray-400">
-            <h2 className="text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
-              11. Changes to these terms
-            </h2>
-
-            <p className="mt-6">
-              We may update these terms from time to time. If we make material changes, we will notify administrators by
-              email at least 14 days before they take effect. Continued use of the platform after that date constitutes
-              acceptance.
+              If we make material changes to this policy, we&apos;ll notify administrators by email at least 14 days
+              before the changes take effect. The current version will always be available here at
+              https://howswork.app/articles/privacy-policy.
             </p>
           </div>
 

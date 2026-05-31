@@ -82,7 +82,7 @@ export default function Post() {
               In July 2025, NSW went further by introducing a positive duty on psychosocial hazards, requiring employers
               to proactively prevent harm rather than simply respond to it. This makes NSW one of the{" "}
               <Link
-                href="articles/psychosocial-risk-in-nsw-what-employers-need-to-know/"
+                href="/articles/psychosocial-risk-in-nsw-what-employers-need-to-know/"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
                 more stringent jurisdictions on psychosocial risk
@@ -99,7 +99,7 @@ export default function Post() {
             <p className="mt-6">
               Under the{" "}
               <a
-                href="https://www.safeworkaustralia.gov.au/doc/model-code-practice-managing-psychosocial-hazards-work?ref=articles.howswork.app"
+                href="https://www.safeworkaustralia.gov.au/doc/model-code-practice-managing-psychosocial-hazards-work"
                 target="_blank"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
@@ -140,7 +140,7 @@ export default function Post() {
             <p className="mt-6">
               Victoria has its own framework.{" "}
               <a
-                href="https://www.worksafe.vic.gov.au/psychological-health?ref=articles.howswork.app"
+                href="https://www.worksafe.vic.gov.au/psychological-health"
                 target="_blank"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >

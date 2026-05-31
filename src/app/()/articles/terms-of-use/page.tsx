@@ -66,7 +66,7 @@ export default function Post() {
               account. You must provide accurate information when setting up your account and keep it up to date.
             </p>
 
-            <h3 className="mt-6 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
+            <h3 className="mt-8 text-xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
               Employees
             </h3>
 
