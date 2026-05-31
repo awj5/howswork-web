@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { toast } from "sonner";
 import { contact } from "@/app/()/contact/actions";
 
@@ -144,13 +145,12 @@ export default function Form(props: FormProps) {
 
           <label htmlFor="agree-to-policies" className="text-sm/6 text-gray-600 dark:text-gray-400">
             By selecting this, you agree to our{" "}
-            <a
-              href="https://articles.howswork.app/privacy-policy/"
-              target="_blank"
+            <Link
+              href="/articles/privacy-policy/"
               className="font-semibold whitespace-nowrap text-indigo-600 dark:text-indigo-400"
             >
               privacy policy
-            </a>
+            </Link>
             .
           </label>
         </div>

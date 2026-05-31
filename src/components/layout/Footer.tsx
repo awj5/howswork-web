@@ -5,7 +5,7 @@ const navigation = {
   main: [
     { name: "Resources", href: "https://articles.howswork.app" },
     { name: "Terms of use", href: "/articles/terms-of-use/" },
-    { name: "Privacy policy", href: "https://articles.howswork.app/privacy-policy/" },
+    { name: "Privacy policy", href: "/articles/privacy-policy/" },
   ],
   social: [
     {

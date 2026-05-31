@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { toast } from "sonner";
 import { subscribeToMailingList } from "@/app/()/actions";
 
@@ -60,13 +61,12 @@ export default function Newsletter() {
 
           <p className="mt-4 text-sm/6 text-gray-900 dark:text-gray-300">
             We care about your data. Read our{" "}
-            <a
-              href="https://articles.howswork.app/privacy-policy/"
-              target="_blank"
+            <Link
+              href="/articles/privacy-policy/"
               className="font-semibold whitespace-nowrap text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               privacy policy
-            </a>
+            </Link>
             .
           </p>
         </form>
