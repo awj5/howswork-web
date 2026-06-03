@@ -4,8 +4,8 @@ import Link from "next/link";
 const navigation = {
   main: [
     { name: "Resources", href: "https://articles.howswork.app" },
-    { name: "Terms of use", href: "/articles/terms-of-use/" },
-    { name: "Privacy policy", href: "/articles/privacy-policy/" },
+    { name: "Terms of use", href: "https://articles.howswork.app/terms-of-use/" },
+    { name: "Privacy policy", href: "https://articles.howswork.app/privacy-policy/" },
   ],
   social: [
     {
@@ -83,13 +83,13 @@ export default function Footer() {
           </Link>
 
           {navigation.main.map((item) => (
-            <Link
+            <a
               key={item.name}
               href={item.href}
               className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             >
               {item.name}
-            </Link>
+            </a>
           ))}
         </nav>
 
