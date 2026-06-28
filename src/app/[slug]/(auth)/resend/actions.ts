@@ -184,7 +184,7 @@ export async function resendPin(formData: FormData) {
                     margin-bottom: 16px;
                   "
                 >
-                  HowsWork${isAus ? " Pty Ltd, 32 York St, Sydney 2000" : ""}<br />Questions? Contact us at
+                  HowsWork${isAus ? " Pty Ltd" : ""}<br />Questions? Contact us at
                   support@howswork.${isAus ? "com.au" : "app"}
                 </p>
               </td>
