@@ -220,7 +220,7 @@ export async function POST(req: NextRequest) {
                 <p
                   style="
                     font-size: 14px;
-                    line-height: 24px;
+                    line-height: 20px;
                     color: rgb(74, 85, 101);
                     margin-top: 16px;
                     margin-bottom: 16px;
@@ -234,7 +234,7 @@ export async function POST(req: NextRequest) {
                 <p
                   style="
                     font-size: 12px;
-                    line-height: 24px;
+                    line-height: 16px;
                     color: rgb(74, 85, 101);
                     margin-top: 16px;
                     margin-bottom: 16px;
