@@ -17,7 +17,7 @@ export default function Cta() {
             href="/contact/demo"
             className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-xs hover:bg-gray-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white dark:bg-white/10 dark:text-white dark:shadow-none dark:inset-ring dark:inset-ring-white/5 dark:hover:bg-white/15 dark:focus-visible:outline-white"
           >
-            {/* Get started */}Request a demo
+            {/* Start for free */}Request a demo
           </Link>
 
           <Link href="/" className="text-sm/6 font-semibold text-white">
