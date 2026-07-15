@@ -13,7 +13,7 @@ const tiers = [
     name: "Starter",
     id: "tier-starter",
     planID: 1,
-    href: "https://admin.howswork.app/register",
+    href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
     description: "For small teams new to managing psychosocial risk.",
@@ -24,7 +24,7 @@ const tiers = [
     name: "Team",
     id: "tier-team",
     planID: 2,
-    href: "https://admin.howswork.app/register",
+    href: "/contact/demo",
     price: { monthly: "$99", annually: "$990" },
     audPrice: { monthly: "$149", annually: "$1,490" },
     description: "For growing teams that need AI-powered risk insights.",
@@ -42,7 +42,7 @@ const tiers = [
     name: "Business",
     id: "tier-business",
     planID: 3,
-    href: "https://admin.howswork.app/register",
+    href: "/contact/demo",
     price: { monthly: "$249", annually: "$2,490" },
     audPrice: { monthly: "$349", annually: "$3,490" },
     description: "For larger teams that need the full feature set including SMS.",
@@ -191,7 +191,7 @@ function PricingContent() {
                   aria-describedby={tier.id}
                   className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
                 >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Start for free"}
+                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
                 </Link>
 
                 <Link
@@ -203,7 +203,7 @@ function PricingContent() {
                   aria-describedby={tier.id}
                   className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
                 >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Start for free"}
+                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
                 </Link>
 
                 <ul role="list" className="mt-8 space-y-3 text-sm/6 text-gray-600 dark:text-gray-300">
