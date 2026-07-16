@@ -5,9 +5,8 @@ import { useCountryContext } from "@/hooks/useCountry";
 
 const features = [
   {
-    name: "Automated check-ins",
-    description:
-      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
+    name: "Scheduled assessments",
+    description: "Regular, automatically scheduled assessments that show how risk changes over time.",
   },
   {
     name: "Anonymous reporting",
@@ -29,7 +28,7 @@ const features = [
     name: "Risk register",
     description: (
       <>
-        Risks are automatically identified and logged, giving you a{" "}
+        Risks are automatically flagged and logged, giving you a{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           target="_blank"
@@ -42,7 +41,7 @@ const features = [
     ),
     auDescription: (
       <>
-        Risks are automatically identified and logged, giving you an{" "}
+        Risks are automatically flagged and logged, giving you an{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           target="_blank"
@@ -59,7 +58,7 @@ const features = [
     usName: "AI anonymization",
     description: (
       <>
-        Employee responses are rewritten by AI to{" "}
+        AI rewrites responses to{" "}
         <a
           href="https://articles.howswork.app/can-your-writing-style-identify-you/"
           target="_blank"
@@ -67,7 +66,7 @@ const features = [
         >
           remove identifying language
         </a>
-        , so people feel genuinely safe speaking up.
+        , so people can speak up without being identified.
       </>
     ),
   },
@@ -84,12 +83,12 @@ export default function Feature1() {
             <h2 className="gradient-text inline text-base/7 font-semibold">For employers</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl dark:text-white">
-              Know the risks
+              Spot risks early
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork gives employers a practical system to identify and manage psychosocial risks before they become
-              claims or compliance failures.
+              HowsWork helps employers identify, document, and manage psychosocial risks before they become
+              psychological injury claims or compliance failures.
             </p>
           </div>
 

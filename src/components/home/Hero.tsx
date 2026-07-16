@@ -31,6 +31,7 @@ export default function Hero() {
                 <a
                   href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="font-semibold text-indigo-600 dark:text-indigo-400"
                 >
                   <span aria-hidden="true" className="absolute inset-0" />
@@ -39,14 +40,15 @@ export default function Hero() {
               </div>
             ) : (
               <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-                Workplace psychological harm is an increasing legal liability.{" "}
+                Psychological safety isn&apos;t psychosocial risk.{" "}
                 <a
                   href="https://articles.howswork.app/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
                   target="_blank"
+                  rel="noopener noreferrer"
                   className="font-semibold text-indigo-600 dark:text-indigo-400"
                 >
                   <span aria-hidden="true" className="absolute inset-0" />
-                  Read more <span aria-hidden="true">&rarr;</span>
+                  Learn the difference <span aria-hidden="true">&rarr;</span>
                 </a>
               </div>
             )}
