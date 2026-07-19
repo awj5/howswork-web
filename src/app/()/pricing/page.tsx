@@ -16,8 +16,8 @@ const tiers = [
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
     audPrice: { monthly: "$0", annually: "$0" },
-    description: "For small teams new to managing psychosocial risk.",
-    features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
+    description: "For small teams new to assessing psychosocial risk.",
+    features: ["Up to 50 employees", "1 admin account", "Unlimited assessments", "Concern reporting", "Risk register"],
     featured: true,
   },
   {
@@ -29,9 +29,9 @@ const tiers = [
     audPrice: { monthly: "$149", annually: "$1,490" },
     description: "For growing teams that need AI-powered risk insights.",
     features: [
-      "Up to 50 employees",
+      "Up to 200 employees",
       "3 admin accounts",
-      "Check-ins",
+      "Unlimited assessments",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
@@ -47,9 +47,9 @@ const tiers = [
     audPrice: { monthly: "$349", annually: "$3,490" },
     description: "For larger teams that need the full feature set including SMS.",
     features: [
-      "Up to 200 employees",
+      "Up to 500 employees",
       "5 admin accounts",
-      "Check-ins",
+      "Unlimited assessments",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
@@ -68,7 +68,7 @@ const tiers = [
     features: [
       "Unlimited employees",
       "Unlimited admin accounts",
-      "Check-ins",
+      "Unlimited assessments",
       "Concern reporting",
       "Risk register",
       "AI risk analysis",
@@ -106,13 +106,12 @@ function PricingContent() {
             business and your budget.
           </p>
 
-          <div className="mt-16 flex justify-center">
+          <div className="mt-16 hidden justify-center">
             <fieldset aria-label="Payment frequency">
               <div className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold inset-ring inset-ring-gray-200 dark:inset-ring-white/10">
                 <label className="group relative rounded-full px-2.5 py-1 has-checked:bg-indigo-600 dark:has-checked:bg-indigo-500">
                   <input
                     defaultValue="monthly"
-                    defaultChecked
                     name="frequency"
                     type="radio"
                     className="absolute inset-0 appearance-none rounded-full"
@@ -124,6 +123,7 @@ function PricingContent() {
                 <label className="group relative rounded-full px-2.5 py-1 has-checked:bg-indigo-600 dark:has-checked:bg-indigo-500">
                   <input
                     defaultValue="annually"
+                    defaultChecked
                     name="frequency"
                     type="radio"
                     className="absolute inset-0 appearance-none rounded-full"
@@ -135,7 +135,7 @@ function PricingContent() {
             </fieldset>
           </div>
 
-          <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
+          <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
             {tiers.map((tier) => (
               <div
                 key={tier.id}
