@@ -1,11 +1,4 @@
-"use client";
-
-import { useCountryContext } from "@/hooks/useCountry";
-
 export default function Stats() {
-  const { country } = useCountryContext();
-  if (country !== "AU") return null;
-
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

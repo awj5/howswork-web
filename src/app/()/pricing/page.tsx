@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 import { dashboardURL } from "@/utils/helpers";
-import { useCountryContext } from "@/hooks/useCountry";
 import { useAdminCompanyContext } from "@/hooks/useAdminCompanyContext";
 
 const tiers = [
@@ -15,7 +14,6 @@ const tiers = [
     planID: 1,
     href: "/contact/demo",
     price: { monthly: "$0", annually: "$0" },
-    audPrice: { monthly: "$0", annually: "$0" },
     description: "For small teams new to assessing psychosocial risk.",
     features: ["Up to 50 employees", "1 admin account", "Unlimited assessments", "Concern reporting", "Risk register"],
     featured: true,
@@ -25,8 +23,7 @@ const tiers = [
     id: "tier-team",
     planID: 2,
     href: "/contact/demo",
-    price: { monthly: "$99", annually: "$990" },
-    audPrice: { monthly: "$149", annually: "$1,490" },
+    price: { monthly: "$149", annually: "$1,490" },
     description: "For growing teams that need AI-powered risk insights.",
     features: [
       "Up to 200 employees",
@@ -43,8 +40,7 @@ const tiers = [
     id: "tier-business",
     planID: 3,
     href: "/contact/demo",
-    price: { monthly: "$249", annually: "$2,490" },
-    audPrice: { monthly: "$349", annually: "$3,490" },
+    price: { monthly: "$349", annually: "$3,490" },
     description: "For larger teams that need the full feature set including SMS.",
     features: [
       "Up to 500 employees",
@@ -63,7 +59,6 @@ const tiers = [
     planID: 4,
     href: "/contact/sales",
     price: { monthly: "$0", annually: "$0" },
-    audPrice: { monthly: "$0", annually: "$0" },
     description: "For large employers that require dedicated support.",
     features: [
       "Unlimited employees",
@@ -82,7 +77,6 @@ const tiers = [
 
 function PricingContent() {
   const searchParams = useSearchParams();
-  const { country } = useCountryContext();
   const { adminCompany, setAdminCompany } = useAdminCompanyContext();
 
   useEffect(() => {
@@ -166,7 +160,7 @@ function PricingContent() {
                   <>
                     <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
                       <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {country === "AU" ? tier.audPrice.monthly : tier.price.monthly}
+                        {tier.price.monthly}
                       </span>
 
                       <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
@@ -174,7 +168,7 @@ function PricingContent() {
 
                     <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden">
                       <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {country === "AU" ? tier.audPrice.annually : tier.price.annually}
+                        {tier.price.annually}
                       </span>
 
                       <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
