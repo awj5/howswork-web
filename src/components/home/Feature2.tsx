@@ -14,7 +14,7 @@ import { useCountryContext } from "@/hooks/useCountry";
 const features = [
   {
     name: "Auto-generated entries.",
-    description: "Concerns and check-ins are automatically added to your risk register.",
+    description: "Assessments and concerns are automatically logged and added to your risk register.",
     icon: ListBulletIcon,
   },
   {
