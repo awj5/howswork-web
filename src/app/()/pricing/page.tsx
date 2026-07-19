@@ -100,6 +100,7 @@ function PricingContent() {
             business and your budget.
           </p>
 
+          {/*<div className="mt-16 flex justify-center">*/}
           <div className="mt-16 hidden justify-center">
             <fieldset aria-label="Payment frequency">
               <div className="grid grid-cols-2 gap-x-1 rounded-full p-1 text-center text-xs/5 font-semibold inset-ring inset-ring-gray-200 dark:inset-ring-white/10">
@@ -129,6 +130,7 @@ function PricingContent() {
             </fieldset>
           </div>
 
+          {/*<div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">*/}
           <div className="isolate mx-auto mt-16 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
             {tiers.map((tier) => (
               <div
