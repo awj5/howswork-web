@@ -26,11 +26,11 @@ const faqs = [
       "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
   },
   {
-    question: "What are check-ins and how do they work?",
+    question: "What is a psychosocial risk assessment?",
     answer: (
       <>
-        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
-        less than a minute and feed into your{" "}
+        An anonymous survey built on internationally validated research. Run one on demand or schedule it to repeat.
+        Results feed directly into your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
