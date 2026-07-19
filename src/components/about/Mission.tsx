@@ -17,8 +17,8 @@ export default function Mission() {
           </h1>
 
           <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-            Workplace psychological harm rarely gets reported until it&apos;s too late. We built a platform that makes
-            it safe for employees to speak up, and helps employers act early.
+            Psychological harm at work usually surfaces too late, if it surfaces at all. So we built a way to find
+            hazards before they become injuries, and to prove you acted.
           </p>
         </div>
 
@@ -34,15 +34,15 @@ export default function Mission() {
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              Formal reporting channels don&apos;t solve this. Employees avoid them because they feel visible, unsafe,
-              or pointless. Most concerns never get raised at all. The people responsible for managing risk are often
-              the last to find out.
+              Most employers have never properly assessed their psychosocial hazards. And the formal channels meant to
+              catch problems in between go unused, because employees find them visible, unsafe, or pointless. The people
+              responsible for managing risk are often the last to find out.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              HowsWork exists to fix that. We give employees a genuinely anonymous way to raise concerns about
-              psychosocial hazards. We give employers the structured visibility they need to act early, with a clear
-              record of action taken.
+              HowsWork exists to fix both. We make psychosocial risk assessment simple enough that every employer
+              actually does it, and anonymous enough that every employee answers honestly. In between, teams can raise
+              concerns safely, and employers keep a clear record of action taken.
             </p>
           </div>
 
