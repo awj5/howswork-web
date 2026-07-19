@@ -173,7 +173,7 @@ function PricingContent() {
                         {tier.price.annually}
                       </span>
 
-                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
+                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">AUD/year</span>
                     </p>
                   </>
                 )}

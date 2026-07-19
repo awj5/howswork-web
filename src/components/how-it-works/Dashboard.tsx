@@ -4,7 +4,7 @@ import { EyeIcon, ChartBarIcon, DocumentTextIcon } from "@heroicons/react/20/sol
 const features = [
   {
     name: "Early risk visibility.",
-    description: "Check-in trends and flagged issues surface workplace hazards early.",
+    description: "Assessment trends and flagged issues surface workplace hazards early.",
     icon: EyeIcon,
   },
   {
@@ -44,8 +44,8 @@ export default function Dashboard() {
               </p>
 
               <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-                Employers get a clear view of psychosocial health across their workforce, with check-in trends, open
-                concerns, and flagged workplace hazards all in one place.
+                Employers get a clear view of psychosocial risks across their workforce, with assessment trends, open
+                concerns, and flagged hazards all in one place.
               </p>
 
               <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none dark:text-gray-400">

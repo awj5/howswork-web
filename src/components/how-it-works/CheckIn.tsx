@@ -20,9 +20,9 @@ const features = [
     icon: ShieldCheckIcon,
   },
   {
-    name: "Scheduled automatically.",
+    name: "Quick to complete.",
     description:
-      "Employers set the check-in cadence, keeping a continuous view of psychological health across their workforce.",
+      "Assessments run on demand or on a schedule. Answer in a few minutes from any device, then get back to work.",
     icon: ClockIcon,
   },
   {
@@ -42,12 +42,12 @@ export default function CheckIn() {
             <h2 className="gradient-text inline text-base/7 font-semibold">For employees</h2>
 
             <p className="mt-2 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
-              Check in
+              Assessments
             </p>
 
             <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-              Employees share how work is affecting them on a regular schedule. Responses are anonymous, and results are
-              aggregated so employers can spot patterns and identify hazards before they escalate.
+              Employees complete a short anonymous assessment. Results are aggregated so individuals stay anonymous, and
+              psychosocial hazards are flagged before they escalate.
             </p>
 
             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none dark:text-gray-400">
@@ -66,7 +66,7 @@ export default function CheckIn() {
             </dl>
 
             <p className="mt-10 text-lg/8 font-semibold text-gray-900 dark:text-white">
-              Check-in notifications also available via Slack and Microsoft Teams
+              PIN notifications also available via Slack and Microsoft Teams
             </p>
 
             <div className="mt-10 inline-flex gap-8 sm:gap-10">
