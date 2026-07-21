@@ -1,6 +1,6 @@
 const faqs = [
   {
-    question: "Are reported concerns really anonymous?",
+    question: "Are responses really anonymous?",
     answer: (
       <>
         Yes. There are{" "}
@@ -11,15 +11,15 @@ const faqs = [
         >
           no accounts and no logins
         </a>
-        . Your team accesses HowsWork using a shared rotating PIN, so there&apos;s no way to link a reported concern to
-        an individual.
+        . Your team accesses HowsWork using a shared rotating PIN, so there&apos;s no way to link a response to an
+        individual.
       </>
     ),
   },
   {
     question: "How long does it take to set up?",
     answer:
-      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
+      "Most employers are up and running in under 15 minutes. You add your team, schedule your first assessment, and HowsWork handles the rest. No IT support required.",
   },
   {
     question: "What is a psychosocial risk assessment?",

@@ -26,7 +26,7 @@ export default function Cta() {
           </h2>
 
           <p className="mt-6 text-lg/8 text-gray-300">
-            No complicated setup. Add your team, create your first check-in, and HowsWork handles the rest.
+            No complicated setup. Add your team, create your first assessment, and HowsWork handles the rest.
           </p>
 
           <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">

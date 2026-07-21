@@ -12,8 +12,8 @@ export default function Mission() {
           </h1>
 
           <p className="mt-6 text-xl/8 text-gray-700 dark:text-gray-300">
-            Psychological harm at work usually surfaces too late, if it surfaces at all. So we built a way to find
-            hazards before they become injuries, and to prove you acted.
+            Psychological harm at work usually surfaces too late, if it surfaces at all. We built a way to catch the
+            hazards first, and prove you acted.
           </p>
         </div>
 
@@ -25,19 +25,19 @@ export default function Mission() {
 
             <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
               Workplaces don&apos;t fail on psychological health and safety because they don&apos;t care. They fail
-              because they rely on systems employees don&apos;t trust and managers can&apos;t act on.
+              because employees don&apos;t trust the systems, and managers can&apos;t act on what they hear.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              Most employers have never properly assessed their psychosocial hazards. And the formal channels meant to
-              catch problems in between go unused, because employees find them visible, unsafe, or pointless. The people
-              responsible for managing risk are often the last to find out.
+              Most employers have never properly assessed their psychosocial hazards. And in between, the formal
+              channels meant to catch problems go unused, because employees find them visible, unsafe, or pointless. The
+              people responsible for managing risk are often the last to find out.
             </p>
 
             <p className="mt-8 text-base/7 text-gray-600 dark:text-gray-400">
-              HowsWork exists to fix both. We make psychosocial risk assessment simple enough that every employer
-              actually does it, and anonymous enough that every employee answers honestly. In between, teams can raise
-              concerns safely, and employers keep a clear record of action taken.
+              HowsWork fixes both. We make psychosocial risk assessment simple enough that every employer actually does
+              it, and anonymous enough that every employee answers honestly. In between, people can raise concerns
+              safely, and employers keep a clear record of action taken.
             </p>
           </div>
 

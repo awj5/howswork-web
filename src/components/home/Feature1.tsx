@@ -2,11 +2,12 @@ import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Scheduled assessments",
-    description: "Regular, automatically scheduled assessments that show how risk changes over time.",
+    name: "Assessments",
+    description:
+      "Run a one-off assessment whenever you need it, or schedule them to repeat and see how risk changes over time.",
   },
   {
-    name: "Anonymous reporting",
+    name: "Concern reporting",
     description: (
       <>
         Employees raise concerns{" "}
