@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { headers } from "next/headers";
 import {
   ListBulletIcon,
   LightBulbIcon,
@@ -11,7 +12,7 @@ import {
 const features = [
   {
     name: "Auto-generated entries.",
-    description: "Assessments and concerns are automatically logged and added to your risk register.",
+    description: "Check-ins and concerns are automatically logged and added to your risk register.",
     icon: ListBulletIcon,
   },
   {
@@ -21,7 +22,8 @@ const features = [
   },
   {
     name: "Hazard mapping.",
-    description: (
+    description: "Reported issues are automatically matched to globally established psychosocial hazards.",
+    auDescription: (
       <>
         Issues are automatically mapped to{" "}
         <a
@@ -53,7 +55,10 @@ const features = [
   },
 ];
 
-export default function Feature2() {
+export default async function Feature2() {
+  const host = (await headers()).get("host") ?? "";
+  const isAus = host.endsWith(".com.au");
+
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -106,7 +111,7 @@ export default function Feature2() {
                 />
                 {feature.name}
               </dt>{" "}
-              <dd className="inline">{feature.description}</dd>
+              <dd className="inline">{isAus && feature.auDescription ? feature.auDescription : feature.description}</dd>
             </div>
           ))}
         </dl>

@@ -2,9 +2,9 @@ import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Assessments",
+    name: "Automated check-ins",
     description:
-      "Run a one-off assessment whenever you need it, or schedule them to repeat and see how risk changes over time.",
+      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
   },
   {
     name: "Concern reporting",
@@ -39,7 +39,7 @@ const features = [
     ),
   },
   {
-    name: "AI anonymisation",
+    name: "AI de-identification",
     description: (
       <>
         AI rewrites responses to{" "}
