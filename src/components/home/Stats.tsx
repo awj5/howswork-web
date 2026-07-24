@@ -1,4 +1,9 @@
-export default function Stats() {
+import { headers } from "next/headers";
+
+export default async function Stats() {
+  const host = (await headers()).get("host") ?? "";
+  if (!host.endsWith(".com.au")) return;
+
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
