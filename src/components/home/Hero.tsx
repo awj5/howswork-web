@@ -1,7 +1,11 @@
 import Image from "next/image";
+import { headers } from "next/headers";
 import Link from "next/link";
 
-export default function Hero() {
+export default async function Hero() {
+  const host = (await headers()).get("host") ?? "";
+  const isAus = host.endsWith(".com.au");
+
   return (
     <div className="relative isolate pt-14">
       <div
@@ -20,18 +24,33 @@ export default function Hero() {
       <div className="pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Australian employers must now identify psychosocial hazards.{" "}
-              <a
-                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-semibold text-indigo-600 dark:text-indigo-400"
-              >
-                <span aria-hidden="true" className="absolute inset-0" />
-                Read more <span aria-hidden="true">&rarr;</span>
-              </a>
-            </div>
+            {isAus ? (
+              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
+                Australian employers must now identify psychosocial hazards.{" "}
+                <a
+                  href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-indigo-600 dark:text-indigo-400"
+                >
+                  <span aria-hidden="true" className="absolute inset-0" />
+                  Read more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            ) : (
+              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
+                No login. No tracking. Fully encrypted.{" "}
+                <a
+                  href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-indigo-600 dark:text-indigo-400"
+                >
+                  <span aria-hidden="true" className="absolute inset-0" />
+                  Read more <span aria-hidden="true">&rarr;</span>
+                </a>
+              </div>
+            )}
           </div>
 
           <div className="mx-auto max-w-2xl text-center">
