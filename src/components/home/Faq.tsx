@@ -1,3 +1,5 @@
+import { headers } from "next/headers";
+
 const faqs = [
   {
     question: "Are responses really anonymous?",
@@ -19,14 +21,14 @@ const faqs = [
   {
     question: "How long does it take to set up?",
     answer:
-      "Most employers are up and running in under 15 minutes. You add your team, schedule your first assessment, and HowsWork handles the rest. No IT support required.",
+      "Most employers are up and running in under 15 minutes. You add your team, schedule your first check-in, and HowsWork handles the rest. No IT support required.",
   },
   {
-    question: "What is a psychosocial risk assessment?",
+    question: "What are check-ins and how do they work?",
     answer: (
       <>
-        An anonymous survey built on internationally validated research. Run one on demand or schedule it to repeat.
-        Results feed directly into your{" "}
+        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
+        less than a minute and feed into your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
@@ -42,22 +44,6 @@ const faqs = [
     question: "Can I use HowsWork for free?",
     answer:
       "Yes. Smaller teams can use HowsWork at no cost. A subscription gives you a larger team limit, additional admins, and AI features.",
-  },
-  {
-    question: "Which laws does HowsWork help me comply with?",
-    answer: (
-      <>
-        HowsWork is built around{" "}
-        <a
-          href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
-          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          target="_blank"
-        >
-          Australia&apos;s Work Health and Safety laws
-        </a>{" "}
-        and the psychosocial hazard regulations that came into effect across most states and territories from 2023.
-      </>
-    ),
   },
   {
     question: "Is this the same as psychological safety?",
@@ -78,7 +64,29 @@ const faqs = [
   },
 ];
 
-export default function Faq() {
+const ausFaqs = [
+  {
+    question: "Which laws does HowsWork help me comply with?",
+    answer: (
+      <>
+        HowsWork is built around{" "}
+        <a
+          href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
+          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
+          target="_blank"
+        >
+          Australia&apos;s Work Health and Safety laws
+        </a>{" "}
+        and the psychosocial hazard regulations that came into effect across most states and territories from 2023.
+      </>
+    ),
+  },
+];
+
+export default async function Faq() {
+  const host = (await headers()).get("host") ?? "";
+  const isAus = host.endsWith(".com.au");
+
   return (
     <div className="mx-auto max-w-7xl px-6 pt-32 sm:pt-56 lg:px-8">
       <div className="lg:grid lg:grid-cols-12 lg:gap-8">
@@ -108,6 +116,14 @@ export default function Faq() {
                 <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
               </div>
             ))}
+
+            {isAus &&
+              ausFaqs.map((faq) => (
+                <div key={faq.question}>
+                  <dt className="text-base/7 font-semibold text-gray-900 dark:text-white">{faq.question}</dt>
+                  <dd className="mt-2 text-base/7 text-gray-600 dark:text-gray-400">{faq.answer}</dd>
+                </div>
+              ))}
           </dl>
         </div>
       </div>

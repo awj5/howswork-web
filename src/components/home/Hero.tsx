@@ -30,7 +30,6 @@ export default async function Hero() {
                 <a
                   href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="font-semibold text-indigo-600 dark:text-indigo-400"
                 >
                   <span aria-hidden="true" className="absolute inset-0" />
@@ -43,7 +42,6 @@ export default async function Hero() {
                 <a
                   href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
                   target="_blank"
-                  rel="noopener noreferrer"
                   className="font-semibold text-indigo-600 dark:text-indigo-400"
                 >
                   <span aria-hidden="true" className="absolute inset-0" />
