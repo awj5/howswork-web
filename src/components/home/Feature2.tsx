@@ -10,24 +10,23 @@ import {
 
 const features = [
   {
-    name: "Automatically documented.",
-    description: "Every identified hazard, control measure and follow-up is recorded as work happens.",
+    name: "Auto-generated entries.",
+    description: "Concerns and check-ins are automatically added to your risk register.",
     icon: ListBulletIcon,
   },
   {
     name: "AI-generated summaries.",
-    description: "Generate clear summaries of identified risks and employer responses in seconds.",
+    description: "AI generates risk descriptions and documents employer responses automatically.",
     icon: SparklesIcon,
   },
   {
     name: "Hazard mapping.",
     description: (
       <>
-        Reported concerns are automatically mapped to{" "}
+        Issues are automatically mapped to{" "}
         <a
           href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
           target="_blank"
-          rel="noopener noreferrer"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           Safe Work Australia&apos;s 14 psychosocial hazards
@@ -38,18 +37,18 @@ const features = [
     icon: FolderOpenIcon,
   },
   {
-    name: "Control measures.",
-    description: "AI recommends practical control measures based on the identified psychosocial hazard.",
+    name: "Action recommendations.",
+    description: "HowsWork suggests a next step for each risk to help guide your response.",
     icon: LightBulbIcon,
   },
   {
-    name: "Evidence on demand.",
-    description: "Export your complete psychosocial risk register in a single click.",
+    name: "Ready to export.",
+    description: "Download a complete record of identified risks, summaries, and actions taken.",
     icon: ArrowDownTrayIcon,
   },
   {
     name: "Real-time alerts.",
-    description: "Receive notifications when hazards are identified or action is required.",
+    description: "Receive a notification when a new risk is logged so it never goes unacknowledged in your register.",
     icon: BellAlertIcon,
   },
 ];
@@ -59,15 +58,15 @@ export default async function Feature2() {
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="gradient-text inline text-base/7 font-semibold">Live risk register</h2>
+          <h2 className="gradient-text inline text-base/7 font-semibold">Audit-ready</h2>
 
           <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
             Your risk register, built automatically
           </p>
 
           <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-            Every identified hazard, control measure and follow-up automatically becomes part of your live psychosocial
-            risk register. Documentation is created through everyday risk management, not after an incident.
+            A risk register is a formal record of identified risks and the steps taken to address them. HowsWork builds
+            and maintains yours automatically.
           </p>
         </div>
       </div>
