@@ -13,9 +13,9 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "HowsWork - Protect people. Prove you acted.",
+    title: "HowsWork - Surface risks early. Prove you acted.",
     description:
-      "HowsWork helps Australian employers continuously identify psychosocial hazards, guide control measures, and maintain a live risk register.",
+      "Identify and manage psychosocial risks through regular team check-ins, anonymous reporting, and an automated risk register.",
     icons: {
       icon: [
         { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },
