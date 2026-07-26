@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "HowsWork - Protect people. Prove you acted.",
     description:
-      "HowsWork helps employers identify psychosocial risks early, prevent psychological injuries, and maintain the evidence to prove they acted.",
+      "HowsWork helps Australian employers continuously identify psychosocial hazards, guide control measures, and maintain a live risk register.",
     icons: {
       icon: [
         { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },

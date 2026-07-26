@@ -22,7 +22,7 @@ export default function Cta() {
 
         <div className="mx-auto max-w-md text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
           <h2 className="text-3xl font-semibold tracking-tight text-balance text-white sm:text-4xl">
-            ISO 45003 compliance, ready to go in minutes
+            Go from setup to action in minutes
           </h2>
 
           <p className="mt-6 text-lg/8 text-gray-300">
@@ -38,7 +38,7 @@ export default function Cta() {
             </Link>
 
             <Link href="/how-it-works" className="text-sm/6 font-semibold text-white hover:text-gray-100">
-              Learn more <span aria-hidden="true">→</span>
+              See how it works <span aria-hidden="true">→</span>
             </Link>
           </div>
         </div>

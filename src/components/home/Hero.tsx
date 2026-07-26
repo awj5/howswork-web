@@ -1,11 +1,7 @@
 import Image from "next/image";
-import { headers } from "next/headers";
 import Link from "next/link";
 
 export default async function Hero() {
-  const host = (await headers()).get("host") ?? "";
-  const isAus = host.endsWith(".com.au");
-
   return (
     <div className="relative isolate pt-14">
       <div
@@ -24,31 +20,17 @@ export default async function Hero() {
       <div className="pt-24 sm:pt-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
-            {isAus ? (
-              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-                Australian employers must now identify psychosocial hazards.{" "}
-                <a
-                  href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
-                  target="_blank"
-                  className="font-semibold text-indigo-600 dark:text-indigo-400"
-                >
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  Read more <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            ) : (
-              <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-                No login. No tracking. Fully encrypted.{" "}
-                <a
-                  href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
-                  target="_blank"
-                  className="font-semibold text-indigo-600 dark:text-indigo-400"
-                >
-                  <span aria-hidden="true" className="absolute inset-0" />
-                  Read more <span aria-hidden="true">&rarr;</span>
-                </a>
-              </div>
-            )}
+            <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
+              Australian employers must now identify psychosocial hazards.{" "}
+              <a
+                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+                target="_blank"
+                className="font-semibold text-indigo-600 dark:text-indigo-400"
+              >
+                <span aria-hidden="true" className="absolute inset-0" />
+                Read more <span aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
           </div>
 
           <div className="mx-auto max-w-2xl text-center">
@@ -57,8 +39,8 @@ export default async function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              HowsWork helps employers identify psychosocial risks early, prevent psychological injuries, and maintain
-              the evidence to prove they acted.
+              HowsWork helps Australian employers continuously identify psychosocial hazards, guide control measures,
+              and maintain a live risk register.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
@@ -70,7 +52,7 @@ export default async function Hero() {
               </Link>
 
               <Link href="/how-it-works" className="text-sm/6 font-semibold text-gray-900 dark:text-white">
-                Learn more <span aria-hidden="true">→</span>
+                See how it works <span aria-hidden="true">→</span>
               </Link>
             </div>
           </div>

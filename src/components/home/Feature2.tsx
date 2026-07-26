@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { headers } from "next/headers";
 import {
   ListBulletIcon,
   LightBulbIcon,
@@ -11,21 +10,20 @@ import {
 
 const features = [
   {
-    name: "Auto-generated entries.",
-    description: "Check-ins and concerns are automatically logged and added to your risk register.",
+    name: "Automatically documented.",
+    description: "Every identified hazard, control measure and follow-up is recorded as work happens.",
     icon: ListBulletIcon,
   },
   {
     name: "AI-generated summaries.",
-    description: "AI generates risk descriptions and documents employer responses automatically.",
+    description: "Generate clear summaries of identified risks and employer responses in seconds.",
     icon: SparklesIcon,
   },
   {
     name: "Hazard mapping.",
-    description: "Reported issues are automatically matched to globally established psychosocial hazards.",
-    auDescription: (
+    description: (
       <>
-        Issues are automatically mapped to{" "}
+        Reported concerns are automatically mapped to{" "}
         <a
           href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
           target="_blank"
@@ -40,39 +38,36 @@ const features = [
     icon: FolderOpenIcon,
   },
   {
-    name: "Action recommendations.",
-    description: "HowsWork suggests a next step for each risk to help guide your response.",
+    name: "Control measures.",
+    description: "AI recommends practical control measures based on the identified psychosocial hazard.",
     icon: LightBulbIcon,
   },
   {
-    name: "Ready to export.",
-    description: "Download a complete record of identified risks, summaries, and actions taken.",
+    name: "Evidence on demand.",
+    description: "Export your complete psychosocial risk register in a single click.",
     icon: ArrowDownTrayIcon,
   },
   {
     name: "Real-time alerts.",
-    description: "Receive a notification when a new risk is logged so it never goes unacknowledged in your register.",
+    description: "Receive notifications when hazards are identified or action is required.",
     icon: BellAlertIcon,
   },
 ];
 
 export default async function Feature2() {
-  const host = (await headers()).get("host") ?? "";
-  const isAus = host.endsWith(".com.au");
-
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="gradient-text inline text-base/7 font-semibold">Audit-ready</h2>
+          <h2 className="gradient-text inline text-base/7 font-semibold">Live risk register</h2>
 
           <p className="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl sm:text-balance dark:text-white">
             Your risk register, built automatically
           </p>
 
           <p className="mt-6 text-lg/8 text-gray-600 dark:text-gray-300">
-            A risk register is a formal record of identified risks and the steps taken to address them. HowsWork builds
-            and maintains yours automatically.
+            Every identified hazard, control measure and follow-up automatically becomes part of your live psychosocial
+            risk register. Documentation is created through everyday risk management, not after an incident.
           </p>
         </div>
       </div>
@@ -112,7 +107,7 @@ export default async function Feature2() {
                 />
                 {feature.name}
               </dt>{" "}
-              <dd className="inline">{isAus && feature.auDescription ? feature.auDescription : feature.description}</dd>
+              <dd className="inline">{feature.description}</dd>
             </div>
           ))}
         </dl>

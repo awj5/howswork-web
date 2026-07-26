@@ -27,8 +27,8 @@ const faqs = [
     question: "What are check-ins and how do they work?",
     answer: (
       <>
-        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
-        less than a minute and feed into your{" "}
+        Check-ins are short, anonymous questions sent automatically to your team on a schedule you set. They take less
+        than a minute and feed into your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
