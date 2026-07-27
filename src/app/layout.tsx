@@ -15,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "HowsWork - Surface risks early. Prove you acted.",
     description:
-      "Identify and manage psychosocial risks through regular team check-ins, anonymous reporting, and an automated risk register.",
+      "Anonymous check-ins and concern reports give people a safe way to speak up. HowsWork records risks, guides the response, and documents every action.",
     icons: {
       icon: [
         { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },

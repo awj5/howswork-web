@@ -21,9 +21,9 @@ export default async function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              Australian employers must now identify psychosocial hazards.{" "}
+              How HowsWork uses AI to help employers act faster.{" "}
               <a
-                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+                href="https://articles.howswork.app/how-howswork-uses-ai-to-help-employers-act-faster/"
                 target="_blank"
                 className="font-semibold text-indigo-600 dark:text-indigo-400"
               >
@@ -39,16 +39,16 @@ export default async function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Identify and manage psychosocial risks through regular team check-ins, anonymous reporting, and an
-              automated risk register.
+              Anonymous check-ins and concern reports give people a safe way to speak up. HowsWork records risks, guides
+              the response, and documents every action.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
               <Link
-                href="/contact/demo"
+                href="https://admin.howswork.app"
                 className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
               >
-                {/* Get started */}Request a demo
+                Start for free
               </Link>
 
               <Link href="/how-it-works" className="text-sm/6 font-semibold text-gray-900 dark:text-white">

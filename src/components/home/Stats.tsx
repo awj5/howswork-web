@@ -1,4 +1,9 @@
-export default async function Stats() {
+"use client";
+
+export default function Stats() {
+  const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  if (!timezone.includes("Australia")) return;
+
   return (
     <div className="pt-32 sm:pt-56">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
