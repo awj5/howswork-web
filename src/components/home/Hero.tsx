@@ -21,9 +21,9 @@ export default async function Hero() {
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="hidden sm:mb-8 sm:flex sm:justify-center">
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
-              How HowsWork uses AI to help employers act faster.{" "}
+              People at Work closes 2 October. Here&apos;s what to do next.{" "}
               <a
-                href="https://articles.howswork.app/how-howswork-uses-ai-to-help-employers-act-faster/"
+                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
                 target="_blank"
                 className="font-semibold text-indigo-600 dark:text-indigo-400"
               >
@@ -39,8 +39,8 @@ export default async function Hero() {
             </h1>
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
-              Anonymous check-ins and concern reports give people a safe way to speak up. HowsWork records risks, guides
-              the response, and documents every action.
+              Continuous psychosocial risk assessment for Australian employers. Anonymous reporting that records every
+              risk and the response to it.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">

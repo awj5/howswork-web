@@ -15,27 +15,20 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: "HowsWork - Surface risks early. Prove you acted.",
     description:
-      "Anonymous check-ins and concern reports give people a safe way to speak up. HowsWork records risks, guides the response, and documents every action.",
+      "Continuous psychosocial risk assessment for Australian employers. Anonymous reporting that records every risk and the response to it.",
     icons: {
       icon: [
         { url: "/img/icon.svg", media: "(prefers-color-scheme: light)" },
         { url: "/img/icon-dark.svg", media: "(prefers-color-scheme: dark)" },
       ],
     },
-    metadataBase: "https://howswork.app",
+    metadataBase: "https://howswork.com.au",
     openGraph: {
       images: [
         {
           url: ogImage.src,
         },
       ],
-    },
-    alternates: {
-      canonical: "https://howswork.app",
-      languages: {
-        en: "https://howswork.app",
-        "en-AU": "https://howswork.com.au",
-      },
     },
   };
 }
