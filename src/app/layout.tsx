@@ -13,7 +13,7 @@ const inter = Inter({
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "HowsWork - Surface risks early. Prove you acted.",
+    title: "Free Psychosocial Risk Assessment | HowsWork",
     description:
       "Continuous psychosocial risk assessment for Australian employers. Anonymous reporting that records every risk and the response to it.",
     icons: {

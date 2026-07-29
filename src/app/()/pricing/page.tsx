@@ -1,88 +1,12 @@
-"use client";
+import type { Metadata } from "next";
+import Tiers from "@/components/pricing/Tiers";
 
-import { Suspense, useEffect } from "react";
-import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
-import { dashboardURL } from "@/utils/helpers";
-import { useAdminCompanyContext } from "@/hooks/useAdminCompanyContext";
+export const metadata: Metadata = {
+  title: "Pricing | HowsWork",
+  alternates: { canonical: "/pricing" },
+};
 
-const tiers = [
-  {
-    name: "Starter",
-    id: "tier-starter",
-    planID: 1,
-    href: "/contact/demo",
-    price: { monthly: "$0", annually: "$0" },
-    description: "For small teams new to managing psychosocial risk.",
-    features: ["Up to 10 employees", "1 admin account", "Check-ins", "Concern reporting", "Risk register"],
-    featured: true,
-  },
-  {
-    name: "Team",
-    id: "tier-team",
-    planID: 2,
-    href: "/contact/demo",
-    price: { monthly: "$149", annually: "$1,490" },
-    description: "For growing teams that need AI-powered risk insights.",
-    features: [
-      "Up to 50 employees",
-      "3 admin accounts",
-      "Check-ins",
-      "Concern reporting",
-      "Risk register",
-      "AI risk analysis",
-    ],
-    featured: false,
-  },
-  {
-    name: "Business",
-    id: "tier-business",
-    planID: 3,
-    href: "/contact/demo",
-    price: { monthly: "$349", annually: "$3,490" },
-    description: "For larger teams that need the full feature set including SMS.",
-    features: [
-      "Up to 200 employees",
-      "5 admin accounts",
-      "Check-ins",
-      "Concern reporting",
-      "Risk register",
-      "AI risk analysis",
-      "SMS notifications",
-    ],
-    featured: false,
-  },
-  {
-    name: "Enterprise",
-    id: "tier-enterprise",
-    planID: 4,
-    href: "/contact/sales",
-    price: { monthly: "$0", annually: "$0" },
-    description: "For large employers that require dedicated support.",
-    features: [
-      "Unlimited employees",
-      "Unlimited admin accounts",
-      "Check-ins",
-      "Concern reporting",
-      "Risk register",
-      "AI risk analysis",
-      "SMS notifications",
-      "Advanced support",
-      "Custom integrations",
-    ],
-    featured: false,
-  },
-];
-
-function PricingContent() {
-  const searchParams = useSearchParams();
-  const { adminCompany, setAdminCompany } = useAdminCompanyContext();
-
-  useEffect(() => {
-    if (searchParams.has("company")) setAdminCompany(Number(searchParams.get("company")));
-  }, [searchParams]);
-
+export default function Pricing() {
   return (
     <main className="pt-14">
       <form className="group/tiers pt-24 sm:pt-32">
@@ -129,108 +53,9 @@ function PricingContent() {
             </fieldset>
           </div>
 
-          <div className="isolate mx-auto mt-10 grid max-w-md grid-cols-1 gap-8 md:max-w-2xl md:grid-cols-2 lg:max-w-4xl xl:mx-0 xl:max-w-none xl:grid-cols-4">
-            {tiers.map((tier) => (
-              <div
-                key={tier.id}
-                data-featured={
-                  (tier.featured && !adminCompany) || (adminCompany && tier.id === "tier-enterprise")
-                    ? "true"
-                    : undefined
-                }
-                data-free={tier.id === "tier-starter" ? "true" : undefined}
-                className="group/tier rounded-3xl p-8 ring-1 ring-gray-200 data-featured:ring-2 data-featured:ring-indigo-600 dark:bg-gray-800/50 dark:ring-white/15 dark:data-featured:ring-indigo-400"
-              >
-                <div className="flex items-center justify-between gap-x-4">
-                  <h3
-                    id={`tier-${tier.id}`}
-                    className="text-lg/8 font-semibold text-gray-900 group-data-featured/tier:text-indigo-600 dark:text-white dark:group-data-featured/tier:text-indigo-400"
-                  >
-                    {tier.name}
-                  </h3>
-
-                  <p className="rounded-full bg-indigo-600/10 px-2.5 py-1 text-xs/5 font-semibold text-indigo-600 group-not-data-free/tier:hidden dark:bg-indigo-500 dark:text-white">
-                    Free
-                  </p>
-                </div>
-
-                <p className="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">{tier.description}</p>
-
-                {tier.id !== "tier-enterprise" && (
-                  <>
-                    <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
-                      <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {tier.price.monthly}
-                      </span>
-
-                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/month</span>
-                    </p>
-
-                    <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden">
-                      <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                        {tier.price.annually}
-                      </span>
-
-                      <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
-                    </p>
-                  </>
-                )}
-
-                <Link
-                  href={
-                    !adminCompany || tier.id === "tier-enterprise"
-                      ? tier.href
-                      : `${dashboardURL}/upgrade?company=${adminCompany}&plan=${tier.planID}&billing=monthly`
-                  }
-                  aria-describedby={tier.id}
-                  className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
-                >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
-                </Link>
-
-                <Link
-                  href={
-                    !adminCompany || tier.id === "tier-enterprise"
-                      ? tier.href
-                      : `${dashboardURL}/upgrade?company=${adminCompany}&plan=${tier.planID}&billing=annually`
-                  }
-                  aria-describedby={tier.id}
-                  className="mt-6 block w-full rounded-md px-3 py-2 text-center text-sm/6 font-semibold text-indigo-600 inset-ring-1 inset-ring-indigo-200 group-not-has-[[name=frequency][value=annually]:checked]/tiers:hidden group-data-featured/tier:bg-indigo-600 group-data-featured/tier:text-white group-data-featured/tier:shadow-xs group-data-featured/tier:inset-ring-0 hover:inset-ring-indigo-300 group-data-featured/tier:hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-white/10 dark:text-white dark:inset-ring dark:inset-ring-white/5 dark:group-data-featured/tier:bg-indigo-500 dark:group-data-featured/tier:shadow-none dark:hover:bg-white/20 dark:hover:inset-ring-white/5 dark:group-data-featured/tier:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500 dark:group-not-data-featured/tier:focus-visible:outline-white/75"
-                >
-                  {tier.id === "tier-enterprise" ? "Contact sales" : adminCompany ? "Select" : "Request a demo"}
-                </Link>
-
-                <ul role="list" className="mt-8 space-y-3 text-sm/6 text-gray-600 dark:text-gray-300">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex gap-x-3">
-                      {feature === "AI risk analysis" ? (
-                        <SparklesIcon
-                          aria-hidden="true"
-                          className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400"
-                        />
-                      ) : (
-                        <CheckIcon
-                          aria-hidden="true"
-                          className="h-6 w-5 flex-none text-indigo-600 dark:text-indigo-400"
-                        />
-                      )}
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
+          <Tiers />
         </div>
       </form>
     </main>
-  );
-}
-
-export default function Pricing() {
-  return (
-    <Suspense>
-      <PricingContent />
-    </Suspense>
   );
 }
