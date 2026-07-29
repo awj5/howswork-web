@@ -11,7 +11,7 @@ import {
 const features = [
   {
     name: "Auto-generated entries.",
-    description: "Concerns and check-ins are automatically added to your risk register.",
+    description: "Concerns and check-in results are automatically added to your risk register.",
     icon: ListBulletIcon,
   },
   {
