@@ -1,4 +1,10 @@
+import type { Metadata } from "next";
 import Form from "@/components/contact/Form";
+
+export const metadata: Metadata = {
+  title: "Contact Sales | HowsWork",
+  alternates: { canonical: "/contact/sales" },
+};
 
 export default function Sales() {
   return (
