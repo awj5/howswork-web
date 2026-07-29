@@ -2,9 +2,8 @@ import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 
 const features = [
   {
-    name: "Automated check-ins",
-    description:
-      "Regular pulse checks sent automatically to your team. Takes less than a minute, so participation stays high.",
+    name: "Continuous assessment",
+    description: "Short check-ins go out on your schedule and take under a minute, so participation stays high.",
   },
   {
     name: "Anonymous reporting",
@@ -69,8 +68,8 @@ export default function Feature1() {
             </p>
 
             <p className="mt-6 text-base/7 text-gray-700 dark:text-gray-300">
-              HowsWork gives employers a practical system to identify and manage psychosocial risks before they become
-              claims or compliance failures.
+              Psychosocial risk assessment isn&apos;t a survey you run once a year. It&apos;s an ongoing duty to
+              identify hazards, act on them, and be able to show both.
             </p>
           </div>
 

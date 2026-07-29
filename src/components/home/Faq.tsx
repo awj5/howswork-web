@@ -25,8 +25,12 @@ const faqs = [
     question: "What are check-ins and how do they work?",
     answer: (
       <>
-        Check-ins are short, anonymous pulse surveys sent automatically to your team on a schedule you set. They take
-        less than a minute and feed into your{" "}
+        Check-ins are short, anonymous questions sent to your team on a schedule you set. Each one takes under a minute,
+        which is why people actually complete them.
+        <br />
+        <br />
+        Rather than one long survey a year, HowsWork assesses continuously. A single check-in is one data point. Across
+        weeks and months they show which hazards are present, how often, and where. Every response feeds your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
@@ -34,7 +38,7 @@ const faqs = [
         >
           risk register
         </a>
-        .
+        , so the record builds as you go.
       </>
     ),
   },
