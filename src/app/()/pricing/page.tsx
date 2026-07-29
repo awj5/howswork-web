@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import type { Metadata } from "next";
 import Tiers from "@/components/pricing/Tiers";
 
@@ -53,7 +54,9 @@ export default function Pricing() {
             </fieldset>
           </div>
 
-          <Tiers />
+          <Suspense>
+            <Tiers />
+          </Suspense>
         </div>
       </form>
     </main>
