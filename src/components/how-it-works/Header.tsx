@@ -5,7 +5,7 @@ export default function Header() {
         <p className="gradient-text inline text-base/7 font-semibold">How it works</p>
 
         <h2 className="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl dark:text-white">
-          Simple by design
+          How continuous assessment works
         </h2>
 
         <p className="mt-8 text-lg font-medium text-pretty text-gray-500 sm:text-xl/8 dark:text-gray-400">

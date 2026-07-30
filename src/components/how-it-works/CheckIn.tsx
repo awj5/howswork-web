@@ -22,13 +22,13 @@ const features = [
   {
     name: "Scheduled automatically.",
     description:
-      "Employers set the check-in cadence, keeping a continuous view of psychological health across their workforce.",
+      "Check-ins arrive on a set cadence, so raising something small doesn't mean making a formal complaint.",
     icon: ClockIcon,
   },
   {
     name: "Transparent results.",
     description:
-      "Individual responses are never exposed. Employees see high-level results, employers see trends across teams.",
+      "Individual answers are never exposed. Employees see high-level results, employers see trends across teams.",
     icon: EyeIcon,
   },
 ];
@@ -46,8 +46,8 @@ export default function CheckIn() {
             </p>
 
             <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
-              Employees share how work is affecting them on a regular schedule. Responses are anonymous, and results are
-              aggregated so employers can spot patterns and identify hazards before they escalate.
+              Employees get a short check-in on a regular schedule. Responses are anonymous and aggregated, so patterns
+              show up without anyone being identified.
             </p>
 
             <dl className="mt-10 max-w-xl space-y-8 text-base/7 text-gray-600 lg:max-w-none dark:text-gray-400">
