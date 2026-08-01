@@ -24,6 +24,7 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     metadataBase: "https://howswork.com.au",
     openGraph: {
+      siteName: "HowsWork",
       images: [
         {
           url: ogImage.src,
