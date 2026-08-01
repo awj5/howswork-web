@@ -3,20 +3,20 @@ import { EyeIcon, ChartBarIcon, DocumentTextIcon } from "@heroicons/react/20/sol
 
 const features = [
   {
-    name: "Early risk visibility.",
-    description: "Check-in trends and flagged issues surface workplace hazards early.",
+    name: "Hazards, categorised.",
+    description: "Concerns map to recognised hazard categories, revealing patterns across teams and over time.",
     icon: EyeIcon,
   },
   {
     name: "Action tracking.",
-    description: "Monitor the status of every concern from submission to resolution, with a clear record of action.",
+    description: "Follow every concern from submission to resolution, with a clear record of what was done.",
     icon: ChartBarIcon,
   },
   {
     name: "Evidence of due diligence.",
     description: (
       <>
-        Every concern, action, and outcome is logged to the{" "}
+        Every concern, action, and outcome is logged to your{" "}
         <a
           href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           target="_blank"
@@ -24,6 +24,7 @@ const features = [
         >
           risk register
         </a>
+        .
       </>
     ),
     icon: DocumentTextIcon,
