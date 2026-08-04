@@ -23,7 +23,7 @@ export default async function Hero() {
             <div className="relative rounded-full px-3 py-1 text-sm/6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20 dark:text-gray-400 dark:ring-white/10 dark:hover:ring-white/20">
               People at Work closes 2 October. Here&apos;s what to do next.{" "}
               <a
-                href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+                href="https://articles.howswork.app/people-at-work-closing/"
                 target="_blank"
                 className="font-semibold text-indigo-600 dark:text-indigo-400"
               >
