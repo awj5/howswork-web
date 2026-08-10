@@ -11,7 +11,7 @@ const features = [
       <>
         Employees raise concerns{" "}
         <a
-          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
@@ -27,7 +27,7 @@ const features = [
       <>
         Risks are automatically identified and logged, giving you an{" "}
         <a
-          href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+          href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
@@ -43,7 +43,7 @@ const features = [
       <>
         Employee responses are rewritten by AI to{" "}
         <a
-          href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+          href="https://howswork.ghost.io/can-your-writing-style-identify-you/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >

@@ -31,7 +31,7 @@ export default function Nav() {
           </NavbarItem>
         ))}
 
-        <NavbarItem href="https://articles.howswork.app" target="_blank">
+        <NavbarItem href="https://howswork.ghost.io" target="_blank">
           Resources
           <ArrowTopRightOnSquareIcon />
         </NavbarItem>

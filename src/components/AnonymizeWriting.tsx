@@ -59,7 +59,7 @@ export default function AnonymizeWriting(props: AnonymizeWritingProps) {
           </Button>
 
           <TextLink
-            href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+            href="https://howswork.ghost.io/can-your-writing-style-identify-you/"
             target="_blank"
             className={`text-sm sm:text-xs ${props.disabled && "pointer-events-none opacity-50"}`}
             tabIndex={props.disabled ? -1 : undefined}

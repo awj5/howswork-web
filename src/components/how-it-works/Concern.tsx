@@ -12,7 +12,7 @@ const features = [
       <>
         An AI tool rewrites the concern to{" "}
         <a
-          href="https://articles.howswork.app/can-your-writing-style-identify-you/"
+          href="https://howswork.ghost.io/can-your-writing-style-identify-you/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
@@ -79,7 +79,7 @@ export default function Concern() {
               Employees can raise a concern at any time by describing what happened and selecting any related issues.
               Submissions are anonymous, encrypted, and logged directly to the{" "}
               <a
-                href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+                href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
                 target="_blank"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >

@@ -11,7 +11,7 @@ export default function Stats() {
             Australian employers now have a legal compliance obligation to identify, assess, and control psychosocial
             hazards.{" "}
             <a
-              href="https://articles.howswork.app/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
+              href="https://howswork.ghost.io/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
               target="_blank"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >

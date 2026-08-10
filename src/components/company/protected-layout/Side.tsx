@@ -25,7 +25,7 @@ export default function Side() {
             </SidebarItem>
           ))}
 
-          <SidebarItem href="https://articles.howswork.app" target="_blank">
+          <SidebarItem href="https://howswork.ghost.io" target="_blank">
             Resources
             <ArrowTopRightOnSquareIcon />
           </SidebarItem>

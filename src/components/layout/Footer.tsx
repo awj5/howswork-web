@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const navigation = {
   main: [
-    { name: "Resources", href: "https://articles.howswork.app" },
-    { name: "Terms of use", href: "https://articles.howswork.app/terms-of-use/" },
-    { name: "Privacy policy", href: "https://articles.howswork.app/privacy-policy/" },
+    { name: "Resources", href: "https://howswork.ghost.io" },
+    { name: "Terms of use", href: "https://howswork.ghost.io/terms-of-use/" },
+    { name: "Privacy policy", href: "https://howswork.ghost.io/privacy-policy/" },
   ],
   social: [
     {

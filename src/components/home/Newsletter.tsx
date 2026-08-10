@@ -61,7 +61,7 @@ export default function Newsletter() {
           <p className="mt-4 text-sm/6 text-gray-900 dark:text-gray-300">
             We care about your data. Read our{" "}
             <a
-              href="https://articles.howswork.app/privacy-policy/"
+              href="https://howswork.ghost.io/privacy-policy/"
               target="_blank"
               className="font-semibold whitespace-nowrap text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >

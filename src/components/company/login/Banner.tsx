@@ -28,7 +28,7 @@ export default function Banner() {
         <p className="text-sm/6 text-white">
           For maximum privacy, access from a personal device on your own network.{" "}
           <a
-            href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
+            href="https://howswork.ghost.io/how-howswork-protects-your-privacy/"
             target="_blank"
             className="font-semibold whitespace-nowrap"
           >

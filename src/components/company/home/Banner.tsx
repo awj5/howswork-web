@@ -29,7 +29,7 @@ export default function Banner() {
           <p className="text-sm/6">
             You&apos;re completely anonymous.{" "}
             <a
-              href="https://articles.howswork.app/how-howswork-protects-your-privacy/"
+              href="https://howswork.ghost.io/how-howswork-protects-your-privacy/"
               target="_blank"
               className="font-semibold whitespace-nowrap"
             >

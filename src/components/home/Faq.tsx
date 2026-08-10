@@ -5,7 +5,7 @@ const faqs = [
       <>
         Yes. There are{" "}
         <a
-          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
           target="_blank"
         >
@@ -32,7 +32,7 @@ const faqs = [
         Rather than one long survey a year, HowsWork assesses continuously. One check-in is a single data point. Across
         weeks and months they show which hazards are present, how often, and where, and every response feeds your{" "}
         <a
-          href="https://articles.howswork.app/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+          href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
           target="_blank"
         >
@@ -69,7 +69,7 @@ const faqs = [
       <>
         They&apos;re related.{" "}
         <a
-          href="https://articles.howswork.app/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
+          href="https://howswork.ghost.io/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
           target="_blank"
         >
@@ -94,7 +94,7 @@ export default async function Faq() {
           <p className="mt-4 text-base/7 text-gray-600 dark:text-gray-400">
             Can&apos;t find the answer you&apos;re looking for? Browse our{" "}
             <a
-              href="https://articles.howswork.app"
+              href="https://howswork.ghost.io"
               target="_blank"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >

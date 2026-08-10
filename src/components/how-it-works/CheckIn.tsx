@@ -8,7 +8,7 @@ const features = [
       <>
         Employees receive a rotating PIN to access HowsWork.{" "}
         <a
-          href="https://articles.howswork.app/why-we-built-howswork-without-employee-logins/"
+          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
           target="_blank"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
