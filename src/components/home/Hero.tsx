@@ -40,7 +40,7 @@ export default async function Hero() {
 
             <p className="mt-8 text-lg font-medium text-gray-500 sm:text-xl/8 dark:text-gray-400">
               Continuous psychosocial risk assessment for Australian employers. Anonymous reporting that records every
-              risk and the response to it..
+              risk and the response to it.
             </p>
 
             <div className="mt-10 flex items-center justify-center gap-x-6">
