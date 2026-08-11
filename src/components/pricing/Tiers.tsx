@@ -109,7 +109,7 @@ export default function Tiers() {
 
           <p className="mt-4 text-sm/6 text-gray-600 dark:text-gray-300">{tier.description}</p>
 
-          {tier.id !== "tier-enterprise" && (
+          {/*tier.id !== "tier-enterprise" && (
             <>
               <p className="mt-6 flex items-baseline gap-x-1 group-not-has-[[name=frequency][value=monthly]:checked]/tiers:hidden">
                 <span className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -127,7 +127,7 @@ export default function Tiers() {
                 <span className="text-sm/6 font-semibold text-gray-600 dark:text-gray-400">/year</span>
               </p>
             </>
-          )}
+          )*/}
 
           <Link
             href={
