@@ -82,7 +82,7 @@ export default function PrivacyPolicy() {
             <li>
               Billing information (handled securely via our payment provider{" "}
               <a
-                href="https://stripe.com/?ref=howswork.ghost.io"
+                href="https://stripe.com/"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 target="_blank"
@@ -145,7 +145,7 @@ export default function PrivacyPolicy() {
             <li>
               Infrastructure providers (e.g.{" "}
               <a
-                href="https://supabase.com/?ref=howswork.ghost.io"
+                href="https://supabase.com/"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 target="_blank"
@@ -154,7 +154,7 @@ export default function PrivacyPolicy() {
               </a>{" "}
               for database hosting,{" "}
               <a
-                href="https://resend.com/?ref=howswork.ghost.io"
+                href="https://resend.com/"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 target="_blank"
@@ -163,7 +163,7 @@ export default function PrivacyPolicy() {
               </a>{" "}
               for email,{" "}
               <a
-                href="https://www.twilio.com/?ref=howswork.ghost.io"
+                href="https://www.twilio.com/"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 target="_blank"
@@ -184,7 +184,7 @@ export default function PrivacyPolicy() {
             <li>
               AI processing providers (e.g.{" "}
               <a
-                href="https://openai.com/?ref=howswork.ghost.io"
+                href="https://openai.com/"
                 rel="noreferrer"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
                 target="_blank"
@@ -268,7 +268,7 @@ export default function PrivacyPolicy() {
             If you're not satisfied with our response, you can lodge a complaint with the Office of the Australian
             Information Commissioner (OAIC) at{" "}
             <a
-              href="https://www.oaic.gov.au/?ref=howswork.ghost.io"
+              href="https://www.oaic.gov.au/"
               rel="noreferrer"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               target="_blank"
