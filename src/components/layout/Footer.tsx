@@ -3,9 +3,9 @@ import Link from "next/link";
 
 const navigation = {
   main: [
-    { name: "Resources", href: "https://howswork.ghost.io" },
-    { name: "Terms of use", href: "https://howswork.ghost.io/terms-of-use/" },
-    { name: "Privacy policy", href: "https://howswork.ghost.io/privacy-policy/" },
+    { name: "Support", href: "/contact/support" },
+    { name: "Terms of use", href: "/terms-of-use" },
+    { name: "Privacy policy", href: "/privacy-policy" },
   ],
   social: [
     {
@@ -75,21 +75,14 @@ export default function Footer() {
     <footer>
       <div className="mx-auto max-w-7xl overflow-hidden px-6 pt-32 pb-20 sm:pt-56 sm:pb-24 lg:px-8">
         <nav aria-label="Footer" className="-mb-6 flex flex-wrap justify-center gap-x-12 gap-y-3 text-sm/6">
-          <Link
-            href="/contact/support"
-            className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
-          >
-            Support
-          </Link>
-
           {navigation.main.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </nav>
 
