@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Stats() {
   return (
     <div className="pt-32 sm:pt-56">
@@ -10,13 +12,12 @@ export default function Stats() {
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-300">
             Australian employers now have a legal compliance obligation to identify, assess, and control psychosocial
             hazards.{" "}
-            <a
-              href="https://howswork.ghost.io/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
-              target="_blank"
+            <Link
+              href="/articles/psychosocial-risk-at-work-what-australian-employers-need-to-know/"
               className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
             >
               What this means for your business
-            </a>
+            </Link>
             .
           </p>
         </div>

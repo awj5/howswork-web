@@ -79,9 +79,7 @@ export default function ConcernDialog() {
 
       <DialogDescription className="text-wrap!">
         Your concern is anonymous and fully encrypted. We cannot identify who submitted this.{" "}
-        <TextLink href="https://howswork.ghost.io/how-howswork-protects-your-privacy/" target="_blank">
-          Learn more
-        </TextLink>
+        <TextLink href="/articles/how-howswork-protects-your-privacy/">Learn more</TextLink>
       </DialogDescription>
 
       <DialogBody>

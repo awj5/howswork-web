@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { XMarkIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
 
 export default function Banner() {
@@ -27,13 +28,9 @@ export default function Banner() {
 
         <p className="text-sm/6 text-white">
           For maximum privacy, access from a personal device on your own network.{" "}
-          <a
-            href="https://howswork.ghost.io/how-howswork-protects-your-privacy/"
-            target="_blank"
-            className="font-semibold whitespace-nowrap"
-          >
+          <Link href="/articles/how-howswork-protects-your-privacy/" className="font-semibold whitespace-nowrap">
             Learn more <span aria-hidden="true">&rarr;</span>
-          </a>
+          </Link>
         </p>
       </div>
 

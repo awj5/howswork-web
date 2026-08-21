@@ -31,10 +31,10 @@ export default function Nav() {
           </NavbarItem>
         ))}
 
-        <NavbarItem href="https://howswork.ghost.io" target="_blank">
+        {/*<NavbarItem href="https://howswork.ghost.io" target="_blank">
           Resources
           <ArrowTopRightOnSquareIcon />
-        </NavbarItem>
+        </NavbarItem>*/}
       </NavbarSection>
 
       <NavbarSpacer />

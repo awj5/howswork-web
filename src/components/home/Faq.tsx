@@ -1,16 +1,17 @@
+import Link from "next/link";
+
 const faqs = [
   {
     question: "Are reported concerns really anonymous?",
     answer: (
       <>
         Yes. There are{" "}
-        <a
-          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
+        <Link
+          href="/articles/why-we-built-howswork-without-employee-logins/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          target="_blank"
         >
           no accounts and no logins
-        </a>
+        </Link>
         . Your team accesses HowsWork using a shared rotating PIN, so there&apos;s no way to link a reported concern to
         an individual.
       </>
@@ -31,13 +32,12 @@ const faqs = [
         <br />
         Rather than one long survey a year, HowsWork assesses continuously. One check-in is a single data point. Across
         weeks and months they show which hazards are present, how often, and where, and every response feeds your{" "}
-        <a
-          href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
+        <Link
+          href="/articles/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          target="_blank"
         >
           risk register
-        </a>
+        </Link>
         .
       </>
     ),
@@ -52,13 +52,12 @@ const faqs = [
     answer: (
       <>
         HowsWork is built around{" "}
-        <a
-          href="https://www.safeworkaustralia.gov.au/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
+        <Link
+          href="/articles/safety-topic/managing-health-and-safety/mental-health/psychosocial-hazards"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          target="_blank"
         >
           Australia&apos;s Work Health and Safety laws
-        </a>{" "}
+        </Link>{" "}
         and the psychosocial hazard regulations that came into effect across most states and territories from 2023.
       </>
     ),
@@ -68,13 +67,12 @@ const faqs = [
     answer: (
       <>
         They&apos;re related.{" "}
-        <a
-          href="https://howswork.ghost.io/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
+        <Link
+          href="/articles/psychological-safety-vs-psychosocial-risk-whats-the-difference/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-          target="_blank"
         >
           Psychological safety
-        </a>{" "}
+        </Link>{" "}
         is the outcome: a team that feels safe to speak up. Psychosocial hazard management is the legal obligation that
         gets you there.
       </>
@@ -91,7 +89,7 @@ export default async function Faq() {
             Frequently asked questions
           </h2>
 
-          <p className="mt-4 text-base/7 text-gray-600 dark:text-gray-400">
+          {/*<p className="mt-4 text-base/7 text-gray-600 dark:text-gray-400">
             Can&apos;t find the answer you&apos;re looking for? Browse our{" "}
             <a
               href="https://howswork.ghost.io"
@@ -101,7 +99,7 @@ export default async function Faq() {
               resources
             </a>
             .
-          </p>
+          </p>*/}
         </div>
 
         <div className="mt-10 lg:col-span-7 lg:mt-0">

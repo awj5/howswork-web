@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ClockIcon, EyeIcon, ShieldCheckIcon } from "@heroicons/react/20/solid";
 
 const features = [
@@ -7,13 +8,12 @@ const features = [
     description: (
       <>
         Employees receive a rotating PIN to access HowsWork.{" "}
-        <a
-          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
-          target="_blank"
+        <Link
+          href="/articles/why-we-built-howswork-without-employee-logins/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           No account, no profile
-        </a>
+        </Link>
         , nothing traceable.
       </>
     ),

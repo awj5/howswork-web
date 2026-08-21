@@ -147,9 +147,7 @@ export default function CheckIn() {
 
                 <Text>
                   All responses are anonymous.{" "}
-                  <TextLink href="https://howswork.ghost.io/how-howswork-protects-your-privacy/" target="_blank">
-                    Learn more
-                  </TextLink>
+                  <TextLink href="/articles/how-howswork-protects-your-privacy/">Learn more</TextLink>
                 </Text>
               </div>
             </div>

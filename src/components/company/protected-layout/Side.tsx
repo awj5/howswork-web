@@ -25,10 +25,10 @@ export default function Side() {
             </SidebarItem>
           ))}
 
-          <SidebarItem href="https://howswork.ghost.io" target="_blank">
+          {/*<SidebarItem href="https://howswork.ghost.io" target="_blank">
             Resources
             <ArrowTopRightOnSquareIcon />
-          </SidebarItem>
+          </SidebarItem>*/}
         </SidebarSection>
       </SidebarBody>
     </Sidebar>

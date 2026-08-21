@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { EyeIcon, ChartBarIcon, DocumentTextIcon } from "@heroicons/react/20/solid";
 
 const features = [
@@ -17,13 +18,12 @@ const features = [
     description: (
       <>
         Every concern, action, and outcome is logged to your{" "}
-        <a
-          href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
-          target="_blank"
+        <Link
+          href="/articles/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           risk register
-        </a>
+        </Link>
         .
       </>
     ),

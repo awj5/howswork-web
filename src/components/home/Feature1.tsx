@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CheckIcon, SparklesIcon } from "@heroicons/react/20/solid";
 
 const features = [
@@ -10,13 +11,12 @@ const features = [
     description: (
       <>
         Employees raise concerns{" "}
-        <a
-          href="https://howswork.ghost.io/why-we-built-howswork-without-employee-logins/"
-          target="_blank"
+        <Link
+          href="/articles/why-we-built-howswork-without-employee-logins/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           without an account or login
-        </a>
+        </Link>
         , so there&apos;s no way to link a submission back to an individual.
       </>
     ),
@@ -26,13 +26,12 @@ const features = [
     description: (
       <>
         Risks are automatically identified and logged, giving you an{" "}
-        <a
-          href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
-          target="_blank"
+        <Link
+          href="/articles/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           audit-ready record
-        </a>{" "}
+        </Link>{" "}
         without the manual work.
       </>
     ),
@@ -42,13 +41,12 @@ const features = [
     description: (
       <>
         Employee responses are rewritten by AI to{" "}
-        <a
-          href="https://howswork.ghost.io/can-your-writing-style-identify-you/"
-          target="_blank"
+        <Link
+          href="/articles/can-your-writing-style-identify-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           remove identifying language
-        </a>
+        </Link>
         , so people feel genuinely safe speaking up.
       </>
     ),

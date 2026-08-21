@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ShieldCheckIcon, SparklesIcon, HashtagIcon } from "@heroicons/react/20/solid";
 
 const features = [
@@ -11,13 +12,12 @@ const features = [
     description: (
       <>
         An AI tool rewrites the concern to{" "}
-        <a
-          href="https://howswork.ghost.io/can-your-writing-style-identify-you/"
-          target="_blank"
+        <Link
+          href="/articles/can-your-writing-style-identify-you/"
           className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
         >
           remove identifying language
-        </a>{" "}
+        </Link>{" "}
         before it&apos;s submitted.
       </>
     ),
@@ -78,13 +78,12 @@ export default function Concern() {
             <p className="mt-6 text-lg/8 text-gray-700 dark:text-gray-300">
               Employees can raise a concern at any time by describing what happened and selecting any related issues.
               Submissions are anonymous, encrypted, and logged directly to the{" "}
-              <a
-                href="https://howswork.ghost.io/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
-                target="_blank"
+              <Link
+                href="/articles/why-every-employer-needs-a-risk-register-and-how-howswork-builds-one-for-you/"
                 className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
               >
                 risk register
-              </a>
+              </Link>
               .
             </p>
 
