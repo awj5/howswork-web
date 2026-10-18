@@ -26,12 +26,12 @@ export default function PrivacyPolicy() {
             Anonymous check-ins and concern reports feed a risk register that records every hazard and the action taken.
           </p>
 
-          <div className="mt-10 max-w-2xl text-gray-600 dark:text-gray-400">
-            <p>
-              This policy covers both employees using <strong>HowsWork</strong> through their employer, and employers
-              (administrators) managing the platform.
-            </p>
+          <p className="mt-8 text-xl/8">
+            This policy covers both employees using <strong>HowsWork</strong> through their employer, and employers
+            (administrators) managing the platform.
+          </p>
 
+          <div className="max-w-2xl text-gray-600 dark:text-gray-400">
             <h2 className="mt-16 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
               1. Who we are
             </h2>
