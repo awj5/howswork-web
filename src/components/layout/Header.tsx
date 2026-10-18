@@ -25,6 +25,7 @@ export default function Header() {
         <div className="flex lg:flex-1">
           <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">HowsWork</span>
+
             <Image
               src="/img/logo.svg"
               width={728}
@@ -64,7 +65,7 @@ export default function Header() {
                 href="/contact/demo"
                 className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
               >
-                Request a demo
+                Get started free
               </Link>
             </>
           ) : (
@@ -113,7 +114,7 @@ export default function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="ml-auto rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold whitespace-nowrap text-white shadow-xs hover:bg-indigo-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-indigo-500 dark:hover:bg-indigo-400 dark:focus-visible:outline-indigo-500"
               >
-                Request a demo
+                Get started free
               </Link>
             ) : (
               <Link
