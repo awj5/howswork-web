@@ -63,7 +63,7 @@ export async function resendPin(formData: FormData) {
       // Email
       try {
         await resend.emails.send({
-          from: `HowsWork <no-reply@updates.howswork.${isAus ? "com.au" : "app"}>`,
+          from: `HowsWork <no-reply@updates.howswork.app>`,
           to: contact,
           subject: `Access PIN for ${companyData.name}`,
           html: `<table border="0" width="100%" cellpadding="0" cellspacing="0" role="presentation" align="center">
