@@ -11,9 +11,9 @@ export default function HowHowsworkProtectsYourPrivacy() {
   return (
     <main className="pt-14">
       <article className="mx-auto max-w-4xl px-6 pt-24 sm:pt-32 lg:px-8">
-        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
           How HowsWork protects your privacy
-        </h2>
+        </h1>
 
         <figure className="mt-10">
           <Image
@@ -97,8 +97,8 @@ export default function HowHowsworkProtectsYourPrivacy() {
             If you access HowsWork on a device or network provided by your employer, there is a possibility that your
             employer could see that you visited the site, even if they cannot see what you submitted. Most employers
             don&apos;t monitor this kind of activity, but if you have any concern about it, we recommend using your
-            personal phone or computer and your own internet connection or mobile data. The content of what you
-            submit is always protected. This is about making sure even the fact that you visited is private.
+            personal phone or computer and your own internet connection or mobile data. The content of what you submit
+            is always protected. This is about making sure even the fact that you visited is private.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -106,15 +106,15 @@ export default function HowHowsworkProtectsYourPrivacy() {
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            All data submitted through HowsWork is encrypted in transit and at rest. Submissions are not linked to
-            any account or personal information. There is no way to trace a response back to a specific person,
-            because that information was never collected in the first place.
+            All data submitted through HowsWork is encrypted in transit and at rest. Submissions are not linked to any
+            account or personal information. There is no way to trace a response back to a specific person, because that
+            information was never collected in the first place.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            This means that even if HowsWork were legally required to hand over data, there would be nothing that
-            could identify who submitted any particular concern or check-in response. The anonymity is not a policy.
-            It is a structural reality of how the product is built.
+            This means that even if HowsWork were legally required to hand over data, there would be nothing that could
+            identify who submitted any particular concern or check-in response. The anonymity is not a policy. It is a
+            structural reality of how the product is built.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -127,9 +127,8 @@ export default function HowHowsworkProtectsYourPrivacy() {
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            HowsWork is built around the idea that protection has to be real, not just promised. The design
-            decisions, including no accounts, shared PINs, and optional AI rewriting, exist to make that protection
-            genuine.
+            HowsWork is built around the idea that protection has to be real, not just promised. The design decisions,
+            including no accounts, shared PINs, and optional AI rewriting, exist to make that protection genuine.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">

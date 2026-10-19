@@ -13,9 +13,9 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
   return (
     <main className="pt-14">
       <article className="mx-auto max-w-4xl px-6 pt-24 sm:pt-32 lg:px-8">
-        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
           Why every employer needs a risk register and how HowsWork builds one for you
-        </h2>
+        </h1>
 
         <figure className="mt-10">
           <Image
@@ -31,8 +31,8 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
         <section>
           <p className="mt-10 text-base/7 text-gray-600 dark:text-gray-400">
             Knowing what is actually happening in your workplace is harder than it sounds. Concerns get raised
-            informally, patterns go unnoticed, and by the time something becomes serious enough to document, the
-            early signals have long since passed without being recorded.
+            informally, patterns go unnoticed, and by the time something becomes serious enough to document, the early
+            signals have long since passed without being recorded.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -51,15 +51,15 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            A risk register is a record of the issues identified in a workplace and the steps taken to address them.
-            It captures what concerns have been raised, what they point to, and what has been done in response.
+            A risk register is a record of the issues identified in a workplace and the steps taken to address them. It
+            captures what concerns have been raised, what they point to, and what has been done in response.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
             A well-maintained risk register serves two purposes. It helps employers understand what is actually
-            happening with their people so they can act on it. And it provides a documented record that demonstrates
-            the employer took their duty of care seriously, which matters if an employee ever makes a formal
-            complaint or legal claim.
+            happening with their people so they can act on it. And it provides a documented record that demonstrates the
+            employer took their duty of care seriously, which matters if an employee ever makes a formal complaint or
+            legal claim.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -67,8 +67,8 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            Most risk registers are built manually. Someone has to compile information from various sources, write
-            up descriptions of issues, sort them, and keep the register updated over time.
+            Most risk registers are built manually. Someone has to compile information from various sources, write up
+            descriptions of issues, sort them, and keep the register updated over time.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -82,14 +82,14 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            When an employee submits a concern through HowsWork, it does not just sit in an inbox. It is
-            automatically processed and added to your risk register.
+            When an employee submits a concern through HowsWork, it does not just sit in an inbox. It is automatically
+            processed and added to your risk register.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
             HowsWork uses AI to generate a clear, professional description of the concern, removing any identifying
-            language in the process. It sorts the concern, assigns a risk level, and adds it to the risk register
-            with a timestamp and source reference.
+            language in the process. It sorts the concern, assigns a risk level, and adds it to the risk register with a
+            timestamp and source reference.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -102,15 +102,15 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            Regular check-ins are another source of data for your risk register. When responses flag patterns, such
-            as consistently low scores around job demands, lack of support, or conflict between team members,
-            HowsWork identifies those patterns and surfaces them as register entries.
+            Regular check-ins are another source of data for your risk register. When responses flag patterns, such as
+            consistently low scores around job demands, lack of support, or conflict between team members, HowsWork
+            identifies those patterns and surfaces them as register entries.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
             This means your risk register captures not just the concerns employees choose to raise directly, but the
-            patterns that emerge across check-ins over time. Early signals that might otherwise go unnoticed become
-            part of the documented record.
+            patterns that emerge across check-ins over time. Early signals that might otherwise go unnoticed become part
+            of the documented record.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -118,13 +118,13 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            When a new entry is added to your risk register, HowsWork notifies you immediately. You do not need to
-            log in and check. The alert comes to you, so nothing sits unacknowledged and no concern goes unnoticed.
+            When a new entry is added to your risk register, HowsWork notifies you immediately. You do not need to log
+            in and check. The alert comes to you, so nothing sits unacknowledged and no concern goes unnoticed.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            This matters because the speed of your response is part of the record too. A concern that was
-            acknowledged and acted on promptly tells a very different story to one that sat in a system for weeks.
+            This matters because the speed of your response is part of the record too. A concern that was acknowledged
+            and acted on promptly tells a very different story to one that sat in a system for weeks.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -132,10 +132,9 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            Each entry in your risk register includes an AI-generated summary written in clear, plain language.
-            These summaries are readable by anyone who needs to review the register, including leadership, legal
-            counsel, HR, or external advisors, without requiring them to interpret raw data or read through
-            individual submissions.
+            Each entry in your risk register includes an AI-generated summary written in clear, plain language. These
+            summaries are readable by anyone who needs to review the register, including leadership, legal counsel, HR,
+            or external advisors, without requiring them to interpret raw data or read through individual submissions.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -149,8 +148,8 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            When you take action on an issue, an AI-generated summary of your response is added to the risk
-            register, creating a clear record of what was identified, what was done, and when.
+            When you take action on an issue, an AI-generated summary of your response is added to the risk register,
+            creating a clear record of what was identified, what was done, and when.
           </p>
 
           <h2 className="mt-12 text-3xl font-semibold tracking-tight text-pretty text-gray-900 dark:text-white">
@@ -158,9 +157,9 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
           </h2>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
-            The HowsWork risk register is designed to be audit-ready from the moment it starts being populated.
-            Every entry is timestamped, sourced, and classified. The full history of identified issues and actions
-            taken is preserved and exportable.
+            The HowsWork risk register is designed to be audit-ready from the moment it starts being populated. Every
+            entry is timestamped, sourced, and classified. The full history of identified issues and actions taken is
+            preserved and exportable.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -174,8 +173,8 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
             Most employers want to do the right thing by their people. The barrier is usually not motivation but
-            capacity. Building and maintaining a risk register manually takes time that most workplaces simply do
-            not have.
+            capacity. Building and maintaining a risk register manually takes time that most workplaces simply do not
+            have.
           </p>
 
           <p className="mt-6 text-base/7 text-gray-600 dark:text-gray-400">
@@ -186,8 +185,8 @@ export default function WhyEveryEmployerNeedsARiskRegisterAndHowHowsworkBuildsOn
             >
               HowsWork
             </Link>{" "}
-            risk register removes that barrier. It exists, it is current, and it reflects what is actually happening
-            in your workplace, because it is built from the data your employees generate in real time.
+            risk register removes that barrier. It exists, it is current, and it reflects what is actually happening in
+            your workplace, because it is built from the data your employees generate in real time.
           </p>
         </section>
       </article>

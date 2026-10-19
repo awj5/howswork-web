@@ -11,9 +11,9 @@ export default function PeopleAtWorkClosing() {
   return (
     <main className="pt-14">
       <article className="mx-auto max-w-4xl px-6 pt-24 sm:pt-32 lg:px-8">
-        <h2 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl dark:text-white">
           People at Work closes on 2 October. Your obligations don&apos;t.
-        </h2>
+        </h1>
 
         <figure className="mt-10">
           <Image

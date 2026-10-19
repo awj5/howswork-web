@@ -44,19 +44,8 @@ const faqs = [
   },
   {
     question: "Can I use HowsWork for free?",
-    answer: (
-      <>
-        Yes. HowsWork is free forever for teams with up to 200 staff, with no credit card and no time limit. Larger
-        teams can{" "}
-        <Link
-          href="/contact/sales"
-          className="font-semibold text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300"
-        >
-          talk to us
-        </Link>{" "}
-        about an Enterprise plan.
-      </>
-    ),
+    answer:
+      "Yes. Smaller teams can use HowsWork at no cost. A subscription gives you a larger team limit, additional admins, and AI features.",
   },
   {
     question: "Which laws does HowsWork help me comply with?",
